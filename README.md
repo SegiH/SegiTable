@@ -1,6 +1,6 @@
 # SegiTable
 
-### SegiTable is a simple React component that renders a data table based on an array with the data that you want to display and an object that describes your data and enabled or disables features. This table can be edited, exported and searched.
+### SegiTable is a simple and very lightweight React component that renders a data table based on an array with the data that you want to display and an object that describes your data and enabled or disables features. This table can be edited, exported and searched.
 
 ### Features:
 
