@@ -74,7 +74,7 @@ const App = () => {
      const saveEditClickHandler = async (newData) => { }
 
      return (
-          <SegiTable
+          &lt;SegiTable
                isAdding={isAdding}
                isEditing={isEditing}
                saveAddCallBackHandler={saveAddClickHandler}
@@ -85,7 +85,7 @@ const App = () => {
                pageSizeOverride={{ 5: "5", 10: "10", 25: "25", 50: "50" }}
                height={"775px"}
                showDisabled={false}
-               tableTemplate={template} />
+               tableTemplate={template} /&gt;
      );
 }
 
