@@ -239,7 +239,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                          const field = currentTableComponent.Fields[fieldKey];
 
                          uniqueValuesSelected.forEach((filterValue) => {
-                              if (String(currentRow[field.DatabaseColumn]).toLowerCase().includes(filterValue.toString().toLowerCase())) {
+                              if (String(currentRow[field.DatabaseColumn]) == filterValue.toString()) {
                                    searchTermFound = true;
                               }
                          });
@@ -315,13 +315,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
           setFilteredTableData(newSlicedFilteredTableData);
 
           if (pageSize != 0) {
-               let newLastPageNum = Math.floor(newFilteredTableData?.length / pageSize);
-
-               const hasMoreData = newFilteredTableData?.slice(sliceStart, sliceEnd + 1);
-
-               if (newSlicedFilteredTableData.length != hasMoreData.length || (newSlicedFilteredTableData.length < pageSize)) {
-                    newLastPageNum++;
-               }
+               let newLastPageNum = Math.ceil(newFilteredTableData?.length / pageSize);
 
                setLastPageNum(newLastPageNum);
 
@@ -561,8 +555,14 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
           }
 
           // showDisabled validation
-          if (showDisabled === true && newTableComponent.Fields.filter((currentField: ITableComponentField) => currentField.IsEnabledColumn === true).length === 0) {
+          if (typeof showDisabled !== "undefined" && newTableComponent.Fields.filter((currentField: ITableComponentField) => currentField.IsEnabledColumn === true).length === 0) {
                setErrorMessage("SegiTable Error: showDisabled is true but there are no fields are marked as IsEnabledColumn");
+               setIsError(true);
+               return ["ERROR"];
+          }
+
+          if (typeof newTableComponent.PaginationEnabled === "undefined" && (typeof defaultPageSize !== "undefined" || typeof pageSizeOverride !== "undefined")) {
+               setErrorMessage("SegiTable Error: Pagination is not enabled but defaultPageSize or pageSizeOverride was provided");
                setIsError(true);
                return ["ERROR"];
           }
@@ -719,8 +719,8 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                     );
 
                     // Ensures that select all is checked and all items are checkedxx 
-                    field.UniqueValuesSelectAllSelected = true;
-                    field.UniqueValuesSelected = Object.assign([], field.UniqueValues);
+                    //field.UniqueValuesSelectAllSelected = true;
+                    //field.UniqueValuesSelected = Object.assign([], field.UniqueValues);
                }
           });
 
@@ -871,9 +871,9 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
 
                          {/* Data table */}
                          {!isError && tableData && tableData.length > 0 &&
-                              <>
+                              <div style={{ width: typeof width !== "undefined" ? width : "max-content" }}>
                                    <div className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "100%", overflow: "auto" }}>
-                                        <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef} style={{ width: typeof width !== "undefined" ? width : "100%" }}>
+                                        <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                                              {/* Table Headers */}
                                              <thead>
                                                   <tr>
@@ -1014,7 +1014,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                    </div>
 
                                    {currentTableComponent.PaginationEnabled && tableData.length > 0 && !isAdding && !isEditing &&
-                                        <span className={`${styles.SegiTablePagination}`} style={{ width: typeof width !== "undefined" ? width : "100%" }}>
+                                        <span className={`${styles.SegiTablePagination}`}>
                                              <span className={`${styles.SegiTablePaginationSpan}`}>
                                                   <span className={`${styles.SegiTableRowLabel}`}>Rows per page:</span>
 
@@ -1069,7 +1069,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                              </span>
                                         </span>
                                    }
-                              </>
+                              </div>
                          }
                     </span >
                }
