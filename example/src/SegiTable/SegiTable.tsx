@@ -1,5 +1,3 @@
-// when adding app detail, show host os when a host is selected
-// add screenshots and replace existing ones
 "use client"
 
 import { ITableComponent, ITableComponentField, FieldTypes, FieldValueTypes } from "./ISegiTable";

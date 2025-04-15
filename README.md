@@ -14,6 +14,20 @@
  - Export to CSV
  - Customize the look and feel with CSS
 
+
+![alt text](screenshots/Example.png "")
+
+Double clicking on the Name column shows the ID column:
+
+![alt text](screenshots/Example2.png "")
+
+Editable table with pagination
+![alt text](screenshots/Example3.png "")
+
+![alt text](screenshots/Example4.png "")
+
+![alt text](screenshots/Example5.png "")
+
 # Documentation:
 
 See docs for information on using and styling SegiTable.
