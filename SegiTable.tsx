@@ -738,6 +738,10 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
      useEffect(() => {
           if (tableData !== null) {
                filterTableData();
+
+               //const newWidth = document.getElementById("SegiTablePagination").offsetWidth;
+
+               //document.getElementById("SegiTableGridContent").style.width = newWidth.toString() + "px";
           }
      }, [currentPage, pageSize, searchTerm, sortColumn, sortDirection, tableData]);
 
@@ -748,7 +752,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
      }, [currentTableComponent]);
 
      return (
-          <div className={`${styles.SegiTable}`}>
+          <div className={`${styles.SegiTable}`} style={{ width: typeof width !== "undefined" ? width : "100%" }}>
                {isError &&
                     <div>{errorMessage}</div>
                }
@@ -871,8 +875,8 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
 
                          {/* Data table */}
                          {!isError && tableData && tableData.length > 0 &&
-                              <div style={{ width: typeof width !== "undefined" ? width : "max-content" }}>
-                                   <div className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "100%", overflow: "auto" }}>
+                              <div>
+                                   <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "100%", overflow: "auto" }}>
                                         <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                                              {/* Table Headers */}
                                              <thead>
@@ -1014,7 +1018,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                    </div>
 
                                    {currentTableComponent.PaginationEnabled && tableData.length > 0 && !isAdding && !isEditing &&
-                                        <span className={`${styles.SegiTablePagination}`}>
+                                        <span id="SegiTablePagination" className={`${styles.SegiTablePagination}`}>
                                              <span className={`${styles.SegiTablePaginationSpan}`}>
                                                   <span className={`${styles.SegiTableRowLabel}`}>Rows per page:</span>
 
