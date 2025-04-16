@@ -40,8 +40,11 @@ export interface ITableComponentField {
      FieldValueType: FieldValueTypes;
      Filterable: boolean;
      HiddenField?: boolean;
+     IsEmailAddress?: boolean;
      IsIDColumn: boolean;
      IsEnabledColumn: boolean;
+     IsURL?: boolean;
+     IsURLColumn?: string;
      Required: boolean;
      SelectData?: any;
      SelectDataIDColumn?: string;

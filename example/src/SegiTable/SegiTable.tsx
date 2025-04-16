@@ -7,23 +7,30 @@ import React from "react";
 import styles from "./SegiTable.module.css";
 
 type Props = {
+     addingHasDisabledCheckboxPlaceholder?: boolean;
+     addingText?: string;
      addtlPageSizes?: Record<number, string>;
      cancelEditCallBackHandler?: () => void;
      defaultPageSize?: number,
+     editable?: boolean,
+     exportable?: boolean,
      height?: string;
      isAdding?: boolean,
      isEditing?: boolean,
      pageSizeOverride?: Record<number, string>;
+     paginationEnabled?: boolean,
      saveAddCallBackHandler?: (addComponent: ITableComponentField[]) => void;
      saveEditCallBackHandler?: (sectionData: any) => void;
+     searchable?: boolean;
      setIsAdding?: (value: boolean) => void;
      setIsEditing?: (value: boolean) => void;
      showDisabled?: boolean;
+     sortable?: boolean;
      tableTemplate: ITableComponent;
      width?: string;
 }
 
-const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize, height, isAdding, isEditing, pageSizeOverride, saveAddCallBackHandler, saveEditCallBackHandler, setIsAdding, setIsEditing, showDisabled, tableTemplate, width }: Props) => {
+const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPageSizes, cancelEditCallBackHandler, defaultPageSize, editable, exportable, height, isAdding, isEditing, pageSizeOverride, paginationEnabled, saveAddCallBackHandler, saveEditCallBackHandler, searchable, setIsAdding, setIsEditing, showDisabled, sortable, tableTemplate, width }: Props) => {
      const [currentTableComponent, setCurrentTableComponent] = useState<ITableComponent>(null); // Used for table headers and when adding
      const [currentPage, setCurrentPage] = useState<number>(1);
      const [errorMessage, setErrorMessage] = useState("");
@@ -347,6 +354,27 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
           return enabledColumn;
      }
 
+     const getFormattedDate = (dateStr: string, separator: string) => {
+          const language = typeof navigator.languages !== "undefined" ? navigator.languages[0] : "en-us";
+
+          const dateObj = dateStr !== null && typeof dateStr !== "undefined" ? new Date(dateStr) : new Date();
+
+          // Extract year, month, and day from the date object
+          const year = dateObj.getFullYear();
+          const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed, so add 1
+          const day = dateObj.getDate().toString().padStart(2, '0');
+
+          // Format the date as yyyy-mm-dd
+          const formattedDate = `${year}-${month}-${day}`;
+
+          // If separator is provided, replace hyphens with the separator
+          if (separator && separator !== '-') {
+               return formattedDate.replace(/-/g, separator);
+          }
+
+          return formattedDate;
+     };
+
      const getIDColumn = () => {
           // Derive ID column from tableComponent
           const IDFieldResult = currentTableComponent.Fields.filter((currentField: ITableComponentField) => currentField.IsIDColumn === true);
@@ -493,7 +521,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
           // Some attributes that are conditionally used are set with a default value if not provided
           const newTableComponent = Object.assign([], tableTemplate);
 
-          const isEditable = typeof tableTemplate.Editable !== "undefined" && tableTemplate.Editable === false ? false : true;
+          const isEditable = typeof editable !== "undefined" && editable === false ? false : true;
 
           // If editing is enabled
           if (isEditable) {
@@ -545,8 +573,8 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                     return ["ERROR"];
                }
 
-               if (typeof newTableComponent.AddingHasDisabledCheckboxPlaceholder !== "undefined") {
-                    setErrorMessage("SegiTable Error: AddingHasDisabledCheckboxPlaceholder was provided but the table is not editable");
+               if (typeof addingHasDisabledCheckboxPlaceholder !== "undefined") {
+                    setErrorMessage("SegiTable Error: addingHasDisabledCheckboxPlaceholder was provided but the table is not editable");
                     setIsError(true);
                     return ["ERROR"];
                }
@@ -559,7 +587,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                return ["ERROR"];
           }
 
-          if (typeof newTableComponent.PaginationEnabled === "undefined" && (typeof defaultPageSize !== "undefined" || typeof pageSizeOverride !== "undefined")) {
+          if (typeof paginationEnabled === "undefined" && (typeof defaultPageSize !== "undefined" || typeof pageSizeOverride !== "undefined")) {
                setErrorMessage("SegiTable Error: Pagination is not enabled but defaultPageSize or pageSizeOverride was provided");
                setIsError(true);
                return ["ERROR"];
@@ -687,6 +715,18 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                     setIsError(true);
                     return ["ERROR"];
                }
+
+               if (typeof field.IsEmailAddress !== "undefined" && typeof field.IsURL !== "undefined") {
+                    setErrorMessage(`SegiTable Error: The field ${field.DisplayName} provided both IsEmailAddress and IsURL. You can only provide one of these attributes for a given field`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof field.IsURL === "undefined" && typeof field.IsURLColumn !== "undefined") {
+                    setErrorMessage(`SegiTable Error: The field ${field.DisplayName} provided IsURLColumn but IsURL is not set`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
           });
 
           return ["OK", newTableComponent];
@@ -717,8 +757,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                     );
 
                     // Ensures that select all is checked and all items are checkedxx 
-                    //field.UniqueValuesSelectAllSelected = true;
-                    //field.UniqueValuesSelected = Object.assign([], field.UniqueValues);
+                    field.UniqueValuesSelectAllSelected = true;
                }
           });
 
@@ -736,10 +775,6 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
      useEffect(() => {
           if (tableData !== null) {
                filterTableData();
-
-               //const newWidth = document.getElementById("SegiTablePagination").offsetWidth;
-
-               //document.getElementById("SegiTableGridContent").style.width = newWidth.toString() + "px";
           }
      }, [currentPage, pageSize, searchTerm, sortColumn, sortDirection, tableData]);
 
@@ -758,18 +793,18 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                {currentTableComponent && !isError && filterTableData && hasRunInitialEffect.current === true &&
                     <span>
                          {/* Export to Excel icon */}
-                         {!isError && tableData && tableData.length > 0 && tableTemplate.Exportable && !isAdding && !isEditing && currentTableComponent.Exportable &&
-                              <img alt="Excel" className={`${styles.SegiTableExcelIcon} ${typeof currentTableComponent.Editable === "undefined" || (typeof currentTableComponent.Editable !== "undefined" && currentTableComponent.Editable !== false) ? `${styles.SegiTableExcelIconEditable}` : `${styles.SegiTableExcelIconReadOnly}`}`} src="data:image/png;base64,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" onClick={exportCSV} width={45} height={45} />
+                         {!isError && tableData && tableData.length > 0 && exportable && !isAdding && !isEditing && exportable &&
+                              <img alt="Excel" className={`${styles.SegiTableExcelIcon} ${typeof editable === "undefined" || (typeof editable !== "undefined" && editable !== false) ? `${styles.SegiTableExcelIconEditable}` : `${styles.SegiTableExcelIconReadOnly}`}`} src="data:image/png;base64,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" onClick={exportCSV} width={45} height={45} />
                          }
 
                          {/* Buttons */}
-                         {!isError && tableData && tableData.length > 0 && !isAdding && !isEditing && (typeof currentTableComponent.Editable === "undefined" || (typeof currentTableComponent.Editable !== "undefined" && currentTableComponent.Editable !== false)) &&
+                         {!isError && tableData && tableData.length > 0 && !isAdding && !isEditing && (typeof editable === "undefined" || (typeof editable !== "undefined" && editable !== false)) &&
                               <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableSaveButton}`} onClick={() => editClickHandler()}>Edit</button>
                          }
 
                          {/* Search field */}
-                         {!isError && tableData && tableData.length > 0 && !isAdding && !isEditing && currentTableComponent.Searchable &&
-                              <input className={`${!tableTemplate.Exportable && styles.SegiTableMarginTop15} ${(currentTableComponent.Exportable || currentTableComponent.Editable !== false) && styles.SegiTableMarginLeft25} ${styles.SegiTableInputStyle}`} value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="  Search"></input>
+                         {!isError && tableData && tableData.length > 0 && !isAdding && !isEditing && searchable &&
+                              <input className={`${!exportable && styles.SegiTableMarginTop15} ${(exportable || editable !== false) && styles.SegiTableMarginLeft25} ${styles.SegiTableInputStyle}`} value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="  Search"></input>
                          }
 
                          {isEditing && !isAdding &&
@@ -779,7 +814,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                              <td>
                                                   <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableSaveButton}`} onClick={() => saveEditCallBackHandler(tableData)}>Save</button>
                                                   <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableCancelButton}`} onClick={() => cancelEditCallBackHandler()}>Cancel</button>
-                                                  <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableAddButton}`} onClick={() => addClickHandler()}>{typeof currentTableComponent.AddingText !== "undefined" ? currentTableComponent.AddingText : "Add"}</button>
+                                                  <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableAddButton}`} onClick={() => addClickHandler()}>{typeof addingText !== "undefined" ? addingText : "Add"}</button>
                                              </td>
                                         </tr>
                                    </tbody>
@@ -811,7 +846,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                        )
                                                   })}
 
-                                             {isAdding && currentTableComponent && currentTableComponent.AddingHasDisabledCheckboxPlaceholder &&
+                                             {isAdding && currentTableComponent && addingHasDisabledCheckboxPlaceholder &&
                                                   <th className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader}`}>Enabled</th>
                                              }
                                         </tr>
@@ -857,7 +892,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                   )
                                              })}
 
-                                             {isAdding && currentTableComponent.AddingHasDisabledCheckboxPlaceholder &&
+                                             {isAdding && addingHasDisabledCheckboxPlaceholder &&
                                                   <td className={styles.SegiTableDataCell}>
                                                        <input id="addDisabledEnabledCheckbox" name="addEnabled" className={`${styles.SegiTableInputStyle}`} type="checkbox" disabled checked={true}></input>
                                                   </td>
@@ -874,7 +909,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                          {/* Data table */}
                          {!isError && tableData && tableData.length > 0 &&
                               <div>
-                                   <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "100%", overflow: "auto" }}>
+                                   <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "max-height", overflow: "auto" }}>
                                         <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                                              {/* Table Headers */}
                                              <thead>
@@ -887,7 +922,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                                       <th key={index} style={{ width: `calc(100% / ${currentTableComponent.Fields.length})` }} className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader} ${field.IsIDColumn === true ? `${styles.SegiTableIDColumn}` : ""}`} onDoubleClick={typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null}>
                                                                            <span className={`${field.Clickable ? `${styles.SegiTableClickable}` : ""}`} style={{ marginLeft: "10px" }}>{field.DisplayName}</span>
 
-                                                                           {currentTableComponent.Sortable === true && field.SortableField !== false &&
+                                                                           {sortable === true && field.SortableField !== false &&
                                                                                 <>
                                                                                      {(sortColumn === "" || (sortColumn !== "" && sortColumn !== field.DatabaseColumn)) &&
                                                                                           <span className={styles.SegiTableClickable} onClick={() => sortColumnClickHandler(field.DatabaseColumn)}>
@@ -910,7 +945,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                                            }
 
                                                                            {field.Filterable === true &&
-                                                                                <div className={`${styles.SegiTableFilterIcon} ${styles.SegiTableClickable} ${!currentTableComponent.Sortable ? styles.SegiTableMarginLeft25 : ""}`} onClick={() => uniqueValuesColumnClickHandler(field.DisplayName)}></div>
+                                                                                <div className={`${styles.SegiTableFilterIcon} ${styles.SegiTableClickable} ${!sortable ? styles.SegiTableMarginLeft25 : ""}`} onClick={() => uniqueValuesColumnClickHandler(field.DisplayName)}></div>
                                                                            }
 
                                                                            {uniqueValuesVisibleColumn === field.DisplayName &&
@@ -919,7 +954,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                                                           <tbody>
                                                                                                <tr>
                                                                                                     <td>
-                                                                                                         <input type="checkbox" className={styles.SegiTableFilterGridInput} checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" ? field.UniqueValuesSelectAllSelected : false} onChange={(event) => uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>(Select all)</span>
+                                                                                                         <input type="checkbox" className={styles.SegiTableFilterGridInput} checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? field.UniqueValuesSelectAllSelected : false} onChange={(event) => uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>(Select all)</span>
                                                                                                     </td>
                                                                                                </tr>
 
@@ -927,7 +962,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                                                                     return (
                                                                                                          <tr key={index}>
                                                                                                               <td>
-                                                                                                                   <input type="checkbox" className={styles.SegiTableInputStyle} checked={typeof field.UniqueValuesSelected !== "undefined" ? field.UniqueValuesSelected?.includes(uniqueValue) : false} onChange={() => uniqueValuesOptionClickHandler(field.DisplayName, uniqueValue)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>{uniqueValue}</span>
+                                                                                                                   <input type="checkbox" className={styles.SegiTableInputStyle} checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? true : typeof field.UniqueValuesSelected !== "undefined" ? field.UniqueValuesSelected?.includes(uniqueValue) : false} onChange={() => uniqueValuesOptionClickHandler(field.DisplayName, uniqueValue)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>{uniqueValue}</span>
                                                                                                               </td>
                                                                                                          </tr>
                                                                                                     )
@@ -956,10 +991,20 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                                                 .map((field: ITableComponentField, index: number) => {
                                                                                      return (
                                                                                           <td key={index} className={`${styles.SegiTableDataCell} ${field.IsIDColumn ? `${styles.SegiTableIDColumn}` : ""}`}>
-                                                                                               {((!isEditing && field.FieldType === FieldTypes.TEXTFIELD) || field.IsIDColumn) &&
-                                                                                                    <div>
-                                                                                                         {currentRow[field.DatabaseColumn]}
-                                                                                                    </div>
+                                                                                               {((!isEditing && field.FieldType === FieldTypes.TEXTFIELD) || field.IsIDColumn || field.Disabled === true) &&
+                                                                                                    <>
+                                                                                                         {!field.IsURL && !field.IsEmailAddress &&
+                                                                                                              <div>{currentRow[field.DatabaseColumn]}</div>
+                                                                                                         }
+
+                                                                                                         {field.IsURL &&
+                                                                                                              <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                                                         }
+
+                                                                                                         {field.IsEmailAddress &&
+                                                                                                              <div><a href={`mailto:${currentRow[field.DatabaseColumn]}`} target="_blank">{currentRow[field.DatabaseColumn]}</a></div>
+                                                                                                         }
+                                                                                                    </>
                                                                                                }
 
                                                                                                {!isEditing && field.FieldType === FieldTypes.SELECT && typeof currentRow[field.SelectDataIDColumn] !== "undefined" && currentRow[field.SelectDataIDColumn] !== -1 &&
@@ -975,11 +1020,27 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                                                                }
 
                                                                                                {isEditing && field.FieldType === FieldTypes.TEXTFIELD && field.Disabled === true &&
-                                                                                                    <div>{currentRow[field.DatabaseColumn]}</div>
+                                                                                                    <>
+                                                                                                         {!field.IsURL &&
+                                                                                                              <div>{currentRow[field.DatabaseColumn]}</div>
+                                                                                                         }
+
+                                                                                                         {field.IsURL &&
+                                                                                                              <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                                                         }
+                                                                                                    </>
                                                                                                }
 
                                                                                                {isEditing && field.FieldType === FieldTypes.TEXTFIELD && field.Disabled !== true &&
-                                                                                                    <input className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}></input>
+                                                                                                    <>
+                                                                                                         {field.FieldValueType !== FieldValueTypes.DATE &&
+                                                                                                              <input className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}></input>
+                                                                                                         }
+
+                                                                                                         {field.FieldValueType === FieldValueTypes.DATE &&
+                                                                                                              <input type="date" className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? getFormattedDate(currentRow[field.DatabaseColumn], "-") : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}></input>
+                                                                                                         }
+                                                                                                    </>
                                                                                                }
 
                                                                                                {isEditing && field.FieldType === FieldTypes.SELECT && field.Disabled !== true &&
@@ -1015,7 +1076,7 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                         </table>
                                    </div>
 
-                                   {currentTableComponent.PaginationEnabled && tableData.length > 0 && !isAdding && !isEditing &&
+                                   {paginationEnabled && tableData.length > 0 && !isAdding && !isEditing &&
                                         <span id="SegiTablePagination" className={`${styles.SegiTablePagination}`}>
                                              <span className={`${styles.SegiTablePaginationSpan}`}>
                                                   <span className={`${styles.SegiTableRowLabel}`}>Rows per page:</span>
@@ -1037,34 +1098,36 @@ const SegiTable = ({ addtlPageSizes, cancelEditCallBackHandler, defaultPageSize,
                                                             </span>
 
                                                             <div className={`${styles.SegiTablePaginationContainer}`}>
-                                                                 <span className={`${styles.SegiTablePaginationNavContainer}`}>
-                                                                      <button
-                                                                           className={`${currentPage > 1 ? `${styles.SegiTablePaginationIconButton}` : `${styles.SegiTablePaginationIconButtonDisabled}`}`}
-                                                                           onClick={() => currentPage > 1 ? pageClickHandler(null, 1) : null}
-                                                                           disabled={currentPage === 1}
-                                                                      >
-                                                                           |<div style={{ display: "inline", position: "relative", top: "2px" }}>&lt;</div>
-                                                                      </button>
-                                                                      <button
-                                                                           className={`${currentPage > 1 ? `${styles.SegiTablePaginationIconButton}` : `${styles.SegiTablePaginationIconButtonDisabled}`}`}
-                                                                           onClick={() => currentPage > 1 ? pageClickHandler(-1) : null}
-                                                                      >
-                                                                           <div style={{ display: "inline", position: "relative", top: "2px" }}>&lt;</div>
-                                                                      </button>
+                                                                 <div>
+                                                                      <span className={`${styles.SegiTablePaginationNavContainer}`}>
+                                                                           <button
+                                                                                className={`${currentPage > 1 ? `${styles.SegiTablePaginationIconButton}` : `${styles.SegiTablePaginationIconButtonDisabled}`}`}
+                                                                                onClick={() => currentPage > 1 ? pageClickHandler(null, 1) : null}
+                                                                                disabled={currentPage === 1}
+                                                                           >
+                                                                                |<div style={{ display: "inline", position: "relative", top: "2px" }}>&lt;</div>
+                                                                           </button>
+                                                                           <button
+                                                                                className={`${currentPage > 1 ? `${styles.SegiTablePaginationIconButton}` : `${styles.SegiTablePaginationIconButtonDisabled}`}`}
+                                                                                onClick={() => currentPage > 1 ? pageClickHandler(-1) : null}
+                                                                           >
+                                                                                <div style={{ display: "inline", position: "relative", top: "2px" }}>&lt;</div>
+                                                                           </button>
 
-                                                                      <button
-                                                                           className={`${lastPageNum != 1 && !lastPage ? `${styles.SegiTablePaginationIconButton}` : `${styles.SegiTablePaginationIconButtonDisabled}`}`}
-                                                                           onClick={() => lastPageNum != 1 && !lastPage ? pageClickHandler(1) : null}
-                                                                      >
-                                                                           <div style={{ display: "inline", position: "relative", top: "2px" }}>&gt;</div>
-                                                                      </button>
-                                                                      <button
-                                                                           className={`${lastPageNum != 1 && !lastPage ? `${styles.SegiTablePaginationIconButton}` : `${styles.SegiTablePaginationIconButtonDisabled}`}`}
-                                                                           onClick={() => lastPageNum > 1 && !lastPage ? pageClickHandler(null, -1) : null}
-                                                                      >
-                                                                           <div style={{ display: "inline", position: "relative", top: "2px", maxWidth: "5px" }}>&gt;</div><span style={{ display: "inline", position: "relative", top: "1px", left: "2px", maxWidth: "5px" }}>|</span>
-                                                                      </button>
-                                                                 </span>
+                                                                           <button
+                                                                                className={`${lastPageNum != 1 && !lastPage ? `${styles.SegiTablePaginationIconButton}` : `${styles.SegiTablePaginationIconButtonDisabled}`}`}
+                                                                                onClick={() => lastPageNum != 1 && !lastPage ? pageClickHandler(1) : null}
+                                                                           >
+                                                                                <div style={{ display: "inline", position: "relative", top: "2px" }}>&gt;</div>
+                                                                           </button>
+                                                                           <button
+                                                                                className={`${lastPageNum != 1 && !lastPage ? `${styles.SegiTablePaginationIconButton}` : `${styles.SegiTablePaginationIconButtonDisabled}`}`}
+                                                                                onClick={() => lastPageNum > 1 && !lastPage ? pageClickHandler(null, -1) : null}
+                                                                           >
+                                                                                <div style={{ display: "inline", position: "relative", top: "2px", maxWidth: "5px" }}>&gt;</div><span style={{ display: "inline", position: "relative", top: "1px", left: "2px", maxWidth: "5px" }}>|</span>
+                                                                           </button>
+                                                                      </span>
+                                                                 </div>
                                                             </div>
                                                        </>
                                                   }

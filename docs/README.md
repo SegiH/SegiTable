@@ -1,25 +1,32 @@
 #### Documentation
 
+SegiTable has the following props. Some of them are required and some are not required but can be used to enable or disable certain features.
+
+When you render SegiTable, there is validation that makes sure that you provide props that are required and do not provide props that do not make sense such as providing isEdiable={false} and isEditing={isEditing}.
+
 - Props
+    - [addingHasDisabledCheckboxPlaceholder](#addingHasDisabledCheckboxPlaceholder)
+    - [addingText](#addingText)
     - [addtlPageSizes](#addtlPageSizes)
     - [cancelEditCallBackHandler](#cancelEditCallBackHandler)
     - [defaultPageSize](#defaultPageSize)    
+    - [editable](#editable)
+    - [exportable](#exportable)
     - [height](#height)
     - [isAdding](#isAdding)
     - [isEditing](#isEditing)
     - [pageSizeOverride](#pageSizeOverride)
+    - [paginationEnabled](#paginationEnabled)
     - [saveAddCallBackHandler](#saveAddCallBackHandler)
     - [saveEditCallBackHandler](#saveEditCallBackHandler)
+    - [searchable](#searchable)
     - [setIsAdding](#setIsAdding)
     - [setIsEditing](#setIsEditing)
     - [showDisabled](#showDisabled)
+    - [sortable](#sortable)
     - [tableTemplate](#tableTemplate)
         - [ITableComponent](#ITableComponent)
-            - [AddingHasDisabledCheckboxPlaceholder](#AddingHasDisabledCheckboxPlaceholder)
-            - [AddingText](#AddingText)
             - [Data](#Data)
-            - [Editable](#Editable)
-            - [Exportable](#Exportable)
             - [Fields](#Fields)
                 - [Addable](#Addable)
                 - [Clickable](#Clickable)
@@ -33,8 +40,11 @@
                 - [FieldValueType](#FieldValueType)
                 - [Filterable](#Filterable)
                 - [HiddenField](#HiddenField)
+                - [IsEmailAddress](#IsEmailAddress)
                 - [IsIDColumn](#IsIDColumn)
                 - [IsEnabledColumn](#IsEnabledColumn)
+                - [IsURL](#IsURL)
+                - [IsURLColumn](#IsURLColumn)
                 - [Required](#Required)
                 - [SelectData](#SelectData)
                 - [SelectDataIDColumn](#SelectDataIDColumn)
@@ -44,13 +54,22 @@
                 - [SearchableField](#SearchableField)
                 - [SortableField](#SortableField)
                 - [TogglesIDColumn](#TogglesIDColumn)
-            - [PaginationEnabled](#PaginationEnabled)
-            - [Searchable](#Searchable)
-            - [Sortable](#Sortable)
     - [width](#width)
 ### ITableComponent:
 
 #### Index
+<a name="addingHasDisabledCheckboxPlaceholder"></a>
+#### addingHasDisabledCheckboxPlaceholder
+	       Required: No
+	       Type: Boolean
+	       Description: If true, will show a cell in the add row with a disabled checkbox that shows Enabled in the column header to indicate that this row will be added as an 'Enabled' row by default.
+
+<a name="addingText"></a>
+#### addingText
+	       Required: No
+	       Type: String
+	       Description: The text that will be displayed in the Add button when adding a row. If not provided, the add button will show "Add"
+
 <a name="addtlPageSizes"></a>
 #### addtlPageSizes
      Required: No
@@ -68,6 +87,18 @@
      Required: No
      Type: Number
      Description: the default rows per page. Use 0 for "All"
+
+<a name="editable"></a>
+#### editable
+	       Required: No
+	       Type: Boolean
+	       Description: If false, the table cannot be edited. If not set or set to true, it can be edited.
+
+<a name="exportable"></a>
+#### exportable
+	       Required: No
+	       Type: Boolean
+	       Description: Exporting to CSV is disabled by default. If false, the table cannot be exported to CSV.
 
 <a name="height"></a>
 #### height
@@ -93,6 +124,12 @@
      Type: Array
      Description: Replace the options for the Rows per page dropdown with your own values. pageSizeOverride={{5:"5", 10: "10"}}. Do not use this with addtlPageSizes. You can only use addtlPageSizes or pageSizeOverride, not both.
 
+<a name="paginationEnabled"></a>
+#### paginationEnabled
+          Required: No
+          Type: Boolean
+          Description: Pagination is disabled by default. If true, enables paginating the table data into pages
+
 <a name="saveAddCallBackHandler"></a>
 #### saveAddCallBackHandler
      Required: No
@@ -104,6 +141,12 @@
      Required: No
      Type: Method
      Description: Method that is called when you click on the save button to save the table. The method needs to accept an object of type ITableComponent. 
+
+<a name="searchable"></a>
+#### searchable
+          Required: No
+          Type: Boolean
+          Description: Searching is disabled by default. If set to true, enables a search field to allow searching the data in the table. Searching can be disabled for individual columns by setting SearchableField to false for the field
 
 <a name="setIsAdding"></a>
 #### setIsAdding
@@ -123,6 +166,12 @@
      Type: Boolean
      Description: Boolean that can be used to show items that are hidden. If this is true, you have to specify IsEnabledColumn: true for one of the fields for this to work.
 
+<a name="sortable"></a>
+#### sortable
+          Required: No
+          Type: Boolean
+          Description: Sorting is disabled by default. If true, enables sorting of the table. Sorting can be disabled for individual columns by setting SortableField to false for the field
+
 <a name="tableTemplate"></a>
 #### tableTemplate
      Required: Yes
@@ -139,59 +188,17 @@
 ### ITableComponent:
      This is the object that describes the fields that you want to display in the table
 
-<a name="AddingHasDisabledCheckboxPlaceholder"></a>
-#### AddingHasDisabledCheckboxPlaceholder
-	       Required: No
-	       Type: Boolean
-	       Description: If true, will show a cell in the add row with a disabled checkbox that shows Enabled in the column header to indicate that this row will be added as an 'Enabled' row by default.
-
-<a name="AddingText"></a>
-#### AddingText
-	       Required: No
-	       Type: String
-	       Description: The text that will be displayed in the Add button when adding a row. If not provided, the add button will show "Add"
-      
 <a name="Data"></a>
 #### Data
 	       Required: Yes
 	       Type: Object
 	       Description: The object that holds the data that you want to render. The data needs to have key value pairs for each row like "Name": "foo"   
 
-<a name="Editable"></a>
-#### Editable
-	       Required: No
-	       Type: Boolean
-	       Description: If false, the table cannot be edited. If not set or set to true, it can be edited.
-
-<a name="Exportable"></a>
-#### Exportable
-	       Required: No
-	       Type: Boolean
-	       Description: Exporting to CSV is disabled by default. If false, the table cannot be exported to CSV.
-
 <a name="Fields"></a>
 #### Fields
           Required: Yes
           Type: ITableComponentField
           Description: ITableComponentField object that describes the fields in the table data. See ITableComponentField reference below.
-
-<a name="PaginationEnabled"></a>
-#### PaginationEnabled
-          Required: No
-          Type: Boolean
-          Description: Pagination is disabled by default. If true, enables paginating the table data into pages
-
-<a name="Searchable"></a>
-#### Searchable
-          Required: No
-          Type: Boolean
-          Description: Searching is disabled by default. If set to true, enables a search field to allow searching the data in the table. Searching can be disabled for individual columns by setting SearchableField to false for the field
-
-<a name="Sortable"></a>
-#### Sortable
-          Required: No
-          Type: Boolean
-          Description: Sorting is disabled by default. If true, enables sorting of the table. Sorting can be disabled for individual columns by setting SortableField to false for the field
 
 <br /> <br /> <br /> 
 
@@ -283,11 +290,29 @@
                     Type: Boolean
                     Description: If true, indicates that the field is an ID column. Can be used along with Clickable on another fields' column header to show or hide ID column. An ID column cannot be edited 
 
+<a name="IsEmailAddress"></a>
+#### IsEmailAddress
+                    Required: No
+                    Type: Boolean
+                    Description: If true, indicates that the field is an email column and will be displayed as a mailto: hyperlink. Do not provide both IsEmailColumn and IsURL for the same field. You can only use one or the other.
+
 <a name="IsEnabledColumn"></a>
 #### IsEnabledColumn
                     Required: No
                     Type: Boolean
                     Description: If true, indicates that the field is a boolean column that can be used when showDisabled is set to true to determine whether to hide or show the field based on an enabled status 
+
+<a name="IsURL"></a>
+#### IsURL
+                    Required: No
+                    Type: Boolean
+                    Description: If true, indicates that the field is a URL and wll be displayed as a hyper link.
+
+<a name="IsURLColumn"></a>
+#### IsURLColumn
+                    Required: No
+                    Type: String
+                    Description: If true, indicates that the name of the database column that will be used to display as the text of the hyperlink text.
 
 <a name="Required"></a>
 #### Required

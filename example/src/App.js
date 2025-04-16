@@ -9,19 +9,12 @@ const App = () => {
      const [isEditing, setIsEditing] = useState(false);
      const [mockData, setMockData] = useState([]);
 
-     const data = [{ "DatabaseTypeID": 1, "DatabaseTypeName": "Oracle", "Enabled": true }, { "DatabaseTypeID": 2, "DatabaseTypeName": "SQL Server", "Enabled": true }, { "DatabaseTypeID": 3, "DatabaseTypeName": "MySQL", "Enabled": true }];
-
      const cancelEditClickHandler = () => {
           setIsEditing(false);
      }
 
      const template = {
-          AddingText: "Add Database Type",
           Data: mockData,
-          Exportable: false,
-          Filterable: true,
-          Searchable: true,
-          PaginationEnabled: true,
           Fields: [
                {
                     DisplayName: 'id', // Column header
@@ -47,7 +40,6 @@ const App = () => {
                {
                     DisplayName: 'Last Name',
                     Clickable: true,
-                    TogglesIDColumn: true, // Double clicking on this column header toggles the ID column
                     DatabaseColumn: "last_name",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
@@ -57,17 +49,16 @@ const App = () => {
                {
                     DisplayName: 'Email Address',
                     Clickable: true,
-                    TogglesIDColumn: true, // Double clicking on this column header toggles the ID column
                     DatabaseColumn: "email",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
                     Filterable: true,
+                    IsEmailAddress: true,
                     Required: true
                },
                {
                     DisplayName: 'Gender',
                     Clickable: true,
-                    TogglesIDColumn: true, // Double clicking on this column header toggles the ID column
                     DatabaseColumn: "gender",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
@@ -77,14 +68,31 @@ const App = () => {
                {
                     DisplayName: 'IP Address',
                     Clickable: true,
-                    TogglesIDColumn: true, // Double clicking on this column header toggles the ID column
                     DatabaseColumn: "ip_address",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
                     Required: true
-               }
-          ],
-          AddingHasDisabledCheckboxPlaceholder: true // Shows disabled checkbox when adding
+               },
+               {
+                    DisplayName: 'URL',
+                    Clickable: true,
+                    DatabaseColumn: "url",
+                    FieldType: FieldTypes.TEXTFIELD,
+                    FieldValueType: FieldValueTypes.TEXT,
+                    IsURL: true,
+                    Required: true,
+                    Filterable: true
+               },
+               {
+                    DisplayName: 'Date of Entry',
+                    Clickable: true,
+                    DatabaseColumn: "date_of_entry",
+                    FieldType: FieldTypes.TEXTFIELD,
+                    FieldValueType: FieldValueTypes.DATE,
+                    Required: true,
+                    Filterable: true
+               },
+          ]
      }
 
      const saveAddClickHandler = (addDBTypeObj) => {
@@ -122,16 +130,25 @@ const App = () => {
           <>
                {dataLoaded &&
                     <SegiTable
+                         addingHasDisabledCheckboxPlaceholder={true} // Shows disabled checkbox when adding
+                         addingText={"Add User"}
+                         cancelEditCallBackHandler={cancelEditClickHandler}
+                         defaultPageSize={5}
+                         editable={true}
+                         exportable={false}
+                         filterable={true}
                          isAdding={isAdding}
                          isEditing={isEditing}
+                         pageSizeOverride={{ 0: "All", 5: "5", 10: "10", 25: "25", 50: "50" }}
+                         paginationEnabled={true}
                          saveAddCallBackHandler={saveAddClickHandler}
-                         cancelEditCallBackHandler={cancelEditClickHandler}
                          saveEditCallBackHandler={saveEditClickHandler}
+                         searchable={true}
                          setIsAdding={setIsAdding}
                          setIsEditing={setIsEditing}
-                         defaultPageSize={5}
-                         pageSizeOverride={{ 5: "5", 10: "10", 25: "25", 50: "50" }}
-                         tableTemplate={template} />
+                         sortable={true}
+                         tableTemplate={template}
+                    />
                }
           </>
      );
