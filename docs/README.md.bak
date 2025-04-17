@@ -1,8 +1,8 @@
 #### Documentation
 
-SegiTable has the following props. Some of the props are required and some are not required but can be used to enable or disable certain features.
+SegiTable has the following props. Some of them are required and some are not required but can be used to enable or disable certain features.
 
-When you render SegiTable, there is validation that makes sure that you provide props that are required and do not provide props that do not make sense such as providing both isEditable={false} and isEditing={isEditing}.
+When you render SegiTable, there is validation that makes sure that you provide props that are required and do not provide props that do not make sense such as providing isEdiable={false} and isEditing={isEditing}.
 
 - Props
     - [addingHasDisabledCheckboxPlaceholder](#addingHasDisabledCheckboxPlaceholder)
@@ -31,7 +31,6 @@ When you render SegiTable, there is validation that makes sure that you provide 
                 - [Addable](#Addable)
                 - [Clickable](#Clickable)
                 - [ClickCallBack](#ClickCallBack)
-                - [Columns](#Columns)
                 - [DatabaseColumn](#DatabaseColumn)
                 - [DefaultAddValue](#DefaultAddValue)
                 - [Disabled](#Disabled)
@@ -47,7 +46,6 @@ When you render SegiTable, there is validation that makes sure that you provide 
                 - [IsURL](#IsURL)
                 - [IsURLColumn](#IsURLColumn)
                 - [Required](#Required)
-                - [Rows](#Rows)
                 - [SelectData](#SelectData)
                 - [SelectDataIDColumn](#SelectDataIDColumn)
                 - [SelectDataValueColumn](#SelectDataValueColumn)
@@ -224,12 +222,6 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Type: Method
                     Description: Method to call when the column header has been clicked. If you use this, you should set Clickable to true so the column turns into a mouse pointer when you hover over it. Do not set this with TogglesIDColumn. Only use one or the other but not both
 
-<a name="Columns"></a>
-#### Columns
-                    Required: No
-                    Type: Number
-                    Description: When the field type is TEXTAREA, the number of columns to display the text area with. Only provide this for a textarea field
-
 <a name="DatabaseColumn"></a>
 #### DatabaseColumn
                     Required: Yes
@@ -259,10 +251,10 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Required: Yes
                     Type: 
                         FieldTypes.TEXTFIELD for a text field
-                        FieldTypes.TEXTAREA for a text area. When using a textarea, you can specify the rows and columns with rows={} and columns={} on the field. TEXTAREA is only valid for FieldValueTypes TEXT or NUMBER.
                         FieldTypes.SELECT for a select dropdown
                         FieldTypes.CHECKBOX for a CHECKBOX
-                    Description: The type of field you want to display the text as when editing the field
+
+                    Description: The type of field you want to display the text as
 
 <a name="FieldValue"></a>
 #### FieldValue
@@ -328,18 +320,6 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Type: Boolean
                     Description: If true, the field is marked as required
 
-<a name="Rows"></a>
-#### Rows
-                    Required: No
-                    Type: Number
-                    Description: When the field type is TEXTAREA, the number of rows to display the text area with. Only provide this for a textarea field
-
-<a name="Searchable"></a>
-#### Searchable
-          Required: No
-          Type: Boolean
-          Description: If false, disables searching this column. If not set or set to true, searching is enabled for the field. All columns will have searching enabled by default.
-
 <a name="SelectData"></a>
 #### SelectData
                     Required: No
@@ -369,6 +349,12 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Required: No
                     Type: Boolean
                     Description: If SelectDataEnabledOnly is true, you must specify the boolean column in the select data that will be used to test if the row is enabled or not.
+
+<a name="Searchable"></a>
+#### Searchable
+          Required: No
+          Type: Boolean
+          Description: If false, disables searching this column. If not set or set to true, searching is enabled for the field. All columns will have searching enabled by default.
 
 <a name="SortableField"></a>
 #### SortableField

@@ -37,9 +37,7 @@ There is a fully working project of SegiTable in use located in example/.
 
 # Possible issues:
 
-1. SegiTable was written in Typescript so you will need Typescript support in your application to use it.
-
-2. When rending SegiTable, if the data is coming from an API call, you need to make sure that the data has finished loading before rendering SegiTable. Usually this means doing
+1. When rending SegiTable, if the data is coming from an API call, you need to make sure that the data has finished loading before rendering SegiTable. Usually this means doing
 
 <pre>
      {dataLoaded &&
@@ -59,6 +57,6 @@ If you do not do this, the SegiTable component will render with an empty array f
 When a field is a select type, the SelectData property specifies the data to render for the select dropdown. You must also make sure that the SelectData object for all fields 
 that are select types have been loaded. Otherwise, when you edit the table, the select dropdown will be empty. 
 
-3. It is best to use pagination if your data has many rows and the table is editable. If you do not use pagination on an editable table, editing can be slow.
+2. It is best to use pagination if your data has many rows and the table is editable. If you do not use pagination on an editable table, editing can be slow.
 
 ### Future features:

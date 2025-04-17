@@ -77,9 +77,7 @@ const App = () => {
                     DisplayName: 'URL',
                     Clickable: true,
                     DatabaseColumn: "url",
-                    FieldType: FieldTypes.TEXTAREA,
-                    Rows: 5,
-                    Columns: 20,
+                    FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
                     IsURL: true,
                     Required: true,
@@ -139,7 +137,6 @@ const App = () => {
                          editable={true}
                          exportable={false}
                          filterable={true}
-                         height={"814px"}
                          isAdding={isAdding}
                          isEditing={isEditing}
                          pageSizeOverride={{ 0: "All", 5: "5", 10: "10", 25: "25", 50: "50" }}
@@ -151,7 +148,6 @@ const App = () => {
                          setIsEditing={setIsEditing}
                          sortable={true}
                          tableTemplate={template}
-                         width={"1500px"}
                     />
                }
           </>
