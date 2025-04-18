@@ -62,3 +62,4 @@ that are select types have been loaded. Otherwise, when you edit the table, the 
 3. It is best to use pagination if your data has many rows and the table is editable. If you do not use pagination on an editable table, editing can be slow.
 
 ### Future features:
+Collapsible/Expandable rows (maybe)
