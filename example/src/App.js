@@ -101,11 +101,13 @@ const App = () => {
 
      const saveAddClickHandler = (addDBTypeObj) => {
           // Save addDBTypeObj with an API call
-          alert("This record is not going to be saved!")
+          alert("This record is not going to be saved")
           setIsAdding(false);
      }
 
      const saveEditClickHandler = async (newData) => {
+          alert("This is a demo and your changes will not be saved once you refresh the page");
+
           // Save newData with an API call
           setIsEditing(false);
      }
