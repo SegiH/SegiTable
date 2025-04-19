@@ -1044,14 +1044,18 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
                     const uniqueValues = field.ExpandableCriteria && field.ExpandableCriteria.map(e => e.Match).filter((v, i, a) => a.indexOf(v) === i);
 
                     return (
-                         typeof uniqueValues !== "undefined" && (uniqueValues === null || (uniqueValues !== null &&
+                         typeof uniqueValues !== "undefined" &&
+                         (uniqueValues === null || (uniqueValues !== null &&
                               (
-                                   (field.ExpandableCriteriaExactMatch === true && uniqueValues.includes(currentRow[field.DatabaseColumn].toString()))
+                                   ((typeof field.ExpandableCriteriaExactMatch === "undefined" || field.ExpandableCriteriaExactMatch === true) &&
+
+                                        uniqueValues.includes(currentRow[field.DatabaseColumn].toString()))
                                    ||
-                                   (field.ExpandableCriteriaExactMatch === false && uniqueValues.some(criteria => currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase()))
-                                   )
+
+                                   (field.ExpandableCriteriaExactMatch === false && uniqueValues.some(criteria => currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase())))
                               )
-                         ))
+                         )
+                         )
                     )
                });
 
@@ -1222,7 +1226,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                    const uniqueValues = field.ExpandableCriteria && field.ExpandableCriteria.map(e => e.Match).filter((v, i, a) => a.indexOf(v) === i);
 
                                    return (
-                                        typeof uniqueValues  !== "undefined" && (uniqueValues  === null || (uniqueValues  !== null &&
+                                        typeof uniqueValues !== "undefined" && (uniqueValues === null || (uniqueValues !== null &&
                                              (
                                                   (field.ExpandableCriteriaExactMatch === true && uniqueValues.includes(currentRow[field.DatabaseColumn].toString()))
                                                   ||

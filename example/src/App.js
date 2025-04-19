@@ -36,7 +36,7 @@ const App = () => {
                     FieldValueType: FieldValueTypes.TEXT,
                     Filterable: true,
                     Required: true,
-                    ExpandableCriteria: [{ Match: "Roch", Show: "<h1 style='background-color: green;'>This is a test message</h1>" }, { Match: "Her", Show: "<h1 style='background-color: red;'>This is a test message</h1>" }], // Display a collapsible/expandible row when the value for this field matches one of these values
+                    ExpandableCriteria: [{ Match: "Rochell", Show: "<h1 style='background-color: green;height: 150px'>This is a test message</h1>" }, { Match: "Herc", Show: "<h1 style='background-color: red;'>This is a test message</h1>" }], // Display a collapsible/expandible row when the value for this field matches one of these values
                     ExpandableCriteriaExactMatch: false,
                },
                {
