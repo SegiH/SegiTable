@@ -30,6 +30,8 @@ export interface ITableComponentField {
      DefaultAddValue?: any; // The default value when addding the field
      Disabled?: boolean; // Disable a field from being added
      DisplayName: string; // The name of the column header
+     ExpandableCriteria?: [{ Match: string; Show: string }]; // An array of values that are used as a condition to determien whether the row is expandable. Set this to null to have all rows be expandable
+     ExpandableCriteriaExactMatch?: boolean; // If true, the values in ExpandableCriteria ned to match exactly. If false, does a partial match
      FieldType: FieldTypesType; // The type of field based on one of the FieldTypes
      FieldValue: string | number; // The value of the field. This is used when adding
      FieldValueType: FieldValueTypes; // The type of value (text, number, date etc) based on FieldValueTypes

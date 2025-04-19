@@ -36,6 +36,8 @@ When you render SegiTable, there is validation that makes sure that you provide 
                 - [DefaultAddValue](#DefaultAddValue)
                 - [Disabled](#Disabled)
                 - [DisplayName](#DisplayName)
+                - [ExpandableCriteria](#ExpandableCriteria)
+                - [ExpandableCriteriaExactMatch](#ExpandableCriteriaExactMatch)
                 - [FieldType](#FieldType)
                 - [FieldValue](#FieldValue)
                 - [FieldValueType](#FieldValueType)
@@ -249,10 +251,22 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Description: Determines whether a field can be edited
 
 <a name="DisplayName"></a>
-####  DisplayName
+#### DisplayName
           Required: Yes
           Type: String
           Description: The column header text
+
+<a name="ExpandableCriteria"></a>
+#### ExpandableCriteria
+          Required: No
+          Type: Array
+          Description: The criteria to determine whether to display an expandable row for the current row. This is defined as a key/value pair in the format ExpandableCriteria: [{ Match: "Roch", Show: "&lt;h1 style='background-color: green;'&gt;This is a test message</h1&gt;" }, { Match: "Her", Show: "&lt;h1 style='background-color: red;'&gt;This is a test message&lt;/h1&gt;" }]``` which will match when the field value contains 'John' or 'Jane'. Set this to null to have all rows be expandable. If you provide an array and do not see any expandable rows, it means that no rows matched the criteria.
+
+<a name="ExpandableCriteriaExactMatch"></a>
+#### ExpandableCriteriaExactMatch
+          Required: No
+          Type: Boolean
+          Description: Determines whether to do an exct or partial match. This is true by default unless you set this to false. A partial match is case insensitive but an exact match is case sensitive.
 
 <a name="FieldType"></a>
 #### FieldType
@@ -404,6 +418,14 @@ The following CSS classes can be overridden:
 #### Add button style:
                  Class name: .SegiTableAddButton
                  Description: The add button style when adding a row
+
+### Collapsible/Expandable Arrow icon
+                 Class name: SegiTableArrow
+                 Description: The arrow icon for collapsible/expandable rows
+
+### Collapsible/Expandable Arrow icon
+                 Class name: SegiTableArrow
+                 Description: The arrow icon for collapsible/expandable rows
 
 #### Button style:
                  Class name: .SegiTableButtonStyle

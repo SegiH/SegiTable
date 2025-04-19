@@ -1024,15 +1024,52 @@ type SegiTableDataGridProps = {
 }
 
 const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, height, isAdding, isEditing, isVisible, lastPage, lastPageNum, mergedPageSizes, pageClickHandler, pageRecordStartEndLabel, pageSize, pageSizeClickHandler, paginationEnabled, sortable, sortColumn, sortColumnClickHandler, sortDirection, tableData, tableRef, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridProps) => {
+     const isExpandable = currentTableComponent.Fields.filter((field: ITableComponentField) => { return typeof field.ExpandableCriteria !== "undefined"; }).length === 0 ? false : true;
+
+     const [openIndex, setOpenIndex] = useState(-1);
+
+     const toggleRow = (newIndex: number) => {
+          if (openIndex !== newIndex) {
+               setOpenIndex(newIndex);
+          } else {
+               setOpenIndex(-1);
+          }
+     }
+
+     let hasExpandableCriteriaMet = false;
+
+     filteredTableData && filteredTableData.map((currentRow: any, index: number) => {
+          if (isExpandable) {
+               const newExpandableContentResult = currentTableComponent.Fields.filter((field: ITableComponentField) => {
+                    const uniqueValues = field.ExpandableCriteria && field.ExpandableCriteria.map(e => e.Match).filter((v, i, a) => a.indexOf(v) === i);
+
+                    return (
+                         typeof uniqueValues !== "undefined" && (uniqueValues === null || (uniqueValues !== null &&
+                              (
+                                   (field.ExpandableCriteriaExactMatch === true && uniqueValues.includes(currentRow[field.DatabaseColumn].toString()))
+                                   ||
+                                   (field.ExpandableCriteriaExactMatch === false && uniqueValues.some(criteria => currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase()))
+                                   )
+                              )
+                         ))
+                    )
+               });
+
+               if (newExpandableContentResult.length > 0) {
+                    hasExpandableCriteriaMet = true;
+               }
+          }
+     });
+
      return (
           <div>
                <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "max-height", overflow: "auto" }}>
                     <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                          {/* Table Headers */}
-                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
+                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} openIndex={openIndex} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} toggleRow={toggleRow} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
 
                          {/* Table body */}
-                         <SegiTableDataGridBody currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} isEditing={isEditing} isVisible={isVisible} />
+                         <SegiTableDataGridBody currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} hasExpandableCriteriaMet={hasExpandableCriteriaMet} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} openIndex={openIndex} toggleRow={toggleRow} />
                     </table>
                </div>
 
@@ -1045,79 +1082,89 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
 
 type SegiTableDataGridHeadersProps = {
      currentTableComponent: ITableComponent;
+     hasExpandableCriteriaMet: boolean;
+     isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
+     openIndex: number;
      sortable: boolean;
      sortColumn: string;
      sortColumnClickHandler: (value: string) => void;
      sortDirection: string;
      toggleIDColumn: () => void;
+     toggleRow: (value: number) => void;
      uniqueValuesColumnClickHandler: (value: string) => void;
      uniqueValuesOptionClickHandler: (displayName: string, value?: string, selectAll?: boolean) => void;
      uniqueValuesVisibleColumn: string;
 }
 
-const SegiTableDataGridHeaders = ({ currentTableComponent, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
+const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, toggleRow, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
      return (
           <thead>
                <tr>
+                    {isExpandable && hasExpandableCriteriaMet &&
+                         <th className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader}`}></th>
+                    }
+
                     {currentTableComponent && currentTableComponent.Fields
                          .filter((field: ITableComponentField) => {
                               return isVisible(field)
                          }).map((field: ITableComponentField, index: number) => {
                               return (
-                                   <th key={index} style={{ width: `calc(100% / ${currentTableComponent.Fields.length})` }} className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader} ${field.IsIDColumn === true ? `${styles.SegiTableIDColumn}` : ""}`} onDoubleClick={typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null}>
-                                        <span className={`${field.Clickable ? `${styles.SegiTableClickable}` : ""}`} style={{ marginLeft: "10px" }}>{field.DisplayName}</span>
+                                   <React.Fragment key={index}>
+                                        <th style={{ width: `calc(100% / ${currentTableComponent.Fields.length})` }} className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader} ${field.IsIDColumn === true ? `${styles.SegiTableIDColumn}` : ""}`} onDoubleClick={typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null}>
+                                             <span className={`${field.Clickable ? `${styles.SegiTableClickable}` : ""}`} style={{ marginLeft: "10px" }}>{field.DisplayName}</span>
 
-                                        {sortable === true && field.SortableField !== false &&
-                                             <>
-                                                  {(sortColumn === "" || (sortColumn !== "" && sortColumn !== field.DatabaseColumn)) &&
-                                                       <span className={styles.SegiTableClickable} onClick={() => sortColumnClickHandler(field.DatabaseColumn)}>
-                                                            <span className={`${styles.SegiTableSortColumnUnselected} ${styles.SegiTableClickable}`}>&#8593;</span>
-                                                       </span>
-                                                  }
+                                             {sortable === true && field.SortableField !== false &&
+                                                  <>
+                                                       {(sortColumn === "" || (sortColumn !== "" && sortColumn !== field.DatabaseColumn)) &&
+                                                            <span className={styles.SegiTableClickable} onClick={() => sortColumnClickHandler(field.DatabaseColumn)}>
+                                                                 <span className={`${styles.SegiTableSortColumnUnselected} ${styles.SegiTableClickable}`}>&#8593;</span>
+                                                            </span>
+                                                       }
 
-                                                  {sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "ASC" &&
-                                                       <span className={styles.SegiTableClickable} onClick={() => sortColumnClickHandler(field.DatabaseColumn)}>
-                                                            <span className={`${styles.SegiTableSortColumnSelected} ${styles.SegiTableClickable}`}>&#8593;</span>
-                                                       </span>
-                                                  }
+                                                       {sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "ASC" &&
+                                                            <span className={styles.SegiTableClickable} onClick={() => sortColumnClickHandler(field.DatabaseColumn)}>
+                                                                 <span className={`${styles.SegiTableSortColumnSelected} ${styles.SegiTableClickable}`}>&#8593;</span>
+                                                            </span>
+                                                       }
 
-                                                  {sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "DESC" &&
-                                                       <span className={styles.SegiTableClickable} onClick={() => sortColumnClickHandler(field.DatabaseColumn)}>
-                                                            <span className={`${styles.SegiTableSortColumnSelected} ${styles.SegiTableClickable}`}>&#8595;</span>
-                                                       </span>
-                                                  }
-                                             </>
-                                        }
+                                                       {sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "DESC" &&
+                                                            <span className={styles.SegiTableClickable} onClick={() => sortColumnClickHandler(field.DatabaseColumn)}>
+                                                                 <span className={`${styles.SegiTableSortColumnSelected} ${styles.SegiTableClickable}`}>&#8595;</span>
+                                                            </span>
+                                                       }
+                                                  </>
+                                             }
 
-                                        {field.Filterable === true &&
-                                             <div className={`${styles.SegiTableFilterIcon} ${styles.SegiTableClickable} ${!sortable ? styles.SegiTableMarginLeft25 : ""}`} onClick={() => uniqueValuesColumnClickHandler(field.DisplayName)}></div>
-                                        }
+                                             {field.Filterable === true &&
+                                                  <div className={`${styles.SegiTableFilterIcon} ${styles.SegiTableClickable} ${!sortable ? styles.SegiTableMarginLeft25 : ""}`} onClick={() => uniqueValuesColumnClickHandler(field.DisplayName)}></div>
+                                             }
 
-                                        {uniqueValuesVisibleColumn === field.DisplayName &&
-                                             <span className={styles.SegiTableFilterGrid}>
-                                                  <table>
-                                                       <tbody>
-                                                            <tr>
-                                                                 <td>
-                                                                      <input type="checkbox" className={styles.SegiTableFilterGridInput} checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? field.UniqueValuesSelectAllSelected : false} onChange={(event) => uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>(Select all)</span>
-                                                                 </td>
-                                                            </tr>
+                                             {uniqueValuesVisibleColumn === field.DisplayName &&
+                                                  <span className={styles.SegiTableFilterGrid}>
+                                                       <table>
+                                                            <tbody>
+                                                                 <tr>
+                                                                      <td>
+                                                                           <input type="checkbox" className={styles.SegiTableFilterGridInput} checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? field.UniqueValuesSelectAllSelected : false} onChange={(event) => uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>(Select all)</span>
+                                                                      </td>
+                                                                 </tr>
 
-                                                            {field.UniqueValues.map((uniqueValue: string, index: number) => {
-                                                                 return (
-                                                                      <tr key={index}>
-                                                                           <td>
-                                                                                <input type="checkbox" className={styles.SegiTableInputStyle} checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? true : typeof field.UniqueValuesSelected !== "undefined" ? field.UniqueValuesSelected?.includes(uniqueValue) : false} onChange={() => uniqueValuesOptionClickHandler(field.DisplayName, uniqueValue)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>{uniqueValue}</span>
-                                                                           </td>
-                                                                      </tr>
-                                                                 )
-                                                            })}
-                                                       </tbody>
-                                                  </table>
-                                             </span>
-                                        }
-                                   </th>
+                                                                 {field.UniqueValues.map((uniqueValue: string, index: number) => {
+                                                                      return (
+                                                                           <tr key={index}>
+                                                                                <td>
+                                                                                     <input type="checkbox" className={styles.SegiTableInputStyle} checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? true : typeof field.UniqueValuesSelected !== "undefined" ? field.UniqueValuesSelected?.includes(uniqueValue) : false} onChange={() => uniqueValuesOptionClickHandler(field.DisplayName, uniqueValue)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>{uniqueValue}</span>
+                                                                                </td>
+                                                                           </tr>
+                                                                      )
+                                                                 })}
+                                                            </tbody>
+                                                       </table>
+                                                  </span>
+                                             }
+                                        </th>
+                                   </React.Fragment>
                               )
                          })}
                </tr>
@@ -1130,14 +1177,155 @@ type SegiTableDataGridBodyProps = {
      editFieldChangeHandler: (currentRow: any, fieldName: string, fieldValue: string | number | Date) => void;
      filteredTableData: any;
      getFormattedDate: (dateStr: string, separator: string) => string;
+     hasExpandableCriteriaMet: boolean;
      isEditing: boolean;
+     isExpandable: boolean;
+     isVisible: (field: ITableComponentField) => void;
+     openIndex: number;
+     toggleRow: (value: number) => void;
+}
+
+const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isEditing, isExpandable, isVisible, openIndex, toggleRow }: SegiTableDataGridBodyProps) => {
+     return (
+          <tbody>
+               {!isEditing &&
+                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} openIndex={openIndex} toggleRow={toggleRow} />
+               }
+
+               {isEditing &&
+                    <SegiTableDataGridBodyEditableFields currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} isVisible={isVisible} />
+               }
+          </tbody>
+     )
+}
+
+type SegiTableDataGridBodyReadOnlyFieldsProps = {
+     currentTableComponent: ITableComponent;
+     filteredTableData: any;
+     hasExpandableCriteriaMet: boolean;
+     isExpandable: boolean;
+     isVisible: (field: ITableComponentField) => void;
+     openIndex: number;
+     toggleRow: (value: number) => void;
+}
+
+const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, hasExpandableCriteriaMet, isExpandable, isVisible, openIndex, toggleRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
+     return (
+          <>
+               {filteredTableData && filteredTableData
+                    .map((currentRow: any, index: number) => {
+                         let expandableContent = "";
+                         let expandableCriteriaMet = false;
+
+                         if (isExpandable) {
+                              const newExpandableContentResult = currentTableComponent.Fields.filter((field: ITableComponentField) => {
+                                   const uniqueValues = field.ExpandableCriteria && field.ExpandableCriteria.map(e => e.Match).filter((v, i, a) => a.indexOf(v) === i);
+
+                                   return (
+                                        typeof uniqueValues  !== "undefined" && (uniqueValues  === null || (uniqueValues  !== null &&
+                                             (
+                                                  (field.ExpandableCriteriaExactMatch === true && uniqueValues.includes(currentRow[field.DatabaseColumn].toString()))
+                                                  ||
+                                                  (field.ExpandableCriteriaExactMatch === false && uniqueValues.some(criteria => currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase()))
+                                                  )
+                                             )
+                                        ))
+                                   )
+                              });
+
+                              if (newExpandableContentResult.length === 1) {
+                                   currentTableComponent.Fields.forEach((field: ITableComponentField) => {
+                                        if (typeof field.ExpandableCriteria !== "undefined") {
+                                             field.ExpandableCriteria.forEach((criteria: any) => {
+                                                  if (field.ExpandableCriteriaExactMatch === true && currentRow[field.DatabaseColumn].toString() === criteria.Match) {
+                                                       expandableContent = criteria.Show;
+                                                  } else if (field.ExpandableCriteriaExactMatch === false && currentRow[field.DatabaseColumn].toString().includes(criteria.Match)) {
+                                                       expandableContent = criteria.Show;
+                                                  }
+                                             });
+                                        }
+                                   });
+
+                                   expandableCriteriaMet = true;
+                              }
+                         }
+
+                         return (
+                              <React.Fragment key={index}>
+                                   <tr key={index}>
+                                        {isExpandable && hasExpandableCriteriaMet &&
+                                             <td className={`${styles.SegiTableDataCell}`} onClick={() => toggleRow(index)}>
+                                                  {expandableCriteriaMet &&
+                                                       <div className="arrow">{openIndex === index ? '▼' : '▶'}</div>
+                                                  }
+                                             </td>
+                                        }
+
+                                        {currentTableComponent.Fields
+                                             .filter((field: ITableComponentField) => {
+                                                  return isVisible(field)
+                                             })
+                                             .map((field: ITableComponentField, index: number) => {
+                                                  return (
+                                                       <td key={index} className={`${styles.SegiTableDataCell} ${field.IsIDColumn ? `${styles.SegiTableIDColumn}` : ""}`}>
+                                                            {((field.FieldType === FieldTypes.TEXTFIELD || field.FieldType === FieldTypes.TEXTAREA) || field.IsIDColumn || field.Disabled === true) &&
+                                                                 <>
+                                                                      {!field.IsURL && !field.IsEmailAddress &&
+                                                                           <div>{currentRow[field.DatabaseColumn]}</div>
+                                                                      }
+
+                                                                      {field.IsURL &&
+                                                                           <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                      }
+
+                                                                      {field.IsEmailAddress &&
+                                                                           <div><a href={`mailto:${currentRow[field.DatabaseColumn]}`} target="_blank">{currentRow[field.DatabaseColumn]}</a></div>
+                                                                      }
+                                                                 </>
+                                                            }
+
+                                                            {field.FieldType === FieldTypes.SELECT && typeof currentRow[field.SelectDataIDColumn] !== "undefined" && currentRow[field.SelectDataIDColumn] !== -1 &&
+                                                                 <>
+                                                                      {field.SelectData?.filter((currentItem) => (String(currentItem[field.SelectDataIDColumn]) === String(currentRow[field.SelectDataIDColumn]))).length === 1 &&
+                                                                           <div>{field.SelectData?.filter((currentItem) => (String(currentItem[field.SelectDataIDColumn]) === String(currentRow[field.SelectDataIDColumn])))[0][field.SelectDataValueColumn]}</div>
+                                                                      }
+                                                                 </>
+                                                            }
+
+                                                            {field.FieldType === FieldTypes.CHECKBOX &&
+                                                                 <input type="checkbox" className={styles.SegiTableInputStyle} disabled={true} checked={currentRow[field.DatabaseColumn]} />
+                                                            }
+                                                       </td>
+                                                  )
+                                             })}
+                                   </tr>
+
+                                   {(openIndex === index) &&
+                                        <tr>
+                                             <td className={styles.SegiTableExpandableRowContent} colSpan={currentTableComponent.Fields?.length}>
+                                                  <div className={styles.SegiTableExpandableContent} dangerouslySetInnerHTML={{ __html: expandableContent }}></div>
+                                             </td>
+                                        </tr>
+                                   }
+                              </React.Fragment >
+                         )
+                    })
+               }
+          </>
+     )
+}
+
+type SegiTableDataGridBodyEditableFieldsProps = {
+     currentTableComponent: ITableComponent;
+     editFieldChangeHandler: (currentRow: any, fieldName: string, fieldValue: string | number | Date) => void;
+     filteredTableData: any;
+     getFormattedDate: (dateStr: string, separator: string) => string;
      isVisible: (field: ITableComponentField) => void;
 }
 
-const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, isEditing, isVisible }: SegiTableDataGridBodyProps) => {
+const SegiTableDataGridBodyEditableFields = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, isVisible }: SegiTableDataGridBodyEditableFieldsProps) => {
      return (
-          <tbody>
-               {/* Viewing or editing data */}
+          <>
                {filteredTableData && filteredTableData
                     .map((currentRow: any, index: number) => {
                          {
@@ -1150,106 +1338,68 @@ const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, 
                                              .map((field: ITableComponentField, index: number) => {
                                                   return (
                                                        <td key={index} className={`${styles.SegiTableDataCell} ${field.IsIDColumn ? `${styles.SegiTableIDColumn}` : ""}`}>
-                                                            {/* Not Editing */}
-                                                            {!isEditing &&
+                                                            {/* Fields that are disabled from editing */}
+                                                            {field.Disabled === true &&
                                                                  <>
-                                                                      {((field.FieldType === FieldTypes.TEXTFIELD || field.FieldType === FieldTypes.TEXTAREA) || field.IsIDColumn || field.Disabled === true) &&
+                                                                      {field.FieldType === FieldTypes.TEXTFIELD &&
                                                                            <>
-                                                                                {!field.IsURL && !field.IsEmailAddress &&
+                                                                                {!field.IsURL &&
                                                                                      <div>{currentRow[field.DatabaseColumn]}</div>
                                                                                 }
 
                                                                                 {field.IsURL &&
                                                                                      <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
                                                                                 }
-
-                                                                                {field.IsEmailAddress &&
-                                                                                     <div><a href={`mailto:${currentRow[field.DatabaseColumn]}`} target="_blank">{currentRow[field.DatabaseColumn]}</a></div>
-                                                                                }
                                                                            </>
                                                                       }
 
-                                                                      {field.FieldType === FieldTypes.SELECT && typeof currentRow[field.SelectDataIDColumn] !== "undefined" && currentRow[field.SelectDataIDColumn] !== -1 &&
+                                                                      {field.FieldType === FieldTypes.SELECT &&
+                                                                           field.SelectData?.filter((currentItem: any) => { return currentItem[field.SelectDataIDColumn] === currentRow[field.SelectDataIDColumn] }).length > 0 &&
                                                                            <>
-                                                                                {field.SelectData?.filter((currentItem) => (String(currentItem[field.SelectDataIDColumn]) === String(currentRow[field.SelectDataIDColumn]))).length === 1 &&
-                                                                                     <div>{field.SelectData?.filter((currentItem) => (String(currentItem[field.SelectDataIDColumn]) === String(currentRow[field.SelectDataIDColumn])))[0][field.SelectDataValueColumn]}</div>
-                                                                                }
+                                                                                {field.SelectData?.filter((currentItem) => { return currentItem[field.SelectDataIDColumn] === currentRow[field.SelectDataIDColumn] })[0][field.SelectDataValueColumn]}
                                                                            </>
-                                                                      }
-
-                                                                      {field.FieldType === FieldTypes.CHECKBOX &&
-                                                                           <input type="checkbox" className={styles.SegiTableInputStyle} disabled={true} checked={currentRow[field.DatabaseColumn]} />
                                                                       }
                                                                  </>
                                                             }
 
-                                                            {/* Editing */}
-                                                            {isEditing &&
+                                                            {/* Editable fields */}
+                                                            {field.Disabled !== true &&
                                                                  <>
-                                                                      {/* Fields that are disabled from editing */}
-                                                                      {field.Disabled === true &&
+                                                                      {/* Editable textfield */}
+                                                                      {field.FieldType === FieldTypes.TEXTFIELD &&
                                                                            <>
-                                                                                {field.FieldType === FieldTypes.TEXTFIELD &&
-                                                                                     <>
-                                                                                          {!field.IsURL &&
-                                                                                               <div>{currentRow[field.DatabaseColumn]}</div>
-                                                                                          }
-
-                                                                                          {field.IsURL &&
-                                                                                               <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
-                                                                                          }
-                                                                                     </>
+                                                                                {field.FieldValueType !== FieldValueTypes.DATE &&
+                                                                                     <input className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}></input>
                                                                                 }
 
-                                                                                {field.FieldType === FieldTypes.SELECT &&
-                                                                                     field.SelectData?.filter((currentItem: any) => { return currentItem[field.SelectDataIDColumn] === currentRow[field.SelectDataIDColumn] }).length > 0 &&
-                                                                                     <>
-                                                                                          {field.SelectData?.filter((currentItem) => { return currentItem[field.SelectDataIDColumn] === currentRow[field.SelectDataIDColumn] })[0][field.SelectDataValueColumn]}
-                                                                                     </>
+                                                                                {field.FieldValueType === FieldValueTypes.DATE &&
+                                                                                     <input type="date" className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? getFormattedDate(currentRow[field.DatabaseColumn], "-") : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}></input>
                                                                                 }
                                                                            </>
                                                                       }
 
-                                                                      {/* Editable fields */}
-                                                                      {field.Disabled !== true &&
+                                                                      {/* Editable textarea */}
+                                                                      {field.FieldType === FieldTypes.TEXTAREA &&
                                                                            <>
-                                                                                {/* Editable textfield */}
-                                                                                {isEditing && field.FieldType === FieldTypes.TEXTFIELD &&
-                                                                                     <>
-                                                                                          {field.FieldValueType !== FieldValueTypes.DATE &&
-                                                                                               <input className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}></input>
-                                                                                          }
-
-                                                                                          {field.FieldValueType === FieldValueTypes.DATE &&
-                                                                                               <input type="date" className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? getFormattedDate(currentRow[field.DatabaseColumn], "-") : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}></input>
-                                                                                          }
-                                                                                     </>
-                                                                                }
-
-                                                                                {/* Editable textarea */}
-                                                                                {isEditing && field.FieldType === FieldTypes.TEXTAREA &&
-                                                                                     <>
-                                                                                          <textarea rows={typeof field.Rows !== "undefined" ? field.Rows : 10} cols={typeof field.Columns !== "undefined" ? field.Columns : 10} className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)} />
-                                                                                     </>
-                                                                                }
-
-                                                                                {/* Editable select */}
-                                                                                {isEditing && field.FieldType === FieldTypes.SELECT &&
-                                                                                     <select className={`${styles.SegiTableSolidBorder} ${styles.SegiTableSelectStyle}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}>
-                                                                                          <option value="-1">Please select</option>
-
-                                                                                          {field.SelectData?.filter((currentItem) => (field.SelectDataEnabledOnly !== true || (field.SelectDataEnabledOnly === true && currentItem[field.SelectDataEnabledOnlyColumn] === true)))
-                                                                                               .map((currentItem, index: number) => {
-                                                                                                    return <option key={index} value={currentItem[field.SelectDataIDColumn]}>{`${currentItem[field.SelectDataValueColumn]}`}</option>
-                                                                                               })}
-                                                                                     </select>
-                                                                                }
-
-                                                                                {/* Editable checkbox */}
-                                                                                {isEditing && field.FieldType === FieldTypes.CHECKBOX &&
-                                                                                     <input className={styles.SegiTableInputStyle} type="checkbox" checked={currentRow[field.DatabaseColumn]} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)} />
-                                                                                }
+                                                                                <textarea rows={typeof field.Rows !== "undefined" ? field.Rows : 10} cols={typeof field.Columns !== "undefined" ? field.Columns : 10} className={`${styles.SegiTableInputStyle} ${styles.SegiTableInputStyleFullWidth}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)} />
                                                                            </>
+                                                                      }
+
+                                                                      {/* Editable select */}
+                                                                      {field.FieldType === FieldTypes.SELECT &&
+                                                                           <select className={`${styles.SegiTableSolidBorder} ${styles.SegiTableSelectStyle}`} value={typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : ""} required={field.Required === true ? true : false} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)}>
+                                                                                <option value="-1">Please select</option>
+
+                                                                                {field.SelectData?.filter((currentItem) => (field.SelectDataEnabledOnly !== true || (field.SelectDataEnabledOnly === true && currentItem[field.SelectDataEnabledOnlyColumn] === true)))
+                                                                                     .map((currentItem, index: number) => {
+                                                                                          return <option key={index} value={currentItem[field.SelectDataIDColumn]}>{`${currentItem[field.SelectDataValueColumn]}`}</option>
+                                                                                     })}
+                                                                           </select>
+                                                                      }
+
+                                                                      {/* Editable checkbox */}
+                                                                      {field.FieldType === FieldTypes.CHECKBOX &&
+                                                                           <input className={styles.SegiTableInputStyle} type="checkbox" checked={currentRow[field.DatabaseColumn]} onChange={(event) => editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value)} />
                                                                       }
                                                                  </>
                                                             }
@@ -1261,7 +1411,7 @@ const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, 
                          }
                     })
                }
-          </tbody>
+          </>
      )
 }
 

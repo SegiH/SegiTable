@@ -8,6 +8,10 @@
      margin-right: 50px;    
 }
 
+.SegiTableArrow {
+     background-color: black;
+}
+
 .SegiTableButtonStyle {
      appearance: button;
      backface-visibility: hidden;
@@ -81,6 +85,10 @@
      background-color: #eee;
 }
 
+.SegiTableExpandableRowContent div {
+     background-color: white !important;
+}
+
 .SegiTableExcelIcon {
      cursor: pointer;
      height: 35px;
@@ -97,6 +105,11 @@
      position: relative;
      left: 2px;
      top: 12px;
+}
+
+.SegiTableExpandableContent {
+     background-color: #f9f9f9;
+     padding: 10px;
 }
 
 .SegiTableFilterGrid {
