@@ -29,6 +29,11 @@ Editable table with pagination
 
 ![alt text](screenshots/Example5.png "")
 
+Expandable rows
+![alt text](screenshots/Example6.png "")
+
+![alt text](screenshots/Example7.png "")
+
 # Documentation:
 
 See docs for information on using and styling SegiTable.
