@@ -260,7 +260,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### ExpandableCriteria
           Required: No
           Type: Array
-          Description: The criteria to determine whether to display an expandable row for the current row. This is defined as a key/value pair in the format ExpandableCriteria: [{ Match: "Roch", Show: "&lt;h1 style='background-color: green;'&gt;This is a test message</h1&gt;" }, { Match: "Her", Show: "&lt;h1 style='background-color: red;'&gt;This is a test message&lt;/h1&gt;" }]``` which will match when the field value contains 'John' or 'Jane'. Set this to null to have all rows be expandable. If you provide an array and do not see any expandable rows, it means that no rows matched the criteria.
+          Description: The criteria to determine whether to display an expandable row for the current row. This is defined as a key/value pair in the format ExpandableCriteria: [{ Match: "Roch", Show: "&lt;h1 style='background-color: green;'&gt;This is a test message</h1&gt;" }, { Match: "Her", Show: "&lt;h1 style='background-color: red;'&gt;This is a test message&lt;/h1&gt;" }]``` which will match when the field value contains 'John' or 'Jane'. Set Match to "*" to have a for the default for all rows. which will use the provided Show html. If you provide an array and do not see any expandable rows, it means that no rows matched the criteria.
 
 <a name="ExpandableCriteriaExactMatch"></a>
 #### ExpandableCriteriaExactMatch

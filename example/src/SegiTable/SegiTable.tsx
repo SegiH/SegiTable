@@ -1043,6 +1043,8 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
                const newExpandableContentResult = currentTableComponent.Fields.filter((field: ITableComponentField) => {
                     const uniqueValues = field.ExpandableCriteria && field.ExpandableCriteria.map(e => e.Match).filter((v, i, a) => a.indexOf(v) === i);
 
+                    const isAll = typeof uniqueValues !== "undefined" ? uniqueValues.includes("*") : false
+
                     return (
                          typeof uniqueValues !== "undefined" &&
                          (uniqueValues === null || (uniqueValues !== null &&
@@ -1054,6 +1056,7 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
 
                                    (field.ExpandableCriteriaExactMatch === false && uniqueValues.some(criteria => currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase())))
                               )
+                              || isAll
                          )
                          )
                     )
@@ -1223,15 +1226,18 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
 
                          if (isExpandable) {
                               const newExpandableContentResult = currentTableComponent.Fields.filter((field: ITableComponentField) => {
-                                   const uniqueValues = field.ExpandableCriteria && field.ExpandableCriteria.map(e => e.Match).filter((v, i, a) => a.indexOf(v) === i);
+                                   const uniqueValues = field.ExpandableCriteria === null ? null : field.ExpandableCriteria && field.ExpandableCriteria.map(e => e.Match).filter((v, i, a) => a.indexOf(v) === i);
+
+                                   const isAll = typeof uniqueValues !== "undefined" ? uniqueValues.includes("*") : false;
 
                                    return (
-                                        typeof uniqueValues !== "undefined" && (uniqueValues === null || (uniqueValues !== null &&
+                                        (uniqueValues === null || (uniqueValues !== null &&
                                              (
                                                   (field.ExpandableCriteriaExactMatch === true && uniqueValues.includes(currentRow[field.DatabaseColumn].toString()))
                                                   ||
                                                   (field.ExpandableCriteriaExactMatch === false && uniqueValues.some(criteria => currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase()))
                                                   )
+                                                  || isAll
                                              )
                                         ))
                                    )
@@ -1239,11 +1245,13 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
 
                               if (newExpandableContentResult.length === 1) {
                                    currentTableComponent.Fields.forEach((field: ITableComponentField) => {
-                                        if (typeof field.ExpandableCriteria !== "undefined") {
+                                        if (typeof field.ExpandableCriteria !== "undefined" && field.ExpandableCriteria !== null) {
                                              field.ExpandableCriteria.forEach((criteria: any) => {
                                                   if (field.ExpandableCriteriaExactMatch === true && currentRow[field.DatabaseColumn].toString() === criteria.Match) {
                                                        expandableContent = criteria.Show;
                                                   } else if (field.ExpandableCriteriaExactMatch === false && currentRow[field.DatabaseColumn].toString().includes(criteria.Match)) {
+                                                       expandableContent = criteria.Show;
+                                                  } else if (criteria.Match === "*") {
                                                        expandableContent = criteria.Show;
                                                   }
                                              });
