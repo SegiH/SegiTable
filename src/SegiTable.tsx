@@ -1268,7 +1268,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                         {isExpandable && hasExpandableCriteriaMet &&
                                              <td className={`${styles.SegiTableDataCell}`} onClick={() => toggleRow(index)}>
                                                   {expandableCriteriaMet &&
-                                                       <div className="arrow">{openIndex === index ? '▼' : '▶'}</div>
+                                                       <div className={`${styles.SegiTableArrow} ${styles.SegiTableClickable}`}>{openIndex === index ? '▼' : '▶'}</div>
                                                   }
                                              </td>
                                         }
