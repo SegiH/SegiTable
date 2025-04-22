@@ -1101,7 +1101,7 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
                <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "max-height", overflow: "auto" }}>
                     <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                          {/* Table Headers */}
-                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} toggleRow={toggleRow} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
+                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} toggleRow={toggleRow} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
 
                          {/* Table body */}
                          <SegiTableDataGridBody currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} hasExpandableCriteriaMet={hasExpandableCriteriaMet} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} toggleRow={toggleRow} />
@@ -1118,6 +1118,7 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
 type SegiTableDataGridHeadersProps = {
      currentTableComponent: ITableComponent;
      hasExpandableCriteriaMet: boolean;
+     isEditing: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
      sortable: boolean;
@@ -1131,11 +1132,11 @@ type SegiTableDataGridHeadersProps = {
      uniqueValuesVisibleColumn: string;
 }
 
-const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, toggleRow, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
+const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isEditing, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, toggleRow, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
      return (
           <thead>
                <tr>
-                    {isExpandable && hasExpandableCriteriaMet &&
+                    {isExpandable && hasExpandableCriteriaMet && !isEditing &&
                          <th className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader}`}></th>
                     }
 
