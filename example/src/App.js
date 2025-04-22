@@ -154,7 +154,7 @@ const App = () => {
                          editable={true}
                          exportable={false}
                          filterable={true}
-                         //height={"500px"}
+                         height={"500px"}
                          isAdding={isAdding}
                          isEditing={isEditing}
                          pageSizeOverride={{ 0: "All", 5: "5", 10: "10", 25: "25", 50: "50" }}

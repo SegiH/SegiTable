@@ -432,6 +432,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
      }
 
      const pageSizeClickHandler = (newPageSize: number) => {
+          localStorage.setItem("SegiTable.RowsPerPage", newPageSize.toString());
           setPageSize(newPageSize);
           setCurrentPage(1);
      }
@@ -793,6 +794,12 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                setPageSize(defaultPageSize);
           }
 
+          const savedRowsPerPage = localStorage.getItem("SegiTable.RowsPerPage");
+
+          if (typeof savedRowsPerPage !== "undefined" && savedRowsPerPage !== null && savedRowsPerPage) {
+               setPageSize(parseInt(savedRowsPerPage, 10));
+          }
+
           hasRunInitialEffect.current = true;
      }, []);
 
@@ -1029,9 +1036,6 @@ type SegiTableDataGridProps = {
 const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, height, isAdding, isEditing, isVisible, lastPage, lastPageNum, mergedPageSizes, pageClickHandler, pageRecordStartEndLabel, pageSize, pageSizeClickHandler, paginationEnabled, setCurrentTableComponent, sortable, sortColumn, sortColumnClickHandler, sortDirection, tableData, tableRef, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridProps) => {
      const isExpandable = currentTableComponent.Fields.filter((field: ITableComponentField) => { return typeof field.ExpandableCriteria !== "undefined"; }).length === 0 ? false : true;
 
-     // TODO: Delete me
-     //const [openIndex, setOpenIndex] = useState(-1);
-
      const toggleRow = (newIndex: number) => {
           const newComponent = Object.assign([], currentTableComponent);
 
@@ -1044,7 +1048,8 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
 
                // This shouldn't ever happen
                if (index === -1) {
-                    // TODO: Handle this
+                   alert(`${newIndex} was not found in expandedRows!`);
+                   return;
                }
 
                newComponent.ExpandedRows.splice(index, 1);
@@ -1057,13 +1062,6 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
           }
 
           setCurrentTableComponent(newComponent);
-
-          // TODO: Delete me
-          /*if (openIndex !== newIndex) {
-               setOpenIndex(newIndex);
-          } else {
-               setOpenIndex(-1);
-          }*/
      }
 
      let hasExpandableCriteriaMet = false;
