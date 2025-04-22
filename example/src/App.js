@@ -147,7 +147,7 @@ const App = () => {
           <>
                {dataLoaded &&
                     <SegiTable
-                         addingHasDisabledCheckboxPlaceholder={true} // Shows disabled checkbox when adding
+                         //addingHasDisabledCheckboxPlaceholder={true} // Shows disabled checkbox when adding
                          addingText={"Add User"}
                          cancelEditCallBackHandler={cancelEditClickHandler}
                          defaultPageSize={5}
