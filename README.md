@@ -9,7 +9,7 @@
  - Very small size
  - Table data can be edited to edit or add a row to the table
  - Built in search
- - Built in pagination
+ - Built in pagination with the rows per page saved locally
  - Built in filtering
  - Collapsible/expandable rows for either all rows or some rows based on criteria
  - Export to CSV
