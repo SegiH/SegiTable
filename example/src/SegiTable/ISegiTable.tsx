@@ -19,12 +19,15 @@ type FieldValueTypes = keyof typeof FieldValueTypes;
 export interface ITableComponent {
      Data: any;
      Fields: ITableComponentField[];
+     ExpandedRows: number[]; // Used internally by the app
+     MultiExpandableRows?: boolean;
 }
 
 export interface ITableComponentField {
      Addable?: boolean; // Indicates whether this field is addable
      Clickable?: boolean; // Indicates whether the column header clickable
      ClickCallBack?: () => void; // Callback event to be called when you click on the column header
+     Centered?: boolean;
      Columns?: number; // The number of columns for a textarea
      DatabaseColumn: string; // The database column in the data. This will be the name of the field in the data
      DefaultAddValue?: any; // The default value when addding the field
@@ -41,7 +44,9 @@ export interface ITableComponentField {
      IsIDColumn: boolean; // Indicates that this is an ID field
      IsEnabledColumn: boolean; // Indicates whether this field is used to determine whether to hide or show enabled fields when showDisable is provided
      IsURL?: boolean; // Indicates that this is a URL field
+     IsURLButton?: boolean; // Show the URL as a button
      IsURLColumn?: string; // Specify the database column name in the data that is used as the hyperlink text when displaying a URL
+     IsURLText?: string; // Specify static text to display for the link
      Required: boolean; // Indicates that this is a required field
      Rows?: number; // The number of rows for a textarea
      SelectData?: any; // When the field type is SELECT, the data used to render the select drop down

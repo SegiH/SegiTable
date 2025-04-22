@@ -34,6 +34,9 @@ Expandable rows
 
 ![alt text](screenshots/Example7.png "")
 
+Multiple Expandable rows
+![alt text](screenshots/Example8.png "")
+
 # Documentation:
 
 See docs for information on using and styling SegiTable.

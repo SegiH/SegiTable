@@ -15,6 +15,7 @@ const App = () => {
 
      const template = {
           Data: mockData,
+          MultiExpandableRows: true,
           Fields: [
                {
                     DisplayName: 'id', // Column header
@@ -34,9 +35,10 @@ const App = () => {
                     DatabaseColumn: "first_name",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
+                    Centered: true,
                     Filterable: true,
                     Required: true,
-                    // Display a collapsible/expandable row when the name is Herc. * matches all other rows
+                    // Display a collapsible/expandable row. When the first name is Herc, the value of "Show" will be displayed. * matches all other rows
                     ExpandableCriteria: [{ Match: "*", Show: "<h1 style='background-color: green;height: 150px'>This is a test message</h1>" }, { Match: "Herc", Show: "<h1 style='background-color: red;'>This is a test message</h1>" }],
                     ExpandableCriteriaExactMatch: false,
                },
@@ -46,6 +48,7 @@ const App = () => {
                     DatabaseColumn: "last_name",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
+                    Centered: true,
                     Filterable: true,
                     Required: true
                },
@@ -55,6 +58,7 @@ const App = () => {
                     DatabaseColumn: "email",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
+                    Centered: true,
                     Filterable: true,
                     IsEmailAddress: true,
                     Required: true
@@ -65,6 +69,7 @@ const App = () => {
                     DatabaseColumn: "gender",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
+                    Centered: true,
                     Filterable: true,
                     Required: true
                },
@@ -74,6 +79,7 @@ const App = () => {
                     DatabaseColumn: "ip_address",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
+                    Centered: true,
                     Required: true
                },
                {
@@ -84,7 +90,10 @@ const App = () => {
                     Rows: 5,
                     Columns: 20,
                     FieldValueType: FieldValueTypes.TEXT,
+                    Centered: true,
                     IsURL: true,
+                    IsURLText: "Link",
+                    IsURLButton: true,
                     Required: true,
                     Filterable: true
                },
@@ -94,6 +103,7 @@ const App = () => {
                     DatabaseColumn: "date_of_entry",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.DATE,
+                    Centered: true,
                     Required: true,
                     Filterable: true
                },
@@ -144,7 +154,7 @@ const App = () => {
                          editable={true}
                          exportable={false}
                          filterable={true}
-                         height={"814px"}
+                         //height={"500px"}
                          isAdding={isAdding}
                          isEditing={isEditing}
                          pageSizeOverride={{ 0: "All", 5: "5", 10: "10", 25: "25", 50: "50" }}

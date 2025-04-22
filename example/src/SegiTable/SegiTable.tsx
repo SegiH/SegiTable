@@ -496,6 +496,8 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                          thisField.UniqueValuesSelected.push(value);
                     }
                }
+
+               thisField.UniqueValuesSelectAllSelected = false;
           } else {
                if (typeof thisField.UniqueValuesSelected === "undefined") {
                     thisField.UniqueValuesSelected = [];
@@ -830,7 +832,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                                    }
 
                                    {tableData.length > 0 &&
-                                        <SegiTableDataGrid currentPage={currentPage} currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} height={height} isAdding={isAdding} isEditing={isEditing} isVisible={isVisible} lastPage={lastPage} lastPageNum={lastPageNum} mergedPageSizes={mergedPageSizes} pageClickHandler={pageClickHandler} pageRecordStartEndLabel={pageRecordStartEndLabel} pageSize={pageSize} pageSizeClickHandler={pageSizeClickHandler} paginationEnabled={paginationEnabled} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} tableData={tableData} tableRef={tableRef} toggleIDColumn={toggleIDColumn} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
+                                        <SegiTableDataGrid currentPage={currentPage} currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} height={height} isAdding={isAdding} isEditing={isEditing} isVisible={isVisible} lastPage={lastPage} lastPageNum={lastPageNum} mergedPageSizes={mergedPageSizes} pageClickHandler={pageClickHandler} pageRecordStartEndLabel={pageRecordStartEndLabel} pageSize={pageSize} pageSizeClickHandler={pageSizeClickHandler} paginationEnabled={paginationEnabled} setCurrentTableComponent={setCurrentTableComponent} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} tableData={tableData} tableRef={tableRef} toggleIDColumn={toggleIDColumn} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
                                    }
                               </>
                          }
@@ -1011,6 +1013,7 @@ type SegiTableDataGridProps = {
      pageSize: number;
      pageSizeClickHandler: (value: number) => void;
      paginationEnabled: boolean,
+     setCurrentTableComponent: (value: ITableComponent) => void;
      sortable: boolean;
      sortColumn: string;
      sortColumnClickHandler: (value: string) => void;
@@ -1023,17 +1026,44 @@ type SegiTableDataGridProps = {
      uniqueValuesVisibleColumn: string;
 }
 
-const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, height, isAdding, isEditing, isVisible, lastPage, lastPageNum, mergedPageSizes, pageClickHandler, pageRecordStartEndLabel, pageSize, pageSizeClickHandler, paginationEnabled, sortable, sortColumn, sortColumnClickHandler, sortDirection, tableData, tableRef, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridProps) => {
+const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, height, isAdding, isEditing, isVisible, lastPage, lastPageNum, mergedPageSizes, pageClickHandler, pageRecordStartEndLabel, pageSize, pageSizeClickHandler, paginationEnabled, setCurrentTableComponent, sortable, sortColumn, sortColumnClickHandler, sortDirection, tableData, tableRef, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridProps) => {
      const isExpandable = currentTableComponent.Fields.filter((field: ITableComponentField) => { return typeof field.ExpandableCriteria !== "undefined"; }).length === 0 ? false : true;
 
-     const [openIndex, setOpenIndex] = useState(-1);
+     // TODO: Delete me
+     //const [openIndex, setOpenIndex] = useState(-1);
 
      const toggleRow = (newIndex: number) => {
-          if (openIndex !== newIndex) {
+          const newComponent = Object.assign([], currentTableComponent);
+
+          if (typeof newComponent.ExpandedRows === "undefined") {
+               newComponent.ExpandedRows = [];
+          }
+
+          if (newComponent.ExpandedRows.includes(newIndex)) {
+               const index = newComponent.ExpandedRows.indexOf(newIndex);
+
+               // This shouldn't ever happen
+               if (index === -1) {
+                    // TODO: Handle this
+               }
+
+               newComponent.ExpandedRows.splice(index, 1);
+          } else {
+               if (currentTableComponent.MultiExpandableRows !== true) {
+                    newComponent.ExpandedRows = [];
+               }
+
+               newComponent.ExpandedRows.push(newIndex);
+          }
+
+          setCurrentTableComponent(newComponent);
+
+          // TODO: Delete me
+          /*if (openIndex !== newIndex) {
                setOpenIndex(newIndex);
           } else {
                setOpenIndex(-1);
-          }
+          }*/
      }
 
      let hasExpandableCriteriaMet = false;
@@ -1073,10 +1103,10 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
                <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "max-height", overflow: "auto" }}>
                     <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                          {/* Table Headers */}
-                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} openIndex={openIndex} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} toggleRow={toggleRow} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
+                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} toggleRow={toggleRow} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
 
                          {/* Table body */}
-                         <SegiTableDataGridBody currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} hasExpandableCriteriaMet={hasExpandableCriteriaMet} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} openIndex={openIndex} toggleRow={toggleRow} />
+                         <SegiTableDataGridBody currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} hasExpandableCriteriaMet={hasExpandableCriteriaMet} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} toggleRow={toggleRow} />
                     </table>
                </div>
 
@@ -1092,7 +1122,6 @@ type SegiTableDataGridHeadersProps = {
      hasExpandableCriteriaMet: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
-     openIndex: number;
      sortable: boolean;
      sortColumn: string;
      sortColumnClickHandler: (value: string) => void;
@@ -1188,15 +1217,14 @@ type SegiTableDataGridBodyProps = {
      isEditing: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
-     openIndex: number;
      toggleRow: (value: number) => void;
 }
 
-const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isEditing, isExpandable, isVisible, openIndex, toggleRow }: SegiTableDataGridBodyProps) => {
+const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isEditing, isExpandable, isVisible, toggleRow }: SegiTableDataGridBodyProps) => {
      return (
           <tbody>
                {!isEditing &&
-                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} openIndex={openIndex} toggleRow={toggleRow} />
+                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} toggleRow={toggleRow} />
                }
 
                {isEditing &&
@@ -1212,11 +1240,10 @@ type SegiTableDataGridBodyReadOnlyFieldsProps = {
      hasExpandableCriteriaMet: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
-     openIndex: number;
      toggleRow: (value: number) => void;
 }
 
-const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, hasExpandableCriteriaMet, isExpandable, isVisible, openIndex, toggleRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
+const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, hasExpandableCriteriaMet, isExpandable, isVisible, toggleRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
      return (
           <>
                {filteredTableData && filteredTableData
@@ -1268,7 +1295,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                         {isExpandable && hasExpandableCriteriaMet &&
                                              <td className={`${styles.SegiTableDataCell}`} onClick={() => toggleRow(index)}>
                                                   {expandableCriteriaMet &&
-                                                       <div className={`${styles.SegiTableArrow} ${styles.SegiTableClickable}`}>{openIndex === index ? '▼' : '▶'}</div>
+                                                       <div className={`${styles.SegiTableArrow} ${styles.SegiTableClickable}`}>{typeof currentTableComponent.ExpandedRows !== "undefined" && currentTableComponent.ExpandedRows.includes(index) ? '▼' : '▶'}</div>
                                                   }
                                              </td>
                                         }
@@ -1279,7 +1306,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                              })
                                              .map((field: ITableComponentField, index: number) => {
                                                   return (
-                                                       <td key={index} className={`${styles.SegiTableDataCell} ${field.IsIDColumn ? `${styles.SegiTableIDColumn}` : ""}`}>
+                                                       <td key={index} className={`${styles.SegiTableDataCell} ${field.IsIDColumn ? `${styles.SegiTableIDColumn}` : ""} ${field.Centered ? styles.SegiTableCentered : ""}`}>
                                                             {((field.FieldType === FieldTypes.TEXTFIELD || field.FieldType === FieldTypes.TEXTAREA) || field.IsIDColumn || field.Disabled === true) &&
                                                                  <>
                                                                       {!field.IsURL && !field.IsEmailAddress &&
@@ -1287,7 +1314,15 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                                                       }
 
                                                                       {field.IsURL &&
-                                                                           <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                           <>
+                                                                                {typeof field.IsURLButton === "undefined" &&
+                                                                                     <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLText !== "undefined" ? field.IsURLText : field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                                }
+
+                                                                                {typeof field.IsURLButton !== "undefined" &&
+                                                                                     <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableURLButton}`} onClick={() => window.open(currentRow[field.DatabaseColumn], '_blank')}>{typeof field.IsURLText !== "undefined" ? field.IsURLText : field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</button>
+                                                                                }
+                                                                           </>
                                                                       }
 
                                                                       {field.IsEmailAddress &&
@@ -1312,7 +1347,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                              })}
                                    </tr>
 
-                                   {(openIndex === index) &&
+                                   {((typeof currentTableComponent.ExpandedRows !== "undefined" && currentTableComponent.ExpandedRows.includes(index))) &&
                                         <tr>
                                              <td className={styles.SegiTableExpandableRowContent} colSpan={currentTableComponent.Fields?.length}>
                                                   <div className={styles.SegiTableExpandableContent} dangerouslySetInnerHTML={{ __html: expandableContent }}></div>
@@ -1360,7 +1395,11 @@ const SegiTableDataGridBodyEditableFields = ({ currentTableComponent, editFieldC
                                                                                 }
 
                                                                                 {field.IsURL &&
-                                                                                     <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                                     <>
+                                                                                          {typeof field.IsURLButton === "undefined" &&
+                                                                                               <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLText !== "undefined" ? field.IsURLText : typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                                          }
+                                                                                     </>
                                                                                 }
                                                                            </>
                                                                       }

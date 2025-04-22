@@ -41,6 +41,10 @@
      margin-left: 50px;
 }
 
+.SegiTableCentered {
+     text-align: center !important;
+}
+
 .SegiTableClickable {
      cursor: pointer;
      pointer-events: auto;
@@ -323,4 +327,8 @@
      font-size: 26px;
      color: black;
      margin: 10px;
+}
+
+.SegiTableURLButton {
+     background-color: #3880ff;
 }

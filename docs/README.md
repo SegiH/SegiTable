@@ -29,6 +29,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
             - [Data](#Data)
             - [Fields](#Fields)
                 - [Addable](#Addable)
+                - [Centered](#Centered)
                 - [Clickable](#Clickable)
                 - [ClickCallBack](#ClickCallBack)
                 - [Columns](#Columns)
@@ -47,7 +48,9 @@ When you render SegiTable, there is validation that makes sure that you provide 
                 - [IsIDColumn](#IsIDColumn)
                 - [IsEnabledColumn](#IsEnabledColumn)
                 - [IsURL](#IsURL)
+                - [IsURLButton](#IsURLButton)
                 - [IsURLColumn](#IsURLColumn)
+                - [IsURLText](#IsURLText)
                 - [Required](#Required)
                 - [Rows](#Rows)
                 - [SelectData](#SelectData)
@@ -58,6 +61,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
                 - [SearchableField](#SearchableField)
                 - [SortableField](#SortableField)
                 - [TogglesIDColumn](#TogglesIDColumn)
+            - [MultiExpandableRows](#MultiExpandableRows)
     - [width](#width)
 ### ITableComponent:
 
@@ -108,7 +112,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### height
      Required: No
      Type: String
-     Description: The height of the table. If not provided, the table will span the full height available
+     Description: The height of the table. If not provided, the table will span the height needed. If you do set a height, the table header will be sticky which means it will stay in place no matter how many rows you select in the rows per page dropdown.
 
 <a name="isAdding"></a>
 #### isAdding
@@ -204,6 +208,11 @@ When you render SegiTable, there is validation that makes sure that you provide 
           Type: ITableComponentField
           Description: ITableComponentField object that describes the fields in the table data. See ITableComponentField reference below.
 
+<a name="MultiExpandableRows"></a>
+#### MultiExpandableRows
+          Required: Yes
+          Type: Boolean
+          Description: If true, you can have more than 1 expandable row open at a time
 <br /> <br /> <br /> 
 
 ### ITableComponentField:
@@ -213,6 +222,12 @@ When you render SegiTable, there is validation that makes sure that you provide 
 	       Required: No
 	       Type: Boolean
 	       Description: If false, this field cannot be added when adding a new row. If not set or set to true, it can be added
+
+<a name="Centered"></a>
+#### Centered
+	       Required: No
+	       Type: Boolean
+	       Description: If true, will center the text inside of the cell
 
 <a name="Clickable"></a>
 #### Clickable
@@ -330,11 +345,23 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Type: Boolean
                     Description: If true, indicates that the field is a URL and wll be displayed as a hyper link.
 
+<a name="IsURLButton"></a>
+#### IsURLButton
+                    Required: No
+                    Type: Boolean
+                    Description: If true, will display a button as the link instead of using a traditional hyperlink
+
 <a name="IsURLColumn"></a>
 #### IsURLColumn
                     Required: No
                     Type: String
-                    Description: If true, indicates that the name of the database column that will be used to display as the text of the hyperlink text.
+                    Description: If provided, indicates that the name of the database column that will be used to display as the text of the hyperlink text.
+
+<a name="IsURLText"></a>
+#### IsURLText
+                    Required: No
+                    Type: String
+                    Description: If provided, indicates the text that will be used to display the link
 
 <a name="Required"></a>
 #### Required
@@ -559,3 +586,7 @@ SegiTableRecordStartEndAll
 #### table border style:
                  Class name: .SegiTableSolidBorder
                  Description: The table border style for the table
+
+#### URL button
+                 Class name: .SegiTableURLButton
+                 Description: The button displayed for a link
