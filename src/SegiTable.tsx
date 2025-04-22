@@ -1346,7 +1346,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                                   )
                                              })}
                                    </tr>
-                                   
+
                                    {((typeof currentTableComponent.ExpandedRows !== "undefined" && currentTableComponent.ExpandedRows.includes(index))) &&
                                         <tr>
                                              <td className={styles.SegiTableExpandableRowContent} colSpan={currentTableComponent.Fields?.length}>
