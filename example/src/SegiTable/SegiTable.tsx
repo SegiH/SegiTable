@@ -824,7 +824,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                {!isError && filterTableData && hasRunInitialEffect.current === true &&
                     <span>
                          {!isError && tableData && tableData.length > 0 &&
-                              <SegiTableControls addClickHandler={addClickHandler} cancelAddClickHandler={cancelAddClickHandler} cancelEditCallBackHandler={cancelEditCallBackHandler} currentTableComponent={currentTableComponent} editable={editable} editClickHandler={editClickHandler} exportable={exportable} exportCSV={exportCSV} isAdding={isAdding} isEditing={isEditing} saveAddCallBackHandler={saveAddCallBackHandler} saveEditCallBackHandler={saveEditCallBackHandler} searchable={searchable} searchTerm={searchTerm} setSearchTerm={setSearchTerm} tableData={tableData} />
+                              <SegiTableControls addClickHandler={addClickHandler} addingText={addingText} cancelAddClickHandler={cancelAddClickHandler} cancelEditCallBackHandler={cancelEditCallBackHandler} currentTableComponent={currentTableComponent} editable={editable} editClickHandler={editClickHandler} exportable={exportable} exportCSV={exportCSV} isAdding={isAdding} isEditing={isEditing} saveAddCallBackHandler={saveAddCallBackHandler} saveEditCallBackHandler={saveEditCallBackHandler} searchable={searchable} searchTerm={searchTerm} setSearchTerm={setSearchTerm} tableData={tableData} />
                          }
 
                          {!isError && tableData &&
