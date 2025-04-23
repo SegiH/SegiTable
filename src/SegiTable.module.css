@@ -216,7 +216,7 @@
      position: sticky;
      bottom: 0;
      display: flex;
-     justify-content: flex-end;
+     justify-content: end;
      z-index: 100;
      height: 50px;
      width: 100%;
@@ -227,7 +227,7 @@
      justify-content: flex-end;
      padding: 10px;
      align-items: center;
-     justify-content: center;
+     justify-content: end;
 }
 
 .SegiTablePaginationIconButton {
@@ -265,12 +265,11 @@
 
 .SegiTableRecordStartEnd {
      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-     font-weight: 400;
      font-size: 1.3rem;
-     min-width: fit-content;
-     margin-left: 15px;
-     position: relative;
-     top: 30%;
+     line-height: 1.43;
+     padding-top: 11px;
+     margin-left: 25px;
+     vertical-align: middle;
 }
 
 .SegiTableRecordStartEndAll {
@@ -282,7 +281,6 @@
      font-weight: 400;
      font-size: 1.3rem;
      line-height: 1.43;
-     /*width: 125px;*/
      padding-top: 11px;
      margin-left: 25px;
      vertical-align: middle;
