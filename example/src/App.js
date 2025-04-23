@@ -122,12 +122,12 @@ const App = () => {
 
      const saveAddClickHandler = (addDBTypeObj) => {
           // Save addDBTypeObj with an API call
-          alert("This record is not going to be saved")
+          alert("This is an example and your changes will not be saved once you refresh the page");
           setIsAdding(false);
      }
 
      const saveEditClickHandler = async (newData) => {
-          alert("This is a demo and your changes will not be saved once you refresh the page");
+          alert("This is an example and your changes will not be saved once you refresh the page");
 
           // Save newData with an API call
           setIsEditing(false);
@@ -157,7 +157,6 @@ const App = () => {
           <>
                {dataLoaded &&
                     <SegiTable
-                         //addingHasDisabledCheckboxPlaceholder={true} // Shows disabled checkbox when adding
                          addingText={"Add User"}
                          cancelEditCallBackHandler={cancelEditClickHandler}
                          defaultPageSize={5}
