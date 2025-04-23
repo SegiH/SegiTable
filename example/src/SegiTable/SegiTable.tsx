@@ -1248,6 +1248,8 @@ type SegiTableDataGridBodyReadOnlyFieldsProps = {
 
 const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isExpandable, isVisible, toggleRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
      const formatCurrency = (price, locale = 'en-US', currency = 'USD') => {
+          price = price.replace("$", ""); // Remove dollar sign in case its already there so it doesn't break the formatting below
+
           return new Intl.NumberFormat(locale, {
                style: 'currency',
                currency,

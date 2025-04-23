@@ -107,6 +107,16 @@ const App = () => {
                     Required: true,
                     Filterable: true
                },
+               {
+                    DisplayName: 'Due',
+                    Clickable: true,
+                    DatabaseColumn: "amount",
+                    FieldType: FieldTypes.TEXTFIELD,
+                    FieldValueType: FieldValueTypes.CURRENCY,
+                    Centered: true,
+                    Required: true,
+                    Filterable: true
+               },
           ]
      }
 
