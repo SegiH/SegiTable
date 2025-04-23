@@ -164,8 +164,8 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     cellText = cellText.replace(String.fromCharCode(8593), "").replace(String.fromCharCode(8595), "");
 
                     // Remove comma from cell text since the output is CSV which is comma separated
-                    cellText = cellText.replaceAll(",","");
-                    
+                    cellText = cellText.replaceAll(",", "");
+
                     rowData.push(cellText);
 
                     // Track the maximum length of content in each column
@@ -281,7 +281,13 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                          let aValue = a[sortColumn] !== null && typeof a[sortColumn] !== "undefined" ? a[sortColumn] : "";
                          let bValue = b[sortColumn] !== null && typeof b[sortColumn] !== "undefined" ? b[sortColumn] : "";
 
-                         return aValue.toLowerCase() > bValue.toLowerCase() ? sortDirection === "ASC" ? 1 : -1 : sortDirection === "ASC" ? -1 : 1;
+                         if (field.FieldValueType === FieldValueTypes.CURRENCY) {
+                              return sortDirection === "ASC"
+                                   ? parsePrice(aValue) - parsePrice(bValue)
+                                   : parsePrice(bValue) - parsePrice(aValue);
+                         } else {
+                              return aValue.toLowerCase() > bValue.toLowerCase() ? sortDirection === "ASC" ? 1 : -1 : sortDirection === "ASC" ? -1 : 1;
+                         }
                     } else {
                          const aValueSelectDataResult = field.SelectData.filter((currentItem) => { return currentItem[field.SelectDataIDColumn] === a[sortColumn]; });
 
@@ -440,6 +446,8 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           setPageSize(newPageSize);
           setCurrentPage(1);
      }
+
+     const parsePrice = (price: string): number => parseFloat(price.replace(/[^0-9.-]+/g, ""));
 
      const sortColumnClickHandler = (column: string) => {
           if (sortColumn === "" || (sortColumn !== "" && sortColumn !== column)) {
@@ -780,7 +788,12 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                                    .map(item => item[field.DatabaseColumn])
                                    .filter(name => name !== null && name !== "")
                                    .sort((a: any, b: any) => {
-                                        return a.toString().toLowerCase() > b.toString().toLowerCase() ? 1 : -1
+                                        if (field.FieldValueType === FieldValueTypes.CURRENCY) {
+                                             // Always return in ASC order
+                                             return parsePrice(a) - parsePrice(b);
+                                        } else {
+                                             return a.toString().toLowerCase() > b.toString().toLowerCase() ? 1 : -1;
+                                        }
                                    })
                          )
                     );

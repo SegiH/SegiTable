@@ -282,8 +282,6 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                          let bValue = b[sortColumn] !== null && typeof b[sortColumn] !== "undefined" ? b[sortColumn] : "";
 
                          if (field.FieldValueType === FieldValueTypes.CURRENCY) {
-                              const parsePrice = (price: string): number => parseFloat(price.replace(/[^0-9.-]+/g, ""));
-
                               return sortDirection === "ASC"
                                    ? parsePrice(aValue) - parsePrice(bValue)
                                    : parsePrice(bValue) - parsePrice(aValue);
@@ -448,6 +446,8 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           setPageSize(newPageSize);
           setCurrentPage(1);
      }
+
+     const parsePrice = (price: string): number => parseFloat(price.replace(/[^0-9.-]+/g, ""));
 
      const sortColumnClickHandler = (column: string) => {
           if (sortColumn === "" || (sortColumn !== "" && sortColumn !== column)) {
@@ -788,7 +788,12 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                                    .map(item => item[field.DatabaseColumn])
                                    .filter(name => name !== null && name !== "")
                                    .sort((a: any, b: any) => {
-                                        return a.toString().toLowerCase() > b.toString().toLowerCase() ? 1 : -1
+                                        if (field.FieldValueType === FieldValueTypes.CURRENCY) {
+                                             // Always return in ASC order
+                                             return parsePrice(a) - parsePrice(b);
+                                        } else {
+                                             return a.toString().toLowerCase() > b.toString().toLowerCase() ? 1 : -1;
+                                        }
                                    })
                          )
                     );
