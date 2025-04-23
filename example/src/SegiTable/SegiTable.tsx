@@ -42,7 +42,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
      const [pageRecordStartEndLabel, setPageRecordStartEndLabel] = useState("");
      const [searchTerm, setSearchTerm] = useState("");
      const [sortColumn, setSortColumn] = useState("");
-     const [sortDirection, setSortDirection] = useState("ASC");
+     const [sortDirection, setSortDirection] = useState("");
      const [tableData, setTableData] = useState(null); // Used when not adding (viewing or editing table)
      const [filteredTableData, setFilteredTableData] = useState(null);
      const [uniqueValuesVisibleColumn, setUniqueValuesVisibleColumn] = useState(null);
@@ -162,6 +162,10 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                cells.forEach((cell, cellIndex) => {
                     let cellText = cell.innerText;
                     cellText = cellText.replace(String.fromCharCode(8593), "").replace(String.fromCharCode(8595), "");
+
+                    // Remove comma from cell text since the output is CSV which is comma separated
+                    cellText = cellText.replaceAll(",","");
+                    
                     rowData.push(cellText);
 
                     // Track the maximum length of content in each column
@@ -194,7 +198,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           // Create an anchor element to simulate a click and download the file
           const a = document.createElement("a");
           a.href = url;
-          a.download = "customSheetName.csv";  // You can change the file name to something meaningful
+          a.download = "SegiTable.csv";  // You can change the file name to something meaningful
           a.click();
 
           // Clean up the URL object
@@ -356,7 +360,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           return enabledColumn;
      }
 
-     const getFormattedDate = (dateStr: string, separator: string) => {
+     const getFormattedDate = (dateStr: string, separator: string, format?: string) => {
           const language = typeof navigator.languages !== "undefined" ? navigator.languages[0] : "en-us";
 
           const dateObj = dateStr !== null && typeof dateStr !== "undefined" ? new Date(dateStr) : new Date();
@@ -367,7 +371,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           const day = dateObj.getDate().toString().padStart(2, '0');
 
           // Format the date as yyyy-mm-dd
-          const formattedDate = `${year}-${month}-${day}`;
+          const formattedDate = format !== "mm/dd/yyyy" ? `${year}-${month}-${day}` : `${month}-${day}-${year}`;
 
           // If separator is provided, replace hyphens with the separator
           if (separator && separator !== '-') {
@@ -669,7 +673,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     return ["ERROR"];
                }
 
-               if (field.FieldValueType !== FieldValueTypes.BOOLEAN && field.FieldValueType !== FieldValueTypes.DATE && field.FieldValueType !== FieldValueTypes.NUMBER && field.FieldValueType !== FieldValueTypes.TEXT) {
+               if (field.FieldValueType !== FieldValueTypes.BOOLEAN && field.FieldValueType !== FieldValueTypes.DATE && field.FieldValueType !== FieldValueTypes.NUMBER && field.FieldValueType !== FieldValueTypes.TEXT && field.FieldValueType !== FieldValueTypes.CURRENCY) {
                     setErrorMessage(`SegiTable Error: The field ${field.DisplayName} has an invalid field value type ${field.FieldValueType}`);
                     setIsError(true);
                     return ["ERROR"];
@@ -824,7 +828,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                {!isError && filterTableData && hasRunInitialEffect.current === true &&
                     <span>
                          {!isError && tableData && tableData.length > 0 &&
-                              <SegiTableControls addClickHandler={addClickHandler} addingText={addingText} cancelAddClickHandler={cancelAddClickHandler} cancelEditCallBackHandler={cancelEditCallBackHandler} currentTableComponent={currentTableComponent} editable={editable} editClickHandler={editClickHandler} exportable={exportable} exportCSV={exportCSV} isAdding={isAdding} isEditing={isEditing} saveAddCallBackHandler={saveAddCallBackHandler} saveEditCallBackHandler={saveEditCallBackHandler} searchable={searchable} searchTerm={searchTerm} setSearchTerm={setSearchTerm} tableData={tableData} />
+                              <SegiTableControls addClickHandler={addClickHandler} cancelAddClickHandler={cancelAddClickHandler} cancelEditCallBackHandler={cancelEditCallBackHandler} currentTableComponent={currentTableComponent} editable={editable} editClickHandler={editClickHandler} exportable={exportable} exportCSV={exportCSV} isAdding={isAdding} isEditing={isEditing} saveAddCallBackHandler={saveAddCallBackHandler} saveEditCallBackHandler={saveEditCallBackHandler} searchable={searchable} searchTerm={searchTerm} setSearchTerm={setSearchTerm} tableData={tableData} />
                          }
 
                          {!isError && tableData &&
@@ -1007,7 +1011,7 @@ type SegiTableDataGridProps = {
      currentTableComponent: ITableComponent;
      editFieldChangeHandler: (currentRow: any, fieldName: string, fieldValue: string | number | Date) => void;
      filteredTableData: any;
-     getFormattedDate: (dateStr: string, separator: string) => string;
+     getFormattedDate: (dateStr: string, separator: string, format?: string) => string;
      height: string;
      isAdding: boolean;
      isEditing: boolean;
@@ -1048,8 +1052,8 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
 
                // This shouldn't ever happen
                if (index === -1) {
-                   alert(`${newIndex} was not found in expandedRows!`);
-                   return;
+                    alert(`${newIndex} was not found in expandedRows!`);
+                    return;
                }
 
                newComponent.ExpandedRows.splice(index, 1);
@@ -1101,7 +1105,7 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
                <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "max-height", overflow: "auto" }}>
                     <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                          {/* Table Headers */}
-                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} toggleRow={toggleRow} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
+                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} toggleRow={toggleRow} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
 
                          {/* Table body */}
                          <SegiTableDataGridBody currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} hasExpandableCriteriaMet={hasExpandableCriteriaMet} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} toggleRow={toggleRow} />
@@ -1118,7 +1122,6 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
 type SegiTableDataGridHeadersProps = {
      currentTableComponent: ITableComponent;
      hasExpandableCriteriaMet: boolean;
-     isEditing: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
      sortable: boolean;
@@ -1132,11 +1135,11 @@ type SegiTableDataGridHeadersProps = {
      uniqueValuesVisibleColumn: string;
 }
 
-const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isEditing, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, toggleRow, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
+const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, toggleRow, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
      return (
           <thead>
                <tr>
-                    {isExpandable && hasExpandableCriteriaMet && !isEditing &&
+                    {isExpandable && hasExpandableCriteriaMet &&
                          <th className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader}`}></th>
                     }
 
@@ -1211,7 +1214,7 @@ type SegiTableDataGridBodyProps = {
      currentTableComponent: ITableComponent;
      editFieldChangeHandler: (currentRow: any, fieldName: string, fieldValue: string | number | Date) => void;
      filteredTableData: any;
-     getFormattedDate: (dateStr: string, separator: string) => string;
+     getFormattedDate: (dateStr: string, separator: string, format?: string) => string;
      hasExpandableCriteriaMet: boolean;
      isEditing: boolean;
      isExpandable: boolean;
@@ -1223,7 +1226,7 @@ const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, 
      return (
           <tbody>
                {!isEditing &&
-                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} toggleRow={toggleRow} />
+                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} toggleRow={toggleRow} />
                }
 
                {isEditing &&
@@ -1236,13 +1239,21 @@ const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, 
 type SegiTableDataGridBodyReadOnlyFieldsProps = {
      currentTableComponent: ITableComponent;
      filteredTableData: any;
+     getFormattedDate: (dateStr: string, separator: string, format?: string) => string;
      hasExpandableCriteriaMet: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
      toggleRow: (value: number) => void;
 }
 
-const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, hasExpandableCriteriaMet, isExpandable, isVisible, toggleRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
+const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isExpandable, isVisible, toggleRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
+     const formatCurrency = (price, locale = 'en-US', currency = 'USD') => {
+          return new Intl.NumberFormat(locale, {
+               style: 'currency',
+               currency,
+          }).format(price);
+     }
+
      return (
           <>
                {filteredTableData && filteredTableData
@@ -1309,7 +1320,33 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                                             {((field.FieldType === FieldTypes.TEXTFIELD || field.FieldType === FieldTypes.TEXTAREA) || field.IsIDColumn || field.Disabled === true) &&
                                                                  <>
                                                                       {!field.IsURL && !field.IsEmailAddress &&
-                                                                           <div>{currentRow[field.DatabaseColumn]}</div>
+                                                                           <>
+                                                                                {field.FieldValueType === FieldValueTypes.DATE &&
+                                                                                     <>
+                                                                                          {currentRow[field.DatabaseColumn] !== null && currentRow[field.DatabaseColumn] !== "" &&
+                                                                                               <div>{getFormattedDate(currentRow[field.DatabaseColumn], "/", "mm/dd/yyyy")}</div>
+                                                                                          }
+                                                                                     </>
+                                                                                }
+
+                                                                                {field.FieldValueType !== FieldValueTypes.DATE &&
+                                                                                     <>
+                                                                                          {field.FieldValueType !== FieldValueTypes.CURRENCY &&
+                                                                                               <div>{currentRow[field.DatabaseColumn]}</div>
+                                                                                          }
+
+                                                                                          {field.FieldValueType === FieldValueTypes.CURRENCY &&
+                                                                                               <>
+                                                                                                    {currentRow[field.DatabaseColumn] !== null &&
+
+                                                                                                         <div>{formatCurrency(currentRow[field.DatabaseColumn])}</div>
+
+                                                                                                    }
+                                                                                               </>
+                                                                                          }
+                                                                                     </>
+                                                                                }
+                                                                           </>
                                                                       }
 
                                                                       {field.IsURL &&
@@ -1365,7 +1402,7 @@ type SegiTableDataGridBodyEditableFieldsProps = {
      currentTableComponent: ITableComponent;
      editFieldChangeHandler: (currentRow: any, fieldName: string, fieldValue: string | number | Date) => void;
      filteredTableData: any;
-     getFormattedDate: (dateStr: string, separator: string) => string;
+     getFormattedDate: (dateStr: string, separator: string, format?: string) => string;
      isVisible: (field: ITableComponentField) => void;
 }
 

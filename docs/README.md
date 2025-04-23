@@ -307,7 +307,8 @@ When you render SegiTable, there is validation that makes sure that you provide 
                          FieldValueTypes.NUMBER for numeric data
                          FieldValueTypes.DATE for dates
                          FieldValueTypes.BOOLEAN for boolean data
-                    Description: The data type for the field. This is not required when you set IsIDColumn to true because an ID column is not editabe but is required otherwise.
+                         FieldValueTypes.CURRENCY for currency data
+                    Description: The data type for the field. This is not required when you set IsIDColumn to true because an ID column is not editable but is required otherwise.
 
 <a name="Filterable"></a>
 #### Filterable

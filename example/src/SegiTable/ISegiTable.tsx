@@ -11,7 +11,8 @@ export const FieldValueTypes = Object.freeze({
      TEXT: 'TEXT',
      NUMBER: 'NUMBER',
      DATE: 'DATE',
-     BOOLEAN: 'BOOLEAN'
+     BOOLEAN: 'BOOLEAN',
+     CURRENCY: 'CURRENCY'
 });
 
 type FieldValueTypes = keyof typeof FieldValueTypes;
