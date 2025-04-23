@@ -39,7 +39,7 @@ const App = () => {
                     Filterable: true,
                     Required: true,
                     // Display a collapsible/expandable row. When the first name is Herc, the value of "Show" will be displayed. * matches all other rows
-                    ExpandableCriteria: [{ Match: "*", Show: "<h1 style='background-color: green;height: 150px'>This is a test message</h1>" }, { Match: "Herc", Show: "<h1 style='background-color: red;'>This is a test message</h1>" }],
+                    ExpandableCriteria: [{ Match: "*", Show: "<h1 style='background-color: green;height: 150px'>This is a test message</h1>" }, { Match: "Dosi", Show: "<h1 style='background-color: red;'>This is a test message</h1>" }],
                     ExpandableCriteriaExactMatch: false,
                },
                {
