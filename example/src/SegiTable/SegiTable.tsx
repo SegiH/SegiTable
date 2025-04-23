@@ -1187,7 +1187,7 @@ const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteria
                                                   </>
                                              }
 
-                                             {field.Filterable === true &&
+                                             {field.Filterable === true  && typeof field.UniqueValues !== "undefined" &&
                                                   <div className={`${styles.SegiTableFilterIcon} ${styles.SegiTableClickable} ${!sortable ? styles.SegiTableMarginLeft25 : ""}`} onClick={() => uniqueValuesColumnClickHandler(field.DisplayName)}></div>
                                              }
 
