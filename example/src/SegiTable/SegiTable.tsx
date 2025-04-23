@@ -164,8 +164,8 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     cellText = cellText.replace(String.fromCharCode(8593), "").replace(String.fromCharCode(8595), "");
 
                     // Remove comma from cell text since the output is CSV which is comma separated
-                    cellText = cellText.replaceAll(",","");
-                    
+                    cellText = cellText.replaceAll(",", "");
+
                     rowData.push(cellText);
 
                     // Track the maximum length of content in each column
@@ -281,7 +281,15 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                          let aValue = a[sortColumn] !== null && typeof a[sortColumn] !== "undefined" ? a[sortColumn] : "";
                          let bValue = b[sortColumn] !== null && typeof b[sortColumn] !== "undefined" ? b[sortColumn] : "";
 
-                         return aValue.toLowerCase() > bValue.toLowerCase() ? sortDirection === "ASC" ? 1 : -1 : sortDirection === "ASC" ? -1 : 1;
+                         if (field.FieldValueType === FieldValueTypes.CURRENCY) {
+                              const parsePrice = (price: string): number => parseFloat(price.replace(/[^0-9.-]+/g, ""));
+
+                              return sortDirection === "ASC"
+                                   ? parsePrice(aValue) - parsePrice(bValue)
+                                   : parsePrice(bValue) - parsePrice(aValue);
+                         } else {
+                              return aValue.toLowerCase() > bValue.toLowerCase() ? sortDirection === "ASC" ? 1 : -1 : sortDirection === "ASC" ? -1 : 1;
+                         }
                     } else {
                          const aValueSelectDataResult = field.SelectData.filter((currentItem) => { return currentItem[field.SelectDataIDColumn] === a[sortColumn]; });
 
