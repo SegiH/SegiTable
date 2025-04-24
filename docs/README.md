@@ -239,7 +239,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### ClickCallBack
                     Required: No
                     Type: Method
-                    Description: Method to call when the column header has been clicked. If you use this, you should set Clickable to true so the column turns into a mouse pointer when you hover over it. Do not set this with TogglesIDColumn. Only use one or the other but not both
+                    Description: Method to call when the column header has been clicked. If you use this, Clickable will automatically be set to true so the column turns into a mouse pointer when you hover over the column name. Do not set this with TogglesIDColumn. Only use one or the other but not both
 
 <a name="Columns"></a>
 #### Columns

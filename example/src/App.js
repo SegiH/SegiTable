@@ -30,7 +30,6 @@ const App = () => {
                },
                {
                     DisplayName: 'First Name',
-                    Clickable: true,
                     TogglesIDColumn: true, // Double clicking on this column header toggles the ID column
                     DatabaseColumn: "first_name",
                     FieldType: FieldTypes.TEXTFIELD,
@@ -44,7 +43,6 @@ const App = () => {
                },
                {
                     DisplayName: 'Last Name',
-                    Clickable: true,
                     DatabaseColumn: "last_name",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
@@ -54,7 +52,6 @@ const App = () => {
                },
                {
                     DisplayName: 'Email Address',
-                    Clickable: true,
                     DatabaseColumn: "email",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
@@ -65,7 +62,6 @@ const App = () => {
                },
                {
                     DisplayName: 'Gender',
-                    Clickable: true,
                     DatabaseColumn: "gender",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
@@ -75,7 +71,6 @@ const App = () => {
                },
                {
                     DisplayName: 'IP Address',
-                    Clickable: true,
                     DatabaseColumn: "ip_address",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
@@ -84,7 +79,6 @@ const App = () => {
                },
                {
                     DisplayName: 'URL',
-                    Clickable: true,
                     DatabaseColumn: "url",
                     FieldType: FieldTypes.TEXTAREA,
                     Rows: 5,
@@ -99,7 +93,6 @@ const App = () => {
                },
                {
                     DisplayName: 'Date of Entry',
-                    Clickable: true,
                     DatabaseColumn: "date_of_entry",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.DATE,
@@ -109,7 +102,6 @@ const App = () => {
                },
                {
                     DisplayName: 'Due',
-                    Clickable: true,
                     DatabaseColumn: "amount",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.CURRENCY,

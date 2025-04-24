@@ -57,6 +57,8 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           0: "All"
      };
 
+     const isEmailAddress = str => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str);
+
      const mergedPageSizes = typeof pageSizeOverride !== "undefined" ? pageSizeOverride : { ...defaultPageSizes, ...addtlPageSizes };
 
      const tableRef = useRef(null);
@@ -584,17 +586,72 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     return ["ERROR"];
                }
           } else {
+               if (typeof addingHasDisabledCheckboxPlaceholder !== "undefined") {
+                    setErrorMessage("SegiTable Error: addingHasDisabledCheckboxPlaceholder was provided but the table is not editable");
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof addingText !== "undefined") {
+                    setErrorMessage("SegiTable Error: addingText was provided but the table is not editable");
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
                if (typeof cancelEditCallBackHandler !== "undefined") {
                     setErrorMessage("SegiTable Error: cancelEditCallBackHandler was provided but the table is not editable");
                     setIsError(true);
                     return ["ERROR"];
                }
 
-               if (typeof addingHasDisabledCheckboxPlaceholder !== "undefined") {
-                    setErrorMessage("SegiTable Error: addingHasDisabledCheckboxPlaceholder was provided but the table is not editable");
+               if (typeof isAdding !== "undefined") {
+                    setErrorMessage("SegiTable Error: isAdding was provided but the table is not editable");
                     setIsError(true);
                     return ["ERROR"];
                }
+
+               if (typeof isEditing !== "undefined") {
+                    setErrorMessage("SegiTable Error: isEditing was provided but the table is not editable");
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof saveAddCallBackHandler !== "undefined") {
+                    setErrorMessage("SegiTable Error: saveAddCallBackHandler Callback was provided but the table is not editable");
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof saveEditCallBackHandler !== "undefined") {
+                    setErrorMessage("SegiTable Error: saveEditCallBackHandler Callback was provided but the table is not editable");
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof setIsAdding !== "undefined") {
+                    setErrorMessage("SegiTable Error: setIsAdding was provided but the table is not editable");
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof setIsEditing !== "undefined") {
+                    setErrorMessage("SegiTable Error: setIsEditing was provided but the table is not editable");
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+          }
+
+          // width & height validation
+          if (typeof width !== "undefined" && width.toString().indexOf("px") === -1) {
+               setErrorMessage("SegiTable Error: The width must be specified in px");
+               setIsError(true);
+               return ["ERROR"];
+          }
+
+          if (typeof height !== "undefined" && height.toString().indexOf("px") === -1) {
+               setErrorMessage("SegiTable Error: The height must be specified in px");
+               setIsError(true);
+               return ["ERROR"];
           }
 
           // showDisabled validation
@@ -604,8 +661,21 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                return ["ERROR"];
           }
 
+          // pagination validation
           if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof defaultPageSize !== "undefined") {
-               setErrorMessage("SegiTable Error: Pagination is not enabled but defaultPageSize or pageSizeOverride was provided");
+               setErrorMessage("SegiTable Error: Pagination is not enabled but defaultPageSize was provided");
+               setIsError(true);
+               return ["ERROR"];
+          }
+
+          if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof addtlPageSizes !== "undefined") {
+               setErrorMessage("SegiTable Error: Pagination is not enabled but addtlPageSizes was provided");
+               setIsError(true);
+               return ["ERROR"];
+          }
+
+          if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof pageSizeOverride !== "undefined") {
+               setErrorMessage("SegiTable Error: Pagination is not enabled but pageSizeOverride was provided");
                setIsError(true);
                return ["ERROR"];
           }
@@ -627,20 +697,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           }
 
           newTableComponent.Fields.map((field: ITableComponentField, index: number) => {
-               // Validate display name first so I can reference the display name if an error is found later
-               if (typeof field.DisplayName === "undefined") {
-                    setErrorMessage(`SegiTable Error: The field at index ${index} is missing the DisplayName`);
-                    setIsError(true);
-                    return ["ERROR"];
-               }
-
-               if (isEditable) {
-                    if (typeof field.DatabaseColumn === "undefined") {
-                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is missing the DatabaseColumn which is required for an editable table`);
-                         setIsError(true);
-                         return ["ERROR"];
-                    }
-               } else {
+               if (!isEditable) {
                     if (typeof field.Addable !== "undefined") {
                          setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has Addable but the table is not editable`);
                          setIsError(true);
@@ -654,8 +711,37 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     }
                }
 
+               if (typeof field.Clickable === "undefined" && typeof field.ClickCallBack !== "undefined") {
+                    field.Clickable = true;
+               }
+
+               if (typeof field.Clickable !== "undefined" && typeof field.ClickCallBack === "undefined") {
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has Clickable but ClickCallBack was not provided`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
                if (typeof field.ClickCallBack !== "undefined" && typeof field.TogglesIDColumn !== "undefined") {
                     setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has both ClickCallBack and TogglesIDColumn set. You cannot set both of these properties. Only one of them can be set for a given field`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof field.DatabaseColumn === "undefined") {
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is missing the DatabaseColumn which is required for an editable table`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               // Validate display name first so I can reference the display name if an error is found later
+               if (typeof field.DisplayName === "undefined") {
+                    setErrorMessage(`SegiTable Error: The field at index ${index} is missing the DisplayName`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (field.ExpandableCriteriaExactMatch === true && typeof field.ExpandableCriteria == "undefined") {
+                    setErrorMessage(`SegiTable Error: The field at index ${index} provided ExpandableCriteriaExactMatch but ExpandableCriteria was not provided`);
                     setIsError(true);
                     return ["ERROR"];
                }
@@ -759,8 +845,26 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     return ["ERROR"];
                }
 
+               if (typeof field.IsURL === "undefined" && typeof field.IsURLButton !== "undefined") {
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided IsURLButton but IsURL is not set`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
                if (typeof field.IsURL === "undefined" && typeof field.IsURLColumn !== "undefined") {
                     setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided IsURLColumn but IsURL is not set`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof field.IsURL === "undefined" && typeof field.IsURLText !== "undefined") {
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided IsURLText but IsURL is not set`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof field.Rows !== "undefined" && field.FieldType !== FieldTypes.TEXTAREA) {
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided Rows but this field is not a text area`);
                     setIsError(true);
                     return ["ERROR"];
                }
@@ -841,7 +945,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                {!isError && filterTableData && hasRunInitialEffect.current === true &&
                     <span>
                          {!isError && tableData && tableData.length > 0 &&
-                              <SegiTableControls addClickHandler={addClickHandler} cancelAddClickHandler={cancelAddClickHandler} cancelEditCallBackHandler={cancelEditCallBackHandler} currentTableComponent={currentTableComponent} editable={editable} editClickHandler={editClickHandler} exportable={exportable} exportCSV={exportCSV} isAdding={isAdding} isEditing={isEditing} saveAddCallBackHandler={saveAddCallBackHandler} saveEditCallBackHandler={saveEditCallBackHandler} searchable={searchable} searchTerm={searchTerm} setSearchTerm={setSearchTerm} tableData={tableData} />
+                              <SegiTableControls addClickHandler={addClickHandler} addingText={addingText} cancelAddClickHandler={cancelAddClickHandler} cancelEditCallBackHandler={cancelEditCallBackHandler} currentTableComponent={currentTableComponent} editable={editable} editClickHandler={editClickHandler} exportable={exportable} exportCSV={exportCSV} isAdding={isAdding} isEditing={isEditing} saveAddCallBackHandler={saveAddCallBackHandler} saveEditCallBackHandler={saveEditCallBackHandler} searchable={searchable} searchTerm={searchTerm} setSearchTerm={setSearchTerm} tableData={tableData} />
                          }
 
                          {!isError && tableData &&
