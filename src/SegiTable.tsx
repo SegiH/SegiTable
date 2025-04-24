@@ -636,26 +636,26 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
 
                if (isEditable) {
                     if (typeof field.DatabaseColumn === "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} is missing the DatabaseColumn which is required for an editable table`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is missing the DatabaseColumn which is required for an editable table`);
                          setIsError(true);
                          return ["ERROR"];
                     }
                } else {
                     if (typeof field.Addable !== "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} has Addable but the table is not editable`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has Addable but the table is not editable`);
                          setIsError(true);
                          return ["ERROR"];
                     }
 
                     if (typeof field.DefaultAddValue !== "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} has DefaultAddValue but the table is not editable`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has DefaultAddValue but the table is not editable`);
                          setIsError(true);
                          return ["ERROR"];
                     }
                }
 
                if (typeof field.ClickCallBack !== "undefined" && typeof field.TogglesIDColumn !== "undefined") {
-                    setErrorMessage(`SegiTable Error: The field ${field.DisplayName} has both ClickCallBack and TogglesIDColumn set. You cannot set both of these properties. Only one of them can be set for a given field`);
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has both ClickCallBack and TogglesIDColumn set. You cannot set both of these properties. Only one of them can be set for a given field`);
                     setIsError(true);
                     return ["ERROR"];
                }
@@ -663,65 +663,65 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                // ID Column is always read only so FieldType is not required
                if (!field.IsIDColumn) {
                     if (typeof field.FieldType === "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} does not have a field type`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" does not have a field type`);
                          setIsError(true);
                          return ["ERROR"];
                     }
 
                     if (field.FieldType !== FieldTypes.TEXTAREA && field.FieldType !== FieldTypes.TEXTFIELD && field.FieldType !== FieldTypes.SELECT && field.FieldType !== FieldTypes.CHECKBOX) {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} has an invalid field type ${field.FieldType}`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has an invalid field type ${field.FieldType}`);
                          setIsError(true);
                          return ["ERROR"];
                     }
                }
 
                if (typeof field.FieldValueType === "undefined") {
-                    setErrorMessage(`SegiTable Error: The field ${field.DisplayName} does not have a field value type`);
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" does not have a field value type`);
                     setIsError(true);
                     return ["ERROR"];
                }
 
                if (field.FieldValueType !== FieldValueTypes.BOOLEAN && field.FieldValueType !== FieldValueTypes.DATE && field.FieldValueType !== FieldValueTypes.NUMBER && field.FieldValueType !== FieldValueTypes.TEXT && field.FieldValueType !== FieldValueTypes.CURRENCY) {
-                    setErrorMessage(`SegiTable Error: The field ${field.DisplayName} has an invalid field value type ${field.FieldValueType}`);
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has an invalid field value type ${field.FieldValueType}`);
                     setIsError(true);
                     return ["ERROR"];
                }
 
                if (field.FieldType == FieldTypes.SELECT) {
                     if (typeof field.SelectData === "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} is marked as a select field but is missing SelectData`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is marked as a select field but is missing SelectData`);
                          setIsError(true);
                          return ["ERROR"];
                     }
 
                     if (typeof field.SelectDataIDColumn === "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} is marked as a select field but is missing SelectDataIDColumn`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is marked as a select field but is missing SelectDataIDColumn`);
                          setIsError(true);
                          return ["ERROR"];
                     }
 
                     if (typeof field.SelectDataValueColumn === "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} is marked as a select field but is missing SelectDataValueColumn`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is marked as a select field but is missing SelectDataValueColumn`);
                          setIsError(true);
                          return ["ERROR"];
                     }
 
                     if (typeof field.SelectDataEnabledOnly !== "undefined" && field.SelectDataEnabledOnly === true && field.SelectDataEnabledOnlyColumn === "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} has SelectDataEnabledOnly is marked as a select field SelectDataEnabledOnlyColumn is not set`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has SelectDataEnabledOnly is marked as a select field SelectDataEnabledOnlyColumn is not set`);
                          setIsError(true);
                          return ["ERROR"];
                     }
                } else {
                     if (typeof field.SelectDataIDColumn !== "undefined") {
-                         setErrorMessage(`SegiTable Error: The type for field ${field.DisplayName} is not a select type but SelectDataIDColumn is set.`);
+                         setErrorMessage(`SegiTable Error: The type for field "${field.DisplayName}" is not a select type but SelectDataIDColumn is set.`);
                          setIsError(true);
                          return ["ERROR"];
                     } else if (typeof field.SelectDataValueColumn !== "undefined") {
-                         setErrorMessage(`SegiTable Error: The type for field ${field.DisplayName} is not a select type but SelectDataValueColumn is set.`);
+                         setErrorMessage(`SegiTable Error: The type for field "${field.DisplayName}" is not a select type but SelectDataValueColumn is set.`);
                          setIsError(true);
                          return ["ERROR"];
                     } else if (typeof field.SelectDataEnabledOnly !== "undefined") {
-                         setErrorMessage(`SegiTable Error: The type for field ${field.DisplayName} is not a select type but SelectDataEnabledOnly is set.`);
+                         setErrorMessage(`SegiTable Error: The type for field "${field.DisplayName}" is not a select type but SelectDataEnabledOnly is set.`);
                          setIsError(true);
                          return ["ERROR"];
                     }
@@ -729,38 +729,38 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
 
                if (field.FieldType === FieldTypes.TEXTAREA) {
                     if (field.FieldValueType !== FieldValueTypes.TEXT && field.FieldValueType !== FieldValueTypes.NUMBER) {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} is a text area but its type is not text or number`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is a text area but its type is not text or number`);
                          setIsError(true);
                          return ["ERROR"];
                     }
                } else {
                     if (typeof field.Rows !== "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} is not a text area but provided rows property`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is not a text area but provided rows property`);
                          setIsError(true);
                          return ["ERROR"];
                     }
 
                     if (typeof field.Columns !== "undefined") {
-                         setErrorMessage(`SegiTable Error: The field ${field.DisplayName} is not a text area but provided columns property`);
+                         setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" is not a text area but provided columns property`);
                          setIsError(true);
                          return ["ERROR"];
                     }
                }
 
                if (field.IsEnabledColumn === true && newTableComponent.Data.length > 0 && newTableComponent.Data.filter((currentRow: any) => { return Object.keys(currentRow).includes(field.DatabaseColumn) }).length === 0) {
-                    setErrorMessage(`SegiTable Error: The field ${field.DisplayName} has IsEnabledColumn set to true but refers to the database column ${field.DatabaseColumn} which does not exist in the data`);
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has IsEnabledColumn set to true but refers to the database column ${field.DatabaseColumn} which does not exist in the data`);
                     setIsError(true);
                     return ["ERROR"];
                }
 
                if (typeof field.IsEmailAddress !== "undefined" && typeof field.IsURL !== "undefined") {
-                    setErrorMessage(`SegiTable Error: The field ${field.DisplayName} provided both IsEmailAddress and IsURL. You can only provide one of these attributes for a given field`);
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided both IsEmailAddress and IsURL. You can only provide one of these attributes for a given field`);
                     setIsError(true);
                     return ["ERROR"];
                }
 
                if (typeof field.IsURL === "undefined" && typeof field.IsURLColumn !== "undefined") {
-                    setErrorMessage(`SegiTable Error: The field ${field.DisplayName} provided IsURLColumn but IsURL is not set`);
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided IsURLColumn but IsURL is not set`);
                     setIsError(true);
                     return ["ERROR"];
                }
