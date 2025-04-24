@@ -920,7 +920,7 @@ const SegiTableControls = ({ addClickHandler, addingText, cancelAddClickHandler,
 
                {isAdding &&
                     <div>
-                         <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableSaveButton}`} onClick={() => saveAddCallBackHandler(currentTableComponent.Fields)}>Add</button>
+                         <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableSaveButton}`} onClick={() => saveAddCallBackHandler(currentTableComponent.Fields)}>{typeof addingText !== "undefined" ? addingText : "Add"}</button>
                          <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableCancelButton}`} onClick={() => cancelAddClickHandler()}>Cancel</button>
                     </div>
                }
