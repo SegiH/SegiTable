@@ -598,13 +598,13 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           }
 
           // showDisabled validation
-          if (typeof showDisabled !== "undefined" && newTableComponent.Fields.filter((currentField: ITableComponentField) => currentField.IsEnabledColumn === true).length === 0) {
+          if (typeof showDisabled !== "undefined" && showDisabled === true && newTableComponent.Fields.filter((currentField: ITableComponentField) => currentField.IsEnabledColumn === true).length === 0) {
                setErrorMessage("SegiTable Error: showDisabled is true but there are no fields are marked as IsEnabledColumn");
                setIsError(true);
                return ["ERROR"];
           }
 
-          if (typeof paginationEnabled === "undefined" && (typeof defaultPageSize !== "undefined" || typeof pageSizeOverride !== "undefined")) {
+          if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof defaultPageSize !== "undefined") {
                setErrorMessage("SegiTable Error: Pagination is not enabled but defaultPageSize or pageSizeOverride was provided");
                setIsError(true);
                return ["ERROR"];
@@ -920,7 +920,7 @@ const SegiTableControls = ({ addClickHandler, addingText, cancelAddClickHandler,
 
                {isAdding &&
                     <div>
-                         <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableSaveButton}`} onClick={() => saveAddCallBackHandler(currentTableComponent.Fields)}>Add</button>
+                         <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableSaveButton}`} onClick={() => saveAddCallBackHandler(currentTableComponent.Fields)}>{typeof addingText !== "undefined" ? addingText : "Add"}</button>
                          <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableCancelButton}`} onClick={() => cancelAddClickHandler()}>Cancel</button>
                     </div>
                }
