@@ -27,6 +27,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
     - [tableTemplate](#tableTemplate)
         - [ITableComponent](#ITableComponent)
             - [Data](#Data)
+            - [ExpandableContent](#ExpandableContent)
             - [Fields](#Fields)
                 - [Addable](#Addable)
                 - [Centered](#Centered)
@@ -200,7 +201,13 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### Data
 	       Required: Yes
 	       Type: Object
-	       Description: The object that holds the data that you want to render. The data needs to have key value pairs for each row like "Name": "foo"   
+	       Description: The object that holds the data that you want to render. The data needs to have key value pairs for each row like "Name": "foo"
+
+<a name="ExpandableContent"></a>
+#### ExpandableContent
+	       Required: No
+	       Type: Object or string
+	       Description: A string with HTML content or a component to show when you expand the row. You can render a SegiTable table as the expandable row content but there is no way to currently tie the expanded row to its parent.
 
 <a name="Fields"></a>
 #### Fields

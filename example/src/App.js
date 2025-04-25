@@ -13,9 +13,68 @@ const App = () => {
           setIsEditing(false);
      }
 
+     const testData = [
+          {
+               id: 1,
+               address: "555 5th St",
+               city: "Los Angeles",
+               state: "CA"
+          },
+          {
+               id: 2,
+               address: "1717 Mockingbird Lane",
+               city: "Mayberry",
+               state: "AL"
+          }
+     ];
+
+     const testTemplate = {
+          Data: testData,
+          Fields: [
+               {
+                    DisplayName: 'ID',
+                    DatabaseColumn: "id",
+                    FieldType: FieldTypes.TEXTFIELD,
+                    FieldValueType: FieldValueTypes.TEXT,
+               },
+               {
+                    DisplayName: 'Address',
+                    DatabaseColumn: "address",
+                    FieldType: FieldTypes.TEXTFIELD,
+                    FieldValueType: FieldValueTypes.TEXT,
+               },
+               {
+                    DisplayName: 'City',
+                    DatabaseColumn: "city",
+                    FieldType: FieldTypes.TEXTFIELD,
+                    FieldValueType: FieldValueTypes.TEXT,
+                    Centered: true
+               },
+               {
+                    DisplayName: 'State',
+                    DatabaseColumn: "state",
+                    FieldType: FieldTypes.TEXTFIELD,
+                    FieldValueType: FieldValueTypes.TEXT,
+                    Centered: true,
+               }
+          ]
+     }
+
      const template = {
           Data: mockData,
           MultiExpandableRows: true,
+          ExpandableContent:
+               <SegiTable
+                    editable={false}
+                    //expandableData={testData}
+                    //expandableDataColumn="id"
+                    exportable={false}
+                    filterable={false}
+                    height={"230px"}
+                    searchable={false}
+                    sortable={true}
+                    tableTemplate={testTemplate}
+               />,
           Fields: [
                {
                     DisplayName: 'id', // Column header
@@ -38,8 +97,19 @@ const App = () => {
                     Filterable: true,
                     Required: true,
                     // Display a collapsible/expandable row. When the first name is Herc, the value of "Show" will be displayed. * matches all other rows
-                    ExpandableCriteria: [{ Match: "*", Show: "<h1 style='background-color: green;height: 150px'>This is a test message</h1>" }, { Match: "Dosi", Show: "<h1 style='background-color: red;'>This is a test message</h1>" }],
-                    ExpandableCriteriaExactMatch: false,
+                    /*ExpandableCriteria: [{ Match: "*", Show:
+                         <SegiTable
+                         editable={false}
+                         exportable={false}
+                         filterable={false}
+                         height={"200px"}
+                         searchable={false}
+                         sortable={true}
+                         tableTemplate={testTemplate}
+                    />
+
+                    }, { Match: "Dosi", Show: "<h1 style='background-color: red;'>This is a test message</h1>" }],
+                    ExpandableCriteriaExactMatch: false,*/
                },
                {
                     DisplayName: 'Last Name',
