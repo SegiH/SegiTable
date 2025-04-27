@@ -20,6 +20,9 @@ type FieldValueTypes = keyof typeof FieldValueTypes;
 export interface ITableComponent {
      Data: any;
      ExpandableContent?: React.ReactNode;
+     ExpandableData: number[]; // Used internally by the app
+     ExpandableDataColumn?: string; // TODO: Add comment and delete main one or delete this one
+     ExpandableDataLinked: boolean;
      ExpandedRows: number[]; // Used internally by the app
      Fields: ITableComponentField[];
      MultiExpandableRows?: boolean;

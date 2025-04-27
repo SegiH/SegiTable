@@ -13,7 +13,7 @@ const App = () => {
           setIsEditing(false);
      }
 
-     const testData = [
+     const expandableData = [
           {
                id: 1,
                address: "555 5th St",
@@ -28,8 +28,10 @@ const App = () => {
           }
      ];
 
-     const testTemplate = {
-          Data: testData,
+     const expandableTemplate = {
+          Data: expandableData,
+          ExpandableDataColumn: "id", // The id in expandableData will be matched with the id in mockData
+          ExpandableDataLinked: true,
           Fields: [
                {
                     DisplayName: 'ID',
@@ -62,18 +64,16 @@ const App = () => {
 
      const template = {
           Data: mockData,
-          MultiExpandableRows: true,
+          ExpandableDataColumn: "id", // This has to match ExpandableDataColumn defined in expandableTemplate 
           ExpandableContent:
                <SegiTable
                     editable={false}
-                    //expandableData={testData}
-                    //expandableDataColumn="id"
                     exportable={false}
                     filterable={false}
                     height={"230px"}
                     searchable={false}
                     sortable={true}
-                    tableTemplate={testTemplate}
+                    tableTemplate={expandableTemplate}
                />,
           Fields: [
                {
@@ -97,19 +97,31 @@ const App = () => {
                     Filterable: true,
                     Required: true,
                     // Display a collapsible/expandable row. When the first name is Herc, the value of "Show" will be displayed. * matches all other rows
-                    /*ExpandableCriteria: [{ Match: "*", Show:
-                         <SegiTable
-                         editable={false}
-                         exportable={false}
-                         filterable={false}
-                         height={"200px"}
-                         searchable={false}
-                         sortable={true}
-                         tableTemplate={testTemplate}
-                    />
+                    ExpandableCriteria: [
+                         {
+                              Match: "*",
+                              Show:
+                                   <SegiTable
+                                        editable={false}
+                                        exportable={false}
+                                        filterable={false}
+                                        height={"200px"}
+                                        searchable={false}
+                                        sortable={true}
+                                        tableTemplate={expandableTemplate}
+                                   />
 
-                    }, { Match: "Dosi", Show: "<h1 style='background-color: red;'>This is a test message</h1>" }],
-                    ExpandableCriteriaExactMatch: false,*/
+                         },
+                         /*{
+                              Match: "Dosi",
+                              Show: "<h1 style='background-color: red;'>This is a test message</h1>"
+                         },*/
+                         /*{ // If you enable this, it will override the Match: "*" above
+                              Match: "*",
+                              Show: "<h1 style='background-color: green;'>This is a test message</h1>"
+                         }*/
+                    ],
+                    ExpandableCriteriaExactMatch: false,
                },
                {
                     DisplayName: 'Last Name',
@@ -179,7 +191,8 @@ const App = () => {
                     Required: true,
                     Filterable: true
                },
-          ]
+          ],
+          MultiExpandableRows: true,
      }
 
      const saveAddClickHandler = (addDBTypeObj) => {
@@ -211,6 +224,9 @@ const App = () => {
           });
 
           setMockData(result);
+
+          // TODO: Remove if possible
+          // testTemplate.Data = result;
 
           setDataLoaded(true);
      }, []);

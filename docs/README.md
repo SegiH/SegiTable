@@ -28,6 +28,8 @@ When you render SegiTable, there is validation that makes sure that you provide 
         - [ITableComponent](#ITableComponent)
             - [Data](#Data)
             - [ExpandableContent](#ExpandableContent)
+            - [ExpandableDataColumn](#ExpandableDataColumn)
+            - [ExpandableDataLinked](#ExpandableDataLinked)
             - [Fields](#Fields)
                 - [Addable](#Addable)
                 - [Centered](#Centered)
@@ -208,6 +210,18 @@ When you render SegiTable, there is validation that makes sure that you provide 
 	       Required: No
 	       Type: Object or string
 	       Description: A string with HTML content or a component to show when you expand the row. You can render a SegiTable table as the expandable row content but there is no way to currently tie the expanded row to its parent.
+
+<a name="ExpandableDataColumn"></a>
+#### ExpandableContent
+	       Required: No
+	       Type: String
+	       Description: If ExpandableDataLinked is set to true, set this to the column used to link the parent and child rows.
+
+<a name="ExpandableDataColumnLinked"></a>
+#### ExpandableContentLinked
+	       Required: No
+	       Type: Boolean
+	       Description: If true, the expandable data can be tied to the parent. If using this feature, set ExpandableDataColumn to the name of the column in the database to use to link the data. This should be a non nullable database column, preferably the primary key column.
 
 <a name="Fields"></a>
 #### Fields

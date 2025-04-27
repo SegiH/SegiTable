@@ -13,8 +13,6 @@ type SegiTableProps = {
      cancelEditCallBackHandler?: () => void;
      defaultPageSize?: number,
      editable?: boolean,
-     //expandableData?: [],
-     //expandableDataColumn: string
      exportable?: boolean,
      height?: string;
      isAdding?: boolean,
@@ -538,9 +536,9 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           // Some attributes are optional but if provided, rely on other attributes to work correctly
           // This method makes sure that the attributes passed to this component make sense
           // Some attributes that are conditionally used are set with a default value if not provided
-          const newTableComponent = Object.assign([], tableTemplate);
+          const newTableTemplate = Object.assign([], tableTemplate);
 
-          if (typeof newTableComponent.Data === "undefined") {
+          if (typeof newTableTemplate.Data === "undefined") {
                setErrorMessage("SegiTable Error: The data property must be specified");
                setIsError(true);
                return ["ERROR"];
@@ -661,7 +659,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           }
 
           // showDisabled validation
-          if (typeof showDisabled !== "undefined" && showDisabled === true && newTableComponent.Fields.filter((currentField: ITableComponentField) => currentField.IsEnabledColumn === true).length === 0) {
+          if (typeof showDisabled !== "undefined" && showDisabled === true && newTableTemplate.Fields.filter((currentField: ITableComponentField) => currentField.IsEnabledColumn === true).length === 0) {
                setErrorMessage("SegiTable Error: showDisabled is true but there are no fields are marked as IsEnabledColumn");
                setIsError(true);
                return ["ERROR"];
@@ -702,7 +700,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                return ["ERROR"];
           }
 
-          newTableComponent.Fields.map((field: ITableComponentField, index: number) => {
+          newTableTemplate.Fields.map((field: ITableComponentField, index: number) => {
                if (!isEditable) {
                     if (typeof field.Addable !== "undefined") {
                          setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has Addable but the table is not editable`);
@@ -839,7 +837,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     }
                }
 
-               if (field.IsEnabledColumn === true && newTableComponent.Data.length > 0 && newTableComponent.Data.filter((currentRow: any) => { return Object.keys(currentRow).includes(field.DatabaseColumn) }).length === 0) {
+               if (field.IsEnabledColumn === true && newTableTemplate.Data.length > 0 && newTableTemplate.Data.filter((currentRow: any) => { return Object.keys(currentRow).includes(field.DatabaseColumn) }).length === 0) {
                     setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" has IsEnabledColumn set to true but refers to the database column ${field.DatabaseColumn} which does not exist in the data`);
                     setIsError(true);
                     return ["ERROR"];
@@ -876,7 +874,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                }
           });
 
-          return ["OK", newTableComponent];
+          return ["OK", newTableTemplate];
      }
 
      useEffect(() => {
@@ -942,6 +940,8 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           }
      }, [currentTableComponent]);
 
+     const lastId = localStorage.getItem("SegiTable.LastOpenedId");
+
      return (
           <div className={`${styles.SegiTable}`} style={{ width: typeof width !== "undefined" ? width : "100%" }}>
                {isError &&
@@ -961,11 +961,35 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                                         <SegiTableAddRow addFieldChangeHandler={addFieldChangeHandler} addingHasDisabledCheckboxPlaceholder={addingHasDisabledCheckboxPlaceholder} currentTableComponent={currentTableComponent} idVisible={idVisible} isAdding={isAdding} />
                                    }
 
-                                   {tableData.length === 0 &&
+                                   {((tableData.length === 0 && currentTableComponent.ExpandableDataLinked !== true)
+                                        ||
+                                        (currentTableComponent.ExpandableDataLinked === true &&
+                                             currentTableComponent.ExpandableDataLinked === true &&
+                                             currentTableComponent.Data.filter((currentRow: any) => {
+                                                  return (
+                                                       (typeof currentTableComponent.ExpandableDataLinked === "undefined" || lastId === "")
+                                                       ||
+                                                       (
+                                                            typeof currentTableComponent.ExpandableDataLinked !== "undefined"
+                                                            && lastId !== "" && currentTableComponent.ExpandableDataColumn !== "" && String(currentRow[currentTableComponent.ExpandableDataColumn]).trim() === lastId
+                                                       )
+                                                  )
+                                             }).length === 0
+                                        )
+                                   )
+                                        &&
                                         <span style={{ fontSize: "24px", fontWeight: "bold" }}>No Data</span>
                                    }
 
                                    {tableData.length > 0 &&
+                                        (currentTableComponent.ExpandableDataLinked !== true
+                                             || (currentTableComponent.ExpandableDataLinked === true && currentTableComponent.Data.filter((currentRow: any) => {
+                                                  return (
+                                                       (typeof currentTableComponent.ExpandableDataLinked === "undefined" || lastId === "") ||
+                                                       (typeof currentTableComponent.ExpandableDataLinked !== "undefined" && lastId !== "" && String(currentRow[currentTableComponent.ExpandableDataColumn]).trim() === lastId)
+                                                  )
+                                             }).length > 0))
+                                        &&
                                         <SegiTableDataGrid currentPage={currentPage} currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} height={height} isAdding={isAdding} isEditing={isEditing} isVisible={isVisible} lastPage={lastPage} lastPageNum={lastPageNum} mergedPageSizes={mergedPageSizes} pageClickHandler={pageClickHandler} pageRecordStartEndLabel={pageRecordStartEndLabel} pageSize={pageSize} pageSizeClickHandler={pageSizeClickHandler} paginationEnabled={paginationEnabled} setCurrentTableComponent={setCurrentTableComponent} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} tableData={tableData} tableRef={tableRef} toggleIDColumn={toggleIDColumn} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
                                    }
                               </>
@@ -1132,7 +1156,7 @@ const SegiTableAddRow = ({ addFieldChangeHandler, addingHasDisabledCheckboxPlace
 type SegiTableDataGridProps = {
      currentPage: number;
      currentTableComponent: ITableComponent;
-     editFieldChangeHandler: (currentRow: any, fieldName: string, fieldValue: string | number | Date) => void; 
+     editFieldChangeHandler: (currentRow: any, fieldName: string, fieldValue: string | number | Date) => void;
      filteredTableData: any;
      getFormattedDate: (dateStr: string, separator: string, format?: string) => string;
      height: string;
@@ -1162,34 +1186,6 @@ type SegiTableDataGridProps = {
 
 const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, height, isAdding, isEditing, isVisible, lastPage, lastPageNum, mergedPageSizes, pageClickHandler, pageRecordStartEndLabel, pageSize, pageSizeClickHandler, paginationEnabled, setCurrentTableComponent, sortable, sortColumn, sortColumnClickHandler, sortDirection, tableData, tableRef, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridProps) => {
      let isExpandable = currentTableComponent.Fields.filter((field: ITableComponentField) => { return typeof field.ExpandableCriteria !== "undefined"; }).length === 0 ? false : true;
-
-     const toggleRow = (newIndex: number) => {
-          const newComponent = Object.assign([], currentTableComponent);
-
-          if (typeof newComponent.ExpandedRows === "undefined") {
-               newComponent.ExpandedRows = [];
-          }
-
-          if (newComponent.ExpandedRows.includes(newIndex)) {
-               const index = newComponent.ExpandedRows.indexOf(newIndex);
-
-               // This shouldn't ever happen
-               if (index === -1) {
-                    alert(`${newIndex} was not found in expandedRows!`);
-                    return;
-               }
-
-               newComponent.ExpandedRows.splice(index, 1);
-          } else {
-               if (currentTableComponent.MultiExpandableRows !== true) {
-                    newComponent.ExpandedRows = [];
-               }
-
-               newComponent.ExpandedRows.push(newIndex);
-          }
-
-          setCurrentTableComponent(newComponent);
-     }
 
      let hasExpandableCriteriaMet = false;
 
@@ -1231,10 +1227,12 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
                <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "800px", overflow: "auto" }}>
                     <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                          {/* Table Headers */}
-                         <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} toggleRow={toggleRow} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
+                         {
+                              <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
+                         }
 
                          {/* Table body */}
-                         <SegiTableDataGridBody currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} toggleRow={toggleRow} />
+                         <SegiTableDataGridBody currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} setCurrentTableComponent={setCurrentTableComponent} />
                     </table>
                </div>
 
@@ -1255,13 +1253,12 @@ type SegiTableDataGridHeadersProps = {
      sortColumnClickHandler: (value: string) => void;
      sortDirection: string;
      toggleIDColumn: () => void;
-     toggleRow: (value: number) => void;
      uniqueValuesColumnClickHandler: (value: string) => void;
      uniqueValuesOptionClickHandler: (displayName: string, value?: string, selectAll?: boolean) => void;
      uniqueValuesVisibleColumn: string;
 }
 
-const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, toggleRow, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
+const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
      return (
           <thead>
                <tr>
@@ -1345,14 +1342,14 @@ type SegiTableDataGridBodyProps = {
      isEditing: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
-     toggleRow: (value: number) => void;
+     setCurrentTableComponent: (value: ITableComponent) => void;
 }
 
-const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isEditing, isExpandable, isVisible, toggleRow }: SegiTableDataGridBodyProps) => {
+const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isEditing, isExpandable, isVisible, setCurrentTableComponent }: SegiTableDataGridBodyProps) => {
      return (
           <tbody>
                {!isEditing &&
-                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} toggleRow={toggleRow} />
+                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} setCurrentTableComponent={setCurrentTableComponent} />
                }
 
                {isEditing &&
@@ -1369,10 +1366,10 @@ type SegiTableDataGridBodyReadOnlyFieldsProps = {
      hasExpandableCriteriaMet: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
-     toggleRow: (value: number) => void;
+     setCurrentTableComponent: (value: ITableComponent) => void;
 }
 
-const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isExpandable, isVisible, toggleRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
+const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, getFormattedDate, hasExpandableCriteriaMet, isExpandable, isVisible, setCurrentTableComponent }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
      const formatCurrency = (price, locale = 'en-US', currency = 'USD') => {
           price = price.replace("$", ""); // Remove dollar sign in case its already there so it doesn't break the formatting below
 
@@ -1382,20 +1379,61 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
           }).format(price);
      }
 
+     const dataToProcess = typeof filteredTableData !== "undefined" ? filteredTableData : null;
+
+     const toggleRow = (newId: number) => {
+          if (typeof newId === "undefined") {
+               alert("Value is not set. Make sure that ExpandableDataColumn is set in the template")
+               return;
+          }
+
+          const newComponent = Object.assign([], currentTableComponent);
+
+          // Because of weird issue communicating from parent SegiTable to Child SegiTable I write to localStorage
+          const lastId = localStorage.getItem("SegiTable.LastOpenedId");
+
+          if (typeof newComponent.ExpandedRows === "undefined") {
+               newComponent.ExpandedRows = [];
+          }
+
+          if (newComponent.ExpandedRows.includes(newId)) {
+               const index = newComponent.ExpandedRows.indexOf(newId);
+
+               // This shouldn't ever happen
+               if (index === -1) {
+                    alert(`${newId} was not found in expandedRows!`);
+                    return;
+               }
+
+               newComponent.ExpandedRows.splice(index, 1);
+
+               if (newId.toString() === lastId) {
+                    console.log(new Date().toTimeString() + `setting index to -1`)
+                    localStorage.setItem("SegiTable.LastOpenedId", "-1");
+               }
+          } else {
+               if (currentTableComponent.MultiExpandableRows !== true) {
+                    newComponent.ExpandedRows = [];
+               }
+
+               newComponent.ExpandedRows.push(newId);
+               localStorage.setItem("SegiTable.LastOpenedId", newId.toString());
+          }
+
+          setCurrentTableComponent(newComponent);
+     }
+
+     const lastId = localStorage.getItem("SegiTable.LastOpenedId");
+
      return (
           <>
-               {filteredTableData && filteredTableData
-                    /*.filter((currentRow: any) => {
+               {dataToProcess !== null && dataToProcess
+                    .filter((currentRow: any) => {
                          return (
-                              typeof  expandableData === "undefined" ||
-                              (typeof  expandableData !== "undefined" && typeof expandableData !== "undefined"
-                                   && expandableData.filter((row: []) => {
-                                        return row["id"] === currentRow["id"] // This does not work correctly. Checks against itself!
-                                   }).length > 0
-                              )
-
+                              (typeof currentTableComponent.ExpandableDataLinked === "undefined" || lastId === "") ||
+                              (typeof currentTableComponent.ExpandableDataLinked !== "undefined" && lastId !== "" && String(currentRow[currentTableComponent.ExpandableDataColumn]).trim() === lastId)
                          )
-                    })*/
+                    })
                     .map((currentRow: any, index: number) => {
                          let expandableContent = null;
                          let expandableCriteriaMet = false;
@@ -1445,7 +1483,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                               <React.Fragment key={index}>
                                    <tr key={index}>
                                         {isExpandable && hasExpandableCriteriaMet &&
-                                             <td className={`${styles.SegiTableDataCell}`} onClick={() => toggleRow(index)}>
+                                             <td className={`${styles.SegiTableDataCell}`} onClick={() => toggleRow(currentRow[currentTableComponent.ExpandableDataColumn])}>
                                                   {expandableCriteriaMet &&
                                                        <div className={`${styles.SegiTableArrow} ${styles.SegiTableClickable}`}>{typeof currentTableComponent.ExpandedRows !== "undefined" && currentTableComponent.ExpandedRows.includes(index) ? '▼' : '▶'}</div>
                                                   }
@@ -1526,7 +1564,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                         }
                                    </tr>
 
-                                   {((typeof currentTableComponent.ExpandedRows !== "undefined" && currentTableComponent.ExpandedRows.includes(index))) &&
+                                   {((typeof currentTableComponent.ExpandedRows !== "undefined" && currentTableComponent.ExpandedRows.includes(currentRow[currentTableComponent.ExpandableDataColumn]))) &&
                                         <tr>
                                              <td className={styles.SegiTableExpandableRowContent} colSpan={currentTableComponent.Fields?.length}>
                                                   <div className={styles.SegiTableExpandableContent}>

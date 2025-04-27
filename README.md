@@ -11,7 +11,7 @@
  - Built in search
  - Built in pagination with the rows per page option saved locally and restored when the table loads
  - Built in filtering
- - Collapsible/expandable rows for either all rows or some rows based on criteria
+ - Collapsible/expandable rows for either all rows or some rows based on criteria. You can also render another SegiTable as the expandable row
  - Export to CSV
  - Customize the look and feel with CSS
 
