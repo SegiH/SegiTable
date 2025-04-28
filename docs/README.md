@@ -209,7 +209,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### ExpandableContent
 	       Required: No
 	       Type: Object or string
-	       Description: A string with HTML content or a component to show when you expand the row. You can render a SegiTable table as the expandable row content but there is no way to currently tie the expanded row to its parent.
+	       Description: A string with HTML content or a component to show when you expand the row. You can render a SegiTable table as the expandable row content. It is possible to currently tie the expanded row to its parent.
 
 <a name="ExpandableDataColumn"></a>
 #### ExpandableContent
