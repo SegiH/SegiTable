@@ -26,6 +26,13 @@ const App = () => {
                city: "Mayberry",
                state: "AL"
           }
+          ,
+          {
+               id: 4,
+               address: "1234 Main St",
+               city: "Nowhere",
+               state: "PA"
+          }
      ];
 
      const expandableTemplate = {
@@ -106,6 +113,7 @@ const App = () => {
                                         exportable={false}
                                         filterable={false}
                                         height={"200px"}
+                                        width={"1000px"}
                                         searchable={false}
                                         sortable={true}
                                         tableTemplate={expandableTemplate}
@@ -225,9 +233,6 @@ const App = () => {
 
           setMockData(result);
 
-          // TODO: Remove if possible
-          // testTemplate.Data = result;
-
           setDataLoaded(true);
      }, []);
 
@@ -252,7 +257,6 @@ const App = () => {
                          setIsEditing={setIsEditing}
                          sortable={true}
                          tableTemplate={template}
-                         width={"1500px"}
                     />
                }
           </>

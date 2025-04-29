@@ -695,7 +695,13 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           }
 
           if (typeof addtlPageSizes !== "undefined" && typeof pageSizeOverride !== "undefined") {
-               setErrorMessage(`SegiTable Error: addtlPageSizes and pageSizeOverride are  both set. Only 1 of these props can be provided`);
+               setErrorMessage(`SegiTable Error: addtlPageSizes and pageSizeOverride are both set. Only 1 of these props can be provided`);
+               setIsError(true);
+               return ["ERROR"];
+          }
+
+          if (typeof newTableTemplate.ExpandableDataLinked !== "undefined" && (typeof newTableTemplate.ExpandableDataColumn === "undefined" || newTableTemplate.ExpandableDataColumn === "")) {
+               setErrorMessage(`SegiTable Error: ExpandableDataLinked was provided but ExpandableDataColumn was not provided`);
                setIsError(true);
                return ["ERROR"];
           }
@@ -1224,11 +1230,11 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
 
      return (
           <div>
-               <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "800px", overflow: "auto" }}>
+               <div id="SegiTableGridContent" className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "auto", overflow: "auto" }}>
                     <table className={`${styles.SegiTableDataGrid} ${!lastPage ? `${styles.SegiTableDataGridNotLastPage}` : ""}`} ref={tableRef}>
                          {/* Table Headers */}
                          {
-                              <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
+                              <SegiTableDataGridHeaders currentTableComponent={currentTableComponent} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
                          }
 
                          {/* Table body */}
@@ -1246,6 +1252,7 @@ const SegiTableDataGrid = ({ currentPage, currentTableComponent, editFieldChange
 type SegiTableDataGridHeadersProps = {
      currentTableComponent: ITableComponent;
      hasExpandableCriteriaMet: boolean;
+     isEditing: boolean;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
      sortable: boolean;
@@ -1258,11 +1265,11 @@ type SegiTableDataGridHeadersProps = {
      uniqueValuesVisibleColumn: string;
 }
 
-const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
+const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteriaMet, isEditing, isExpandable, isVisible, sortable, sortColumn, sortColumnClickHandler, sortDirection, toggleIDColumn, uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn }: SegiTableDataGridHeadersProps) => {
      return (
           <thead>
                <tr>
-                    {isExpandable && hasExpandableCriteriaMet &&
+                    {isExpandable && hasExpandableCriteriaMet && !isEditing &&
                          <th className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader}`}></th>
                     }
 
@@ -1275,7 +1282,7 @@ const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteria
                                         <th style={{ width: `calc(100% / ${currentTableComponent.Fields.length})` }} className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader} ${field.IsIDColumn === true ? `${styles.SegiTableIDColumn}` : ""}`} onDoubleClick={typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null}>
                                              <span className={`${field.Clickable ? `${styles.SegiTableClickable}` : ""}`} style={{ marginLeft: "10px" }}>{field.DisplayName}</span>
 
-                                             {sortable === true && field.SortableField !== false &&
+                                             {sortable === true && field.SortableField !== false && !isEditing &&
                                                   <>
                                                        {(sortColumn === "" || (sortColumn !== "" && sortColumn !== field.DatabaseColumn)) &&
                                                             <span className={styles.SegiTableClickable} onClick={() => sortColumnClickHandler(field.DatabaseColumn)}>
@@ -1297,7 +1304,7 @@ const SegiTableDataGridHeaders = ({ currentTableComponent, hasExpandableCriteria
                                                   </>
                                              }
 
-                                             {field.Filterable === true && typeof field.UniqueValues !== "undefined" &&
+                                             {field.Filterable === true && typeof field.UniqueValues !== "undefined" && !isEditing &&
                                                   <div className={`${styles.SegiTableFilterIcon} ${styles.SegiTableClickable} ${!sortable ? styles.SegiTableMarginLeft25 : ""}`} onClick={() => uniqueValuesColumnClickHandler(field.DisplayName)}></div>
                                              }
 
