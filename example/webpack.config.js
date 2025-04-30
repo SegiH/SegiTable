@@ -1,10 +1,10 @@
 const path = require("path");
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   entry: "./src/index.js",
-  mode: "development",
+  mode: "production",
   target: 'web',
   resolve: {
     extensions: ['.ts', '.tsx', '.js','.css','.png'],
