@@ -77,7 +77,6 @@ const App = () => {
                     editable={false}
                     exportable={false}
                     filterable={false}
-                    height={"230px"}
                     searchable={false}
                     sortable={true}
                     tableTemplate={expandableTemplate}
@@ -217,6 +216,7 @@ const App = () => {
      }
 
      useEffect(() => {
+          // Import CSV data
           const lines = mockUserData.trim().split('\n');
 
           // Get the headers
