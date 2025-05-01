@@ -2,6 +2,7 @@ const path = require("path");
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+
 module.exports = {
   entry: "./src/index.js",
   mode: "production",
@@ -58,6 +59,22 @@ module.exports = {
       filename: './index.html',
       inject: false
     }),
-  ]
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: true, // remove console.* calls
+          },
+          format: {
+            comments: false, // remove comments
+          },
+        },
+        extractComments: false, // don't generate separate LICENSE.txt
+      }),
+    ],
+  },
 }
 
