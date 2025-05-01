@@ -20,10 +20,10 @@ type FieldValueTypes = keyof typeof FieldValueTypes;
 export interface ITableComponent {
      Data: any;
      ExpandableContent?: React.ReactNode;
-     ExpandableData: number[]; // Used internally by the app
+     ExpandableData?: number[]; // Used internally by the app
      ExpandableDataColumn?: string; // TODO: Add comment and delete main one or delete this one
-     ExpandableDataLinked: boolean;
-     ExpandedRows: number[]; // Used internally by the app
+     ExpandableDataLinked?: boolean;
+     ExpandedRows?: number[]; // Used internally by the app
      Fields: ITableComponentField[];
      MultiExpandableRows?: boolean;
 }
@@ -41,18 +41,18 @@ export interface ITableComponentField {
      ExpandableCriteria?: [{ Match: string; Show: string }]; // An array of values that are used as a condition to determien whether the row is expandable. Set this to null to have all rows be expandable
      ExpandableCriteriaExactMatch?: boolean; // If true, the values in ExpandableCriteria ned to match exactly. If false, does a partial match
      FieldType: FieldTypesType; // The type of field based on one of the FieldTypes
-     FieldValue: string | number; // The value of the field. This is used when adding
+     FieldValue?: string | number; // The value of the field. This is used when adding
      FieldValueType: FieldValueTypes; // The type of value (text, number, date etc) based on FieldValueTypes
-     Filterable: boolean; // Indicates whether this field is filterable
+     Filterable?: boolean; // Indicates whether this field is filterable
      HiddenField?: boolean; // Hide this field when not editing the table
      IsEmailAddress?: boolean; // Indicates that this is an email address field
-     IsIDColumn: boolean; // Indicates that this is an ID field
-     IsEnabledColumn: boolean; // Indicates whether this field is used to determine whether to hide or show enabled fields when showDisable is provided
+     IsIDColumn?: boolean; // Indicates that this is an ID field
+     IsEnabledColumn?: boolean; // Indicates whether this field is used to determine whether to hide or show enabled fields when showDisable is provided
      IsURL?: boolean; // Indicates that this is a URL field
      IsURLButton?: boolean; // Show the URL as a button
      IsURLColumn?: string; // Specify the database column name in the data that is used as the hyperlink text when displaying a URL
      IsURLText?: string; // Specify static text to display for the link
-     Required: boolean; // Indicates that this is a required field
+     Required?: boolean; // Indicates that this is a required field
      Rows?: number; // The number of rows for a textarea
      SelectData?: any; // When the field type is SELECT, the data used to render the select drop down
      SelectDataIDColumn?: string; // When the field type is SELECT, the database column that is returned when you select a value in the select dropdown, usually an ID column
