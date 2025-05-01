@@ -76,7 +76,6 @@ const App = () => {
                <SegiTable
                     editable={false}
                     exportable={false}
-                    filterable={false}
                     searchable={false}
                     sortable={true}
                     tableTemplate={expandableTemplate}
