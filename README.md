@@ -16,7 +16,7 @@
  - Customize the look and feel with CSS
 
 ### Live Demo
-![Live Demo](https://segih.github.io/SegiTable/ "")
+[Live Demo](https://segih.github.io/SegiTable/ "")
 
 ### Screenshots
 
