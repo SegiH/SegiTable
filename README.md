@@ -15,6 +15,10 @@
  - Export to CSV
  - Customize the look and feel with CSS
 
+### Live Demo
+![Live Demo](https://segih.github.io/SegiTable/ "")
+
+### Screenshots
 
 ![alt text](screenshots/Example.png "")
 
