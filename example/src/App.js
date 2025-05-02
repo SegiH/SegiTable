@@ -79,6 +79,7 @@ const App = () => {
                     searchable={false}
                     sortable={true}
                     tableTemplate={expandableTemplate}
+                    width={"700px"}
                />,
           Fields: [
                {
@@ -101,33 +102,6 @@ const App = () => {
                     Centered: true,
                     Filterable: true,
                     Required: true,
-                    // Display a collapsible/expandable row. When the first name is Herc, the value of "Show" will be displayed. * matches all other rows
-                    ExpandableCriteria: [
-                         {
-                              Match: "*",
-                              Show:
-                                   <SegiTable
-                                        editable={false}
-                                        exportable={false}
-                                        filterable={false}
-                                        height={"200px"}
-                                        width={"1000px"}
-                                        searchable={false}
-                                        sortable={true}
-                                        tableTemplate={expandableTemplate}
-                                   />
-
-                         },
-                         /*{
-                              Match: "Dosi",
-                              Show: "<h1 style='background-color: red;'>This is a test message</h1>"
-                         },*/
-                         /*{ // If you enable this, it will override the Match: "*" above
-                              Match: "*",
-                              Show: "<h1 style='background-color: green;'>This is a test message</h1>"
-                         }*/
-                    ],
-                    ExpandableCriteriaExactMatch: false,
                },
                {
                     DisplayName: 'Last Name',
