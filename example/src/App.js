@@ -71,7 +71,7 @@ const App = () => {
                     editable={false}
                     exportable={false}
                     searchable={false}
-                    sortable={true}
+                    sortable={false}
                     tableTemplate={expandableTemplate}
                     width={"700px"}
                />,
