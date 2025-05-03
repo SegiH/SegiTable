@@ -1,5 +1,3 @@
-// TODO: fix header sort and filter icons not centered
-
 "use client"
 
 import { ITableComponent, ITableComponentField, FieldTypes, FieldValueTypes } from "./ISegiTable";
@@ -1417,7 +1415,7 @@ const SegiTableDataGridHeaders = ({ currentTableComponent, filterSearchTerm, has
                                    <th key={index} style={{ width: `${typeof field.ColumnWidth === "undefined" ? `calc(100% / ${currentTableComponent.Fields.length - 1})` : field.ColumnWidth}` }} className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader} ${field.IsIDColumn === true ? `${styles.SegiTableIDColumn}` : ""}`} onDoubleClick={typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null}>
                                         <span className={`${field.Clickable ? `${styles.SegiTableClickable}` : ""}`} style={{ marginLeft: "10px", userSelect: "none" }}>{field.DisplayName}</span>
 
-                                        <div id="SegiTableResizer" className={styles.resizer}></div>
+                                        <span id="SegiTableResizer" className={styles.resizer}></span>
                                         {sortable === true && field.SortableField !== false && !isEditing &&
                                              <>
                                                   {(sortColumn === "" || (sortColumn !== "" && sortColumn !== field.DatabaseColumn)) &&
