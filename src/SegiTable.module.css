@@ -181,6 +181,10 @@
      white-space: nowrap;
 }
 
+/*.SegiTableDataGridHeader * {
+     display: inline-flex;
+}*/
+
 .SegiTableIDColumn {
      max-width: 50px !important;
 }
