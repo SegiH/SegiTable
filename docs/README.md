@@ -36,6 +36,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
                 - [Clickable](#Clickable)
                 - [ClickCallBack](#ClickCallBack)
                 - [Columns](#Columns)
+                - [ColumnWidth](#ColumnWidth)
                 - [DatabaseColumn](#DatabaseColumn)
                 - [DefaultAddValue](#DefaultAddValue)
                 - [Disabled](#Disabled)
@@ -267,6 +268,12 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Required: No
                     Type: Number
                     Description: When the field type is TEXTAREA, the number of columns to display the text area with. Only provide this for a textarea field
+
+<a name="ColumnWidth"></a>
+#### ColumnWidth
+                    Required: No
+                    Type: String
+                    Description: Set a custom column width for the column. It is best to supply this as a percentage. If you use this, provide it for all fields and if you use a percentage, the percentages for all columns should add up to 100%.
 
 <a name="DatabaseColumn"></a>
 #### DatabaseColumn

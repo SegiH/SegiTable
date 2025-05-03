@@ -41,12 +41,6 @@ const App = () => {
           ExpandableDataLinked: true,
           Fields: [
                {
-                    DisplayName: 'ID',
-                    DatabaseColumn: "id",
-                    FieldType: FieldTypes.TEXTFIELD,
-                    FieldValueType: FieldValueTypes.TEXT,
-               },
-               {
                     DisplayName: 'Address',
                     DatabaseColumn: "address",
                     FieldType: FieldTypes.TEXTFIELD,
@@ -102,6 +96,8 @@ const App = () => {
                     Centered: true,
                     Filterable: true,
                     Required: true,
+                    TogglesIDColumn: true,
+                    ColumnWidth: "14%"
                },
                {
                     DisplayName: 'Last Name',
@@ -110,7 +106,8 @@ const App = () => {
                     FieldValueType: FieldValueTypes.TEXT,
                     Centered: true,
                     Filterable: true,
-                    Required: true
+                    Required: true,
+                    ColumnWidth: "14%"
                },
                {
                     DisplayName: 'Email Address',
@@ -120,7 +117,8 @@ const App = () => {
                     Centered: true,
                     Filterable: true,
                     IsEmailAddress: true,
-                    Required: true
+                    Required: true,
+                    ColumnWidth: "14%"
                },
                {
                     DisplayName: 'Gender',
@@ -129,7 +127,8 @@ const App = () => {
                     FieldValueType: FieldValueTypes.TEXT,
                     Centered: true,
                     Filterable: true,
-                    Required: true
+                    Required: true,
+                    ColumnWidth: "14%"
                },
                {
                     DisplayName: 'IP Address',
@@ -137,7 +136,8 @@ const App = () => {
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
                     Centered: true,
-                    Required: true
+                    Required: true,
+                    ColumnWidth: "12%"
                },
                {
                     DisplayName: 'URL',
@@ -151,7 +151,8 @@ const App = () => {
                     IsURLText: "Link",
                     IsURLButton: true,
                     Required: true,
-                    Filterable: true
+                    Filterable: true,
+                    ColumnWidth: "12%"
                },
                {
                     DisplayName: 'Date of Entry',
@@ -160,7 +161,8 @@ const App = () => {
                     FieldValueType: FieldValueTypes.DATE,
                     Centered: true,
                     Required: true,
-                    Filterable: true
+                    Filterable: true,
+                    ColumnWidth: "12%"
                },
                {
                     DisplayName: 'Due',
@@ -169,7 +171,8 @@ const App = () => {
                     FieldValueType: FieldValueTypes.CURRENCY,
                     Centered: true,
                     Required: true,
-                    Filterable: true
+                    Filterable: true,
+                    ColumnWidth: "12%"
                },
           ],
           MultiExpandableRows: true,

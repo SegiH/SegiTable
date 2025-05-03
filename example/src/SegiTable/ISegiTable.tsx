@@ -32,8 +32,9 @@ export interface ITableComponentField {
      Addable?: boolean; // Indicates whether this field is addable
      Clickable?: boolean; // Indicates whether the column header clickable
      ClickCallBack?: () => void; // Callback event to be called when you click on the column header
-     Centered?: boolean;
+     Centered?: boolean; // IS the text centered
      Columns?: number; // The number of columns for a textarea
+     ColumnWidth?: string; // The column width, ideally in percentage.
      DatabaseColumn: string; // The database column in the data. This will be the name of the field in the data
      DefaultAddValue?: any; // The default value when addding the field
      Disabled?: boolean; // Disable a field from being added

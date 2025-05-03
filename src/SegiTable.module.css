@@ -175,6 +175,7 @@
 }
 
 .SegiTableDataGridHeader {
+     /*cursor: ew-resize;*/
      background-color: #999999;
      font-weight: bold;
      white-space: nowrap;
@@ -334,3 +335,13 @@
 .SegiTableURLButton {
      background-color: #3880ff;
 }
+
+/*.resizer {
+     position: absolute;
+     right: 0;
+     top: 0;
+     width: 5px;
+     height: 100%;
+     cursor: ew-resize;
+     z-index: 1;
+}*/
