@@ -2,38 +2,18 @@ import React, { useEffect, useState } from "react";
 import SegiTable from './SegiTable/SegiTable';
 import { FieldTypes, FieldValueTypes } from "./SegiTable/ISegiTable";
 import mockUserData from "./MOCK_DATA.csv";
+import expandableCarData from "./EXPANDABLE_DATA.csv";
 
 const App = () => {
      const [isAdding, setIsAdding] = useState(false);
      const [dataLoaded, setDataLoaded] = useState(false);
      const [isEditing, setIsEditing] = useState(false);
      const [mockData, setMockData] = useState([]);
+     const [expandableData, setExpandableData] = useState([]);
 
      const cancelEditClickHandler = () => {
           setIsEditing(false);
      }
-
-     const expandableData = [
-          {
-               id: 1,
-               address: "555 5th St",
-               city: "Los Angeles",
-               state: "CA"
-          },
-          {
-               id: 2,
-               address: "1717 Mockingbird Lane",
-               city: "Mayberry",
-               state: "AL"
-          }
-          ,
-          {
-               id: 4,
-               address: "1234 Main St",
-               city: "Nowhere",
-               state: "PA"
-          }
-     ];
 
      const expandableTemplate = {
           Data: expandableData,
@@ -41,21 +21,23 @@ const App = () => {
           ExpandableDataLinked: true,
           Fields: [
                {
-                    DisplayName: 'Address',
-                    DatabaseColumn: "address",
+                    DisplayName: 'Year',
+                    DatabaseColumn: "car_year",
                     FieldType: FieldTypes.TEXTFIELD,
-                    FieldValueType: FieldValueTypes.TEXT,
+                    FieldValueType: FieldValueTypes.NUMBER,
+                    ColumnWidth: "10%"
                },
                {
-                    DisplayName: 'City',
-                    DatabaseColumn: "city",
+                    DisplayName: 'Make',
+                    DatabaseColumn: "car_make",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
-                    Centered: true
+                    Centered: true,
+                    ColumnWidth: "30%"
                },
                {
-                    DisplayName: 'State',
-                    DatabaseColumn: "state",
+                    DisplayName: 'Model',
+                    DatabaseColumn: "car_model",
                     FieldType: FieldTypes.TEXTFIELD,
                     FieldValueType: FieldValueTypes.TEXT,
                     Centered: true,
@@ -73,7 +55,7 @@ const App = () => {
                     searchable={false}
                     sortable={false}
                     tableTemplate={expandableTemplate}
-                    width={"700px"}
+                    width={"600px"}
                />,
           Fields: [
                {
@@ -208,6 +190,23 @@ const App = () => {
           });
 
           setMockData(result);
+
+          // Import CSV data
+          const expandableLines = expandableCarData.trim().split('\n');
+
+          // Get the headers
+          const expandableHeaders = expandableLines[0].split(',').map(h => h.trim());
+
+          // Convert each line to an object
+          const expandableResult = expandableLines.slice(1).map(line => {
+               const values = line.split(',').map(val => val.trim());
+               return expandableHeaders.reduce((obj, key, i) => {
+                    obj[key] = values[i];
+                    return obj;
+               }, {});
+          });
+debugger
+          setExpandableData(expandableResult);
 
           setDataLoaded(true);
      }, []);

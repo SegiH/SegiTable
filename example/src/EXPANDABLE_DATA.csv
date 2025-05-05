@@ -1,0 +1,1001 @@
+id,car_year,car_make,car_model
+1,1991,Pontiac,6000
+2,2005,BMW,545
+3,2006,Maybach,62
+4,1993,Chevrolet,Lumina
+5,2012,Volkswagen,Jetta
+6,2009,Hyundai,Sonata
+7,1999,Oldsmobile,Cutlass
+8,1998,Ford,Econoline E250
+9,1998,Saturn,S-Series
+10,2000,Audi,S4
+11,1997,Mitsubishi,Eclipse
+12,1995,Dodge,Viper
+13,1994,Mitsubishi,Mighty Max
+14,1972,Chevrolet,Corvette
+15,1987,Mercury,Sable
+16,2008,Lincoln,MKX
+17,2007,Aston Martin,Vantage
+18,1999,Plymouth,Voyager
+19,2009,Kia,Optima
+20,1957,BMW,600
+21,1990,Porsche,911
+22,2004,Porsche,Cayenne
+23,2003,Saturn,Ion
+24,2006,Subaru,Outback
+25,2010,Ferrari,599 GTB Fiorano
+26,2006,GMC,Sierra Denali
+27,1990,Subaru,Justy
+28,2013,Lincoln,MKS
+29,2006,Toyota,Avalon
+30,1997,Pontiac,Bonneville
+31,1998,Honda,Accord
+32,2007,Toyota,Avalon
+33,2010,Mercury,Mariner
+34,1988,Volkswagen,GTI
+35,2011,Nissan,JUKE
+36,1987,Audi,5000CS
+37,2003,Chevrolet,Blazer
+38,2005,Pontiac,Montana
+39,2006,Dodge,Ram 1500
+40,2008,Mercedes-Benz,M-Class
+41,2000,Pontiac,Firebird
+42,2004,Acura,NSX
+43,2008,Mercedes-Benz,CLS-Class
+44,1990,Mitsubishi,GTO
+45,1987,Mitsubishi,Mirage
+46,2011,Kia,Forte
+47,1969,Mercury,Cougar
+48,1968,Pontiac,Firebird
+49,1990,Mitsubishi,GTO
+50,2006,Honda,S2000
+51,2001,BMW,X5
+52,1988,Mitsubishi,Mirage
+53,2011,Mercedes-Benz,Sprinter
+54,1998,Toyota,T100
+55,1988,Mitsubishi,Mirage
+56,2005,Volvo,V70
+57,1992,Mitsubishi,Diamante
+58,1991,Audi,90
+59,1995,Saab,9000
+60,1988,Ford,EXP
+61,1992,Subaru,Justy
+62,2001,Suzuki,Esteem
+63,2004,Land Rover,Freelander
+64,2001,Volkswagen,GTI
+65,2008,Lexus,LS
+66,1993,Toyota,Tercel
+67,2009,Volkswagen,GTI
+68,2001,Cadillac,Eldorado
+69,2006,Lexus,ES
+70,2006,Suzuki,Swift
+71,2011,Audi,S5
+72,2003,Cadillac,CTS
+73,2010,Ford,F450
+74,2004,GMC,Savana 3500
+75,2005,Pontiac,G6
+76,2012,Volkswagen,GTI
+77,2010,Chevrolet,Express 2500
+78,2001,Volvo,C70
+79,1998,Audi,A4
+80,2006,Volkswagen,Rabbit
+81,2011,Infiniti,G37
+82,2012,Hyundai,HED-5
+83,2002,Volkswagen,New Beetle
+84,1993,Plymouth,Sundance
+85,2006,Maserati,Coupe
+86,1996,Chevrolet,Suburban 1500
+87,2008,Dodge,Ram 3500
+88,2009,Ferrari,California
+89,1990,Audi,90
+90,1965,Chevrolet,Corvette
+91,2002,Toyota,Tacoma
+92,2011,GMC,Sierra 3500
+93,1993,Mitsubishi,GTO
+94,2006,Kia,Rio
+95,1996,Mazda,MX-5
+96,2009,Dodge,Challenger
+97,1998,Infiniti,I
+98,2010,Mercury,Grand Marquis
+99,2006,Mercedes-Benz,M-Class
+100,1992,Mitsubishi,Mighty Max Macro
+101,1995,Oldsmobile,Achieva
+102,1984,Maserati,Quattroporte
+103,2005,GMC,Envoy XL
+104,2008,Mercedes-Benz,CLS-Class
+105,1985,Mercury,Cougar
+106,2012,Volkswagen,New Beetle
+107,2010,Chevrolet,Suburban 2500
+108,2004,Dodge,Viper
+109,2002,Mitsubishi,Galant
+110,2008,Nissan,350Z
+111,1998,Chevrolet,G-Series 2500
+112,1993,Dodge,Ram Van B250
+113,1990,Maserati,Karif
+114,1990,Lamborghini,Countach
+115,1989,Ford,Bronco II
+116,2007,Mercedes-Benz,GL-Class
+117,1987,Pontiac,Gemini
+118,2003,Volvo,V40
+119,2008,Toyota,RAV4
+120,2004,Lexus,RX
+121,1990,Honda,Civic
+122,2007,Spyker,C8
+123,2010,Subaru,Forester
+124,1996,Nissan,240SX
+125,2011,BMW,Z4
+126,2002,Kia,Rio
+127,2009,Ford,Fusion
+128,1995,Saturn,S-Series
+129,2006,Ford,Expedition
+130,1994,Honda,Prelude
+131,1994,Mercury,Sable
+132,1991,Toyota,Previa
+133,2000,Toyota,Avalon
+134,2000,Honda,Odyssey
+135,1999,Hummer,H1
+136,1998,BMW,5 Series
+137,2009,Nissan,Versa
+138,2001,Mitsubishi,Challenger
+139,1995,Saab,900
+140,2011,BMW,M3
+141,2010,Dodge,Caliber
+142,1992,Toyota,Celica
+143,1997,Porsche,911
+144,1988,Ford,LTD Crown Victoria
+145,1996,Ford,Econoline E150
+146,1996,Geo,Tracker
+147,2001,Oldsmobile,Aurora
+148,1997,Infiniti,Q
+149,2007,Ford,E250
+150,2003,Infiniti,I
+151,1998,Dodge,Stratus
+152,1992,Audi,Quattro
+153,1994,Mitsubishi,Expo
+154,2009,Jeep,Compass
+155,2010,Infiniti,EX
+156,1993,GMC,1500 Club Coupe
+157,1987,Audi,5000S
+158,2008,Pontiac,Torrent
+159,2004,Ford,Thunderbird
+160,2010,BMW,M6
+161,2005,Kia,Sedona
+162,1994,Chevrolet,Sportvan G20
+163,1985,Ford,Escort
+164,2008,Aston Martin,V8 Vantage
+165,2004,Volkswagen,R32
+166,1992,Chrysler,Imperial
+167,2010,Chevrolet,Impala
+168,2002,Dodge,Durango
+169,2004,Porsche,Cayenne
+170,2005,Hyundai,Accent
+171,2002,Chrysler,Town & Country
+172,2009,Ford,F150
+173,2011,Chevrolet,Express 3500
+174,2011,Honda,Ridgeline
+175,2009,Chevrolet,Impala
+176,1992,Buick,LeSabre
+177,2003,Lexus,GX
+178,1998,Land Rover,Range Rover
+179,1999,Pontiac,Grand Prix
+180,1984,Ford,LTD Crown Victoria
+181,1997,Ford,Ranger
+182,2012,Honda,Crosstour
+183,1995,Toyota,Tercel
+184,2003,Mercury,Mountaineer
+185,1996,GMC,1500 Club Coupe
+186,2008,Cadillac,SRX
+187,1961,Pontiac,Tempest
+188,1992,Dodge,Dynasty
+189,2012,Nissan,Cube
+190,2010,Infiniti,G
+191,1997,Mercury,Cougar
+192,1996,Ford,Aerostar
+193,1999,Mercury,Mystique
+194,2006,Chevrolet,Suburban
+195,2010,Bentley,Continental GT
+196,2001,BMW,Z8
+197,2001,Ford,E-Series
+198,2006,Nissan,Xterra
+199,2004,Subaru,Legacy
+200,1999,Infiniti,Q
+201,2012,Chevrolet,Volt
+202,1994,Porsche,968
+203,2011,Tesla,Roadster
+204,2005,Dodge,Caravan
+205,2012,GMC,Yukon XL 2500
+206,2005,Buick,LaCrosse
+207,2002,Chevrolet,Astro
+208,2005,Infiniti,Q
+209,1989,Suzuki,Swift
+210,1989,Maserati,430
+211,1994,Mercury,Grand Marquis
+212,2002,Volkswagen,Golf
+213,1994,Dodge,Ram Wagon B350
+214,2008,Toyota,FJ Cruiser
+215,1986,Audi,4000CS Quattro
+216,1992,Buick,Coachbuilder
+217,2009,Toyota,Highlander
+218,2008,Smart,Fortwo
+219,2009,Scion,tC
+220,1999,Volkswagen,Passat
+221,1984,Volkswagen,Jetta
+222,2007,GMC,Savana 2500
+223,2001,Toyota,Camry
+224,2007,Jaguar,S-Type
+225,1996,Buick,Park Avenue
+226,1994,Toyota,Supra
+227,2010,Chevrolet,Aveo
+228,2010,Ford,Mustang
+229,2013,Lincoln,MKS
+230,2008,Infiniti,QX
+231,1986,Mazda,RX-7
+232,1999,Dodge,Ram Van 3500
+233,2011,Dodge,Avenger
+234,1998,Chevrolet,Suburban 2500
+235,1998,Cadillac,Catera
+236,1982,Pontiac,Grand Prix
+237,1995,Volvo,850
+238,1993,Volkswagen,Golf III
+239,2005,Maserati,GranSport
+240,2006,Toyota,Camry
+241,1993,Mercedes-Benz,300SE
+242,1999,Oldsmobile,Cutlass
+243,2010,Lincoln,Navigator
+244,2008,Chevrolet,Impala
+245,2010,Subaru,Forester
+246,2012,Nissan,Armada
+247,1992,Infiniti,M
+248,2010,Subaru,Tribeca
+249,2009,Kia,Amanti
+250,2006,Chevrolet,Silverado 1500
+251,1992,GMC,Vandura 3500
+252,2001,Lincoln,Navigator
+253,2002,Audi,A6
+254,1993,Ford,Probe
+255,2010,Bentley,Continental Super
+256,2005,Subaru,Outback
+257,1999,Isuzu,Amigo
+258,1997,Dodge,Ram Van 1500
+259,2011,Maybach,62
+260,2007,Ford,Crown Victoria
+261,2007,GMC,Sierra 2500
+262,2013,Nissan,Altima
+263,2004,Acura,TL
+264,2012,Audi,A6
+265,1998,Mazda,MX-5
+266,2000,Chevrolet,Astro
+267,1992,Mercedes-Benz,300SE
+268,2005,Scion,xA
+269,2004,Spyker,C8 Spyder
+270,1996,Infiniti,I
+271,2002,Daewoo,Nubira
+272,1997,Audi,A4
+273,2009,MINI,Cooper
+274,1985,Lamborghini,Countach
+275,1988,Ford,Bronco II
+276,1992,Audi,80
+277,2005,Lamborghini,Murciélago
+278,2005,Toyota,Avalon
+279,2009,Pontiac,Solstice
+280,2009,Mercury,Sable
+281,2006,Pontiac,Montana
+282,2010,Chevrolet,Suburban 2500
+283,1994,Toyota,T100
+284,2010,Lincoln,MKZ
+285,1993,Chevrolet,G-Series G10
+286,2011,Ford,Taurus
+287,2008,Volvo,S40
+288,1996,Ford,F-Series
+289,2002,Lexus,LX
+290,2010,Bentley,Brooklands
+291,1993,Mercedes-Benz,E-Class
+292,2006,Volvo,C70
+293,2005,Volkswagen,New Beetle
+294,2002,Mitsubishi,Mirage
+295,1999,Audi,A4
+296,2004,Volvo,S60
+297,1998,Dodge,Ram Van 2500
+298,1996,Geo,Tracker
+299,2011,Mitsubishi,Outlander Sport
+300,2001,Oldsmobile,Alero
+301,2011,Nissan,Titan
+302,2010,BMW,M6
+303,2007,Mercedes-Benz,CLK-Class
+304,1983,Ford,Mustang
+305,2008,Jaguar,S-Type
+306,2011,Acura,RL
+307,1992,Pontiac,Trans Sport
+308,2009,Nissan,Xterra
+309,2010,Cadillac,Escalade EXT
+310,1997,Volkswagen,GTI
+311,1990,Mitsubishi,L300
+312,1967,Pontiac,Tempest
+313,2010,Jeep,Wrangler
+314,2008,Chrysler,300
+315,1989,Buick,Electra
+316,1996,Chrysler,New Yorker
+317,2002,GMC,Savana 2500
+318,2012,Dodge,Caliber
+319,2005,Dodge,Ram 3500
+320,2010,Infiniti,G37
+321,2012,BMW,X6
+322,2007,Audi,A4
+323,1994,Oldsmobile,Achieva
+324,2011,Tesla,Roadster
+325,1992,Buick,Century
+326,2012,Chevrolet,Camaro
+327,1993,Mitsubishi,Precis
+328,1992,Volkswagen,riolet
+329,2007,Dodge,Ram 2500
+330,2008,Mercedes-Benz,CL-Class
+331,1968,Pontiac,LeMans
+332,2013,Infiniti,JX
+333,1992,GMC,Rally Wagon 2500
+334,2001,Kia,Spectra
+335,2011,Jaguar,XJ
+336,1984,Ford,LTD
+337,2006,BMW,7 Series
+338,1994,Honda,del Sol
+339,1995,GMC,1500
+340,1996,Chevrolet,Express 2500
+341,1997,Plymouth,Voyager
+342,1994,Nissan,Maxima
+343,2003,Buick,Park Avenue
+344,2006,Mercury,Grand Marquis
+345,1997,Ford,Explorer
+346,2011,Bentley,Continental
+347,1985,Mitsubishi,Mirage
+348,1984,Volkswagen,Scirocco
+349,2010,BMW,1 Series
+350,2006,Mazda,Miata MX-5
+351,2009,Maybach,57
+352,1996,Chevrolet,Express 1500
+353,1985,Mercury,Marquis
+354,2010,Mercury,Milan
+355,2009,Mazda,MX-5
+356,2003,Audi,RS6
+357,1993,Mercury,Cougar
+358,1983,Mazda,626
+359,2007,Dodge,Durango
+360,2012,BMW,6 Series
+361,2011,Land Rover,Range Rover
+362,1985,Ford,Escort
+363,1992,Mitsubishi,Expo
+364,1995,Chevrolet,Corsica
+365,2004,GMC,Yukon
+366,1991,Mitsubishi,Truck
+367,2005,Isuzu,Ascender
+368,1991,Volkswagen,Type 2
+369,2006,Dodge,Sprinter
+370,1998,Dodge,Ram 2500
+371,1995,Chevrolet,Sportvan G20
+372,2000,Chevrolet,3500
+373,2011,Dodge,Ram
+374,1995,Honda,Civic
+375,2009,Mazda,Mazda5
+376,2011,Lincoln,Town Car
+377,1986,Ford,EXP
+378,2007,Cadillac,CTS-V
+379,1998,Ford,Crown Victoria
+380,2010,Volkswagen,CC
+381,1999,Isuzu,VehiCROSS
+382,1986,Pontiac,1000
+383,2004,Mercury,Sable
+384,1993,Mazda,B-Series Plus
+385,1985,Toyota,MR2
+386,2000,Mercedes-Benz,CL-Class
+387,2011,Maserati,GranTurismo
+388,1998,Hyundai,Elantra
+389,1997,Chevrolet,Astro
+390,1997,Buick,Century
+391,2012,Fiat,500
+392,1993,Honda,del Sol
+393,2010,Chevrolet,Malibu
+394,1997,BMW,8 Series
+395,2010,Infiniti,G37
+396,1972,Citroën,SM
+397,2005,Chevrolet,Express 1500
+398,2008,Suzuki,Grand Vitara
+399,2005,Ford,Explorer
+400,2007,Pontiac,Torrent
+401,2005,Saturn,Ion
+402,2008,Mercedes-Benz,M-Class
+403,2004,Mazda,Miata MX-5
+404,2000,Volkswagen,Eurovan
+405,2010,BMW,X6
+406,2012,Nissan,NV3500
+407,2001,Mitsubishi,Mirage
+408,2010,Porsche,Panamera
+409,2004,Mercury,Monterey
+410,2001,Acura,CL
+411,2008,Lincoln,Navigator L
+412,2009,Nissan,Rogue
+413,1993,Volvo,960
+414,1993,Mitsubishi,Pajero
+415,2005,BMW,760
+416,1994,Mitsubishi,Diamante
+417,2005,Kia,Optima
+418,2002,Volkswagen,Cabriolet
+419,1998,Plymouth,Voyager
+420,1988,Ford,Taurus
+421,1998,BMW,Z3
+422,1992,Chrysler,Town & Country
+423,1988,Mazda,Familia
+424,2001,Volvo,S80
+425,1999,Isuzu,Amigo
+426,2001,Toyota,Tacoma Xtra
+427,1998,Ford,Econoline E150
+428,2002,Jaguar,X-Type
+429,2010,Audi,Q7
+430,1989,Pontiac,Gemini
+431,1986,Buick,Somerset
+432,2008,Chevrolet,Aveo
+433,1999,Toyota,Camry
+434,1993,Saturn,S-Series
+435,2002,GMC,Yukon XL 1500
+436,2002,Toyota,Solara
+437,2008,Infiniti,QX
+438,2008,Lexus,GX
+439,1990,Eagle,Talon
+440,2002,Subaru,Outback Sport
+441,2007,Mercedes-Benz,CLK-Class
+442,2001,Chrysler,LHS
+443,1998,Acura,RL
+444,2005,BMW,M3
+445,2009,Ferrari,599 GTB Fiorano
+446,2000,Mitsubishi,Diamante
+447,1994,Eagle,Vision
+448,2001,BMW,525
+449,2001,Chevrolet,Cavalier
+450,2006,Mazda,Mazda6 5-Door
+451,1996,Isuzu,Rodeo
+452,2002,Chevrolet,Suburban 2500
+453,1967,Ford,Mustang
+454,2003,Cadillac,DeVille
+455,2005,Audi,A4
+456,1999,Mercury,Villager
+457,2006,Volvo,S40
+458,1996,Mazda,MX-3
+459,2010,Nissan,Titan
+460,1988,Mitsubishi,Galant
+461,1996,Oldsmobile,Ciera
+462,1991,Audi,100
+463,2005,Mitsubishi,Galant
+464,2008,Chevrolet,Suburban
+465,2009,Lincoln,MKZ
+466,1999,Acura,Integra
+467,1984,Volkswagen,Scirocco
+468,2012,Chevrolet,Tahoe
+469,1999,Volkswagen,GTI
+470,1995,Chevrolet,Caprice
+471,2007,Volkswagen,Eos
+472,1997,Honda,del Sol
+473,2000,Daewoo,Leganza
+474,2008,Kia,Amanti
+475,1987,Volkswagen,Fox
+476,1994,Ford,Tempo
+477,1994,GMC,Vandura 1500
+478,1969,Ford,Mustang
+479,1999,Mitsubishi,Eclipse
+480,2007,Volkswagen,Rabbit
+481,1987,Buick,Skyhawk
+482,2012,Chevrolet,Silverado 2500
+483,2009,Hyundai,Accent
+484,1999,Oldsmobile,88
+485,1995,Mitsubishi,Chariot
+486,1995,Audi,Cabriolet
+487,2007,Lincoln,Navigator L
+488,1998,Suzuki,X-90
+489,1993,Oldsmobile,Cutlass Cruiser
+490,1999,Plymouth,Breeze
+491,2002,Dodge,Ram Van 3500
+492,1992,Dodge,Monaco
+493,2002,Suzuki,Aerio
+494,2008,Lincoln,Town Car
+495,2003,Subaru,Forester
+496,1993,BMW,7 Series
+497,2002,Honda,CR-V
+498,2012,Chevrolet,Silverado 3500
+499,2008,Isuzu,i-370
+500,2010,GMC,Acadia
+501,1998,Volvo,V90
+502,2013,Volkswagen,CC
+503,2000,Mercury,Sable
+504,2001,Acura,NSX
+505,2002,Isuzu,Axiom
+506,1986,Porsche,944
+507,1999,Chevrolet,Suburban 1500
+508,2005,Volkswagen,Passat
+509,2008,Volvo,XC70
+510,1995,Cadillac,Seville
+511,1991,Nissan,300ZX
+512,1987,Mitsubishi,Tredia
+513,2012,GMC,Savana 1500
+514,1992,Jeep,Comanche
+515,2007,Nissan,Versa
+516,2011,Land Rover,Freelander
+517,1994,Mitsubishi,Mirage
+518,2008,GMC,Canyon
+519,1999,Lexus,GS
+520,1992,Subaru,Justy
+521,1994,GMC,2500 Club Coupe
+522,2009,Lincoln,MKS
+523,1992,Dodge,Viper
+524,2007,Toyota,Prius
+525,2009,Mitsubishi,Endeavor
+526,1966,Pontiac,GTO
+527,1996,Isuzu,Trooper
+528,2003,Hyundai,Santa Fe
+529,2007,Mazda,Mazdaspeed 3
+530,1964,Pontiac,GTO
+531,2005,Chevrolet,Suburban 1500
+532,2003,Dodge,Ram 3500
+533,2008,Aston Martin,Vantage
+534,2002,Land Rover,Discovery Series II
+535,1999,Oldsmobile,Alero
+536,2000,Mercedes-Benz,E-Class
+537,1998,Chevrolet,S10
+538,1993,Volkswagen,riolet
+539,2002,Honda,Odyssey
+540,2001,Chevrolet,Suburban 1500
+541,2003,Toyota,MR2
+542,1993,Audi,S4
+543,2003,Mitsubishi,Galant
+544,1997,Volkswagen,Jetta
+545,2010,Mitsubishi,Lancer
+546,1992,Pontiac,Trans Sport
+547,2011,BMW,1 Series
+548,2006,Volvo,C70
+549,1999,Mercedes-Benz,S-Class
+550,1996,Chrysler,LHS
+551,1995,Volkswagen,Golf
+552,1994,Toyota,Corolla
+553,2006,Nissan,Titan
+554,1999,Suzuki,Grand Vitara
+555,1995,GMC,Sonoma Club Coupe
+556,1994,Pontiac,Firefly
+557,2001,Oldsmobile,Aurora
+558,1988,Audi,5000CS
+559,2012,Volkswagen,Touareg
+560,2012,Bentley,Continental
+561,1989,Pontiac,Safari
+562,1992,Mercury,Cougar
+563,2013,Lincoln,MKX
+564,1998,GMC,3500 Club Coupe
+565,2001,Honda,Passport
+566,2010,Dodge,Charger
+567,1993,Chevrolet,G-Series G30
+568,2005,Mercedes-Benz,S-Class
+569,2000,Isuzu,Hombre
+570,1968,Shelby,GT500
+571,2006,Kia,Optima
+572,2003,Chevrolet,Avalanche 1500
+573,1994,Buick,Roadmaster
+574,2011,Mazda,Tribute
+575,2008,Toyota,RAV4
+576,2008,Ford,F-Series Super Duty
+577,2005,Mercury,Mariner
+578,1994,Volkswagen,Golf III
+579,2001,Mazda,MX-5
+580,2001,Ford,Crown Victoria
+581,1996,Ford,Thunderbird
+582,1962,Studebaker,Avanti
+583,2006,Chrysler,PT Cruiser
+584,2012,Ford,Edge
+585,1991,Mercury,Sable
+586,1993,Dodge,Stealth
+587,1999,Volkswagen,New Beetle
+588,1991,Mazda,MPV
+589,1985,Mercury,Cougar
+590,1996,Nissan,Quest
+591,1997,Volkswagen,GTI
+592,1996,Mitsubishi,Eclipse
+593,1995,Ford,Mustang
+594,2010,Jeep,Liberty
+595,2007,Lamborghini,Murciélago
+596,2012,Toyota,Sienna
+597,2004,Infiniti,M
+598,1995,Saab,9000
+599,2001,Buick,Park Avenue
+600,1994,GMC,2500
+601,2012,Ford,E-Series
+602,1997,GMC,1500 Club Coupe
+603,2000,Pontiac,Firebird
+604,2008,Nissan,Altima
+605,1997,BMW,3 Series
+606,1998,Porsche,Boxster
+607,2001,Chevrolet,Monte Carlo
+608,2007,Toyota,Avalon
+609,1970,Chevrolet,Camaro
+610,2002,Ford,F350
+611,1990,Audi,200
+612,2009,Lamborghini,Gallardo
+613,1987,Porsche,944
+614,1991,Pontiac,Trans Sport
+615,1997,Chevrolet,Tahoe
+616,1984,Ford,E150
+617,1989,Ford,Probe
+618,1993,Ford,F150
+619,1984,Pontiac,Sunbird
+620,2003,Porsche,Cayenne
+621,1993,Eagle,Vision
+622,2011,Ford,Ranger
+623,1991,Chevrolet,Caprice
+624,2004,Chevrolet,Tracker
+625,2006,Ford,E350
+626,2007,Saab,9-7X
+627,1986,Audi,4000s Quattro
+628,1989,Ford,Escort
+629,1994,Ford,Escort
+630,2010,Acura,RL
+631,1997,Ford,Ranger
+632,1998,Honda,Passport
+633,1999,GMC,EV1
+634,2005,Cadillac,DeVille
+635,1964,Chevrolet,Corvette
+636,2012,Lexus,RX Hybrid
+637,2009,Volkswagen,New Beetle
+638,2002,Daewoo,Leganza
+639,2010,Suzuki,Equator
+640,2011,Kia,Soul
+641,2001,Acura,MDX
+642,1974,Chevrolet,Camaro
+643,2010,Kia,Sportage
+644,2002,Pontiac,Firebird
+645,2004,Chevrolet,SSR
+646,2011,Aston Martin,DB9
+647,2011,Jeep,Liberty
+648,2001,Toyota,Prius
+649,2012,Scion,xB
+650,1984,Pontiac,Firefly
+651,1994,Mitsubishi,Truck
+652,2008,Scion,xD
+653,1997,Mercedes-Benz,SLK-Class
+654,2003,Audi,A8
+655,2009,Audi,S4
+656,1990,Ford,Escort
+657,1994,Pontiac,Grand Am
+658,1985,Volkswagen,Cabriolet
+659,2012,Lexus,GX
+660,1960,Chevrolet,Corvair
+661,2002,Mercury,Sable
+662,1994,Cadillac,Fleetwood
+663,2012,Mazda,Mazda6
+664,2007,Audi,Q7
+665,1985,Honda,Accord
+666,1998,Lincoln,Navigator
+667,2004,Dodge,Dakota
+668,2010,Nissan,Titan
+669,1995,Mazda,MX-5
+670,2008,Chevrolet,Silverado 2500
+671,2002,Honda,Insight
+672,2006,Ford,Freestyle
+673,2003,Toyota,Highlander
+674,2012,BMW,5 Series
+675,1994,Ford,Bronco
+676,2000,Acura,NSX
+677,2004,Hyundai,Santa Fe
+678,1992,Toyota,Paseo
+679,2008,Chevrolet,Express
+680,1995,Ford,Econoline E350
+681,2002,Toyota,Avalon
+682,2006,Volkswagen,GTI
+683,2000,Acura,TL
+684,1986,Buick,LeSabre
+685,1985,Mazda,Familia
+686,1995,Pontiac,Bonneville
+687,2000,Honda,S2000
+688,1996,Mitsubishi,Mirage
+689,2011,Toyota,Prius
+690,1991,Buick,Roadmaster
+691,1996,Toyota,Tacoma Xtra
+692,2006,Toyota,Tacoma
+693,1997,Audi,A8
+694,2007,Pontiac,Solstice
+695,2006,Aston Martin,DB9
+696,1992,GMC,2500
+697,1997,Mitsubishi,Eclipse
+698,2010,Bentley,Continental GT
+699,2009,Honda,Ridgeline
+700,2002,Chevrolet,Silverado 3500
+701,2004,Chevrolet,Cavalier
+702,1988,Honda,Accord
+703,1997,Volvo,960
+704,2007,Toyota,Prius
+705,1993,Mitsubishi,Expo
+706,1994,Subaru,Loyale
+707,2004,Subaru,Outback
+708,2001,Mazda,Protege
+709,2010,Chevrolet,Equinox
+710,2008,Audi,RS 4
+711,1994,Ford,Escort
+712,1996,BMW,3 Series
+713,2004,Ford,Expedition
+714,2000,Jeep,Cherokee
+715,1995,Kia,Sportage
+716,2004,Toyota,Corolla
+717,2012,Toyota,Sienna
+718,2012,Chevrolet,Corvette
+719,2009,BMW,Z4 M Roadster
+720,2008,Mitsubishi,Eclipse
+721,1994,Suzuki,Swift
+722,1995,Volkswagen,Jetta III
+723,1993,Dodge,Ram Wagon B350
+724,1993,Toyota,Tercel
+725,1998,Plymouth,Breeze
+726,1998,Toyota,Supra
+727,1993,Lotus,Esprit
+728,2002,Mazda,Tribute
+729,1989,Pontiac,Grand Am
+730,1994,Pontiac,Trans Sport
+731,2009,Mercedes-Benz,G-Class
+732,2004,Hyundai,Tiburon
+733,1995,Jeep,Cherokee
+734,1986,Pontiac,1000
+735,1989,Mitsubishi,Mirage
+736,1994,Mazda,929
+737,1993,Chevrolet,Caprice Classic
+738,2000,Chevrolet,Astro
+739,1995,Eagle,Vision
+740,2005,Maserati,Quattroporte
+741,2004,BMW,6 Series
+742,1988,Volkswagen,Type 2
+743,1992,Lincoln,Mark VII
+744,2006,Mitsubishi,Lancer Evolution
+745,2011,Dodge,Durango
+746,1992,Mercedes-Benz,300E
+747,1984,Ford,Tempo
+748,2006,Hyundai,Elantra
+749,2002,Ford,Crown Victoria
+750,2010,Jeep,Patriot
+751,2008,Lexus,ES
+752,1984,Ford,LTD
+753,2007,BMW,7 Series
+754,1997,Hummer,H1
+755,2002,GMC,Savana 1500
+756,2009,Volkswagen,Passat
+757,2002,Chevrolet,Camaro
+758,2004,Toyota,Camry
+759,2007,Mazda,Mazdaspeed 3
+760,1998,Mitsubishi,Montero Sport
+761,1965,Pontiac,Bonneville
+762,1993,Mazda,Navajo
+763,1993,Infiniti,J
+764,1991,Mazda,RX-7
+765,2008,Lexus,RX
+766,2013,BMW,X5
+767,1985,Honda,Accord
+768,2001,BMW,3 Series
+769,1999,Volkswagen,Jetta
+770,2009,Pontiac,Torrent
+771,1999,Mitsubishi,Montero
+772,2003,Buick,Rendezvous
+773,2004,Chrysler,Concorde
+774,2010,Mazda,Mazda3
+775,2008,Mercury,Mountaineer
+776,2001,Isuzu,Rodeo Sport
+777,1992,Subaru,Alcyone SVX
+778,2006,Rolls-Royce,Phantom
+779,1984,Buick,Electra
+780,1994,Nissan,Altima
+781,1987,Pontiac,Bonneville
+782,1985,Pontiac,Parisienne
+783,2004,Mercury,Grand Marquis
+784,2012,Acura,RDX
+785,2006,Acura,RL
+786,2006,Chevrolet,Tahoe
+787,2012,Honda,Fit
+788,1998,Jaguar,XJ Series
+789,2006,Honda,Accord
+790,2012,Buick,Enclave
+791,1984,Ford,Bronco
+792,2008,Ferrari,599 GTB Fiorano
+793,1994,Subaru,Justy
+794,1989,Mazda,B-Series
+795,1954,Cadillac,Fleetwood
+796,1988,Saab,900
+797,1995,Chevrolet,G-Series G10
+798,1997,Lexus,LX
+799,2005,Saab,9-5
+800,1988,Subaru,Justy
+801,1997,Plymouth,Prowler
+802,2011,Audi,Q5
+803,2008,Nissan,Pathfinder
+804,2011,Nissan,JUKE
+805,1994,Mitsubishi,Precis
+806,2011,Lexus,LX
+807,2004,Toyota,Echo
+808,2012,Ford,Expedition EL
+809,1961,Studebaker,Avanti
+810,1992,Oldsmobile,Ciera
+811,1996,Saab,9000
+812,2005,Ford,Crown Victoria
+813,2005,Toyota,Celica
+814,2008,Volvo,V50
+815,1994,Mitsubishi,Eclipse
+816,2005,Dodge,Dakota Club
+817,2001,Dodge,Dakota Club
+818,1992,Acura,Legend
+819,2002,Hyundai,Accent
+820,2001,Audi,A4
+821,2002,Buick,Century
+822,2005,Dodge,Durango
+823,2002,Chevrolet,Astro
+824,2003,Isuzu,Rodeo
+825,2011,Ford,Explorer
+826,1992,Chevrolet,3500
+827,1997,Chevrolet,Camaro
+828,2007,Mercedes-Benz,SLK-Class
+829,1997,Cadillac,Eldorado
+830,2013,Volvo,S60
+831,1992,Mercury,Capri
+832,1997,Suzuki,X-90
+833,2004,Chevrolet,Express 2500
+834,1994,Infiniti,Q
+835,1984,Mercedes-Benz,SL-Class
+836,1992,Mazda,Familia
+837,1999,Lexus,LS
+838,1988,Mazda,RX-7
+839,1998,Mercedes-Benz,S-Class
+840,2008,BMW,X5
+841,1964,Ford,Galaxie
+842,1998,Mercedes-Benz,CL-Class
+843,2007,Volkswagen,Jetta
+844,2011,GMC,Terrain
+845,1994,Porsche,911
+846,1994,Subaru,Justy
+847,2004,Toyota,Corolla
+848,2006,Mercedes-Benz,E-Class
+849,1986,Buick,Skyhawk
+850,1993,Pontiac,Grand Am
+851,2000,Ford,Explorer Sport
+852,1999,Ford,Contour
+853,2004,Buick,Century
+854,2005,Suzuki,Reno
+855,1998,Dodge,Intrepid
+856,2004,Mazda,B-Series Plus
+857,1994,Honda,Civic
+858,2009,Isuzu,Ascender
+859,2008,Ford,F450
+860,1986,Buick,Riviera
+861,2005,Land Rover,Range Rover
+862,1995,GMC,1500
+863,1993,Nissan,300ZX
+864,1988,Ford,Aerostar
+865,2008,Chevrolet,Avalanche
+866,1997,Subaru,Impreza
+867,2005,Lotus,Elise
+868,1991,Mitsubishi,Galant
+869,1991,Ford,Aerostar
+870,1989,Mitsubishi,Mirage
+871,2003,Chevrolet,Astro
+872,2007,Nissan,Frontier
+873,1993,Dodge,D350
+874,2004,Ford,Windstar
+875,1997,Oldsmobile,88
+876,1992,Suzuki,SJ
+877,1994,Dodge,Viper
+878,1987,Ford,Ranger
+879,2010,Suzuki,Equator
+880,1988,Mercedes-Benz,S-Class
+881,1997,Mitsubishi,Eclipse
+882,2009,Ford,Fusion
+883,1996,GMC,Suburban 1500
+884,2009,Kia,Sportage
+885,2002,Mitsubishi,Lancer
+886,1995,Toyota,Previa
+887,1993,GMC,Vandura 2500
+888,2003,Pontiac,Grand Prix
+889,1992,Subaru,Legacy
+890,2011,Chevrolet,Silverado
+891,2003,Volvo,V70
+892,2005,Jeep,Wrangler
+893,1988,Pontiac,Firefly
+894,1962,Pontiac,Grand Prix
+895,1988,Mitsubishi,Mirage
+896,2010,Land Rover,Range Rover
+897,2007,GMC,Sierra 2500
+898,1989,Volkswagen,Cabriolet
+899,1985,Ford,Ranger
+900,1999,Saab,900
+901,1995,BMW,5 Series
+902,2004,Mitsubishi,Diamante
+903,1999,Nissan,Pathfinder
+904,1998,Nissan,Sentra
+905,1984,Ford,F250
+906,1993,Ford,Mustang
+907,2012,Volkswagen,Routan
+908,2005,Lexus,LS
+909,2011,Cadillac,Escalade ESV
+910,1993,Volvo,960
+911,1991,Volkswagen,Fox
+912,1996,Suzuki,X-90
+913,2007,Saab,9-7X
+914,1985,Chevrolet,Camaro
+915,2009,Mercury,Grand Marquis
+916,2000,Mitsubishi,Challenger
+917,1999,Ford,Mustang
+918,2000,Lincoln,Navigator
+919,2007,Suzuki,Forenza
+920,2007,Toyota,RAV4
+921,1995,Mazda,MX-6
+922,2008,GMC,Savana 1500
+923,2004,GMC,Sierra 3500
+924,2005,Jaguar,XK Series
+925,1992,Mercedes-Benz,300SL
+926,1992,Daihatsu,Rocky
+927,2005,Aston Martin,Vanquish S
+928,2006,Cadillac,DTS
+929,2008,Lincoln,Navigator L
+930,2008,Lincoln,MKZ
+931,2008,Mazda,MX-5
+932,1996,Dodge,Ram 1500
+933,1994,Chevrolet,G-Series G10
+934,1997,Dodge,Viper
+935,2011,Chevrolet,Express 3500
+936,1997,Audi,A4
+937,2008,Ford,F150
+938,2012,Honda,Pilot
+939,2002,Daewoo,Nubira
+940,2003,Lamborghini,Murciélago
+941,2007,Land Rover,Range Rover
+942,1989,Volkswagen,GTI
+943,2004,Corbin,Sparrow
+944,1991,Volkswagen,Type 2
+945,2007,Toyota,Camry
+946,1998,Acura,RL
+947,2005,Scion,tC
+948,2008,Nissan,Altima
+949,1994,Oldsmobile,Cutlass Supreme
+950,2009,Saturn,Aura
+951,2005,Acura,NSX
+952,2009,Lamborghini,Gallardo
+953,2001,Subaru,Forester
+954,1995,Oldsmobile,Cutlass Supreme
+955,2007,Pontiac,G6
+956,1987,Audi,4000CS Quattro
+957,2000,Honda,Insight
+958,1989,Mazda,MPV
+959,1995,Ford,F250
+960,2009,Hummer,H3
+961,2003,Subaru,Outback
+962,1953,Chevrolet,Corvette
+963,2004,Chevrolet,Suburban 1500
+964,2008,Audi,RS4
+965,1994,Mitsubishi,Chariot
+966,2001,Toyota,Tundra
+967,2005,Chevrolet,Silverado 2500
+968,2009,Mitsubishi,Lancer
+969,1990,Acura,Legend
+970,1997,GMC,Safari
+971,2009,Mercedes-Benz,CL-Class
+972,1993,Hummer,H1
+973,1995,Ford,Aerostar
+974,2008,Lexus,SC
+975,1985,Mazda,626
+976,1996,Honda,Prelude
+977,1998,Honda,Accord
+978,2008,Hyundai,Azera
+979,2011,Mitsubishi,Outlander
+980,1999,Acura,SLX
+981,2003,Mercury,Mountaineer
+982,1997,Isuzu,Hombre
+983,2011,Mazda,Tribute
+984,1992,Suzuki,Swift
+985,1993,Nissan,Sentra
+986,2009,Audi,A5
+987,2006,Ferrari,F430
+988,1995,Dodge,Ram 2500
+989,2011,Audi,A8
+990,1998,Infiniti,QX
+991,2011,Volvo,S40
+992,1997,Toyota,Previa
+993,2003,Mitsubishi,Galant
+994,1996,Ford,Club Wagon
+995,1989,Buick,Riviera
+996,1966,Pontiac,Bonneville
+997,1992,Ford,Taurus
+998,1996,Acura,NSX
+999,2012,Volvo,S60
+1000,2004,Infiniti,QX
