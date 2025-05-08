@@ -205,7 +205,7 @@ const App = () => {
                     return obj;
                }, {});
           });
-debugger
+
           setExpandableData(expandableResult);
 
           setDataLoaded(true);
@@ -219,7 +219,7 @@ debugger
                          cancelEditCallBackHandler={cancelEditClickHandler}
                          defaultPageSize={5}
                          editable={true}
-                         exportable={false}
+                         exportable={true}
                          filterable={true}
                          isAdding={isAdding}
                          isEditing={isEditing}
