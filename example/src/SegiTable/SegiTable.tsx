@@ -1,3 +1,4 @@
+// export columns are not spaced correctly
 "use client"
 
 import { ITableComponent, ITableComponentField, FieldTypes, FieldValueTypes } from "./ISegiTable";
@@ -145,10 +146,16 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           let csvData = [];
           const columnWidths = [];
 
+          for (let i=0;i<currentTableComponent.Fields.length;i++) {
+               if (currentTableComponent.Fields[i].HiddenField !== true) {
+                    columnWidths.push(0);
+               }
+          }
+
           // Loop through each row in the table
           const rows = table.querySelectorAll("tr");
 
-          rows.forEach((row, rowIndex) => {
+          rows.forEach((row) => {
                let rowData = [];
                const cells = row.querySelectorAll("th, td");
 
@@ -159,12 +166,12 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     // Remove comma from cell text since the output is CSV which is comma separated
                     cellText = cellText.replaceAll(",", "");
 
-                    rowData.push(cellText);
+                    if ((!isExpandable || (isExpandable && cellIndex > 0))) {
+                         rowData.push(cellText);
 
-                    // Track the maximum length of content in each column
-                    const cellWidth = cellText.length;
-                    if (!columnWidths[cellIndex] || columnWidths[cellIndex] < cellWidth) {
-                         columnWidths[cellIndex] = cellWidth;
+                         if (cellText.length > columnWidths[cellIndex-1]) {
+                              columnWidths[cellIndex-1] = cellText.length;
+                         }
                     }
                });
 
@@ -172,11 +179,12 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
           });
 
           // Format the rows to ensure the columns are wide enough
+
           const formattedData = csvData.map(row => {
                return row.map((cellText, index) => {
                     // Pad each cell with spaces to ensure the column is wide enough
                     const requiredWidth = columnWidths[index];
-                    const paddedCell = cellText + ' '.repeat(requiredWidth - cellText.length);
+                    const paddedCell = cellText + ' '.repeat(requiredWidth > cellText.length ? requiredWidth - cellText.length : cellText.length);
                     return paddedCell;
                }).join(",");  // Join the row with commas
           });
