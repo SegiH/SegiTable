@@ -5,16 +5,18 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
-  mode: "production",
+  mode: "development",
   target: 'web',
   resolve: {
     extensions: ['.ts', '.tsx', '.js','.css','.png'],
   },
+  devtool: 'source-map',
   output: {
     filename: "bundle.js",
     //path: path.resolve("dist"),
     //publicPath: "/dist",
     publicPath: "/",
+    sourceMapFilename: 'bundle.js.map',
   },
   module: {
     rules:[
@@ -28,9 +30,14 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        enforce: 'pre',
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: "babel-loader"
+        exclude: [
+          /node_modules/,
+          /html-entities/ // Specifically exclude html-entities from source map generation
+        ],
+        use: ['source-map-loader', "babel-loader"],
+        //use: "babel-loader"
       },
       {
         test: /\.css$/,
@@ -47,11 +54,18 @@ module.exports = {
           },
         ],
       },
-    ], 
+    ],
   },
   devServer: {
     historyApiFallback: true,
+    port: 8080, // Ensure this matches your dev server's port
   },
+  ignoreWarnings: [
+    {
+      module: /node_modules[\\\/]html-entities[\\\/]/,
+      message: /source map/i,
+    },
+  ],
   plugins:[
      new Dotenv(),
      new HtmlWebpackPlugin({
@@ -61,8 +75,9 @@ module.exports = {
     }),
   ],
   optimization: {
-    minimize: true,
-    minimizer: [
+    minimize: false,
+    //minimize: true, /* Comment this out when you want to debug from VS Code! */
+    /*minimizer: [
       new TerserPlugin({
         terserOptions: {
           compress: {
@@ -74,7 +89,7 @@ module.exports = {
         },
         extractComments: false, // don't generate separate LICENSE.txt
       }),
-    ],
+    ],*/
   },
 }
 
