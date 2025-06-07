@@ -16,7 +16,7 @@ module.exports = {
     //path: path.resolve("dist"),
     //publicPath: "/dist",
     publicPath: "/",
-    sourceMapFilename: 'bundle.js.map',
+    //sourceMapFilename: 'bundle.js.map',
   },
   module: {
     rules:[
