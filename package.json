@@ -1,0 +1,25 @@
+{
+  "name": "segitable",
+  "version": "2025.6.7",
+  "description": "A lightweight editable table React component",
+  "keywords": [
+    "React",
+    "table",
+    "component",
+    "editable",
+    "light",
+    "lightweight",
+    "features"
+  ],
+  "license": "ISC",
+  "author": "Segi",
+  "type": "commonjs",
+  "main": "src/SegiTable.tsx",
+  "directories": {
+    "doc": "docs",
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
