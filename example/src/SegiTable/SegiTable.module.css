@@ -90,6 +90,14 @@
      background-color: #eee;
 }
 
+.SegiTableDataGridHeader {
+     background-color: #999999;
+     font-weight: bold;
+     white-space: nowrap;
+	user-select: none;
+     -webkit-user-select: none;
+}
+
 .SegiTableExpandableRowContent div {
      background-color: white !important;
 }
@@ -99,6 +107,8 @@
      height: 35px;
      width: 35px;
      margin-right: 25px;
+     user-select: none;
+     -webkit-user-select: none;
 }
 
 .SegiTableExcelIconEditable {
@@ -173,17 +183,6 @@
      -ms-overflow-style: none;  /* Hide scrollbars in IE and Edge */
      scrollbar-width: none;  /* Hide scrollbars in Firefox */
 }
-
-.SegiTableDataGridHeader {
-     /*cursor: ew-resize;*/
-     background-color: #999999;
-     font-weight: bold;
-     white-space: nowrap;
-}
-
-/*.SegiTableDataGridHeader * {
-     display: inline-flex;
-}*/
 
 .SegiTableIDColumn {
      max-width: 50px !important;
@@ -339,13 +338,3 @@
 .SegiTableURLButton {
      background-color: #3880ff;
 }
-
-/*.resizer {
-     position: absolute;
-     right: 0;
-     top: 0;
-     width: 5px;
-     height: 100%;
-     cursor: ew-resize;
-     z-index: 1;
-}*/
