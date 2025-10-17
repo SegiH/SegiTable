@@ -26,6 +26,8 @@ export interface ITableComponent {
      ExpandedRows?: number[]; // Used internally by the app
      Fields: ITableComponentField[];
      MultiExpandableRows?: boolean;
+     SemiTransparentTableHeader?: boolean;
+     SemiTransparentTableHeaderOpacity?: number;
 }
 
 export interface ITableComponentField {
@@ -61,6 +63,8 @@ export interface ITableComponentField {
      SelectDataEnabledOnly?: boolean; // When the field type is SELECT, indicates that you only want to show enabled values in the select
      SelectDataEnabledOnlyColumn?: string; // When the field type is SELECT and you only want to show enabled values in the select, the column in the select data that determines whether the data is enabled
      SearchableField?: boolean; // Indicates whether the field can be searched when search is enabled
+     SemiTransparentTableColumn?: boolean; // Indicates whether the current column is transparent
+     SemiTransparentTableColumnOpacity?: boolean; // If SemiTransparentTableColumn is true, the opacity. 
      SortableField?: boolean; // indicates whether the field can be sorted
      TogglesIDColumn?: boolean; // If true, when you double click on the column header for this field, it toggles the ID column     
      UniqueValues?: any[]; // Array that stores unique filter values

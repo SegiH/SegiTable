@@ -66,6 +66,8 @@ When you render SegiTable, there is validation that makes sure that you provide 
                 - [SortableField](#SortableField)
                 - [TogglesIDColumn](#TogglesIDColumn)
             - [MultiExpandableRows](#MultiExpandableRows)
+            - [SemiTransparentTableHeader]
+            - [SemiTransparentTableHeaderOption]
     - [width](#width)
 ### ITableComponent:
 
@@ -235,6 +237,19 @@ When you render SegiTable, there is validation that makes sure that you provide 
           Required: Yes
           Type: Boolean
           Description: If true, you can have more than 1 expandable row open at a time
+
+<a name="SemiTransparentTableHeader"></a>
+#### SemiTransparentTableHeader
+          Required: No
+          Type: Boolean
+          Description: If true, makes the table header semi transparent. The default opacity is 0.8 if SemiTransparentTableHeaderOpacity is not set.
+
+<a name="SemiTransparentTableHeaderOpacity"></a>
+#### SemiTransparentTableHeader
+          Required: No
+          Type: Boolean
+          Description: If SemiTransparentTableHeaderOpacity is set to true, sets the table header opacity. This value must be between 0 and 1. 0.5 - 0.9 is recommended.
+
 <br /> <br /> <br /> 
 
 ### ITableComponentField:
@@ -439,6 +454,18 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Required: No
                     Type: Boolean
                     Description: If SelectDataEnabledOnly is true, you must specify the boolean column in the select data that will be used to test if the row is enabled or not.
+
+<a name="SemiTransparentTableColumn"></a>
+#### SemiTransparentTableColumn
+          Required: No
+          Type: Boolean
+          Description: If true, makes the table column semi transparent. The default opacity is 0.8 if SemiTransparentTableColumnOpacity is not set
+
+<a name="SemiTransparentTableColumnOpacity"></a>
+#### SemiTransparentTableColumn
+          Required: No
+          Type: Boolean
+          Description: If SemiTransparentTableColumnOpacity is set to true, sets the table column opacity. This value must be between 0 and 1. 0.5 - 0.9 is recommended.
 
 <a name="SortableField"></a>
 #### SortableField
