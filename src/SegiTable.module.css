@@ -337,4 +337,10 @@
 
 .SegiTableURLButton {
      background-color: #3880ff;
+     vertical-align: middle;
+     padding-top: 10px !important;
+     padding-bottom: 10px !important;
+     padding-inline: unset;
+     padding-block: unset;
+     min-width: max-content;
 }

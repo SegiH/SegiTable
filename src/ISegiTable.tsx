@@ -53,8 +53,9 @@ export interface ITableComponentField {
      IsEnabledColumn?: boolean; // Indicates whether this field is used to determine whether to hide or show enabled fields when showDisable is provided
      IsURL?: boolean; // Indicates that this is a URL field
      IsURLButton?: boolean; // Show the URL as a button
-     IsURLColumn?: string; // Specify the database column name in the data that is used as the hyperlink text when displaying a URL
-     IsURLText?: string; // Specify static text to display for the link
+     IsURLDisplayTextColumn?: string; // column to display for link text instead of static text. Do not use with IsURLText. Only use one or the other
+     IsURLHrefColumn ?: string; // Specify the database column name in the data that is used as the hyperlink text when displaying a URL
+     IsURLText?: string; // Static text to display for the link. Do not use with IsURLColumnText. Only use one or the other
      Required?: boolean; // Indicates that this is a required field
      Rows?: number; // The number of rows for a textarea
      SelectData?: any; // When the field type is SELECT, the data used to render the select drop down

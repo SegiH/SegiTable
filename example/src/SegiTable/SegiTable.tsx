@@ -1,5 +1,3 @@
-"use client"
-
 import { ITableComponent, ITableComponentField, FieldTypes, FieldValueTypes } from "./ISegiTable";
 import { useEffect, useRef, useState } from "react";
 import React from "react";
@@ -979,14 +977,20 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     return ["ERROR"];
                }
 
-               if (typeof field.IsURL === "undefined" && typeof field.IsURLColumn !== "undefined") {
-                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided IsURLColumn but IsURL is not set`);
+               if (typeof field.IsURL === "undefined" && typeof field.IsURLHrefColumn !== "undefined") {
+                    setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided IsURLHrefColumn but IsURL is not set`);
                     setIsError(true);
                     return ["ERROR"];
                }
 
                if (typeof field.IsURL === "undefined" && typeof field.IsURLText !== "undefined") {
                     setErrorMessage(`SegiTable Error: The field "${field.DisplayName}" provided IsURLText but IsURL is not set`);
+                    setIsError(true);
+                    return ["ERROR"];
+               }
+
+               if (typeof field.IsURLText !== "undefined" && typeof field.IsURLHrefColumn !== "undefined") {
+                    setErrorMessage(`SegiTable Error: One IsURLText or IsURLHrefColumn can be provided but not both`);
                     setIsError(true);
                     return ["ERROR"];
                }
@@ -1436,7 +1440,7 @@ const SegiTableDataGridHeaders = ({ currentTableComponent, filterSearchTerm, has
                          typeof currentTableComponent.SemiTransparentTableHeaderOpacity !== "undefined"
                               ? currentTableComponent.SemiTransparentTableHeaderOpacity
                               : defaultOpacity
-                    }}>
+               }}>
                     {isExpandable && hasExpandableCriteriaMet && !isEditing &&
                          <th style={{ minWidth: "65px" }} className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader}`}></th>
                     }
@@ -1533,14 +1537,23 @@ type SegiTableDataGridBodyProps = {
 }
 
 const SegiTableDataGridBody = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, formatCurrency, getFormattedDate, isEditing, isExpandable, isVisible, setCurrentTableComponent, toggleExpandableRow }: SegiTableDataGridBodyProps) => {
+     // Gets the URL display text
+     const getURLText = (currentRow: [], field: any) => {
+          return typeof field.IsURLDisplayTextColumn !== "undefined"
+               ? currentRow[field.IsURLDisplayTextColumn]
+               : typeof field.IsURLText !== "undefined"
+                    ? field.IsURLText
+                    : currentRow[field.DatabaseColumn]
+     }
+
      return (
           <tbody>
                {!isEditing &&
-                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} formatCurrency={formatCurrency} getFormattedDate={getFormattedDate} isExpandable={isExpandable} isVisible={isVisible} setCurrentTableComponent={setCurrentTableComponent} toggleExpandableRow={toggleExpandableRow} />
+                    <SegiTableDataGridBodyReadOnlyFields currentTableComponent={currentTableComponent} filteredTableData={filteredTableData} formatCurrency={formatCurrency} getFormattedDate={getFormattedDate} getURLText={getURLText} isExpandable={isExpandable} isVisible={isVisible} setCurrentTableComponent={setCurrentTableComponent} toggleExpandableRow={toggleExpandableRow} />
                }
 
                {isEditing &&
-                    <SegiTableDataGridBodyEditableFields currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} isVisible={isVisible} />
+                    <SegiTableDataGridBodyEditableFields currentTableComponent={currentTableComponent} editFieldChangeHandler={editFieldChangeHandler} filteredTableData={filteredTableData} getFormattedDate={getFormattedDate} getURLText={getURLText} isVisible={isVisible} />
                }
           </tbody>
      )
@@ -1551,13 +1564,14 @@ type SegiTableDataGridBodyReadOnlyFieldsProps = {
      filteredTableData: any;
      formatCurrency: (price: string, locale?: string, currency?: string) => string;
      getFormattedDate: (dateStr: string, separator: string, format?: string) => string;
+     getURLText: (currentRow: [], field: any) => string;
      isExpandable: boolean;
      isVisible: (field: ITableComponentField) => void;
      setCurrentTableComponent: (value: ITableComponent) => void;
      toggleExpandableRow: (newId: number) => void;
 }
 
-const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, formatCurrency, getFormattedDate, isExpandable, isVisible, toggleExpandableRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
+const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTableData, formatCurrency, getFormattedDate, getURLText, isExpandable, isVisible, toggleExpandableRow }: SegiTableDataGridBodyReadOnlyFieldsProps) => {
      return (
           <>
                {typeof filteredTableData !== "undefined" && filteredTableData && filteredTableData
@@ -1667,11 +1681,25 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, filteredTa
                                                                       {field.IsURL &&
                                                                            <>
                                                                                 {typeof field.IsURLButton === "undefined" &&
-                                                                                     <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLText !== "undefined" ? field.IsURLText : typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                                     <div>
+                                                                                          <a href={typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn]} target="_blank">
+                                                                                               {getURLText(currentRow, field)}
+                                                                                          </a>
+                                                                                     </div>
                                                                                 }
 
                                                                                 {typeof field.IsURLButton !== "undefined" &&
-                                                                                     <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableURLButton}`} onClick={() => window.open(currentRow[field.DatabaseColumn], '_blank')}>{typeof field.IsURLText !== "undefined" ? field.IsURLText : field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</button>
+                                                                                     <>
+                                                                                          {currentRow[field.IsURLHrefColumn] !== null &&
+                                                                                               <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableURLButton}`} onClick={() => window.open(typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn], '_blank')}>
+                                                                                                    {getURLText(currentRow, field)}
+                                                                                               </button>
+                                                                                          }
+
+                                                                                          {currentRow[field.IsURLHrefColumn] === null &&
+                                                                                               <div>{currentRow[field.DatabaseColumn]}</div>
+                                                                                          }
+                                                                                     </>
                                                                                 }
                                                                            </>
                                                                       }
@@ -1733,10 +1761,11 @@ type SegiTableDataGridBodyEditableFieldsProps = {
      editFieldChangeHandler: (currentRow: any, fieldName: string, fieldValue: string | number | Date | boolean) => void;
      filteredTableData: any;
      getFormattedDate: (dateStr: string, separator: string, format?: string) => string;
+     getURLText: (currentRow: [], field: any) => string;
      isVisible: (field: ITableComponentField) => void;
 }
 
-const SegiTableDataGridBodyEditableFields = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, isVisible }: SegiTableDataGridBodyEditableFieldsProps) => {
+const SegiTableDataGridBodyEditableFields = ({ currentTableComponent, editFieldChangeHandler, filteredTableData, getFormattedDate, getURLText, isVisible }: SegiTableDataGridBodyEditableFieldsProps) => {
      return (
           <>
                {filteredTableData && filteredTableData
@@ -1763,7 +1792,11 @@ const SegiTableDataGridBodyEditableFields = ({ currentTableComponent, editFieldC
                                                                                 {field.IsURL &&
                                                                                      <>
                                                                                           {typeof field.IsURLButton === "undefined" &&
-                                                                                               <div><a href={currentRow[field.DatabaseColumn]} target="_blank">{typeof field.IsURLText !== "undefined" ? field.IsURLText : typeof field.IsURLColumn !== "undefined" ? currentRow[field.IsURLColumn] : currentRow[field.DatabaseColumn]}</a></div>
+                                                                                               <div>
+                                                                                                    <a href={typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn]} target="_blank">
+                                                                                                         {getURLText(currentRow, field)}
+                                                                                                    </a>
+                                                                                               </div>
                                                                                           }
                                                                                      </>
                                                                                 }

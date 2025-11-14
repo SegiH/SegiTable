@@ -10,7 +10,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js','.css','.png'],
   },
-  devtool: 'source-map',
+  devtool: 'eval',
   output: {
     filename: "bundle.js",
     //path: path.resolve("dist"),
@@ -57,7 +57,9 @@ module.exports = {
     ],
   },
   devServer: {
-    historyApiFallback: true,
+    //historyApiFallback: true,
+    allowedHosts: 'all',
+    host: '0.0.0.0',
     port: 8080, // Ensure this matches your dev server's port
   },
   ignoreWarnings: [

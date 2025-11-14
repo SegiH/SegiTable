@@ -78,6 +78,8 @@ const App = () => {
                     Centered: true,
                     Filterable: true,
                     Required: true,
+                    IsURL: true,
+                    IsURLColumn: "url",
                     TogglesIDColumn: true,
                     ColumnWidth: "14%"
                },

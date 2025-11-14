@@ -53,7 +53,8 @@ When you render SegiTable, there is validation that makes sure that you provide 
                 - [IsEnabledColumn](#IsEnabledColumn)
                 - [IsURL](#IsURL)
                 - [IsURLButton](#IsURLButton)
-                - [IsURLColumn](#IsURLColumn)
+                - [IsURLDisplayTextColumn](#IsURLDisplayTextColumn)
+                - [IsURLHrefColumn](#IsURLHrefColumn)
                 - [IsURLText](#IsURLText)
                 - [Required](#Required)
                 - [Rows](#Rows)
@@ -395,8 +396,14 @@ When you render SegiTable, there is validation that makes sure that you provide 
                     Type: Boolean
                     Description: If true, will display a button as the link instead of using a traditional hyperlink
 
-<a name="IsURLColumn"></a>
-#### IsURLColumn
+<a name="IsURLDisplayTextColumn"></a>
+#### IsURLDisplayTextColumn
+                    Required: No
+                    Type: String
+                    Description: If provided, indicates the column in the current row whose value will be used as the displayed text for the link. Do not specify both  IsURLText and  IsURLDisplayTextColumn. Only specify one or the other.
+
+<a name="IsURLHrefColumn"></a>
+#### IsURLHrefColumn
                     Required: No
                     Type: String
                     Description: If provided, indicates that the name of the database column that will be used to display as the text of the hyperlink text.
@@ -405,7 +412,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### IsURLText
                     Required: No
                     Type: String
-                    Description: If provided, indicates the text that will be used to display the link
+                    Description: If provided, indicates the static text that will be used to display the link. Do not specify both  IsURLText and  IsURLDisplayTextColumn. Only specify one or the other.
 
 <a name="Required"></a>
 #### Required
