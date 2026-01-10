@@ -79,7 +79,7 @@ const App = () => {
                     Filterable: true,
                     Required: true,
                     IsURL: true,
-                    IsURLColumn: "url",
+                    IsURLHrefColumn: "url",
                     TogglesIDColumn: true,
                     ColumnWidth: "14%"
                },
