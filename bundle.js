@@ -19687,8 +19687,7 @@ const App = () => {
     setIsEditing(false);
   };
   (0,react.useEffect)(() => {
-    const base = "MISSING_ENV_VAR".PUBLIC_URL || '';
-    fetch(`${base}/MOCK_DATA.csv`).then(res => res.text()).then(mockUserData => {
+    fetch(`./MOCK_DATA.csv`).then(res => res.text()).then(mockUserData => {
       // Import CSV data
       const lines = mockUserData.trim().split('\n');
 
@@ -19704,8 +19703,15 @@ const App = () => {
         }, {});
       });
       setMockData(result);
+    }).catch(err => {
+      // Catch any fetch or parsing errors
+      console.error('Error loading CSV:', err);
+      // Optionally set state to indicate error
+      setMockData([]);
+      // Or show a user-friendly message
+      alert('Failed to load mock data. Please try again later.');
     });
-    fetch(`${base}/EXPANDABLE_DATA.csv`).then(res => res.text()).then(expandableData => {
+    fetch(`./EXPANDABLE_DATA.csv`).then(res => res.text()).then(expandableData => {
       // Import CSV data
       const expandableLines = expandableData.trim().split('\n');
 
@@ -19721,9 +19727,13 @@ const App = () => {
         }, {});
       });
       setExpandableData(expandableResult);
-      setDataLoaded(true);
     });
   }, []);
+  (0,react.useEffect)(() => {
+    if (mockData.length > 0 && expandableData.length > 0) {
+      setDataLoaded(true);
+    }
+  }, [expandableData, mockData]);
   return /*#__PURE__*/react.createElement(react.Fragment, null, dataLoaded && /*#__PURE__*/react.createElement((SegiTable_default()), {
     addingText: "Add User",
     cancelEditCallBackHandler: cancelEditClickHandler,
