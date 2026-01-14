@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SegiTable from './SegiTable/SegiTable';
 import { FieldTypes, FieldValueTypes } from "./SegiTable/ISegiTable";
-import mockUserData from "./MOCK_DATA.csv";
-import expandableCarData from "./EXPANDABLE_DATA.csv";
 
 const App = () => {
      const [isAdding, setIsAdding] = useState(false);
@@ -176,41 +174,49 @@ const App = () => {
      }
 
      useEffect(() => {
-          // Import CSV data
-          const lines = mockUserData.trim().split('\n');
+          fetch("/MOCK_DATA.csv")
+               .then(res => res.text())
+               .then(mockUserData => {
+                    // Import CSV data
+                    const lines = mockUserData.trim().split('\n');
 
-          // Get the headers
-          const headers = lines[0].split(',').map(h => h.trim());
+                    // Get the headers
+                    const headers = lines[0].split(',').map(h => h.trim());
 
-          // Convert each line to an object
-          const result = lines.slice(1).map(line => {
-               const values = line.split(',').map(val => val.trim());
-               return headers.reduce((obj, key, i) => {
-                    obj[key] = values[i];
-                    return obj;
-               }, {});
-          });
+                    // Convert each line to an object
+                    const result = lines.slice(1).map(line => {
+                         const values = line.split(',').map(val => val.trim());
+                         return headers.reduce((obj, key, i) => {
+                              obj[key] = values[i];
+                              return obj;
+                         }, {});
+                    });
 
-          setMockData(result);
+                    setMockData(result);
+               });
 
-          // Import CSV data
-          const expandableLines = expandableCarData.trim().split('\n');
+          fetch("/EXPANDABLE_DATA.csv")
+               .then(res => res.text())
+               .then(expandableData => {
+                    // Import CSV data
+                    const expandableLines = expandableData.trim().split('\n');
 
-          // Get the headers
-          const expandableHeaders = expandableLines[0].split(',').map(h => h.trim());
+                    // Get the headers
+                    const expandableHeaders = expandableLines[0].split(',').map(h => h.trim());
 
-          // Convert each line to an object
-          const expandableResult = expandableLines.slice(1).map(line => {
-               const values = line.split(',').map(val => val.trim());
-               return expandableHeaders.reduce((obj, key, i) => {
-                    obj[key] = values[i];
-                    return obj;
-               }, {});
-          });
+                    // Convert each line to an object
+                    const expandableResult = expandableLines.slice(1).map(line => {
+                         const values = line.split(',').map(val => val.trim());
+                         return expandableHeaders.reduce((obj, key, i) => {
+                              obj[key] = values[i];
+                              return obj;
+                         }, {});
+                    });
 
-          setExpandableData(expandableResult);
+                    setExpandableData(expandableResult);
 
-          setDataLoaded(true);
+                    setDataLoaded(true);
+               });          
      }, []);
 
      return (

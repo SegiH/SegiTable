@@ -227,6 +227,23 @@
      height: 50px;
      width: 100%;
      user-select: none;
+     overflow: hidden;
+     white-space: nowrap;
+}
+
+.SegiTablePaginationSpan {
+     overflow-x: auto;
+     overflow-y: hidden;
+     white-space: nowrap;
+     display: flex;
+     flex-wrap: nowrap;
+     width: 100%;
+     -webkit-overflow-scrolling: touch;
+}
+
+.SegiTablePaginationSpan::before {
+     content: "";
+     flex: 1 0 auto;
 }
 
 .SegiTablePaginationContainer {
@@ -263,6 +280,7 @@
      gap: 10px;
      position: relative;
      top: 2px;
+     flex-wrap: nowrap;
 }
 
 .SegiTablePaginationSpan {

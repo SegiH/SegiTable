@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production && cp public/*.csv dist",    
     "serve": "webpack serve --mode development",
     "dev": "webpack serve --mode development",
     "devold": "webpack serve --config ./src/index.js",
@@ -37,6 +37,7 @@
     "file-loader": "^6.2.0",
     "raw-loader": "^4.0.2",
     "style-loader": "^3.3.4",
+    "webpack-bundle-analyzer": "^5.1.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"
   }
