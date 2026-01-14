@@ -19687,7 +19687,8 @@ const App = () => {
     setIsEditing(false);
   };
   (0,react.useEffect)(() => {
-    fetch(`./MOCK_DATA.csv`).then(res => res.text()).then(mockUserData => {
+    const base = "";
+    fetch(`${base}/MOCK_DATA.csv`).then(res => res.text()).then(mockUserData => {
       // Import CSV data
       const lines = mockUserData.trim().split('\n');
 
@@ -19711,7 +19712,7 @@ const App = () => {
       // Or show a user-friendly message
       alert('Failed to load mock data. Please try again later.');
     });
-    fetch(`./EXPANDABLE_DATA.csv`).then(res => res.text()).then(expandableData => {
+    fetch(`${base}/EXPANDABLE_DATA.csv`).then(res => res.text()).then(expandableData => {
       // Import CSV data
       const expandableLines = expandableData.trim().split('\n');
 
