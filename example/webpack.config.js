@@ -10,7 +10,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js','.css','.png'],
   },
-  devtool: 'eval',
+  devtool: false,
   output: {
     filename: "bundle.js",
     //path: path.resolve("dist"),
