@@ -19687,7 +19687,7 @@ const App = () => {
     setIsEditing(false);
   };
   (0,react.useEffect)(() => {
-    const base = "";
+    const base = "MISSING_ENV_VAR".PUBLIC_URL;
     fetch(`/SegiTable/MOCK_DATA.csv`).then(res => res.text()).then(mockUserData => {
       // Import CSV data
       const lines = mockUserData.trim().split('\n');
