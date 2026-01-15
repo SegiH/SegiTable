@@ -174,9 +174,7 @@ const App = () => {
      }
 
      useEffect(() => {
-          const base = process.env.PUBLIC_URL;
-
-          fetch(`${base}/MOCK_DATA.csv`)
+          fetch(`/MOCK_DATA.csv`)
                .then(res => res.text())
                .then(mockUserData => {
                     // Import CSV data
@@ -204,7 +202,7 @@ const App = () => {
                     alert('Failed to load mock data. Please try again later.');
                });
 
-          fetch(`${base}/EXPANDABLE_DATA.csv`)
+          fetch(`/EXPANDABLE_DATA.csv`)
                .then(res => res.text())
                .then(expandableData => {
                     // Import CSV data

@@ -11,7 +11,7 @@
     "devold": "webpack serve --config ./src/index.js",
     "start": "webpack --mode development",
     "output": "npx webpack --config webpack.config.js",
-    "deploy": "gh-pages -d dist"
+    "deploy": "sed -i 's|fetch(`/|fetch(`/SegiTable/|g' dist/bundle.js && gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",

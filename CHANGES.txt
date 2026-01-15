@@ -1,1 +1,0 @@
-Prevent CSV files from being bundled from example file. Fixed: pagination bar controls were too squished together in portrait mode on mobile browser. Update build script to include CSV files
