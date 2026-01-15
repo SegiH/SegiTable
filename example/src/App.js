@@ -174,7 +174,9 @@ const App = () => {
      }
 
      useEffect(() => {
-          fetch("/MOCK_DATA.csv")
+          const base = process.env.PUBLIC_URL;
+
+          fetch(`${base}/MOCK_DATA.csv`)
                .then(res => res.text())
                .then(mockUserData => {
                     // Import CSV data
@@ -193,9 +195,16 @@ const App = () => {
                     });
 
                     setMockData(result);
+               }).catch((err) => {
+                    // Catch any fetch or parsing errors
+                    console.error('Error loading CSV:', err);
+                    // Optionally set state to indicate error
+                    setMockData([]);
+                    // Or show a user-friendly message
+                    alert('Failed to load mock data. Please try again later.');
                });
 
-          fetch("/EXPANDABLE_DATA.csv")
+          fetch(`${base}/EXPANDABLE_DATA.csv`)
                .then(res => res.text())
                .then(expandableData => {
                     // Import CSV data
@@ -214,10 +223,14 @@ const App = () => {
                     });
 
                     setExpandableData(expandableResult);
-
-                    setDataLoaded(true);
-               });          
+               });
      }, []);
+
+     useEffect(() => {
+          if (mockData.length > 0 && expandableData.length > 0) {
+               setDataLoaded(true);
+          }
+     }, [expandableData, mockData]);
 
      return (
           <>

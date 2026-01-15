@@ -1,14 +1,12 @@
-const path = require("path");
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
   mode: "development",
   target: 'web',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js','.css','.png'],
+    extensions: ['.ts', '.tsx', '.js', '.css', '.png'],
   },
   devtool: false,
   output: {
@@ -19,7 +17,7 @@ module.exports = {
     //sourceMapFilename: 'bundle.js.map',
   },
   module: {
-    rules:[
+    rules: [
       {
         test: /\.csv$/,
         use: 'raw-loader'
@@ -68,13 +66,13 @@ module.exports = {
       message: /source map/i,
     },
   ],
-  plugins:[
-     new Dotenv(),
-     new HtmlWebpackPlugin({
+  plugins: [
+    new Dotenv(),
+    new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
       inject: false
-    }),
+    })
   ],
   optimization: {
     minimize: false,
@@ -94,4 +92,3 @@ module.exports = {
     ],*/
   },
 }
-
