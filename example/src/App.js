@@ -48,6 +48,7 @@ const App = () => {
           ExpandableDataColumn: "id", // This has to match ExpandableDataColumn defined in expandableTemplate 
           ExpandableContent:
                <SegiTable
+                    darkMode={false}
                     editable={false}
                     exportable={false}
                     searchable={false}
@@ -100,7 +101,7 @@ const App = () => {
                     Filterable: true,
                     IsEmailAddress: true,
                     Required: true,
-                    ColumnWidth: "14%"
+                    ColumnWidth: "16%"
                },
                {
                     DisplayName: 'Gender',
@@ -236,6 +237,7 @@ const App = () => {
                     <SegiTable
                          addingText={"Add User"}
                          cancelEditCallBackHandler={cancelEditClickHandler}
+                         darkMode={false}
                          defaultPageSize={5}
                          editable={true}
                          exportable={true}

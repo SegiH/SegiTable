@@ -9,7 +9,8 @@ When you render SegiTable, there is validation that makes sure that you provide 
     - [addingText](#addingText)
     - [addtlPageSizes](#addtlPageSizes)
     - [cancelEditCallBackHandler](#cancelEditCallBackHandler)
-    - [defaultPageSize](#defaultPageSize)    
+    - [darkMode](#darkMode)
+    - [defaultPageSize](#defaultPageSize)
     - [editable](#editable)
     - [exportable](#exportable)
     - [height](#height)
@@ -97,11 +98,17 @@ When you render SegiTable, there is validation that makes sure that you provide 
      Type: Method
      Description: Method that is called when you cancel editing a table. This method can be used to perform canceling the edit related tasks. 
 
+<a name="darkMode"></a>
+#### darkMode
+     Required: No
+     Type: Boolean
+     Description: If true, enables Dark Mode.
+
 <a name="defaultPageSize"></a>
 #### defaultPageSize
      Required: No
      Type: Number
-     Description: the default rows per page. Use 0 for "All"
+     Description: The default rows per page. Use 0 for "All"
 
 <a name="editable"></a>
 #### editable

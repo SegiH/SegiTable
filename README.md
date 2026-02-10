@@ -15,6 +15,8 @@
  - Collapsible/expandable rows for either all rows or some rows based on criteria. You can also render another SegiTable as the expandable row
  - Export to CSV
  - Customize the look and feel with CSS
+ - Dark Mode (new)
+ - Resizable table columns (new)
 
 ### Live Demo
 [Live Demo](https://segih.github.io/SegiTable/ "")
@@ -76,4 +78,3 @@ that are select types have been loaded. Otherwise, when you edit the table, the 
 3. It is best to use pagination if your data has many rows and the table is editable. If you do not use pagination on an editable table, editing can be slow.
 
 ### Future features:
-Dynamically adjust column width by dragging a marker left and right

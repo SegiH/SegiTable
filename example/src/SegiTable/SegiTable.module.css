@@ -1,3 +1,59 @@
+:root {
+     --light-mode-foregroundColor: black;
+     --light-mode-backgroundColor: white;
+     --dark-mode-foregroundColor: white;
+     --dark-mode-backgroundColor: black;
+}
+
+:global(.SegiTable .lightMode) {
+     color: var(--light-mode-foregroundColor) !important;
+     background-color: var(--light-mode-backgroundColor) !important;
+     border: 1px solid var(---light-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+:global(.darkMode) {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+     border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+/*:global(.SegiTableDataGrid tbody tr:nth-child(odd) .darkMode) {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+     border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+:global(.SegiTableDataGrid tbody tr:nth-child(odd) .lightMode) {
+     color: var(--light-mode-foregroundColor) !important;
+     background-color: var(--light-mode-backgroundColor) !important;
+     border: 1px solid var(--light-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+:global(.SegiTableDataGrid tbody tr:nth-child(even) .darkMode):not(.SegiTableExpandableRowContent) {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+     border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+:global(.SegiTableDataGrid tbody tr:nth-child(even) .lightMode) {
+     color: var(--light-mode-foregroundColor) !important;
+     background-color: var(--light-mode-backgroundColor) !important;
+     border: 1px solid var(--light-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}*/
+
+/*:global(.SegiTable .darkMode) {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+     border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}*/
+
 .SegiTable {
      overflow-y: hidden;
 }
@@ -5,12 +61,13 @@
 .SegiTableAddButton {
      background-color: #3dc2ff;
      margin-left: 75px;
-     margin-right: 50px;    
+     margin-right: 50px;
 }
 
 .SegiTableArrow {
      font-size: 30px !important;
      user-select: none;
+     border-width: 2px !important;
 }
 
 .SegiTableButtonStyle {
@@ -18,11 +75,11 @@
      backface-visibility: hidden;
      border-radius: 6px;
      border-width: 0;
-     box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+     box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
      box-sizing: border-box;
      color: #fff;
      cursor: pointer;
-     font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+     font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
      font-size: 100%;
      height: 34px;
      line-height: 1.15;
@@ -32,7 +89,7 @@
      text-transform: none;
      touch-action: manipulation;
      transform: translateZ(0);
-     transition: all .2s,box-shadow .08s ease-in;
+     transition: all .2s, box-shadow .08s ease-in;
      user-select: none;
      -webkit-user-select: none;
 }
@@ -57,17 +114,23 @@
 
 .SegiTableDataCell {
      font-family: Arial, Helvetica, sans-serif;
-     border: 0.025em solid #333 outset #999;    
-     box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-     -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-     line-height: 1.5;     
+     border: 0.025em solid #333 outset #999;
+     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+     -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+     -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+     line-height: 1.5;
      text-align: left;
      word-wrap: break-word;
 }
 
+/*.SegiTableDataCell .darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
+
 .SegiTableDataGrid {
      width: 100%;
+     table-layout: fixed;
 }
 
 .SegiTableDataGrid thead {
@@ -75,6 +138,11 @@
      top: 0;
      z-index: 100;
 }
+
+/*tr .darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
 
 .SegiTableDataGrid td {
      word-wrap: break-word;
@@ -86,21 +154,42 @@
      display: table-row;
 }
 
-.SegiTableDataGrid tr:nth-child(even) td:not(.SegiTableFilterGrid td) {
+.SegiTableDataGrid tr:not(.SegiTableExpandedTable)::nth-child(even) td:not(.SegiTableFilterGrid td) {
      background-color: #eee;
+     color: black;
 }
 
 .SegiTableDataGridHeader {
-     background-color: #999999;
+     /*background-color: #999999;*/
+     position: relative;
      font-weight: bold;
      white-space: nowrap;
-	user-select: none;
+     user-select: none;
      -webkit-user-select: none;
 }
 
-.SegiTableExpandableRowContent div {
-     background-color: white !important;
+.ColumnResizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
 }
+
+.ColumnResizer:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*.SegiTableDataGridHeader .darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
+
+/*.SegiTableExpandableRowContent div {
+     background-color: white !important;
+}*/
 
 .SegiTableExcelIcon {
      cursor: pointer;
@@ -156,14 +245,15 @@
      display: inline-block;
      width: 16px;
      height: 16px;
-     background-color: #f0f0f0; /* Light gray */
+     background-color: #f0f0f0;
+     /* Light gray */
      border: 1px solid #ccc;
      position: relative;
      top: 2px;
      border-radius: 2px;
      z-index: 99999;
 }
-   
+
 .SegiTableFilterIcon::after {
      content: "";
      position: absolute;
@@ -175,14 +265,32 @@
      height: 0;
      border-left: 4px solid transparent;
      border-right: 4px solid transparent;
-     border-top: 5px solid #666; /* Arrow color */
+     border-top: 5px solid #666;
+     /* Arrow color */
 }
 
 .SegiTableGridContent {
      display: block;
-     -ms-overflow-style: none;  /* Hide scrollbars in IE and Edge */
-     scrollbar-width: none;  /* Hide scrollbars in Firefox */
+     -ms-overflow-style: none;
+     /* Hide scrollbars in IE and Edge */
+     scrollbar-width: none;
+     /* Hide scrollbars in Firefox */
 }
+
+/*.SegiTableDataGridHeaders .darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
+
+/*.SegiTableDataGridHeaders tr.darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
+
+/*tr:nth-child(even).darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
 
 .SegiTableIDColumn {
      max-width: 50px !important;
@@ -206,15 +314,19 @@
 }
 
 .SegiTableMarginLeft10 {
-     margin-left: 10px;     
+     margin-left: 10px;
 }
 
 .SegiTableMarginLeft25 {
-     margin-left: 25px;     
+     margin-left: 25px;
 }
 
 .SegiTableMarginTop15 {
-     margin-top: 15px;     
+     margin-top: 15px;
+}
+
+.SegiTableNoBorder {
+     border-width: 0px;
 }
 
 .SegiTablePagination {
