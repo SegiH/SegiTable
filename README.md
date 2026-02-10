@@ -49,13 +49,15 @@ Multiple Expandable rows
 See docs for information on using and styling SegiTable.
 
 # Example
-There is a fully working project of SegiTable in use located in example/.
+There is a fully working example of SegiTable in use located in example/.
 
 # Possible issues:
 
 1. SegiTable was written in Typescript so you will need Typescript support in your application to use it.
 
 2. When rending SegiTable, if the data is coming from an API call, you need to make sure that the data has finished loading before rendering SegiTable. Usually this means doing
+
+3. When you expand a row, you cannot resize the table until you collapse the row. The table cannot be resized when viewing expandable content.
 
 <pre>
      {dataLoaded &&
