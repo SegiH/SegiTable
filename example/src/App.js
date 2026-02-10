@@ -48,7 +48,7 @@ const App = () => {
           ExpandableDataColumn: "id", // This has to match ExpandableDataColumn defined in expandableTemplate 
           ExpandableContent:
                <SegiTable
-                    darkMode={false}
+                    darkMode={true}
                     editable={false}
                     exportable={false}
                     searchable={false}
@@ -237,7 +237,7 @@ const App = () => {
                     <SegiTable
                          addingText={"Add User"}
                          cancelEditCallBackHandler={cancelEditClickHandler}
-                         darkMode={false}
+                         darkMode={true}
                          defaultPageSize={5}
                          editable={true}
                          exportable={true}
