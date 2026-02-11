@@ -17,19 +17,76 @@
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
+___CSS_LOADER_EXPORT___.push([module.id, `:root {
+     --light-mode-foregroundColor: black;
+     --light-mode-backgroundColor: white;
+     --dark-mode-foregroundColor: white;
+     --dark-mode-backgroundColor: black;
+}
+
+.SegiTable .lightMode {
+     color: var(--light-mode-foregroundColor) !important;
+     background-color: var(--light-mode-backgroundColor) !important;
+     border: 1px solid var(---light-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+.darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+     /*border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;*/
+}
+
+/*:global(.SegiTableDataGrid tbody tr:nth-child(odd) .darkMode) {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+     border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+:global(.SegiTableDataGrid tbody tr:nth-child(odd) .lightMode) {
+     color: var(--light-mode-foregroundColor) !important;
+     background-color: var(--light-mode-backgroundColor) !important;
+     border: 1px solid var(--light-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+:global(.SegiTableDataGrid tbody tr:nth-child(even) .darkMode):not(.SegiTableExpandableRowContent) {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+     border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}
+
+:global(.SegiTableDataGrid tbody tr:nth-child(even) .lightMode) {
+     color: var(--light-mode-foregroundColor) !important;
+     background-color: var(--light-mode-backgroundColor) !important;
+     border: 1px solid var(--light-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}*/
+
+/*:global(.SegiTable .darkMode) {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+     border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;
+}*/
+
+.ZCcbeuX4o4zyzIuDqFxy {
      overflow-y: hidden;
 }
 
 .fquLN_0GPyp39CETcbev {
      background-color: #3dc2ff;
      margin-left: 75px;
-     margin-right: 50px;    
+     margin-right: 50px;
 }
 
 .Qyof38is_zBJidf5PCfC {
      font-size: 30px !important;
      user-select: none;
+     border-width: 2px !important;
 }
 
 .WgbFA0qSs_j9GaUdJmPK {
@@ -37,11 +94,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
      backface-visibility: hidden;
      border-radius: 6px;
      border-width: 0;
-     box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+     box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
      box-sizing: border-box;
      color: #fff;
      cursor: pointer;
-     font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+     font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
      font-size: 100%;
      height: 34px;
      line-height: 1.15;
@@ -51,7 +108,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
      text-transform: none;
      touch-action: manipulation;
      transform: translateZ(0);
-     transition: all .2s,box-shadow .08s ease-in;
+     transition: all .2s, box-shadow .08s ease-in;
      user-select: none;
      -webkit-user-select: none;
 }
@@ -76,17 +133,23 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
 
 .aWtlXjsaR4fSo4KEEozh {
      font-family: Arial, Helvetica, sans-serif;
-     border: 0.025em solid #333 outset #999;    
-     box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-     -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-     line-height: 1.5;     
+     border: 0.025em solid #333 outset #999;
+     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+     -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+     -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+     line-height: 1.5;
      text-align: left;
      word-wrap: break-word;
 }
 
+/*.SegiTableDataCell .darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
+
 .v1lEFXAfWq7IArmJGEa2 {
      width: 100%;
+     table-layout: fixed;
 }
 
 .v1lEFXAfWq7IArmJGEa2 thead {
@@ -94,6 +157,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
      top: 0;
      z-index: 100;
 }
+
+/*tr .darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
 
 .v1lEFXAfWq7IArmJGEa2 td {
      word-wrap: break-word;
@@ -105,21 +173,42 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
      display: table-row;
 }
 
-.v1lEFXAfWq7IArmJGEa2 tr:nth-child(even) td:not(.RxviVPncOyB6KNvJrm8g td) {
+.v1lEFXAfWq7IArmJGEa2 tr:not(.uiiE5VzOUHiE81v7chbT):nth-child(even) td:not(.RxviVPncOyB6KNvJrm8g td) {
      background-color: #eee;
+     color: black;
 }
 
 .UPJ89c_JYn2Fe8x0TPVY {
-     background-color: #999999;
+     /*background-color: #999999;*/
+     position: relative;
      font-weight: bold;
      white-space: nowrap;
-	user-select: none;
+     user-select: none;
      -webkit-user-select: none;
 }
 
-.OILT3XOMnPMKff68SLJ9 div {
-     background-color: white !important;
+.DpXqtoEmzKiiuFXCop1X {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
 }
+
+.DpXqtoEmzKiiuFXCop1X:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*.SegiTableDataGridHeader .darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
+
+/*.SegiTableExpandableRowContent div {
+     background-color: white !important;
+}*/
 
 .NItHanIdXoMoksyrXxpg {
      cursor: pointer;
@@ -175,14 +264,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
      display: inline-block;
      width: 16px;
      height: 16px;
-     background-color: #f0f0f0; /* Light gray */
+     background-color: #f0f0f0;
+     /* Light gray */
      border: 1px solid #ccc;
      position: relative;
      top: 2px;
      border-radius: 2px;
      z-index: 99999;
 }
-   
+
 .CkfiHI4XtjTIH0jK3Amh::after {
      content: "";
      position: absolute;
@@ -194,14 +284,32 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
      height: 0;
      border-left: 4px solid transparent;
      border-right: 4px solid transparent;
-     border-top: 5px solid #666; /* Arrow color */
+     border-top: 5px solid #666;
+     /* Arrow color */
 }
 
 .ZljTUpIXNFKpDM9mFY_y {
      display: block;
-     -ms-overflow-style: none;  /* Hide scrollbars in IE and Edge */
-     scrollbar-width: none;  /* Hide scrollbars in Firefox */
+     -ms-overflow-style: none;
+     /* Hide scrollbars in IE and Edge */
+     scrollbar-width: none;
+     /* Hide scrollbars in Firefox */
 }
+
+/*.SegiTableDataGridHeaders .darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
+
+/*.SegiTableDataGridHeaders tr.darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
+
+/*tr:nth-child(even).darkMode {
+     color: var(--dark-mode-foregroundColor) !important;
+     background-color: var(--dark-mode-backgroundColor) !important;
+}*/
 
 .KtJJFhuaIvNhIYsgu5sa {
      max-width: 50px !important;
@@ -225,15 +333,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.ZCcbeuX4o4zyzIuDqFxy {
 }
 
 .Oyu6IagSsbjKle2MSZM2 {
-     margin-left: 10px;     
+     margin-left: 10px;
 }
 
 .Fg8XTVMjUlPWTxU6ygWa {
-     margin-left: 25px;     
+     margin-left: 25px;
 }
 
 .Bt7TJD_RhO5iBGQJJI7Q {
-     margin-top: 15px;     
+     margin-top: 15px;
+}
+
+.aVqjw9s8Ca8YQQRW9byj {
+     border-width: 0px;
 }
 
 .DpjcrQh3vHVY4f_U_m3Y {
@@ -396,8 +508,9 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"SegiTableDataCell": `aWtlXjsaR4fSo4KEEozh`,
 	"SegiTableDataGrid": `v1lEFXAfWq7IArmJGEa2`,
 	"SegiTableFilterGrid": `RxviVPncOyB6KNvJrm8g`,
+	"SegiTableExpandedTable": `uiiE5VzOUHiE81v7chbT`,
 	"SegiTableDataGridHeader": `UPJ89c_JYn2Fe8x0TPVY`,
-	"SegiTableExpandableRowContent": `OILT3XOMnPMKff68SLJ9`,
+	"ColumnResizer": `DpXqtoEmzKiiuFXCop1X`,
 	"SegiTableExcelIcon": `NItHanIdXoMoksyrXxpg`,
 	"SegiTableExcelIconEditable": `LAZ7ETK5w7pJUBnR8qD1`,
 	"SegiTableExcelIconReadOnly": `yVZhSAeM2Y5h2fd74Ga6`,
@@ -412,6 +525,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"SegiTableMarginLeft10": `Oyu6IagSsbjKle2MSZM2`,
 	"SegiTableMarginLeft25": `Fg8XTVMjUlPWTxU6ygWa`,
 	"SegiTableMarginTop15": `Bt7TJD_RhO5iBGQJJI7Q`,
+	"SegiTableNoBorder": `aVqjw9s8Ca8YQQRW9byj`,
 	"SegiTablePagination": `DpjcrQh3vHVY4f_U_m3Y`,
 	"SegiTablePaginationSpan": `virT4CjwWS9hirX1YTKM`,
 	"SegiTablePaginationContainer": `VqbgpRnE4VHwlIBkWX3S`,
@@ -17484,26 +17598,30 @@ var ISegiTable_1 = __webpack_require__(558);
 var react_1 = __webpack_require__(540);
 var react_2 = __importDefault(__webpack_require__(540));
 var SegiTable_module_css_1 = __importDefault(__webpack_require__(319));
+var MIN_COLUMN_WIDTH = 80; // px
+var COLUMN_STORAGE_KEY = "SegiTable.ColumnWidths";
 var SegiTable = function (_a) {
-    var addingHasDisabledCheckboxPlaceholder = _a.addingHasDisabledCheckboxPlaceholder, addingText = _a.addingText, addtlPageSizes = _a.addtlPageSizes, cancelEditCallBackHandler = _a.cancelEditCallBackHandler, defaultPageSize = _a.defaultPageSize, editable = _a.editable, exportable = _a.exportable, height = _a.height, isAdding = _a.isAdding, isEditing = _a.isEditing, pageSizeOverride = _a.pageSizeOverride, paginationEnabled = _a.paginationEnabled, saveAddCallBackHandler = _a.saveAddCallBackHandler, saveEditCallBackHandler = _a.saveEditCallBackHandler, searchable = _a.searchable, setIsAdding = _a.setIsAdding, setIsEditing = _a.setIsEditing, showDisabled = _a.showDisabled, sortable = _a.sortable, tableTemplate = _a.tableTemplate, width = _a.width;
-    var _b = (0, react_1.useState)(null), currentTableComponent = _b[0], setCurrentTableComponent = _b[1]; // Used for table headers and when adding
-    var _c = (0, react_1.useState)(1), currentPage = _c[0], setCurrentPage = _c[1];
-    var _d = (0, react_1.useState)(""), errorMessage = _d[0], setErrorMessage = _d[1];
-    var _e = (0, react_1.useState)(null), filteredTableData = _e[0], setFilteredTableData = _e[1];
-    var _f = (0, react_1.useState)(""), filterSearchTerm = _f[0], setFilterSearchTerm = _f[1];
-    var _g = (0, react_1.useState)(false), hasExpandableCriteriaMet = _g[0], setHasExpandableCriteriaMet = _g[1];
-    var _h = (0, react_1.useState)(false), idVisible = _h[0], setIDVisible = _h[1];
-    var _j = (0, react_1.useState)(false), isError = _j[0], setIsError = _j[1];
-    var _k = (0, react_1.useState)(false), isExpandable = _k[0], setIsExpandable = _k[1];
-    var _l = (0, react_1.useState)(false), lastPage = _l[0], setLastPage = _l[1];
-    var _m = (0, react_1.useState)(0), lastPageNum = _m[0], setLastPageNum = _m[1];
-    var _o = (0, react_1.useState)(0), pageSize = _o[0], setPageSize = _o[1];
-    var _p = (0, react_1.useState)(""), pageRecordStartEndLabel = _p[0], setPageRecordStartEndLabel = _p[1];
-    var _q = (0, react_1.useState)(""), searchTerm = _q[0], setSearchTerm = _q[1];
-    var _r = (0, react_1.useState)(""), sortColumn = _r[0], setSortColumn = _r[1];
-    var _s = (0, react_1.useState)(""), sortDirection = _s[0], setSortDirection = _s[1];
-    var _t = (0, react_1.useState)(null), tableData = _t[0], setTableData = _t[1]; // Used when not adding (viewing or editing table)
-    var _u = (0, react_1.useState)(""), uniqueValuesVisibleColumn = _u[0], setUniqueValuesVisibleColumn = _u[1];
+    var addingHasDisabledCheckboxPlaceholder = _a.addingHasDisabledCheckboxPlaceholder, addingText = _a.addingText, addtlPageSizes = _a.addtlPageSizes, cancelEditCallBackHandler = _a.cancelEditCallBackHandler, darkMode = _a.darkMode, defaultPageSize = _a.defaultPageSize, editable = _a.editable, exportable = _a.exportable, height = _a.height, isAdding = _a.isAdding, isEditing = _a.isEditing, pageSizeOverride = _a.pageSizeOverride, paginationEnabled = _a.paginationEnabled, saveAddCallBackHandler = _a.saveAddCallBackHandler, saveEditCallBackHandler = _a.saveEditCallBackHandler, searchable = _a.searchable, setIsAdding = _a.setIsAdding, setIsEditing = _a.setIsEditing, showDisabled = _a.showDisabled, sortable = _a.sortable, tableTemplate = _a.tableTemplate, width = _a.width;
+    var _b = (0, react_1.useState)({}), columnWidths = _b[0], setColumnWidths = _b[1];
+    var _c = (0, react_1.useState)(null), currentTableComponent = _c[0], setCurrentTableComponent = _c[1]; // Used for table headers and when adding
+    var _d = (0, react_1.useState)(1), currentPage = _d[0], setCurrentPage = _d[1];
+    var _e = (0, react_1.useState)(""), errorMessage = _e[0], setErrorMessage = _e[1];
+    var _f = react_2.default.useState(null), expandedId = _f[0], setExpandedId = _f[1];
+    var _g = (0, react_1.useState)(null), filteredTableData = _g[0], setFilteredTableData = _g[1];
+    var _h = (0, react_1.useState)(""), filterSearchTerm = _h[0], setFilterSearchTerm = _h[1];
+    var _j = (0, react_1.useState)(false), hasExpandableCriteriaMet = _j[0], setHasExpandableCriteriaMet = _j[1];
+    var _k = (0, react_1.useState)(false), idVisible = _k[0], setIDVisible = _k[1];
+    var _l = (0, react_1.useState)(false), isError = _l[0], setIsError = _l[1];
+    var _m = (0, react_1.useState)(false), isExpandable = _m[0], setIsExpandable = _m[1];
+    var _o = (0, react_1.useState)(false), lastPage = _o[0], setLastPage = _o[1];
+    var _p = (0, react_1.useState)(0), lastPageNum = _p[0], setLastPageNum = _p[1];
+    var _q = (0, react_1.useState)(0), pageSize = _q[0], setPageSize = _q[1];
+    var _r = (0, react_1.useState)(""), pageRecordStartEndLabel = _r[0], setPageRecordStartEndLabel = _r[1];
+    var _s = (0, react_1.useState)(""), searchTerm = _s[0], setSearchTerm = _s[1];
+    var _t = (0, react_1.useState)(""), sortColumn = _t[0], setSortColumn = _t[1];
+    var _u = (0, react_1.useState)(""), sortDirection = _u[0], setSortDirection = _u[1];
+    var _v = (0, react_1.useState)(null), tableData = _v[0], setTableData = _v[1]; // Used when not adding (viewing or editing table)
+    var _w = (0, react_1.useState)(""), uniqueValuesVisibleColumn = _w[0], setUniqueValuesVisibleColumn = _w[1];
     var hasRunInitialEffect = (0, react_1.useRef)(false); // Prevents the useEffect with no dependencies from re-rendering
     var defaultPageSizes = {
         5: "5",
@@ -17879,9 +17997,16 @@ var SegiTable = function (_a) {
             alert("Value is not set. Make sure that ExpandableDataColumn is set in the template");
             return;
         }
+        var stringId = String(newId);
+        if (expandedId === stringId) {
+            setExpandedId(null);
+            localStorage.removeItem("SegiTable.LastOpenedId");
+        }
+        else {
+            setExpandedId(stringId);
+            localStorage.setItem("SegiTable.LastOpenedId", stringId);
+        }
         var newComponent = Object.assign([], currentTableComponent);
-        // Because of weird issue communicating from parent SegiTable to Child SegiTable I write to localStorage
-        var lastId = localStorage.getItem("SegiTable.LastOpenedId");
         if (typeof newComponent.ExpandedRows === "undefined") {
             newComponent.ExpandedRows = [];
         }
@@ -17893,9 +18018,6 @@ var SegiTable = function (_a) {
                 return;
             }
             newComponent.ExpandedRows.splice(index, 1);
-            if (newId.toString() === lastId) {
-                localStorage.setItem("SegiTable.LastOpenedId", "-1");
-            }
         }
         else {
             if (currentTableComponent.MultiExpandableRows !== true) {
@@ -18333,6 +18455,10 @@ var SegiTable = function (_a) {
         if (typeof savedRowsPerPage !== "undefined" && savedRowsPerPage !== null && savedRowsPerPage) {
             setPageSize(parseInt(savedRowsPerPage, 10));
         }
+        var saved = localStorage.getItem(COLUMN_STORAGE_KEY);
+        if (saved) {
+            setColumnWidths(JSON.parse(saved));
+        }
         hasRunInitialEffect.current = true;
     }, []);
     // useEffect that triggers the filtering of the table data
@@ -18351,39 +18477,24 @@ var SegiTable = function (_a) {
     (0, react_1.useEffect)(function () {
         setCurrentPage(1);
     }, [searchTerm]);
-    var lastId = localStorage.getItem("SegiTable.LastOpenedId");
+    (0, react_1.useEffect)(function () {
+        localStorage.setItem(COLUMN_STORAGE_KEY, JSON.stringify(columnWidths));
+    }, [columnWidths]);
     return (react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTable), style: { width: typeof width !== "undefined" ? width : "100%" } },
         isError &&
             react_2.default.createElement("div", null, errorMessage),
         !isError && filterTableData && hasRunInitialEffect.current === true &&
-            react_2.default.createElement("span", null,
-                filterTableData &&
+            react_2.default.createElement("span", { className: "SegiTable" },
+                filterTableData && expandedId === null &&
                     react_2.default.createElement(SegiTableControls, { addClickHandler: addClickHandler, addingText: addingText, cancelAddClickHandler: cancelAddClickHandler, cancelEditCallBackHandler: cancelEditCallBackHandler, currentTableComponent: currentTableComponent, editable: editable, editClickHandler: editClickHandler, exportable: exportable, exportCSV: exportCSV, isAdding: isAdding, isEditing: isEditing, saveAddCallBackHandler: saveAddCallBackHandler, saveEditCallBackHandler: saveEditCallBackHandler, searchable: searchable, searchTerm: searchTerm, setSearchTerm: setSearchTerm, tableData: tableData }),
                 tableData &&
                     react_2.default.createElement(react_2.default.Fragment, null,
                         isAdding &&
-                            react_2.default.createElement(SegiTableAddRow, { addFieldChangeHandler: addFieldChangeHandler, addingHasDisabledCheckboxPlaceholder: addingHasDisabledCheckboxPlaceholder, currentTableComponent: currentTableComponent, idVisible: idVisible, isAdding: isAdding }),
-                        ((tableData.length === 0 && currentTableComponent.ExpandableDataLinked !== true)
-                            ||
-                                (currentTableComponent.ExpandableDataLinked === true &&
-                                    currentTableComponent.Data.filter(function (currentRow) {
-                                        var expandableDataLinked = currentTableComponent.ExpandableDataLinked === true ? true : false;
-                                        var expandableDataColumn = typeof currentTableComponent.ExpandableDataColumn !== "undefined" && currentTableComponent.ExpandableDataColumn !== null && currentTableComponent.ExpandableDataColumn !== "" ? currentTableComponent.ExpandableDataColumn : "";
-                                        return (((!expandableDataLinked || lastId === "")
-                                            ||
-                                                (expandableDataLinked && lastId !== "" && expandableDataColumn !== "" && String(currentRow[currentTableComponent.ExpandableDataColumn]).trim() === lastId)));
-                                    }).length === 0))
-                            &&
-                                react_2.default.createElement("span", { style: { fontSize: "24px", fontWeight: "bold" } }, "No Data"),
-                        tableData.length > 0 &&
-                            (currentTableComponent.ExpandableDataLinked !== true
-                                || (currentTableComponent.ExpandableDataLinked === true && currentTableComponent.Data.filter(function (currentRow) {
-                                    var expandableDataLinked = currentTableComponent.ExpandableDataLinked === true ? true : false;
-                                    return ((!expandableDataLinked || lastId === "") ||
-                                        (expandableDataLinked && lastId !== "" && String(currentRow[currentTableComponent.ExpandableDataColumn]).trim() === lastId));
-                                }).length > 0))
-                            &&
-                                react_2.default.createElement(SegiTableDataGrid, { currentPage: currentPage, currentTableComponent: currentTableComponent, editFieldChangeHandler: editFieldChangeHandler, filteredTableData: filteredTableData, filterSearchTerm: filterSearchTerm, formatCurrency: formatCurrency, getFormattedDate: getFormattedDate, hasExpandableCriteriaMet: hasExpandableCriteriaMet, height: height, isAdding: isAdding, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, lastPage: lastPage, lastPageNum: lastPageNum, mergedPageSizes: mergedPageSizes, pageClickHandler: pageClickHandler, pageRecordStartEndLabel: pageRecordStartEndLabel, pageSize: pageSize, pageSizeClickHandler: pageSizeClickHandler, paginationEnabled: paginationEnabled, setCurrentTableComponent: setCurrentTableComponent, setFilterSearchTerm: setFilterSearchTerm, sortable: sortable, sortColumn: sortColumn, sortColumnClickHandler: sortColumnClickHandler, sortDirection: sortDirection, tableData: tableData, tableRef: tableRef, toggleIDColumn: toggleIDColumn, toggleExpandableRow: toggleExpandableRow, uniqueValuesClearColumnClickHandler: uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler: uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler: uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn: uniqueValuesVisibleColumn })))));
+                            react_2.default.createElement(SegiTableAddRow, { addFieldChangeHandler: addFieldChangeHandler, addingHasDisabledCheckboxPlaceholder: addingHasDisabledCheckboxPlaceholder, currentTableComponent: currentTableComponent, darkMode: darkMode, idVisible: idVisible, isAdding: isAdding }),
+                        tableData.length === 0 && currentTableComponent.ExpandableDataLinked !== true &&
+                            react_2.default.createElement("span", { style: { fontSize: "24px", fontWeight: "bold" } }, "No Data"),
+                        tableData.length > 0 && (currentTableComponent.ExpandableDataLinked !== true || (currentTableComponent.ExpandableDataLinked === true)) &&
+                            react_2.default.createElement(SegiTableDataGrid, { columnWidths: columnWidths, currentPage: currentPage, currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, expandedId: expandedId, filteredTableData: filteredTableData, filterSearchTerm: filterSearchTerm, formatCurrency: formatCurrency, getFormattedDate: getFormattedDate, hasExpandableCriteriaMet: hasExpandableCriteriaMet, height: height, isAdding: isAdding, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, lastPage: lastPage, lastPageNum: lastPageNum, mergedPageSizes: mergedPageSizes, pageClickHandler: pageClickHandler, pageRecordStartEndLabel: pageRecordStartEndLabel, pageSize: pageSize, pageSizeClickHandler: pageSizeClickHandler, paginationEnabled: paginationEnabled, setColumnWidths: setColumnWidths, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId, setFilterSearchTerm: setFilterSearchTerm, sortable: sortable, sortColumn: sortColumn, sortColumnClickHandler: sortColumnClickHandler, sortDirection: sortDirection, tableData: tableData, tableRef: tableRef, toggleIDColumn: toggleIDColumn, toggleExpandableRow: toggleExpandableRow, uniqueValuesClearColumnClickHandler: uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler: uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler: uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn: uniqueValuesVisibleColumn })))));
 };
 var SegiTableControls = function (_a) {
     var addClickHandler = _a.addClickHandler, addingText = _a.addingText, cancelAddClickHandler = _a.cancelAddClickHandler, cancelEditCallBackHandler = _a.cancelEditCallBackHandler, currentTableComponent = _a.currentTableComponent, editClickHandler = _a.editClickHandler, editable = _a.editable, exportable = _a.exportable, exportCSV = _a.exportCSV, isAdding = _a.isAdding, isEditing = _a.isEditing, saveAddCallBackHandler = _a.saveAddCallBackHandler, saveEditCallBackHandler = _a.saveEditCallBackHandler, searchable = _a.searchable, searchTerm = _a.searchTerm, setSearchTerm = _a.setSearchTerm, tableData = _a.tableData;
@@ -18409,22 +18520,22 @@ var SegiTableControls = function (_a) {
 };
 exports["default"] = SegiTable;
 var SegiTableAddRow = function (_a) {
-    var addFieldChangeHandler = _a.addFieldChangeHandler, addingHasDisabledCheckboxPlaceholder = _a.addingHasDisabledCheckboxPlaceholder, currentTableComponent = _a.currentTableComponent, idVisible = _a.idVisible, isAdding = _a.isAdding;
+    var addFieldChangeHandler = _a.addFieldChangeHandler, addingHasDisabledCheckboxPlaceholder = _a.addingHasDisabledCheckboxPlaceholder, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, idVisible = _a.idVisible, isAdding = _a.isAdding;
     return (react_2.default.createElement("table", { className: SegiTable_module_css_1.default.SegiTableMarginBottom25 },
         react_2.default.createElement("thead", null,
-            react_2.default.createElement("tr", null,
+            react_2.default.createElement("tr", { className: "".concat(!darkMode ? "lightMode" : "darkMode") },
                 currentTableComponent && currentTableComponent.Fields
                     .filter(function (field) {
                     return ((isAdding && (typeof field.Addable === "undefined" || (typeof field.Addable !== "undefined" && field.Addable !== false))
                         ||
                             (!isAdding && ((field === null || field === void 0 ? void 0 : field.HiddenField) !== true || ((field === null || field === void 0 ? void 0 : field.HiddenField) === true && idVisible)))));
                 }).map(function (field, index) {
-                    return (react_2.default.createElement("th", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(field.IsIDColumn === true ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(field.Clickable ? "".concat(SegiTable_module_css_1.default.SegiTableClickable) : "") }, field.DisplayName));
+                    return (react_2.default.createElement("th", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(field.IsIDColumn === true ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(field.Clickable ? "".concat(SegiTable_module_css_1.default.SegiTableClickable) : "", " ").concat(!darkMode ? "lightMode" : "darkMode") }, field.DisplayName));
                 }),
                 isAdding && currentTableComponent && addingHasDisabledCheckboxPlaceholder &&
-                    react_2.default.createElement("th", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader) }, "Enabled"))),
+                    react_2.default.createElement("th", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(!darkMode ? "lightMode" : "darkMode") }, "Enabled"))),
         react_2.default.createElement("tbody", null,
-            react_2.default.createElement("tr", null,
+            react_2.default.createElement("tr", { className: "".concat(!darkMode ? "lightMode" : "darkMode") },
                 currentTableComponent.Fields.filter(function (field) {
                     return (typeof field.Addable == "undefined" || (typeof field.Addable != "undefined" && field.Addable != false));
                 }).map(function (field, index) {
@@ -18454,51 +18565,52 @@ var SegiTableAddRow = function (_a) {
                         react_2.default.createElement("input", { id: "addDisabledEnabledCheckbox", name: "addEnabled", className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle), type: "checkbox", disabled: true, checked: true }))))));
 };
 var SegiTableDataGrid = function (_a) {
-    var currentPage = _a.currentPage, currentTableComponent = _a.currentTableComponent, editFieldChangeHandler = _a.editFieldChangeHandler, filteredTableData = _a.filteredTableData, filterSearchTerm = _a.filterSearchTerm, formatCurrency = _a.formatCurrency, getFormattedDate = _a.getFormattedDate, hasExpandableCriteriaMet = _a.hasExpandableCriteriaMet, height = _a.height, isAdding = _a.isAdding, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, lastPage = _a.lastPage, lastPageNum = _a.lastPageNum, mergedPageSizes = _a.mergedPageSizes, pageClickHandler = _a.pageClickHandler, pageRecordStartEndLabel = _a.pageRecordStartEndLabel, pageSize = _a.pageSize, pageSizeClickHandler = _a.pageSizeClickHandler, paginationEnabled = _a.paginationEnabled, setCurrentTableComponent = _a.setCurrentTableComponent, setFilterSearchTerm = _a.setFilterSearchTerm, sortable = _a.sortable, sortColumn = _a.sortColumn, sortColumnClickHandler = _a.sortColumnClickHandler, sortDirection = _a.sortDirection, tableData = _a.tableData, tableRef = _a.tableRef, toggleIDColumn = _a.toggleIDColumn, toggleExpandableRow = _a.toggleExpandableRow, uniqueValuesClearColumnClickHandler = _a.uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler = _a.uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler = _a.uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn = _a.uniqueValuesVisibleColumn;
+    var columnWidths = _a.columnWidths, currentPage = _a.currentPage, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, filterSearchTerm = _a.filterSearchTerm, formatCurrency = _a.formatCurrency, getFormattedDate = _a.getFormattedDate, hasExpandableCriteriaMet = _a.hasExpandableCriteriaMet, height = _a.height, isAdding = _a.isAdding, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, lastPage = _a.lastPage, lastPageNum = _a.lastPageNum, mergedPageSizes = _a.mergedPageSizes, pageClickHandler = _a.pageClickHandler, pageRecordStartEndLabel = _a.pageRecordStartEndLabel, pageSize = _a.pageSize, pageSizeClickHandler = _a.pageSizeClickHandler, paginationEnabled = _a.paginationEnabled, setColumnWidths = _a.setColumnWidths, setCurrentTableComponent = _a.setCurrentTableComponent, setExpandedId = _a.setExpandedId, setFilterSearchTerm = _a.setFilterSearchTerm, sortable = _a.sortable, sortColumn = _a.sortColumn, sortColumnClickHandler = _a.sortColumnClickHandler, sortDirection = _a.sortDirection, tableData = _a.tableData, tableRef = _a.tableRef, toggleIDColumn = _a.toggleIDColumn, toggleExpandableRow = _a.toggleExpandableRow, uniqueValuesClearColumnClickHandler = _a.uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler = _a.uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler = _a.uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn = _a.uniqueValuesVisibleColumn;
     return (react_2.default.createElement("div", null,
-        react_2.default.createElement("div", { id: "SegiTableGridContent", className: "".concat(SegiTable_module_css_1.default.SegiTableGridContent), style: { height: typeof height !== "undefined" ? height : "auto", overflow: "auto" } },
-            react_2.default.createElement("table", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataGrid, " ").concat(!lastPage ? "".concat(SegiTable_module_css_1.default.SegiTableDataGridNotLastPage) : ""), ref: tableRef },
-                react_2.default.createElement(SegiTableDataGridHeaders, { currentTableComponent: currentTableComponent, filterSearchTerm: filterSearchTerm, hasExpandableCriteriaMet: hasExpandableCriteriaMet, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, setFilterSearchTerm: setFilterSearchTerm, sortable: sortable, sortColumn: sortColumn, sortColumnClickHandler: sortColumnClickHandler, sortDirection: sortDirection, toggleIDColumn: toggleIDColumn, uniqueValuesClearColumnClickHandler: uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler: uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler: uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn: uniqueValuesVisibleColumn }),
-                react_2.default.createElement(SegiTableDataGridBody, { currentTableComponent: currentTableComponent, editFieldChangeHandler: editFieldChangeHandler, filteredTableData: filteredTableData, formatCurrency: formatCurrency, getFormattedDate: getFormattedDate, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, setCurrentTableComponent: setCurrentTableComponent, toggleExpandableRow: toggleExpandableRow }))),
-        paginationEnabled && tableData.length > 0 && !isAdding && !isEditing &&
-            react_2.default.createElement(SegiTablePagination, { currentPage: currentPage, lastPage: lastPage, lastPageNum: lastPageNum, mergedPageSizes: mergedPageSizes, pageClickHandler: pageClickHandler, pageRecordStartEndLabel: pageRecordStartEndLabel, pageSize: pageSize, pageSizeClickHandler: pageSizeClickHandler })));
+        react_2.default.createElement("div", { id: "".concat(SegiTable_module_css_1.default.SegiTableGridContent), className: "".concat(SegiTable_module_css_1.default.SegiTableGridContent), style: { height: typeof height !== "undefined" ? height : "auto", overflow: "auto" } },
+            react_2.default.createElement("table", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataGrid), ref: tableRef },
+                react_2.default.createElement(SegiTableDataGridHeaders, { columnWidths: columnWidths, currentTableComponent: currentTableComponent, darkMode: darkMode, expandedId: expandedId, filterSearchTerm: filterSearchTerm, hasExpandableCriteriaMet: hasExpandableCriteriaMet, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, setColumnWidths: setColumnWidths, setFilterSearchTerm: setFilterSearchTerm, sortable: sortable, sortColumn: sortColumn, sortColumnClickHandler: sortColumnClickHandler, sortDirection: sortDirection, toggleIDColumn: toggleIDColumn, uniqueValuesClearColumnClickHandler: uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler: uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler: uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn: uniqueValuesVisibleColumn }),
+                react_2.default.createElement(SegiTableDataGridBody, { currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, expandedId: expandedId, filteredTableData: filteredTableData, formatCurrency: formatCurrency, getFormattedDate: getFormattedDate, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, onToggleExpandableRow: toggleExpandableRow, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId }))),
+        paginationEnabled && tableData.length > 0 && !isAdding && !isEditing && expandedId === null &&
+            react_2.default.createElement(SegiTablePagination, { currentPage: currentPage, darkMode: darkMode, lastPage: lastPage, lastPageNum: lastPageNum, mergedPageSizes: mergedPageSizes, pageClickHandler: pageClickHandler, pageRecordStartEndLabel: pageRecordStartEndLabel, pageSize: pageSize, pageSizeClickHandler: pageSizeClickHandler })));
 };
 var SegiTableDataGridHeaders = function (_a) {
-    var currentTableComponent = _a.currentTableComponent, filterSearchTerm = _a.filterSearchTerm, hasExpandableCriteriaMet = _a.hasExpandableCriteriaMet, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, setFilterSearchTerm = _a.setFilterSearchTerm, sortable = _a.sortable, sortColumn = _a.sortColumn, sortColumnClickHandler = _a.sortColumnClickHandler, sortDirection = _a.sortDirection, toggleIDColumn = _a.toggleIDColumn, uniqueValuesClearColumnClickHandler = _a.uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler = _a.uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler = _a.uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn = _a.uniqueValuesVisibleColumn;
+    var columnWidths = _a.columnWidths, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, expandedId = _a.expandedId, filterSearchTerm = _a.filterSearchTerm, hasExpandableCriteriaMet = _a.hasExpandableCriteriaMet, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, setColumnWidths = _a.setColumnWidths, setFilterSearchTerm = _a.setFilterSearchTerm, sortable = _a.sortable, sortColumn = _a.sortColumn, sortColumnClickHandler = _a.sortColumnClickHandler, sortDirection = _a.sortDirection, toggleIDColumn = _a.toggleIDColumn, uniqueValuesClearColumnClickHandler = _a.uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler = _a.uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler = _a.uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn = _a.uniqueValuesVisibleColumn;
+    var activeColumnRef = (0, react_1.useRef)(null);
     var defaultOpacity = '1';
+    var startXRef = (0, react_1.useRef)(0);
+    var startWidthRef = (0, react_1.useRef)(0);
     var eventDisabled = false;
     var spanRef = (0, react_1.useRef)(null);
-    /*const resizerRef = useRef(null);
-
-    let isResizing = false;
-    let currentHeader;
-
-    document.addEventListener('mousemove', (e) => {
-         if (!isResizing) return;
-
-         const offset = e.pageX - currentHeader.getBoundingClientRect().left;
-         currentHeader.style.width = offset + 'px';
-
-         // Resize all the cells in the column to match the header width
-         const index = Array.from(currentHeader.parentNode.children).indexOf(currentHeader);
-         const rows = tableRef.current.querySelectorAll('tr');
-         rows.forEach(row => {
-              const cell = row.children[index];
-              cell.style.width = offset + 'px';
-         });
-    });
-
-    document.addEventListener('mouseup', () => {
-         isResizing = false;
-         document.body.style.cursor = ''; // Reset cursor
-    });
-
-    const onResizeMouseDown = (event: any) => {
-         isResizing = true;
-         //currentHeader = header;
-         document.body.style.cursor = 'ew-resize';
-         event.preventDefault();
-    }*/
+    var onMouseDown = function (e, columnKey, currentWidth) {
+        debugger;
+        if (expandedId !== null) {
+            document.body.style.cursor = 'default';
+            return;
+        }
+        document.body.style.cursor = 'col-resize';
+        startXRef.current = e.clientX;
+        startWidthRef.current = currentWidth;
+        activeColumnRef.current = columnKey;
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+    };
+    var onMouseMove = function (e) {
+        if (!activeColumnRef.current || expandedId !== null)
+            return;
+        var delta = e.clientX - startXRef.current;
+        var newWidth = Math.max(MIN_COLUMN_WIDTH, startWidthRef.current + delta);
+        setColumnWidths(function (prev) {
+            var _a;
+            return (__assign(__assign({}, prev), (_a = {}, _a[activeColumnRef.current] = newWidth, _a)));
+        });
+    };
+    var onMouseUp = function () {
+        document.body.style.cursor = 'default';
+        activeColumnRef.current = null;
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+    };
     // When the filter span is visible, if you click outside of the span area, this use Effect will make sure that it closes
     (0, react_1.useEffect)(function () {
         function handleClickOutside(event) {
@@ -18518,35 +18630,41 @@ var SegiTableDataGridHeaders = function (_a) {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
-    return (react_2.default.createElement("thead", null,
-        react_2.default.createElement("tr", { style: {
+    return (react_2.default.createElement("thead", { className: "styles.SegiTableDataGridHeaders" },
+        react_2.default.createElement("tr", { 
+            //className={`${darkMode ? `darkMode` : ``}`}
+            style: {
                 opacity: typeof currentTableComponent.SemiTransparentTableHeaderOpacity !== "undefined"
                     ? currentTableComponent.SemiTransparentTableHeaderOpacity
                     : defaultOpacity
             } },
             isExpandable && hasExpandableCriteriaMet && !isEditing &&
-                react_2.default.createElement("th", { style: { minWidth: "65px" }, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader) }),
+                react_2.default.createElement("th", { style: { width: "25px" }, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(darkMode ? "darkMode" : "") }),
             currentTableComponent && currentTableComponent.Fields
                 .filter(function (field) {
                 return isVisible(field);
             }).map(function (field, index) {
+                var _a, _b, _c;
+                var columnKey = field.DatabaseColumn;
+                var width = (_a = columnWidths[columnKey]) !== null && _a !== void 0 ? _a : parseInt(field.ColumnWidth || "150", 10);
                 return (react_2.default.createElement("th", { key: index, style: {
                         opacity: field.SemiTransparentTableColumn === true ? "0.8" : "1",
-                        width: "".concat(typeof field.ColumnWidth === "undefined" ? "calc(100% / ".concat(currentTableComponent.Fields.length - 1, ")") : field.ColumnWidth)
-                    }, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(field.IsIDColumn === true ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : ""), onDoubleClick: typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null },
+                        borderWidth: "1px",
+                        width: (_b = columnWidths[field.DatabaseColumn]) !== null && _b !== void 0 ? _b : parseInt(typeof field.ColumnWidth !== "undefined" ? field.ColumnWidth : "150", 10),
+                        minWidth: MIN_COLUMN_WIDTH
+                    }, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(field.IsIDColumn === true ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(darkMode ? " darkMode" : ""), onDoubleClick: typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null },
                     react_2.default.createElement("span", { className: "".concat(field.Clickable ? "".concat(SegiTable_module_css_1.default.SegiTableClickable) : ""), style: { marginLeft: "10px", userSelect: "none" } }, field.DisplayName),
-                    react_2.default.createElement("span", { id: "SegiTableResizer", className: SegiTable_module_css_1.default.resizer }),
                     sortable === true && field.SortableField !== false && !isEditing &&
                         react_2.default.createElement(react_2.default.Fragment, null,
                             (sortColumn === "" || (sortColumn !== "" && sortColumn !== field.DatabaseColumn)) &&
-                                react_2.default.createElement("span", { className: SegiTable_module_css_1.default.SegiTableClickable, onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
-                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableSortColumnUnselected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2191")),
+                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
+                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnUnselected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2191")),
                             sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "ASC" &&
-                                react_2.default.createElement("span", { className: SegiTable_module_css_1.default.SegiTableClickable, onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
-                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableSortColumnSelected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2191")),
+                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
+                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnSelected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2191")),
                             sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "DESC" &&
-                                react_2.default.createElement("span", { className: SegiTable_module_css_1.default.SegiTableClickable, onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
-                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableSortColumnSelected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2193"))),
+                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
+                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnSelected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2193"))),
                     field.Filterable === true && typeof field.UniqueValues !== "undefined" && !isEditing &&
                         react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterIcon, " ").concat(SegiTable_module_css_1.default.SegiTableClickable, " ").concat(!sortable ? SegiTable_module_css_1.default.SegiTableMarginLeft25 : ""), onClick: function () { return uniqueValuesColumnClickHandler(field.DisplayName); } }),
                     uniqueValuesVisibleColumn === field.DisplayName &&
@@ -18555,23 +18673,28 @@ var SegiTableDataGridHeaders = function (_a) {
                             react_2.default.createElement("table", null,
                                 react_2.default.createElement("tbody", null,
                                     react_2.default.createElement("tr", null,
-                                        react_2.default.createElement("td", null,
+                                        react_2.default.createElement("td", { style: { width: (_c = columnWidths[field.DatabaseColumn]) !== null && _c !== void 0 ? _c : parseInt(field.ColumnWidth || "150", 10) } },
                                             react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableFilterGridInput, checked: typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? field.UniqueValuesSelectAllSelected : false, onChange: function (event) { return uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked); } }),
                                             react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterGridOption, " ").concat(SegiTable_module_css_1.default.SegiTableMarginLeft10) }, "(Select all)"))),
                                     field.UniqueValues
                                         .filter(function (uniqueValue, index) {
                                         return ((filterSearchTerm === "" || (filterSearchTerm !== "" && uniqueValue.toString().toLowerCase().includes(filterSearchTerm.toLowerCase()))));
                                     }).map(function (uniqueValue, index) {
-                                        var _a;
+                                        var _a, _b;
                                         return (react_2.default.createElement("tr", { key: index },
-                                            react_2.default.createElement("td", null,
-                                                react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableInputStyle, checked: typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? true : typeof field.UniqueValuesSelected !== "undefined" ? (_a = field.UniqueValuesSelected) === null || _a === void 0 ? void 0 : _a.includes(uniqueValue) : false, onChange: function () { return uniqueValuesOptionClickHandler(field.DisplayName, uniqueValue); } }),
+                                            react_2.default.createElement("td", { style: {
+                                                    width: (_a = columnWidths[field.DatabaseColumn]) !== null && _a !== void 0 ? _a : parseInt(field.ColumnWidth || "150", 10)
+                                                } },
+                                                react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableInputStyle, checked: typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? true : typeof field.UniqueValuesSelected !== "undefined" ? (_b = field.UniqueValuesSelected) === null || _b === void 0 ? void 0 : _b.includes(uniqueValue) : false, onChange: function () { return uniqueValuesOptionClickHandler(field.DisplayName, uniqueValue); } }),
                                                 react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterGridOption, " ").concat(SegiTable_module_css_1.default.SegiTableMarginLeft10) }, uniqueValue))));
-                                    }))))));
+                                    })))),
+                    react_2.default.createElement("div", { className: expandedId === null ? SegiTable_module_css_1.default.ColumnResizer : "", onMouseDown: function (e) {
+                            return onMouseDown(e, columnKey, width);
+                        } })));
             }))));
 };
 var SegiTableDataGridBody = function (_a) {
-    var currentTableComponent = _a.currentTableComponent, editFieldChangeHandler = _a.editFieldChangeHandler, filteredTableData = _a.filteredTableData, formatCurrency = _a.formatCurrency, getFormattedDate = _a.getFormattedDate, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, setCurrentTableComponent = _a.setCurrentTableComponent, toggleExpandableRow = _a.toggleExpandableRow;
+    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, formatCurrency = _a.formatCurrency, getFormattedDate = _a.getFormattedDate, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, onToggleExpandableRow = _a.onToggleExpandableRow, setCurrentTableComponent = _a.setCurrentTableComponent, setExpandedId = _a.setExpandedId;
     // Gets the URL display text
     var getURLText = function (currentRow, field) {
         return typeof field.IsURLDisplayTextColumn !== "undefined"
@@ -18582,62 +18705,75 @@ var SegiTableDataGridBody = function (_a) {
     };
     return (react_2.default.createElement("tbody", null,
         !isEditing &&
-            react_2.default.createElement(SegiTableDataGridBodyReadOnlyFields, { currentTableComponent: currentTableComponent, filteredTableData: filteredTableData, formatCurrency: formatCurrency, getFormattedDate: getFormattedDate, getURLText: getURLText, isExpandable: isExpandable, isVisible: isVisible, setCurrentTableComponent: setCurrentTableComponent, toggleExpandableRow: toggleExpandableRow }),
+            react_2.default.createElement(SegiTableDataGridBodyReadOnlyFields, { currentTableComponent: currentTableComponent, darkMode: darkMode, expandedId: expandedId, filteredTableData: filteredTableData, formatCurrency: formatCurrency, getFormattedDate: getFormattedDate, getURLText: getURLText, isExpandable: isExpandable, isVisible: isVisible, onToggleExpandableRow: onToggleExpandableRow, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId }),
         isEditing &&
-            react_2.default.createElement(SegiTableDataGridBodyEditableFields, { currentTableComponent: currentTableComponent, editFieldChangeHandler: editFieldChangeHandler, filteredTableData: filteredTableData, getFormattedDate: getFormattedDate, getURLText: getURLText, isVisible: isVisible })));
+            react_2.default.createElement(SegiTableDataGridBodyEditableFields, { currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, filteredTableData: filteredTableData, getFormattedDate: getFormattedDate, getURLText: getURLText, isVisible: isVisible })));
 };
 var SegiTableDataGridBodyReadOnlyFields = function (_a) {
-    var currentTableComponent = _a.currentTableComponent, filteredTableData = _a.filteredTableData, formatCurrency = _a.formatCurrency, getFormattedDate = _a.getFormattedDate, getURLText = _a.getURLText, isExpandable = _a.isExpandable, isVisible = _a.isVisible, toggleExpandableRow = _a.toggleExpandableRow;
+    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, formatCurrency = _a.formatCurrency, getFormattedDate = _a.getFormattedDate, getURLText = _a.getURLText, isExpandable = _a.isExpandable, isVisible = _a.isVisible, onToggleExpandableRow = _a.onToggleExpandableRow, setExpandedId = _a.setExpandedId;
+    (0, react_1.useEffect)(function () {
+        var storedId = localStorage.getItem("SegiTable.LastOpenedId");
+        localStorage.removeItem("SegiTable.LastOpenedId");
+        if (!isExpandable && storedId && storedId !== "") {
+            setExpandedId(storedId);
+        }
+    }, []);
     return (react_2.default.createElement(react_2.default.Fragment, null, typeof filteredTableData !== "undefined" && filteredTableData && filteredTableData
         .filter(function (currentRow) {
-        var lastId = localStorage.getItem("SegiTable.LastOpenedId");
-        var expandableDataLinked = currentTableComponent.ExpandableDataLinked === true ? true : false;
-        return ((!expandableDataLinked || lastId === "") ||
-            (expandableDataLinked && lastId !== "" && String(currentRow[currentTableComponent.ExpandableDataColumn]).trim() === lastId));
+        if (!expandedId)
+            return true;
+        // Only show the expanded row
+        return String(currentRow[currentTableComponent.ExpandableDataColumn]) === String(expandedId);
     })
-        .map(function (currentRow, index) {
+        .map(function (currentRow, rowIndex) {
         var _a;
         var expandableContent = null;
         var expandableCriteriaMet = false;
-        if (isExpandable) {
-            // Match Field level 
-            var newExpandableContentResult = currentTableComponent.Fields.filter(function (field) {
-                var uniqueValues = field.ExpandableCriteria === null ? null : field.ExpandableCriteria && field.ExpandableCriteria.map(function (e) { return e.Match; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
-                var isAll = typeof uniqueValues !== "undefined" ? uniqueValues.includes("*") : false;
-                return ((uniqueValues === null || (uniqueValues !== null &&
-                    ((field.ExpandableCriteriaExactMatch === true && uniqueValues.includes(currentRow[field.DatabaseColumn].toString()))
-                        ||
-                            (field.ExpandableCriteriaExactMatch === false && uniqueValues.some(function (criteria) { return currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase()); }))
-                        || isAll))));
-            });
-            if (newExpandableContentResult.length === 1) { /* Matches the field expandable criteria */
-                currentTableComponent.Fields.forEach(function (field) {
-                    if (typeof field.ExpandableCriteria !== "undefined" && field.ExpandableCriteria !== null) {
-                        field.ExpandableCriteria.forEach(function (criteria) {
-                            if (field.ExpandableCriteriaExactMatch === true && currentRow[field.DatabaseColumn].toString() === criteria.Match) {
-                                expandableContent = criteria.Show;
-                            }
-                            else if (field.ExpandableCriteriaExactMatch === false && currentRow[field.DatabaseColumn].toString().includes(criteria.Match)) {
-                                expandableContent = criteria.Show;
-                            }
-                            else if (criteria.Match === "*") {
-                                expandableContent = criteria.Show;
-                            }
-                        });
-                    }
-                });
-                expandableCriteriaMet = true;
+        // Match Field level 
+        if (isExpandable && typeof currentTableComponent.ExpandableContent !== "undefined") { // Uses template level expandable content
+            expandableCriteriaMet = true;
+            expandableContent = currentTableComponent.ExpandableContent;
+        }
+        var newDarkMode = "";
+        if (!darkMode && isExpandable) {
+            newDarkMode = "lightMode 1";
+        }
+        else {
+            if (rowIndex % 2 !== 0) {
+                if (!expandableCriteriaMet && darkMode) {
+                    newDarkMode = "darkMode 1";
+                }
+                else {
+                    newDarkMode = "lightMode 2";
+                }
             }
-            else if (typeof currentTableComponent.ExpandableContent !== "undefined") { // Uses template level expandable content
-                expandableCriteriaMet = true;
-                expandableContent = currentTableComponent.ExpandableContent;
+            else if (expandedId !== null && rowIndex == parseInt(expandedId, 10) && rowIndex % 2 !== 0) {
+                newDarkMode = "lightMode 3";
+            }
+            else if (rowIndex % 2 === 0 && expandableContent !== null) {
+                if (expandedId !== null) {
+                    newDarkMode = "darkMode 2";
+                }
+                else {
+                    if (rowIndex % 2 === 0 && expandableContent !== null) {
+                        newDarkMode = "darkMode 3";
+                    }
+                }
             }
         }
-        return (react_2.default.createElement(react_2.default.Fragment, { key: index },
-            react_2.default.createElement("tr", { key: index },
+        if (newDarkMode === "") {
+            if (rowIndex % 2 === 0 && !darkMode && expandedId === null) {
+                newDarkMode = "darkMode 4";
+            }
+            else {
+                newDarkMode = "lightMode 4";
+            }
+        }
+        return (react_2.default.createElement(react_2.default.Fragment, { key: rowIndex },
+            react_2.default.createElement("tr", { key: rowIndex, className: "".concat(newDarkMode) },
                 isExpandable && expandableCriteriaMet &&
-                    react_2.default.createElement("td", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell), onClick: function () { return toggleExpandableRow(currentRow[currentTableComponent.ExpandableDataColumn]); } },
-                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableArrow, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, typeof currentTableComponent.ExpandedRows !== "undefined" && currentTableComponent.ExpandedRows.includes(currentRow[currentTableComponent.ExpandableDataColumn]) ? '▼' : '▶')),
+                    react_2.default.createElement("td", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell), onClick: function () { return onToggleExpandableRow(currentRow[currentTableComponent.ExpandableDataColumn]); } },
+                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableArrow, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, expandedId !== null && expandedId === String(currentRow[currentTableComponent.ExpandableDataColumn]) ? '▼' : '▶')),
                 currentTableComponent.Fields
                     .filter(function (field) {
                     return isVisible(field);
@@ -18679,30 +18815,28 @@ var SegiTableDataGridBodyReadOnlyFields = function (_a) {
                         field.FieldType === ISegiTable_1.FieldTypes.CHECKBOX &&
                             react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableInputStyle, disabled: true, checked: currentRow[field.DatabaseColumn] })));
                 })),
-            ((typeof currentTableComponent.ExpandedRows !== "undefined" && currentTableComponent.ExpandedRows.includes(currentRow[currentTableComponent.ExpandableDataColumn]))) &&
+            ((expandedId === String(currentRow[currentTableComponent.ExpandableDataColumn]))) && expandableContent !== null &&
                 react_2.default.createElement("tr", null,
                     react_2.default.createElement("td", { className: SegiTable_module_css_1.default.SegiTableExpandableRowContent, colSpan: (_a = currentTableComponent.Fields) === null || _a === void 0 ? void 0 : _a.length },
-                        react_2.default.createElement("div", { className: SegiTable_module_css_1.default.SegiTableExpandableContent },
+                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableExpandableContent) },
                             typeof expandableContent === "string" &&
                                 react_2.default.createElement("div", { dangerouslySetInnerHTML: { __html: expandableContent } }),
                             typeof expandableContent === "object" &&
-                                react_2.default.createElement(react_2.default.Fragment, null, expandableContent),
-                            typeof expandableContent !== "string" && typeof expandableContent !== "object" &&
-                                react_2.default.createElement("div", null, "Default content"))))));
+                                react_2.default.createElement(react_2.default.Fragment, null, expandableContent))))));
     })));
 };
 var SegiTableDataGridBodyEditableFields = function (_a) {
-    var currentTableComponent = _a.currentTableComponent, editFieldChangeHandler = _a.editFieldChangeHandler, filteredTableData = _a.filteredTableData, getFormattedDate = _a.getFormattedDate, getURLText = _a.getURLText, isVisible = _a.isVisible;
+    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, filteredTableData = _a.filteredTableData, getFormattedDate = _a.getFormattedDate, getURLText = _a.getURLText, isVisible = _a.isVisible;
     return (react_2.default.createElement(react_2.default.Fragment, null, filteredTableData && filteredTableData
         .map(function (currentRow, index) {
         {
-            return (react_2.default.createElement("tr", { key: index }, currentTableComponent.Fields
+            return (react_2.default.createElement("tr", { key: index, className: "".concat(!darkMode ? "lightMode" : "darkMode") }, currentTableComponent.Fields
                 .filter(function (field) {
                 return isVisible(field);
             })
                 .map(function (field, index) {
                 var _a, _b, _c;
-                return (react_2.default.createElement("td", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(field.IsIDColumn ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "") },
+                return (react_2.default.createElement("td", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(field.IsIDColumn ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(!darkMode ? "lightMode" : "darkMode") },
                     field.Disabled === true &&
                         react_2.default.createElement(react_2.default.Fragment, null,
                             field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD &&
@@ -18740,8 +18874,8 @@ var SegiTableDataGridBodyEditableFields = function (_a) {
     })));
 };
 var SegiTablePagination = function (_a) {
-    var currentPage = _a.currentPage, lastPage = _a.lastPage, lastPageNum = _a.lastPageNum, mergedPageSizes = _a.mergedPageSizes, pageClickHandler = _a.pageClickHandler, pageSize = _a.pageSize, pageRecordStartEndLabel = _a.pageRecordStartEndLabel, pageSizeClickHandler = _a.pageSizeClickHandler;
-    return (react_2.default.createElement("span", { id: "SegiTablePagination", className: "".concat(SegiTable_module_css_1.default.SegiTablePagination) },
+    var currentPage = _a.currentPage, darkMode = _a.darkMode, lastPage = _a.lastPage, lastPageNum = _a.lastPageNum, mergedPageSizes = _a.mergedPageSizes, pageClickHandler = _a.pageClickHandler, pageSize = _a.pageSize, pageRecordStartEndLabel = _a.pageRecordStartEndLabel, pageSizeClickHandler = _a.pageSizeClickHandler;
+    return (react_2.default.createElement("span", { id: "SegiTablePagination", className: "".concat(SegiTable_module_css_1.default.SegiTablePagination, " ").concat(darkMode ? "darkMode" : "") },
         react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTablePaginationSpan) },
             react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableRowLabel) }, "Rows per page:"),
             react_2.default.createElement("span", { style: { paddingTop: "12px", paddingRight: lastPageNum === 1 ? "25px" : "" } },
@@ -19567,6 +19701,7 @@ const App = () => {
     ExpandableDataColumn: "id",
     // This has to match ExpandableDataColumn defined in expandableTemplate 
     ExpandableContent: /*#__PURE__*/react.createElement((SegiTable_default()), {
+      darkMode: true,
       editable: false,
       exportable: false,
       searchable: false,
@@ -19622,7 +19757,7 @@ const App = () => {
       Filterable: true,
       IsEmailAddress: true,
       Required: true,
-      ColumnWidth: "14%"
+      ColumnWidth: "16%"
     }, {
       DisplayName: 'Gender',
       DatabaseColumn: "gender",
@@ -19687,7 +19822,6 @@ const App = () => {
     setIsEditing(false);
   };
   (0,react.useEffect)(() => {
-    const base = "MISSING_ENV_VAR".PUBLIC_URL;
     fetch(`/SegiTable/MOCK_DATA.csv`).then(res => res.text()).then(mockUserData => {
       // Import CSV data
       const lines = mockUserData.trim().split('\n');
@@ -19738,6 +19872,7 @@ const App = () => {
   return /*#__PURE__*/react.createElement(react.Fragment, null, dataLoaded && /*#__PURE__*/react.createElement((SegiTable_default()), {
     addingText: "Add User",
     cancelEditCallBackHandler: cancelEditClickHandler,
+    darkMode: true,
     defaultPageSize: 5,
     editable: true,
     exportable: true,
