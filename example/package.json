@@ -27,7 +27,7 @@
     "source-map-loader": "^5.0.0",
     "terser-webpack-plugin": "^5.3.14",
     "ts-loader": "^9.5.2",
-    "webpack": "^5.104.1"
+    "webpack": "^5.105.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
