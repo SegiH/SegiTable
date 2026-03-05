@@ -77,27 +77,30 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### Index
 <a name="addingHasDisabledCheckboxPlaceholder"></a>
 #### addingHasDisabledCheckboxPlaceholder
-	       Required: No
-	       Type: Boolean
-	       Description: If true, will show a cell in the add row with a disabled checkbox that shows Enabled in the column header to indicate that this row will be added as an 'Enabled' row by default.
+	Required: No
+	Type: Boolean
+	Description: If true, will show a cell in the add row with a disabled checkbox that shows Enabled in the column header to indicate that this row will be added as an 'Enabled' row by default.
 
 <a name="addingText"></a>
 #### addingText
-	       Required: No
-	       Type: String
-	       Description: The text that will be displayed in the Add button when adding a row. If not provided, the add button will show "Add"
+	Required: No
+	Type: String
+	Description: The text that will be displayed in the Add button when adding a row. If not provided, the add button will show "Add"
+     Example: addingText: "Add a new item"
 
 <a name="addtlPageSizes"></a>
 #### addtlPageSizes
      Required: No
      Type: Array
-     Description: Additional page sizes that you want in the rows per page dropdown. This needs to be provided as a key value pair like this: addtlPageSizes={{7:"7"}} to add 7 as a custom option. Do not use addtlPageSizes if you provide pageSizeOverride which overrides the default options.  You can only use addtlPageSizes or pageSizeOverride, not both.
+     Description: Additional page sizes that you want in the rows per page dropdown. Do not use addtlPageSizes if you provide pageSizeOverride which overrides the default options.  You can only use addtlPageSizes or pageSizeOverride, not both.
+     Example: addtlPageSizes={{ 7: "7" }, { 21: "21" } } to add page size 7 & 21
 
 <a name="cancelEditCallBackHandler"></a>
 #### cancelEditCallBackHandler
      Required: No
      Type: Method
      Description: Method that is called when you cancel editing a table. This method can be used to perform canceling the edit related tasks. 
+     Example: cancelEditCallBackHandler={cancelEditClickHandler} with the callback defined as: const cancelEditClickHandler = () => {}
 
 <a name="darkMode"></a>
 #### darkMode
@@ -110,24 +113,26 @@ When you render SegiTable, there is validation that makes sure that you provide 
      Required: No
      Type: Number
      Description: The default rows per page. Use 0 for "All"
+     Example: defaultPageSize={5}
 
 <a name="editable"></a>
 #### editable
-	       Required: No
-	       Type: Boolean
-	       Description: If false, the table cannot be edited. If not set or set to true, it can be edited.
+	Required: No
+	Type: Boolean
+	Description: If false, the table cannot be edited. If not set or set to true, it can be edited.
 
 <a name="exportable"></a>
 #### exportable
-	       Required: No
-	       Type: Boolean
-	       Description: Exporting to CSV is disabled by default. If false, the table cannot be exported to CSV.
+	Required: No
+	Type: Boolean
+	Description: Exporting to CSV is disabled by default. If false, the table cannot be exported to CSV.
 
 <a name="height"></a>
 #### height
      Required: No
      Type: String
      Description: The height of the table. If not provided, the table will span the height needed. If you do set a height, the table header will be sticky which means it will stay in place no matter how many rows you select in the rows per page dropdown.
+     Example: height="800px" 
 
 <a name="isAdding"></a>
 #### isAdding
@@ -145,43 +150,50 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### pageSizeOverride
      Required: No
      Type: Array
-     Description: Replace the options for the Rows per page dropdown with your own values. pageSizeOverride={{5:"5", 10: "10"}}. Do not use this with addtlPageSizes. You can only use addtlPageSizes or pageSizeOverride, not both.
+     Description: Replace the options for the Rows per page dropdown with your own values. Do not use this with addtlPageSizes. You can only use addtlPageSizes or pageSizeOverride, not both.
+     Example: pageSizeOverride={{5:"5", 10: "10"}}
 
 <a name="paginationEnabled"></a>
 #### paginationEnabled
-          Required: No
-          Type: Boolean
-          Description: Pagination is disabled by default. If true, enables paginating the table data into pages
+     Required: No
+     Type: Boolean
+     Description: Pagination is disabled by default. If true, enables paginating the table data into pages
 
 <a name="saveAddCallBackHandler"></a>
 #### saveAddCallBackHandler
      Required: No
      Type: Method
      Description: Method that is called when you click on the add button to add a new record.
+     Example: saveAddCallBackHandler={saveAddClickHandler} with the callback defined as: const saveAddClickHandler = (addedObj) => {}. The object addedObj will contain all of the fields from the Fields:[] section with a new attribute called FieldValue which contains the value of that field.
 
 <a name="saveEditCallBackHandler"></a>
 #### saveEditCallBackHandler
      Required: No
      Type: Method
-     Description: Method that is called when you click on the save button to save the table. The method needs to accept an object of type ITableComponent. 
+     Description: Method that is called when you click on the save button to save the table. The method needs to accept an object of type ITableComponent.
+     Example: saveEditCallBackHandler={saveEditClickHandler} with the callback defined as: const saveEditClickHandler = async (newData) => {}. The object newData will contain an object of the current row. The fields that were modified will have an attribute named FieldName.Modified with a true value such as ["IDColumn.Modified"]=true;
 
 <a name="searchable"></a>
 #### searchable
-          Required: No
-          Type: Boolean
-          Description: Searching is disabled by default. If set to true, enables a search field to allow searching the data in the table. Searching can be disabled for individual columns by setting SearchableField to false for the field
+     Required: No
+     Type: Boolean
+     Description: Searching is disabled by default. If set to true, enables a search field to allow searching the data in the table. Searching can be disabled for individual columns by setting SearchableField to false for the field
 
 <a name="setIsAdding"></a>
 #### setIsAdding
      Required: Yes
      Type: Method
-     Description: Method to set isAdding
+     Description: Method to set isAdding boolean flag to true or false
+     Example: setIsAdding={setIsAdding} where setIsAdding can be a method or a state setter such as const [isAdding, setIsAdding] = useState(false);
+
 
 <a name="setIsEditing"></a>
 #### setIsEditing
      Required: Yes
      Type: Method
-     Description: Method to set isEditing
+     Description: Method to set isEditing boolean value to true or false
+     Example: setIsEditing={setIsEditing} where setIsEditing can be a method or a state setter such as const [isEditing, setIsEditing] = useState(false);
+
 
 <a name="showDisabled"></a>
 #### showDisabled
@@ -191,21 +203,23 @@ When you render SegiTable, there is validation that makes sure that you provide 
 
 <a name="sortable"></a>
 #### sortable
-          Required: No
-          Type: Boolean
-          Description: Sorting is disabled by default. If true, enables sorting of the table. Sorting can be disabled for individual columns by setting SortableField to false for the field
+     Required: No
+     Type: Boolean
+     Description: Sorting is disabled by default. If true, enables sorting of the table. Sorting can be disabled for individual columns by setting SortableField to false for the field
 
 <a name="tableTemplate"></a>
 #### tableTemplate
      Required: Yes
      Type: ITableComponent Object
      Description: Custom object that describes your data model and how you want to render the data
+     Example: Please see App.js for an example table template
 
 <a name="width"></a>
 #### width
      Required: No
      Type: String
      Description: The width of the table. If not provided, the table will span the full width available. It is not recommended to set a width of les than 360px if you are using pagination.
+     Example: width="500px"
 
 <a name="ITableComponent"></a>
 ### ITableComponent:
@@ -213,51 +227,54 @@ When you render SegiTable, there is validation that makes sure that you provide 
 
 <a name="Data"></a>
 #### Data
-	       Required: Yes
-	       Type: Object
-	       Description: The object that holds the data that you want to render. The data needs to have key value pairs for each row like "Name": "foo"
+	Required: Yes
+	Type: Object
+	Description: The object that holds the data that you want to render. The data needs to have key value pairs for each row like "Name": "foo"
 
 <a name="ExpandableContent"></a>
 #### ExpandableContent
-	       Required: No
-	       Type: Object or string
-	       Description: A string with HTML content or a component to show when you expand the row. You can render a SegiTable table as the expandable row content. It is possible to currently tie the expanded row to its parent.
+	Required: No
+	Type: Object or string
+	Description: A string with HTML content or a component to show when you expand the row. You can render a SegiTable table as the expandable row content.
+     Example: Please see App.js
 
 <a name="ExpandableDataColumn"></a>
-#### ExpandableContent
-	       Required: No
-	       Type: String
-	       Description: If ExpandableDataLinked is set to true, set this to the column used to link the parent and child rows.
+#### ExpandableDataColumn
+	Required: No
+	Type: String
+	Description: If ExpandableDataLinked is set to true, set this to the column used to link the parent and child rows.
+     Example: Please see App.js
 
 <a name="ExpandableDataColumnLinked"></a>
 #### ExpandableContentLinked
-	       Required: No
-	       Type: Boolean
-	       Description: If true, the expandable data can be tied to the parent. If using this feature, set ExpandableDataColumn to the name of the column in the database to use to link the data. This should be a non nullable database column, preferably the primary key column.
+	Required: No
+	Type: Boolean
+	Description: If true, the expandable data can be tied to the parent. If using this feature, set ExpandableDataColumn to the name of the column in the database to use to link the data. This should be a non nullable database column, preferably the primary key column.
 
 <a name="Fields"></a>
 #### Fields
-          Required: Yes
-          Type: ITableComponentField
-          Description: ITableComponentField object that describes the fields in the table data. See ITableComponentField reference below.
+     Required: Yes
+     Type: ITableComponentField
+     Description: ITableComponentField object that describes the fields in the table data. See ITableComponentField reference below.
+     Example: Please see App.js
 
 <a name="MultiExpandableRows"></a>
 #### MultiExpandableRows
-          Required: Yes
-          Type: Boolean
-          Description: If true, you can have more than 1 expandable row open at a time
+     Required: Yes
+     Type: Boolean
+     Description: If true, you can have more than 1 expandable row open at a time
 
 <a name="SemiTransparentTableHeader"></a>
 #### SemiTransparentTableHeader
-          Required: No
-          Type: Boolean
-          Description: If true, makes the table header semi transparent. The default opacity is 0.8 if SemiTransparentTableHeaderOpacity is not set.
+     Required: No
+     Type: Boolean
+     Description: If true, makes the table header semi transparent. The default opacity is 0.8 if SemiTransparentTableHeaderOpacity is not set.
 
 <a name="SemiTransparentTableHeaderOption"></a>
 #### SemiTransparentTableHeaderOption
-          Required: No
-          Type: Boolean
-          Description: If SemiTransparentTableHeader is set to true, sets the table header opacity. This value must be between 0 and 1. 0.5 - 0.9 is recommended.
+     Required: No
+     Type: Boolean
+     Description: If SemiTransparentTableHeader is set to true, sets the table header opacity. This value must be between 0 and 1. 0.5 - 0.9 is recommended.
 
 <br /> <br /> <br /> 
 
@@ -265,234 +282,252 @@ When you render SegiTable, there is validation that makes sure that you provide 
 
 <a name="Addable"></a>
 #### Addable
-	       Required: No
-	       Type: Boolean
-	       Description: If false, this field cannot be added when adding a new row. If not set or set to true, it can be added
+	Required: No
+	Type: Boolean
+	Description: If false, this field cannot be added when adding a new row. If not set or set to true, it can be added
 
 <a name="Centered"></a>
 #### Centered
-	       Required: No
-	       Type: Boolean
-	       Description: If true, will center the text inside of the cell
+	Required: No
+	Type: Boolean
+	Description: If true, will center the text inside of the cell
 
 <a name="Clickable"></a>
 #### Clickable
-                    Required: No
-                    Type: Boolean
-                    Description: If true, this will add a CSS class on the column header to make it have a mouse pointer when you hover over the column. This can be used to perform an action when you click on the column header
+     Required: No
+     Type: Boolean
+     Description: If true, this will add a CSS class on the column header to make it have a mouse pointer when you hover over the column. This can be used to perform an action when you click on the column header
 
 <a name="ClickCallBack"></a>
 #### ClickCallBack
-                    Required: No
-                    Type: Method
-                    Description: Method to call when the column header has been clicked. If you use this, Clickable will automatically be set to true so the column turns into a mouse pointer when you hover over the column name. Do not set this with TogglesIDColumn. Only use one or the other but not both
+     Required: No
+     Type: Method
+     Description: Method to call when the column header has been clicked. If you use this, Clickable will automatically be set to true so the column turns into a mouse pointer when you hover over the column name. Do not set this with TogglesIDColumn. Only use one or the other but not both.
+     Example: Example: ClickCallBack={clickCallBackHandler} with the callback defined as: const clickCallBackHandler = () => {}
 
 <a name="Columns"></a>
 #### Columns
-                    Required: No
-                    Type: Number
-                    Description: When the field type is TEXTAREA, the number of columns to display the text area with. Only provide this for a textarea field
+     Required: No
+     Type: Number
+     Description: When the field type is TEXTAREA, the number of columns to display the text area with. Only provide this for a textarea field
+     Example: Columns={20}
 
 <a name="ColumnWidth"></a>
 #### ColumnWidth
-                    Required: No
-                    Type: String
-                    Description: Set a custom column width for the column. It is best to supply this as a percentage. If you use this, provide it for all fields and if you use a percentage, the percentages for all columns should add up to 100%.
+     Required: No
+     Type: String
+     Description: Set a custom column width for the column. It is best to supply this as a percentage. If you use this, provide it for all fields and if you use a percentage, the percentages for all columns should add up to 100%.
+     Example: ColumnWidth: "10%"
 
 <a name="DatabaseColumn"></a>
 #### DatabaseColumn
-                    Required: Yes
-                    Type: String
-                    Description: The name of the database column tied to the Field
+     Required: Yes
+     Type: String
+     Description: The name of the database column tied to the Field
+     Example: DatabaseColumn: "ID"
 
 <a name="DefaultAddValue"></a>
 #### DefaultAddValue
-                    Required: No
-                    Type: Any
-                    Description: The default value to use for the field when you add a new row 
+     Required: No
+     Type: Any
+     Description: The default value to use for the field when you add a new row
+     Example: DefaultAddValue: "Not Specified"
 
 <a name="Disabled"></a>
 #### Disabled
-                    Required: No
-                    Type: Boolean
-                    Description: Determines whether a field can be edited
+     Required: No
+     Type: Boolean
+     Description: Determines whether a field can be edited
 
 <a name="DisplayName"></a>
 #### DisplayName
-          Required: Yes
-          Type: String
-          Description: The column header text
+     Required: Yes
+     Type: String
+     Description: The column header text
+     Example: DisplayName: 'ID',
 
 <a name="ExpandableCriteria"></a>
 #### ExpandableCriteria
-          Required: No
-          Type: Array
-          Description: The criteria to determine whether to display an expandable row for the current row. This is defined as a key/value pair in the format ExpandableCriteria: [{ Match: "Roch", Show: "&lt;h1 style='background-color: green;'&gt;This is a test message</h1&gt;" }, { Match: "Her", Show: "&lt;h1 style='background-color: red;'&gt;This is a test message&lt;/h1&gt;" }]``` which will match when the field value contains 'John' or 'Jane'. Set Match to "*" to have a for the default for all rows. which will use the provided Show html. If you provide an array and do not see any expandable rows, it means that no rows matched the criteria.
+     Required: No
+     Type: Array
+     Description: The criteria to determine whether to display an expandable row for the current row.
+     Example: ExpandableCriteria: [{ Match: "Roch", Show: "&lt;h1 style='background-color: green;'&gt;This is a test message&lt;/h1&gt;" }, { Match: "Her", Show: "&lt;h1 style='background-color: red;'&gt;This is a test message&lt;/h1&gt;" }]
+     which will match when the field value contains 'John' or 'Jane'. Set Match to "*" to have a for the default for all rows. which will use the provided Show html. If you provide an array and do not see any expandable rows, it means that no rows matched the criteria.
 
 <a name="ExpandableCriteriaExactMatch"></a>
 #### ExpandableCriteriaExactMatch
-          Required: No
-          Type: Boolean
-          Description: Determines whether to do an exct or partial match. This is true by default unless you set this to false. A partial match is case insensitive but an exact match is case sensitive.
+     Required: No
+     Type: Boolean
+     Description: Determines whether to do an exct or partial match. This is true by default unless you set this to false. A partial match is case insensitive but an exact match is case sensitive.
 
 <a name="FieldType"></a>
 #### FieldType
-                    Required: Yes
-                    Type: 
-                        FieldTypes.TEXTFIELD for a text field
-                        FieldTypes.TEXTAREA for a text area. When using a textarea, you can specify the rows and columns with rows={} and columns={} on the field. TEXTAREA is only valid for FieldValueTypes TEXT or NUMBER.
-                        FieldTypes.SELECT for a select dropdown
-                        FieldTypes.CHECKBOX for a CHECKBOX
-                    Description: The type of field you want to display the text as when editing the field
+     Required: Yes
+     Type: 
+          FieldTypes.TEXTFIELD for a text field
+          FieldTypes.TEXTAREA for a text area. When using a textarea, you can specify the rows and columns with rows={} and columns={} on the field. TEXTAREA is only valid for FieldValueTypes TEXT or NUMBER.
+          FieldTypes.SELECT for a select dropdown
+          FieldTypes.CHECKBOX for a CHECKBOX
+     Description: The type of field you want to display the text as when editing the field
+     Example: FieldType: FieldTypes.SELECT,
 
 <a name="FieldValue"></a>
 #### FieldValue
-                    Required: No
-                    Type: String or number
-                    Description: Stores the value of the field when adding a row
+     Required: No
+     Type: String or number
+     Description: Stores the value of the field when adding a row
+     Example: FieldValue: "John Doe"
 
 <a name="FieldValueType"></a>
 #### FieldValueType
-                    Required: No
-                    Type:
-                         FieldValueTypes.TEXT for text data
-                         FieldValueTypes.NUMBER for numeric data
-                         FieldValueTypes.DATE for dates
-                         FieldValueTypes.BOOLEAN for boolean data
-                         FieldValueTypes.CURRENCY for currency data
-                    Description: The data type for the field. This is not required when you set IsIDColumn to true because an ID column is not editable but is required otherwise.
+     Required: No
+     Type:
+          FieldValueTypes.TEXT for text data
+          FieldValueTypes.NUMBER for numeric data
+          FieldValueTypes.DATE for dates
+          FieldValueTypes.BOOLEAN for boolean data
+          FieldValueTypes.CURRENCY for currency data
+     Description: The data type for the field. This is not required when you set IsIDColumn to true because an ID column is not editable but is required otherwise.
+     Example: FieldValueType: FieldValueTypes.NUMBER,
 
 <a name="Filterable"></a>
 #### Filterable
-	       Required: No
-	       Type: Boolean
-	       Description: If true, the table can be filtered by clicking on the down arrow icon in the column header. 
+     Required: No
+     Type: Boolean
+     Description: If true, the table can be filtered by clicking on the down arrow icon in the column header.
 
 <a name="HiddenField"></a>
 #### HiddenField
-                    Required: No
-                    Type: Boolean
-                    Description: If true, the field is hidden when not editing. It will still be shown and editable when editing the table. The only exception is if the field is an ID column with IsIDColumn set to true, it will be displayed as a read only field
+     Required: No
+     Type: Boolean
+     Description: If true, the field is hidden when not editing. It will still be shown and editable when editing the table. The only exception is if the field is an ID column with IsIDColumn set to true, it will be displayed as a read only field.
 
 <a name="IsIDColumn"></a>
 #### IsIDColumn
-                    Required: No
-                    Type: Boolean
-                    Description: If true, indicates that the field is an ID column. Can be used along with Clickable on another fields' column header to show or hide ID column. An ID column cannot be edited 
+     Required: No
+     Type: Boolean
+     Description: If true, indicates that the field is an ID column. Can be used along with Clickable on another fields' column header to show or hide ID column. An ID column cannot be edited 
 
 <a name="IsEmailAddress"></a>
 #### IsEmailAddress
-                    Required: No
-                    Type: Boolean
-                    Description: If true, indicates that the field is an email column and will be displayed as a mailto: hyperlink. Do not provide both IsEmailColumn and IsURL for the same field. You can only use one or the other.
+     Required: No
+     Type: Boolean
+     Description: If true, indicates that the field is an email column and will be displayed as a mailto: hyperlink. Do not provide both IsEmailColumn and IsURL for the same field. You can only use one or the other.
 
 <a name="IsEnabledColumn"></a>
 #### IsEnabledColumn
-                    Required: No
-                    Type: Boolean
-                    Description: If true, indicates that the field is a boolean column that can be used when showDisabled is set to true to determine whether to hide or show the field based on an enabled status 
+     Required: No
+     Type: Boolean
+     Description: If true, indicates that the field is a boolean column that can be used when showDisabled is set to true to determine whether to hide or show the field based on an enabled status 
 
 <a name="IsURL"></a>
 #### IsURL
-                    Required: No
-                    Type: Boolean
-                    Description: If true, indicates that the field is a URL and wll be displayed as a hyper link.
+     Required: No
+     Type: Boolean
+     Description: If true, indicates that the field is a URL and wll be displayed as a hyper link.
 
 <a name="IsURLButton"></a>
 #### IsURLButton
-                    Required: No
-                    Type: Boolean
-                    Description: If true, will display a button as the link instead of using a traditional hyperlink
+     Required: No
+     Type: Boolean
+     Description: If true, will display a button as the link instead of using a traditional hyperlink
 
 <a name="IsURLDisplayTextColumn"></a>
 #### IsURLDisplayTextColumn
-                    Required: No
-                    Type: String
-                    Description: If provided, indicates the column in the current row whose value will be used as the displayed text for the link. Do not specify both  IsURLText and  IsURLDisplayTextColumn. Only specify one or the other.
+     Required: No
+     Type: String
+     Description: If provided, indicates the column in the current row whose value will be used as the displayed text for the link. Do not specify both  IsURLText and  IsURLDisplayTextColumn. Only specify one or the other.
+     Example: IsURLDisplayTextColumn: "LastName"
 
 <a name="IsURLHrefColumn"></a>
 #### IsURLHrefColumn
-                    Required: No
-                    Type: String
-                    Description: If provided, indicates that the name of the database column that will be used to display as the text of the hyperlink text.
+     Required: No
+     Type: String
+     Description: If provided, indicates that the name of the database column that will be used to display as the text of the hyperlink text.
+     Example: IsURLHrefColumn: "URL
 
 <a name="IsURLText"></a>
 #### IsURLText
-                    Required: No
-                    Type: String
-                    Description: If provided, indicates the static text that will be used to display the link. Do not specify both  IsURLText and  IsURLDisplayTextColumn. Only specify one or the other.
+     Required: No
+     Type: String
+     Description: If provided, indicates the static text that will be used to display the link. Do not specify both  IsURLText and  IsURLDisplayTextColumn. Only specify one or the other.
+     Example: IsURLText: "Click here"
 
 <a name="Required"></a>
 #### Required
-                    Required: No
-                    Type: Boolean
-                    Description: If true, the field is marked as required
+     Required: No
+     Type: Boolean
+     Description: If true, the field is marked as required
 
 <a name="Rows"></a>
 #### Rows
-                    Required: No
-                    Type: Number
-                    Description: When the field type is TEXTAREA, the number of rows to display the text area with. Only provide this for a textarea field
+     Required: No
+     Type: Number
+     Description: When the field type is TEXTAREA, the number of rows to display the text area with. Only provide this for a textarea field
+     Example: Rows: 10
 
 <a name="Searchable"></a>
 #### Searchable
-          Required: No
-          Type: Boolean
-          Description: If false, disables searching this column. If not set or set to true, searching is enabled for the field. All columns will have searching enabled by default.
+     Required: No
+     Type: Boolean
+     Description: If false, disables searching this column. If not set or set to true, searching is enabled for the field. All columns will have searching enabled by default.
 
 <a name="SelectData"></a>
 #### SelectData
-                    Required: No
-                    Type: Object
-                    Description: If FieldType is SELECT, this is a required attribute to specify the data that will be used to render the select dropdown
+     Required: No
+     Type: Object
+     Description: If FieldType is SELECT, this is a required attribute to specify an object with the data that will be used to render the select dropdown
+     SelectData: userObj
 
 <a name="SelectDataIDColumn"></a>
 #### SelectDataIDColumn
-                    Required: No
-                    Type: String
-                    Description: If FieldType is SELECT, this is a required attribute to specify the column in SelectData (Usually the ID column in the data) that will be returned when you select an item from the select data
+     Required: No
+     Type: String
+     Description: If FieldType is SELECT, this is a required attribute to specify the column in SelectData (Usually the ID column in the data) that will be returned when you select an item from the select data
+     Example: SelectDataIDColumn: "ID"
 
 <a name="SelectDataValueColumn"></a>
 #### SelectDataValueColumn
-                    Required: No
-                    Type: String
-                    Description: If FieldType is SELECT, this is a required attribute to specify the column in SelectData that will be shown in the select dropdown
+     Required: No
+     Type: String
+     Description: If FieldType is SELECT, this is a required attribute to specify the column in SelectData that will be shown in the select dropdown
+     Example: SelectDataValueColumn: "Username"
 
 <a name="SelectDataEnabledOnly"></a>
 #### SelectDataEnabledOnly
-                    Required: No
-                    Type: Boolean
-                    Description: If true, only show fields that are enabled based on a field called Enabled
+     Required: No
+     Type: Boolean
+     Description: If true, only show fields that are enabled based on a field called Enabled
 
 <a name="SelectDataEnabledOnlyColumn"></a>
 #### SelectDataEnabledOnlyColumn
-                    Required: No
-                    Type: Boolean
-                    Description: If SelectDataEnabledOnly is true, you must specify the boolean column in the select data that will be used to test if the row is enabled or not.
+     Required: No
+     Type: Boolean
+     Description: If SelectDataEnabledOnly is true, you must specify the boolean column in the select data that will be used to test if the row is enabled or not.
 
 <a name="SemiTransparentTableHeader"></a>
 #### SemiTransparentTableHeader
-          Required: No
-          Type: Boolean
-          Description: If true, makes the table column semi transparent. The default opacity is 0.8 if SemiTransparentTableHeaderOption is not set
+     Required: No
+     Type: Boolean
+     Description: If true, makes the table column semi transparent. The default opacity is 0.8 if SemiTransparentTableHeaderOption is not set
 
 <a name="SemiTransparentTableHeaderOption"></a>
 #### SemiTransparentTableHeaderOption
-          Required: No
-          Type: Boolean
-          Description: If SemiTransparentTableHeader is set to true, sets the table column opacity. This value must be between 0 and 1. 0.5 - 0.9 is recommended.
+     Required: No
+     Type: Boolean
+     Description: If SemiTransparentTableHeader is set to true, sets the table column opacity. This value must be between 0 and 1. 0.5 - 0.9 is recommended.
 
 <a name="SortableField"></a>
 #### SortableField
-          Required: No
-          Type: Boolean
-          Description: If false, disables sorting on the field. If not set or set to true, sorting is enabled for the field. All columns will have sorting enabled by default.
+     Required: No
+     Type: Boolean
+     Description: If false, disables sorting on the field. If not set or set to true, sorting is enabled for the field. All columns will have sorting enabled by default.
 
 <a name="TogglesIDColumn"></a>
 #### TogglesIDColumn
-                    Required: No
-                    Type: Boolean
-                    Description: If true, double clicking on the column header for this field will toggle the ID column. When TogglesIDColumn is true, it will override ClickCallBack and ClickCallBack will not be used even if specified.
+     Required: No
+     Type: Boolean
+     Description: If true, double clicking on the column header for this field will toggle the ID column. When TogglesIDColumn is true, it will override ClickCallBack and ClickCallBack will not be used even if specified.
 
 
 ### Custom CSS
@@ -510,154 +545,154 @@ Example:
 The following CSS classes can be overridden:
 
 #### SegiTable style:
-                 Class name: .SegiTable
-                 Description: The style for the entire component
+     Class name: .SegiTable
+     Description: The style for the entire component
 
 #### Add button style:
-                 Class name: .SegiTableAddButton
-                 Description: The add button style when adding a row
+     Class name: .SegiTableAddButton
+     Description: The add button style when adding a row
 
 ### Collapsible/Expandable Arrow icon
-                 Class name: SegiTableArrow
-                 Description: The arrow icon for collapsible/expandable rows
+     Class name: SegiTableArrow
+     Description: The arrow icon for collapsible/expandable rows
 
 ### Collapsible/Expandable Arrow icon
-                 Class name: SegiTableArrow
-                 Description: The arrow icon for collapsible/expandable rows
+     Class name: SegiTableArrow
+     Description: The arrow icon for collapsible/expandable rows
 
 #### Button style:
-                 Class name: .SegiTableButtonStyle
-                 Description: The generic button style used by all buttons in SegiTable
+     Class name: .SegiTableButtonStyle
+     Description: The generic button style used by all buttons in SegiTable
 
 #### Cancel button style:
-                 Class name: .SegiTableCancelButton
-                 Description: The cancel button style when editing or adding a row
+     Class name: .SegiTableCancelButton
+     Description: The cancel button style when editing or adding a row
 
 #### Table cell style:
-                 Class name: .SegiTableDataCell
-                 Description: The style for the table cells not including the header
+     Class name: .SegiTableDataCell
+     Description: The style for the table cells not including the header
 
 #### Table style:
-                 Class name: .SegiTableDataGrid
-                 Description: The style for the table
+     Class name: .SegiTableDataGrid
+     Description: The style for the table
 
 #### Table head:
-                 Class name: .SegiTableDataGrid thead
-                 Description: The style for the table header
+     Class name: .SegiTableDataGrid thead
+     Description: The style for the table header
 
 #### Table data style:
-                 Class name: .SegiTableDataGrid td
-                 Description: The style for the table cells not including the header
+     Class name: .SegiTableDataGrid td
+     Description: The style for the table cells not including the header
 
 #### Table row style:
-                 Class name: .SegiTableDataGrid tr
-                 Description: The style for the table row not including the header
+     Class name: .SegiTableDataGrid tr
+     Description: The style for the table row not including the header
 
 #### Table even row style:
-                 Class name: .SegiTableDataGrid tr:nth-child(even) td:not(.header)
-                 Description: The style for the even numbered table rows not including the header. By default, this style is used to set the background color for even rows so every other row has a different color.
+     Class name: .SegiTableDataGrid tr:nth-child(even) td:not(.header)
+     Description: The style for the even numbered table rows not including the header. By default, this style is used to set the background color for even rows so every other row has a different color.
 
 #### Excel icon:
-                 Class name: .SegiTableExcelIcon
-                 Description: The style for the Excel icon if exporting to CSV is enabled
+     Class name: .SegiTableExcelIcon
+     Description: The style for the Excel icon if exporting to CSV is enabled
 
 #### Excel editable icon:
-                 Class name: .SegiTableExcelIconEditable
-                 Description: The style for the Excel icon when editing is enabled if exporting to CSV is enabled
+     Class name: .SegiTableExcelIconEditable
+     Description: The style for the Excel icon when editing is enabled if exporting to CSV is enabled
 
 #### Excel read only icon:
-                 Class name: .SegiTableExcelIconEditable
-                 Description: The style for the Excel icon when editing is not enabled if exporting to CSV is enabled
+     Class name: .SegiTableExcelIconEditable
+     Description: The style for the Excel icon when editing is not enabled if exporting to CSV is enabled
 
 #### Filter grid
-                 Class name: .SegiTableFilterGrid
-                 Description: The style for the filter grid that appears when you click on the filter icon if filtering is enabled
+     Class name: .SegiTableFilterGrid
+     Description: The style for the filter grid that appears when you click on the filter icon if filtering is enabled
 
 #### Filter grid
-                 Class name: .SegiTableFilterGridOption
-                 Description: The style for the filter grid options that appears when you click on the filter icon if filtering is enabled
+     Class name: .SegiTableFilterGridOption
+     Description: The style for the filter grid options that appears when you click on the filter icon if filtering is enabled
 
 #### Filter icon
-                 Class name: .SegiTableFilterIcon
-                 Description: The style for the filter icon if filtering is enabled
+     Class name: .SegiTableFilterIcon
+     Description: The style for the filter icon if filtering is enabled
 
 #### Table grid content:
-                 Class name: .SegiTableGridContent
-                 Description: The style for the element that contains the table itself
+     Class name: .SegiTableGridContent
+     Description: The style for the element that contains the table itself
 
 #### Table header style:
-                 Class name: .SegiTableDataGridHeader
-                 Description: The style for the table header tr tag
+     Class name: .SegiTableDataGridHeader
+     Description: The style for the table header tr tag
 
 #### ID Column style:OK
-                 Class name: .SegiTableIDColumn
-                 Description: The style for the column marked as the ID column with IsIDColumn
+     Class name: .SegiTableIDColumn
+     Description: The style for the column marked as the ID column with IsIDColumn
 
 #### Input style:
-                 Class name: .SegiTableInputStyle
-                 Description: The style for the input fields when editing the table
+     Class name: .SegiTableInputStyle
+     Description: The style for the input fields when editing the table
 
 #### Pagination style:
-                 Class name: .SegiTablePagination
-                 Description: The style for the pagination bar when pagination has been enabled
+     Class name: .SegiTablePagination
+     Description: The style for the pagination bar when pagination has been enabled
 
 #### Pagination style:
-                 Class name: .SegiTablePagination
-                 Description: The style for the pagination bar when pagination has been enabled
+     Class name: .SegiTablePagination
+     Description: The style for the pagination bar when pagination has been enabled
 
 #### Pagination container style:
-                 Class name: .SegiTablePaginationContainer
-                 Description: The style for the element that contains the entire pagination bar when pagination has been enabled
+     Class name: .SegiTablePaginationContainer
+     Description: The style for the element that contains the entire pagination bar when pagination has been enabled
 
 #### Pagination icon button style:
-                 Class name: .SegiTablePaginationIconButton
-                 Description: The style for the pagination arrow icons when pagination has been enabled
+     Class name: .SegiTablePaginationIconButton
+     Description: The style for the pagination arrow icons when pagination has been enabled
 
 #### Pagination disabled icon button style:
-                 Class name: .SegiTablePaginationIconButtonDisabled
-                 Description: The style for the disabled pagination arrow icons when pagination has been enabled
-                 
+     Class name: .SegiTablePaginationIconButtonDisabled
+     Description: The style for the disabled pagination arrow icons when pagination has been enabled
+     
 #### Pagination nav container style:
-                 Class name: .SegiTablePaginationNavContainer
-                 Description: The style for the element that is a child of SegiTablePaginationContainer when pagination has been enabled
-                 
+     Class name: .SegiTablePaginationNavContainer
+     Description: The style for the element that is a child of SegiTablePaginationContainer when pagination has been enabled
+     
 #### Pagination span container style:
-                 Class name: .SegiTablePaginationSpan
-                 Description: The style for the element that is a child of SegiTablePagination when pagination has been enabled
+     Class name: .SegiTablePaginationSpan
+     Description: The style for the element that is a child of SegiTablePagination when pagination has been enabled
 
 ### Pagination 1-X of X text style
-                 Class name: .SegiTableRecordStartEnd
-                 Description: The style for the text "Page 1-50 of 100" when pagination has been enabled
+     Class name: .SegiTableRecordStartEnd
+     Description: The style for the text "Page 1-50 of 100" when pagination has been enabled
 
 ### Pagination when All rows is shown
-                 Class name: .SegiTableRecordStartEnd
-                 Description: The style for the text "Page 1-50 of 100" when pagination has been enabled
+     Class name: .SegiTableRecordStartEnd
+     Description: The style for the text "Page 1-50 of 100" when pagination has been enabled
 
 SegiTableRecordStartEndAll
 #### Pagination Rows per page text style:
-                 Class name: .SegiTableRecordStartEndAll
-                 Description: The style for the text "Page 1-50 of 100" when all rows is selected
+     Class name: .SegiTableRecordStartEndAll
+     Description: The style for the text "Page 1-50 of 100" when all rows is selected
 
 #### Pagination Current page text style:
-                 Class name: .SegiTableRowCurrentPage
-                 Description: The style for the text "Page 1/10" when pagination has been enabled
+     Class name: .SegiTableRowCurrentPage
+     Description: The style for the text "Page 1/10" when pagination has been enabled
 
 #### Pagination Rows per page label:
-                 Class name: .SegiTableRowLabel
-                 Description: The style for the text "Rows per page:" when pagination has been enabled
+     Class name: .SegiTableRowLabel
+     Description: The style for the text "Rows per page:" when pagination has been enabled
 
 #### Save button style:
-                 Class name: .SegiTableSaveButton
-                 Description: The button style for the add button when adding a row or the save button when saving the table.
+     Class name: .SegiTableSaveButton
+     Description: The button style for the add button when adding a row or the save button when saving the table.
 
 #### Select button style:
-                 Class name: .SegiTableSelectStyle
-                 Description: The button style for the select dropdown when adding or editing a row.
+     Class name: .SegiTableSelectStyle
+     Description: The button style for the select dropdown when adding or editing a row.
 
 #### table border style:
-                 Class name: .SegiTableSolidBorder
-                 Description: The table border style for the table
+     Class name: .SegiTableSolidBorder
+     Description: The table border style for the table
 
 #### URL button
-                 Class name: .SegiTableURLButton
-                 Description: The button displayed for a link
+     Class name: .SegiTableURLButton
+     Description: The button displayed for a link
