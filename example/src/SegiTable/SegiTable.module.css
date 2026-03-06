@@ -15,8 +15,8 @@
 :global(.darkMode) {
      color: var(--dark-mode-foregroundColor) !important;
      background-color: var(--dark-mode-backgroundColor) !important;
-     /*border: 1px solid var(--dark-mode-foregroundColor) !important;
-     border-collapse: collapse;*/
+     border: 1px solid var(--dark-mode-foregroundColor) !important;
+     border-collapse: collapse;
 }
 
 /*:global(.SegiTableDataGrid tbody tr:nth-child(odd) .darkMode) {
@@ -69,6 +69,15 @@
      user-select: none;
      border-width: 2px !important;
 }
+
+.SegiTableArrowLightMode {
+     color: black !important;
+}
+
+/*.SegiTableArrow.darkMode {
+     background-color: var(--dark-mode-backgroundColor) !important;
+     color: var(--dark-mode-foregroundColor) !important;
+}*/
 
 .SegiTableButtonStyle {
      appearance: button;
@@ -123,11 +132,6 @@
      word-wrap: break-word;
 }
 
-/*.SegiTableDataCell .darkMode {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-}*/
-
 .SegiTableDataGrid {
      width: 100%;
      table-layout: fixed;
@@ -136,7 +140,7 @@
 .SegiTableDataGrid thead {
      position: sticky;
      top: 0;
-     z-index: 100;
+     z-index: 9999;
 }
 
 /*tr .darkMode {
@@ -149,12 +153,16 @@
      overflow-wrap: anywhere;
 }
 
+.SegiTableDataGrid thead tr:not(.darkMode) {
+     background-color: #eee;
+}
+
 .SegiTableDataGrid tr:not(.SegiTableFilterGrid tr) {
      height: 75px;
      display: table-row;
 }
 
-.SegiTableDataGrid tr:not(.SegiTableExpandedTable):nth-child(even) td:not(.SegiTableFilterGrid td) {
+.SegiTableDataGrid tr:not(.SegiTableExpandedTable)::nth-child(even) td:not(.SegiTableFilterGrid td) {
      background-color: #eee;
      color: black;
 }
@@ -218,13 +226,19 @@
 
 .SegiTableFilterGrid {
      display: block;
-     background-color: white !important;
+     background-color: gray !important;
      padding-right: 25px;
-     width: fit-content;
-     z-index: 99999;
+     width: max-content;
+     position: fixed;
+     z-index: 99999 !important;
      overflow-y: auto;
+     opacity: 1;
      max-height: 200px;
      overflow-y: auto;
+}
+
+.SegiTableFilterGrid tbody tr {
+     background-color: gray !important;
 }
 
 .SegiTableFilterGrid tbody tr td {
@@ -233,10 +247,10 @@
 }
 
 .SegiTableFilterGridOption {
+     background-color: gray !important;
      font-family: "Pt Sans", helvetica, sans-serif;
      display: inline-block;
-     max-width: 200px !important;
-     overflow-x: auto;
+     max-width: fit-content;
      position: relative;
      top: 5px;
 }
@@ -250,6 +264,7 @@
      border: 1px solid #ccc;
      position: relative;
      top: 2px;
+     left: -5px;
      border-radius: 2px;
      z-index: 99999;
 }
