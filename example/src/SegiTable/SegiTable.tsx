@@ -271,14 +271,7 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     }
                }
 
-               return (
-                    (
-                         (typeof showDisabled === "undefined" ||
-                              ((showDisabled === false && (currentRow[getEnabledColumn()] === true || (isEditing && currentRow["IsModified"] === true)))
-                                   ||
-                                   (showDisabled === true)))
-                    )
-               )
+               return true;
           }).sort((a: any, b: any) => {
                if (sortColumn === "") {
                     return a;
@@ -643,9 +636,14 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                     thisField.UniqueValuesSelected = [];
 
                     thisField.UniqueValuesSelectAllSelected = false;
+
+                    setTableData([]);
+
+                    return;
                }
           }
 
+          setTableData(currentTableComponent.Data)
           setCurrentTableComponent(newTableComponent);
 
           setCurrentPage(1); // This will trigger the useEffect to recalculate the current page when the filter changes
@@ -1116,11 +1114,11 @@ const SegiTable = ({ addingHasDisabledCheckboxPlaceholder, addingText, addtlPage
                                         <SegiTableAddRow addFieldChangeHandler={addFieldChangeHandler} addingHasDisabledCheckboxPlaceholder={addingHasDisabledCheckboxPlaceholder} currentTableComponent={currentTableComponent} darkMode={darkMode} idVisible={idVisible} isAdding={isAdding} />
                                    }
 
-                                   {tableData.length === 0 && currentTableComponent.ExpandableDataLinked !== true &&
+                                   {tableData.length === 0 && currentTableComponent.ExpandableDataLinked !== true && uniqueValuesVisibleColumn === "" &&
                                         <span style={{ fontSize: "24px", fontWeight: "bold" }}>No Data</span>
                                    }
 
-                                   {tableData.length > 0 && (currentTableComponent.ExpandableDataLinked !== true || (currentTableComponent.ExpandableDataLinked === true)) &&
+                                   {(currentTableComponent.ExpandableDataLinked !== true || (currentTableComponent.ExpandableDataLinked === true)) &&
                                         <SegiTableDataGrid columnWidths={columnWidths} currentPage={currentPage} currentTableComponent={currentTableComponent} darkMode={darkMode} editFieldChangeHandler={editFieldChangeHandler} expandedId={expandedId} filteredTableData={filteredTableData} filterSearchTerm={filterSearchTerm} formatCurrency={formatCurrency} getEnabledColumn={getEnabledColumn} getFormattedDate={getFormattedDate} hasExpandableCriteriaMet={hasExpandableCriteriaMet} height={height} isAdding={isAdding} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} lastPage={lastPage} lastPageNum={lastPageNum} mergedPageSizes={mergedPageSizes} pageClickHandler={pageClickHandler} pageRecordStartEndLabel={pageRecordStartEndLabel} pageSize={pageSize} pageSizeClickHandler={pageSizeClickHandler} paginationEnabled={paginationEnabled} setColumnWidths={setColumnWidths} setCurrentTableComponent={setCurrentTableComponent} setExpandedId={setExpandedId} setFilterSearchTerm={setFilterSearchTerm} showDisabled={showDisabled} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} tableData={tableData} tableRef={tableRef} toggleIDColumn={toggleIDColumn} toggleExpandableRow={toggleExpandableRow} uniqueValuesClearColumnClickHandler={uniqueValuesClearColumnClickHandler} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
                                    }
                               </>
@@ -1153,11 +1151,8 @@ type SegiTableControlsProps = {
 
 const SegiTableControls = ({ addClickHandler, addingText, cancelAddClickHandler, cancelEditCallBackHandler, currentTableComponent, editClickHandler, editable, exportable, exportCSV, isAdding, isEditing, saveAddCallBackHandler, saveEditCallBackHandler, searchable, searchTerm, setSearchTerm, tableData }: SegiTableControlsProps) => {
      return (
-          <>
+          <div className={`${styles.SegiTableSearchContainer}`}>
                {/* Export to Excel icon */}
-               {exportable && !isAdding && !isEditing && exportable &&
-                    <img alt="Excel" className={`${styles.SegiTableExcelIcon} ${typeof editable === "undefined" || (typeof editable !== "undefined" && editable !== false) ? `${styles.SegiTableExcelIconEditable}` : `${styles.SegiTableExcelIconReadOnly}`}`} src="data:image/png;base64,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" onClick={exportCSV} width={45} height={45} />
-               }
 
                {/* Buttons */}
                {!isAdding && !isEditing && (typeof editable === "undefined" || (typeof editable !== "undefined" && editable !== false)) &&
@@ -1166,7 +1161,11 @@ const SegiTableControls = ({ addClickHandler, addingText, cancelAddClickHandler,
 
                {/* Search field */}
                {!isAdding && !isEditing && searchable &&
-                    <input id="search" className={`${!exportable && styles.SegiTableMarginTop15} ${(exportable || editable !== false) && styles.SegiTableMarginLeft25} ${styles.SegiTableInputStyle}`} value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="  Search"></input>
+                    <input className={`${styles.SegiTableSearch} ${(editable !== false) && styles.SegiTableMarginLeft25} ${styles.SegiTableInputStyle}`} value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="  Search"></input>
+               }
+
+               {exportable && !isAdding && !isEditing && exportable &&
+                    <img alt="Excel" className={`${styles.SegiTableExcelIconReadOnly} ${styles.SegiTableClickable}`} src="data:image/png;base64,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" onClick={exportCSV} width={45} height={45} />
                }
 
                {isEditing && !isAdding &&
@@ -1189,7 +1188,7 @@ const SegiTableControls = ({ addClickHandler, addingText, cancelAddClickHandler,
                          <button className={`${styles.SegiTableButtonStyle} ${styles.SegiTableCancelButton}`} onClick={() => cancelAddClickHandler()}>Cancel</button>
                     </div>
                }
-          </>
+          </div>
      )
 }
 
@@ -1336,9 +1335,7 @@ const SegiTableDataGrid = ({ columnWidths, currentPage, currentTableComponent, d
                <div id={`${styles.SegiTableGridContent}`} className={`${styles.SegiTableGridContent}`} style={{ height: typeof height !== "undefined" ? height : "auto", overflow: "auto" }}>
                     <table className={`${styles.SegiTableDataGrid}`} ref={tableRef}>
                          {/* Table Headers */}
-                         {
-                              <SegiTableDataGridHeaders columnWidths={columnWidths} currentTableComponent={currentTableComponent} darkMode={darkMode} expandedId={expandedId} filterSearchTerm={filterSearchTerm} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} setColumnWidths={setColumnWidths} setFilterSearchTerm={setFilterSearchTerm} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} uniqueValuesClearColumnClickHandler={uniqueValuesClearColumnClickHandler} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
-                         }
+                         <SegiTableDataGridHeaders columnWidths={columnWidths} currentTableComponent={currentTableComponent} darkMode={darkMode} expandedId={expandedId} filterSearchTerm={filterSearchTerm} hasExpandableCriteriaMet={hasExpandableCriteriaMet} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} setColumnWidths={setColumnWidths} setFilterSearchTerm={setFilterSearchTerm} sortable={sortable} sortColumn={sortColumn} sortColumnClickHandler={sortColumnClickHandler} sortDirection={sortDirection} toggleIDColumn={toggleIDColumn} uniqueValuesClearColumnClickHandler={uniqueValuesClearColumnClickHandler} uniqueValuesColumnClickHandler={uniqueValuesColumnClickHandler} uniqueValuesOptionClickHandler={uniqueValuesOptionClickHandler} uniqueValuesVisibleColumn={uniqueValuesVisibleColumn} />
 
                          {/* Table body */}
                          <SegiTableDataGridBody currentTableComponent={currentTableComponent} darkMode={darkMode} editFieldChangeHandler={editFieldChangeHandler} expandedId={expandedId} filteredTableData={filteredTableData} formatCurrency={formatCurrency} getEnabledColumn={getEnabledColumn} getFormattedDate={getFormattedDate} isEditing={isEditing} isExpandable={isExpandable} isVisible={isVisible} onToggleExpandableRow={toggleExpandableRow} setCurrentTableComponent={setCurrentTableComponent} setExpandedId={setExpandedId} showDisabled={showDisabled} />
@@ -1448,15 +1445,18 @@ const SegiTableDataGridHeaders = ({ columnWidths, currentTableComponent, darkMod
           };
      }, []);
 
-     return (
-          <thead className={`styles.SegiTableDataGridHeaders`}>
-               <tr
-                    //className={`${darkMode ? `darkMode` : ``}`}
-                    style={{
-                         opacity:
-                              typeof currentTableComponent.SemiTransparentTableHeaderOpacity !== "undefined"
+     const opacity = typeof currentTableComponent.SemiTransparentTableHeader === "undefined"
+     ? 1
+     : typeof currentTableComponent.SemiTransparentTableHeaderOpacity !== "undefined"
                                    ? currentTableComponent.SemiTransparentTableHeaderOpacity
-                                   : defaultOpacity
+                                   : defaultOpacity;
+
+     return (
+          <thead className={`styles.SegiTableDataGridHeader`}>
+               <tr
+                    className={`${darkMode ? `darkMode` : ``}`}
+                    style={{
+                         opacity: opacity
                     }}>
                     {isExpandable && hasExpandableCriteriaMet && !isEditing &&
                          <th style={{ width: "5%" }} className={`${styles.SegiTableDataCell} ${styles.SegiTableDataGridHeader} ${darkMode ? `darkMode` : ``}`}></th>
@@ -1514,7 +1514,7 @@ const SegiTableDataGridHeaders = ({ columnWidths, currentTableComponent, darkMod
                                                        <tbody>
                                                             <tr>
                                                                  <td style={{ width: columnWidths[field.DatabaseColumn] ?? parseInt(field.ColumnWidth || "150", 10) }}>
-                                                                      <input type="checkbox" className={styles.SegiTableFilterGridInput} checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? field.UniqueValuesSelectAllSelected : false} onChange={(event) => uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>(Select all)</span>
+                                                                      <input type="checkbox" checked={typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? field.UniqueValuesSelectAllSelected : false} onChange={(event) => uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked)} /><span className={`${styles.SegiTableFilterGridOption} ${styles.SegiTableMarginLeft10}`}>(Select all)</span>
                                                                  </td>
                                                             </tr>
 
@@ -1629,7 +1629,9 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, darkMode, 
                     .filter((currentRow: any) => {
                          var enabledColumn = getEnabledColumn();
 
-                         const showRow = ((typeof showDisabled === "undefined" || showDisabled === false) || (showDisabled === true && currentRow[enabledColumn] === true))
+                         const currentRowEnabled = currentRow[enabledColumn];
+
+                         const showRow = (typeof showDisabled === "undefined" || showDisabled === false) ? true : (typeof showDisabled !== "undefined" && showDisabled && !currentRowEnabled) ? false : true;
 
                          if (expandedId === null && showRow) {
                               return true;
@@ -1780,7 +1782,7 @@ const SegiTableDataGridBodyReadOnlyFields = ({ currentTableComponent, darkMode, 
 
                                    {((expandedId === String(currentRow[currentTableComponent.ExpandableDataColumn]))) && expandableContent !== null &&
                                         <tr>
-                                             <td className={styles.SegiTableExpandableRowContent} colSpan={currentTableComponent.Fields?.length}>
+                                             <td colSpan={currentTableComponent.Fields?.length}>
                                                   <div className={`${styles.SegiTableExpandableContent}`}>
                                                        {typeof expandableContent === "string" &&
                                                             <div dangerouslySetInnerHTML={{ __html: expandableContent }}></div>

@@ -509,7 +509,7 @@ When you render SegiTable, there is validation that makes sure that you provide 
 #### SemiTransparentTableHeader
      Required: No
      Type: Boolean
-     Description: If true, makes the table column semi transparent. The default opacity is 0.8 if SemiTransparentTableHeaderOption is not set
+     Description: If true, makes the table column semi transparent. The default opacity is 0.8 if SemiTransparentTableHeaderOption is not set. If you set this, you need to also set the height or the header will not be sticky.
 
 <a name="SemiTransparentTableHeaderOption"></a>
 #### SemiTransparentTableHeaderOption
