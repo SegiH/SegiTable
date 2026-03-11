@@ -38,41 +38,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
      border-collapse: collapse;
 }
 
-/*:global(.SegiTableDataGrid tbody tr:nth-child(odd) .darkMode) {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-     border: 1px solid var(--dark-mode-foregroundColor) !important;
-     border-collapse: collapse;
-}
-
-:global(.SegiTableDataGrid tbody tr:nth-child(odd) .lightMode) {
-     color: var(--light-mode-foregroundColor) !important;
-     background-color: var(--light-mode-backgroundColor) !important;
-     border: 1px solid var(--light-mode-foregroundColor) !important;
-     border-collapse: collapse;
-}
-
-:global(.SegiTableDataGrid tbody tr:nth-child(even) .darkMode):not(.SegiTableExpandableRowContent) {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-     border: 1px solid var(--dark-mode-foregroundColor) !important;
-     border-collapse: collapse;
-}
-
-:global(.SegiTableDataGrid tbody tr:nth-child(even) .lightMode) {
-     color: var(--light-mode-foregroundColor) !important;
-     background-color: var(--light-mode-backgroundColor) !important;
-     border: 1px solid var(--light-mode-foregroundColor) !important;
-     border-collapse: collapse;
-}*/
-
-/*:global(.SegiTable .darkMode) {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-     border: 1px solid var(--dark-mode-foregroundColor) !important;
-     border-collapse: collapse;
-}*/
-
 .ZCcbeuX4o4zyzIuDqFxy {
      overflow-y: hidden;
 }
@@ -86,17 +51,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 .Qyof38is_zBJidf5PCfC {
      font-size: 30px !important;
      user-select: none;
-     border-width: 2px !important;
+     border-right: 2px !important;
 }
 
 .o7lKBOvmnFfWibvW_NWA {
      color: black !important;
 }
-
-/*.SegiTableArrow.darkMode {
-     background-color: var(--dark-mode-backgroundColor) !important;
-     color: var(--dark-mode-foregroundColor) !important;
-}*/
 
 .WgbFA0qSs_j9GaUdJmPK {
      appearance: button;
@@ -120,6 +80,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
      transition: all .2s, box-shadow .08s ease-in;
      user-select: none;
      -webkit-user-select: none;
+     min-width: 40px;
 }
 
 .afm_8YuxlftALmM2XiW2 {
@@ -142,7 +103,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 
 .aWtlXjsaR4fSo4KEEozh {
      font-family: Arial, Helvetica, sans-serif;
-     border: 0.025em solid #333 outset #999;
+     border: 0.025em solid #333;
      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
      -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
      -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
@@ -161,11 +122,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
      top: 0;
      z-index: 9999;
 }
-
-/*tr .darkMode {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-}*/
 
 .v1lEFXAfWq7IArmJGEa2 td {
      word-wrap: break-word;
@@ -187,7 +143,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 }
 
 .UPJ89c_JYn2Fe8x0TPVY {
-     /*background-color: #999999;*/
      position: relative;
      font-weight: bold;
      white-space: nowrap;
@@ -209,33 +164,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/*.SegiTableDataGridHeader .darkMode {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-}*/
-
-/*.SegiTableExpandableRowContent div {
-     background-color: white !important;
-}*/
-
-.NItHanIdXoMoksyrXxpg {
-     cursor: pointer;
-     height: 35px;
-     width: 35px;
-     margin-right: 25px;
-     user-select: none;
-     -webkit-user-select: none;
-}
-
-.LAZ7ETK5w7pJUBnR8qD1 {
-     position: relative;
-     top: 10px;
-}
-
 .yVZhSAeM2Y5h2fd74Ga6 {
      position: relative;
-     left: 2px;
-     top: 12px;
+     left: 8px;
+     height: 35px;
 }
 
 .Ik3nf0LykZzJD8eU4QRO {
@@ -250,7 +182,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
      width: max-content;
      position: fixed;
      z-index: 99999 !important;
-     overflow-y: auto;
      opacity: 1;
      max-height: 200px;
      overflow-y: auto;
@@ -279,11 +210,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
      width: 16px;
      height: 16px;
      background-color: #f0f0f0;
-     /* Light gray */
      border: 1px solid #ccc;
      position: relative;
      top: 2px;
-     left: -5px;
+     left: 15px;
      border-radius: 2px;
      z-index: 99999;
 }
@@ -300,31 +230,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
      border-left: 4px solid transparent;
      border-right: 4px solid transparent;
      border-top: 5px solid #666;
-     /* Arrow color */
 }
 
 .ZljTUpIXNFKpDM9mFY_y {
      display: block;
-     -ms-overflow-style: none;
-     /* Hide scrollbars in IE and Edge */
+     overflow-x: auto;
+     overflow-y: auto;
+     background-color: #ffffff;
+     border: 1px solid #e5e7eb;
+     border-radius: 8px;
+     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
      scrollbar-width: none;
-     /* Hide scrollbars in Firefox */
+     scrollbar-color: #cbd5e1 transparent;
 }
 
-/*.SegiTableDataGridHeaders .darkMode {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-}*/
+.ZljTUpIXNFKpDM9mFY_y::-webkit-scrollbar {
+     height: 8px;
+     width: 8px;
+}
 
-/*.SegiTableDataGridHeaders tr.darkMode {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-}*/
+.ZljTUpIXNFKpDM9mFY_y::-webkit-scrollbar-thumb {
+     background-color: #cbd5e1;
+     border-radius: 6px;
+}
 
-/*tr:nth-child(even).darkMode {
-     color: var(--dark-mode-foregroundColor) !important;
-     background-color: var(--dark-mode-backgroundColor) !important;
-}*/
+.ZljTUpIXNFKpDM9mFY_y::-webkit-scrollbar-track {
+     background: transparent;
+}
 
 .KtJJFhuaIvNhIYsgu5sa {
      max-width: 50px !important;
@@ -352,7 +284,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 }
 
 .Fg8XTVMjUlPWTxU6ygWa {
-     margin-left: 25px;
+     margin-left: 25px !important;
 }
 
 .Bt7TJD_RhO5iBGQJJI7Q {
@@ -471,6 +403,20 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
      background-color: #2ea44f;
 }
 
+.OmvoQHeiBMlg8IFdfYNQ {
+     display: flex;
+     justify-content: flex-start;
+     height: 55px;
+     align-items: center;
+     padding: 0 10px;
+     box-sizing: border-box;
+}
+
+.plJJr_Ug4aL9ae1AqbCT {
+     border: 2px solid #999;
+     height: 25px;
+}
+
 .zoFeusrR7xD7WZmc3g7h {
      height: 30px;
      border: 1px solid #999;
@@ -488,8 +434,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 .zuOpzAmloZbHD13C7bI5 {
      font-size: 26px;
      color: white;
-     margin: 10px;
      user-select: none;
+     position: relative;
+     left: 7px;
 }
 
 .n6iXqj1nNqLe9BM5AlzS {
@@ -528,8 +475,6 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"SegiTableExpandedTable": `uiiE5VzOUHiE81v7chbT`,
 	"SegiTableDataGridHeader": `UPJ89c_JYn2Fe8x0TPVY`,
 	"ColumnResizer": `DpXqtoEmzKiiuFXCop1X`,
-	"SegiTableExcelIcon": `NItHanIdXoMoksyrXxpg`,
-	"SegiTableExcelIconEditable": `LAZ7ETK5w7pJUBnR8qD1`,
 	"SegiTableExcelIconReadOnly": `yVZhSAeM2Y5h2fd74Ga6`,
 	"SegiTableExpandableContent": `Ik3nf0LykZzJD8eU4QRO`,
 	"SegiTableFilterGridOption": `Yh4KDff5_nVsriNJS2zL`,
@@ -554,6 +499,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"SegiTableRowCurrentPage": `nxYQki9lwBkU6IUvVFxR`,
 	"SegiTableRowLabel": `quVLHR41L07bMv02tvgb`,
 	"SegiTableSaveButton": `q4sVpIK8iWHXw3h7vnl9`,
+	"SegiTableSearchContainer": `OmvoQHeiBMlg8IFdfYNQ`,
+	"SegiTableSearch": `plJJr_Ug4aL9ae1AqbCT`,
 	"SegiTableSelectStyle": `zoFeusrR7xD7WZmc3g7h`,
 	"SegiTableSolidBorder": `HJoE95wnGbvjJwE9OHPZ`,
 	"SegiTableSortColumnUnselected": `zuOpzAmloZbHD13C7bI5`,
@@ -565,362 +512,105 @@ ___CSS_LOADER_EXPORT___.locals = {
 
 /***/ },
 
-/***/ 56
-(module, __unused_webpack_exports, __webpack_require__) {
-
-
-
-/* istanbul ignore next  */
-function setAttributesWithoutAttributes(styleElement) {
-  var nonce =  true ? __webpack_require__.nc : 0;
-  if (nonce) {
-    styleElement.setAttribute("nonce", nonce);
-  }
-}
-module.exports = setAttributesWithoutAttributes;
-
-/***/ },
-
-/***/ 72
+/***/ 314
 (module) {
 
 
 
-var stylesInDOM = [];
-function getIndexByIdentifier(identifier) {
-  var result = -1;
-  for (var i = 0; i < stylesInDOM.length; i++) {
-    if (stylesInDOM[i].identifier === identifier) {
-      result = i;
-      break;
-    }
-  }
-  return result;
-}
-function modulesToDom(list, options) {
-  var idCountMap = {};
-  var identifiers = [];
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var count = idCountMap[id] || 0;
-    var identifier = "".concat(id, " ").concat(count);
-    idCountMap[id] = count + 1;
-    var indexByIdentifier = getIndexByIdentifier(identifier);
-    var obj = {
-      css: item[1],
-      media: item[2],
-      sourceMap: item[3],
-      supports: item[4],
-      layer: item[5]
-    };
-    if (indexByIdentifier !== -1) {
-      stylesInDOM[indexByIdentifier].references++;
-      stylesInDOM[indexByIdentifier].updater(obj);
-    } else {
-      var updater = addElementStyle(obj, options);
-      options.byIndex = i;
-      stylesInDOM.splice(i, 0, {
-        identifier: identifier,
-        updater: updater,
-        references: 1
-      });
-    }
-    identifiers.push(identifier);
-  }
-  return identifiers;
-}
-function addElementStyle(obj, options) {
-  var api = options.domAPI(options);
-  api.update(obj);
-  var updater = function updater(newObj) {
-    if (newObj) {
-      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {
-        return;
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+module.exports = function (cssWithMappingToString) {
+  var list = [];
+
+  // return the list of modules as css string
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = "";
+      var needLayer = typeof item[5] !== "undefined";
+      if (item[4]) {
+        content += "@supports (".concat(item[4], ") {");
       }
-      api.update(obj = newObj);
-    } else {
-      api.remove();
-    }
+      if (item[2]) {
+        content += "@media ".concat(item[2], " {");
+      }
+      if (needLayer) {
+        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
+      }
+      content += cssWithMappingToString(item);
+      if (needLayer) {
+        content += "}";
+      }
+      if (item[2]) {
+        content += "}";
+      }
+      if (item[4]) {
+        content += "}";
+      }
+      return content;
+    }).join("");
   };
-  return updater;
-}
-module.exports = function (list, options) {
-  options = options || {};
-  list = list || [];
-  var lastIdentifiers = modulesToDom(list, options);
-  return function update(newList) {
-    newList = newList || [];
-    for (var i = 0; i < lastIdentifiers.length; i++) {
-      var identifier = lastIdentifiers[i];
-      var index = getIndexByIdentifier(identifier);
-      stylesInDOM[index].references--;
+
+  // import a list of modules into the list
+  list.i = function i(modules, media, dedupe, supports, layer) {
+    if (typeof modules === "string") {
+      modules = [[null, modules, undefined]];
     }
-    var newLastIdentifiers = modulesToDom(newList, options);
-    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
-      var _identifier = lastIdentifiers[_i];
-      var _index = getIndexByIdentifier(_identifier);
-      if (stylesInDOM[_index].references === 0) {
-        stylesInDOM[_index].updater();
-        stylesInDOM.splice(_index, 1);
+    var alreadyImportedModules = {};
+    if (dedupe) {
+      for (var k = 0; k < this.length; k++) {
+        var id = this[k][0];
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
       }
     }
-    lastIdentifiers = newLastIdentifiers;
+    for (var _k = 0; _k < modules.length; _k++) {
+      var item = [].concat(modules[_k]);
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        continue;
+      }
+      if (typeof layer !== "undefined") {
+        if (typeof item[5] === "undefined") {
+          item[5] = layer;
+        } else {
+          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
+          item[5] = layer;
+        }
+      }
+      if (media) {
+        if (!item[2]) {
+          item[2] = media;
+        } else {
+          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
+          item[2] = media;
+        }
+      }
+      if (supports) {
+        if (!item[4]) {
+          item[4] = "".concat(supports);
+        } else {
+          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
+          item[4] = supports;
+        }
+      }
+      list.push(item);
+    }
   };
+  return list;
 };
 
 /***/ },
 
-/***/ 113
+/***/ 601
 (module) {
 
 
 
-/* istanbul ignore next  */
-function styleTagTransform(css, styleElement) {
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css;
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild);
-    }
-    styleElement.appendChild(document.createTextNode(css));
-  }
-}
-module.exports = styleTagTransform;
-
-/***/ },
-
-/***/ 159
-(module) {
-
-
-
-/* istanbul ignore next  */
-function insertStyleElement(options) {
-  var element = document.createElement("style");
-  options.setAttributes(element, options.attributes);
-  options.insert(element, options.options);
-  return element;
-}
-module.exports = insertStyleElement;
-
-/***/ },
-
-/***/ 221
-(__unused_webpack_module, exports, __webpack_require__) {
-
-/**
- * @license React
- * react-dom.production.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-var React = __webpack_require__(540);
-function formatProdErrorMessage(code) {
-  var url = "https://react.dev/errors/" + code;
-  if (1 < arguments.length) {
-    url += "?args[]=" + encodeURIComponent(arguments[1]);
-    for (var i = 2; i < arguments.length; i++)
-      url += "&args[]=" + encodeURIComponent(arguments[i]);
-  }
-  return (
-    "Minified React error #" +
-    code +
-    "; visit " +
-    url +
-    " for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
-  );
-}
-function noop() {}
-var Internals = {
-    d: {
-      f: noop,
-      r: function () {
-        throw Error(formatProdErrorMessage(522));
-      },
-      D: noop,
-      C: noop,
-      L: noop,
-      m: noop,
-      X: noop,
-      S: noop,
-      M: noop
-    },
-    p: 0,
-    findDOMNode: null
-  },
-  REACT_PORTAL_TYPE = Symbol.for("react.portal");
-function createPortal$1(children, containerInfo, implementation) {
-  var key =
-    3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
-  return {
-    $$typeof: REACT_PORTAL_TYPE,
-    key: null == key ? null : "" + key,
-    children: children,
-    containerInfo: containerInfo,
-    implementation: implementation
-  };
-}
-var ReactSharedInternals =
-  React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
-function getCrossOriginStringAs(as, input) {
-  if ("font" === as) return "";
-  if ("string" === typeof input)
-    return "use-credentials" === input ? input : "";
-}
-exports.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE =
-  Internals;
-exports.createPortal = function (children, container) {
-  var key =
-    2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
-  if (
-    !container ||
-    (1 !== container.nodeType &&
-      9 !== container.nodeType &&
-      11 !== container.nodeType)
-  )
-    throw Error(formatProdErrorMessage(299));
-  return createPortal$1(children, container, null, key);
+module.exports = function (i) {
+  return i[1];
 };
-exports.flushSync = function (fn) {
-  var previousTransition = ReactSharedInternals.T,
-    previousUpdatePriority = Internals.p;
-  try {
-    if (((ReactSharedInternals.T = null), (Internals.p = 2), fn)) return fn();
-  } finally {
-    (ReactSharedInternals.T = previousTransition),
-      (Internals.p = previousUpdatePriority),
-      Internals.d.f();
-  }
-};
-exports.preconnect = function (href, options) {
-  "string" === typeof href &&
-    (options
-      ? ((options = options.crossOrigin),
-        (options =
-          "string" === typeof options
-            ? "use-credentials" === options
-              ? options
-              : ""
-            : void 0))
-      : (options = null),
-    Internals.d.C(href, options));
-};
-exports.prefetchDNS = function (href) {
-  "string" === typeof href && Internals.d.D(href);
-};
-exports.preinit = function (href, options) {
-  if ("string" === typeof href && options && "string" === typeof options.as) {
-    var as = options.as,
-      crossOrigin = getCrossOriginStringAs(as, options.crossOrigin),
-      integrity =
-        "string" === typeof options.integrity ? options.integrity : void 0,
-      fetchPriority =
-        "string" === typeof options.fetchPriority
-          ? options.fetchPriority
-          : void 0;
-    "style" === as
-      ? Internals.d.S(
-          href,
-          "string" === typeof options.precedence ? options.precedence : void 0,
-          {
-            crossOrigin: crossOrigin,
-            integrity: integrity,
-            fetchPriority: fetchPriority
-          }
-        )
-      : "script" === as &&
-        Internals.d.X(href, {
-          crossOrigin: crossOrigin,
-          integrity: integrity,
-          fetchPriority: fetchPriority,
-          nonce: "string" === typeof options.nonce ? options.nonce : void 0
-        });
-  }
-};
-exports.preinitModule = function (href, options) {
-  if ("string" === typeof href)
-    if ("object" === typeof options && null !== options) {
-      if (null == options.as || "script" === options.as) {
-        var crossOrigin = getCrossOriginStringAs(
-          options.as,
-          options.crossOrigin
-        );
-        Internals.d.M(href, {
-          crossOrigin: crossOrigin,
-          integrity:
-            "string" === typeof options.integrity ? options.integrity : void 0,
-          nonce: "string" === typeof options.nonce ? options.nonce : void 0
-        });
-      }
-    } else null == options && Internals.d.M(href);
-};
-exports.preload = function (href, options) {
-  if (
-    "string" === typeof href &&
-    "object" === typeof options &&
-    null !== options &&
-    "string" === typeof options.as
-  ) {
-    var as = options.as,
-      crossOrigin = getCrossOriginStringAs(as, options.crossOrigin);
-    Internals.d.L(href, as, {
-      crossOrigin: crossOrigin,
-      integrity:
-        "string" === typeof options.integrity ? options.integrity : void 0,
-      nonce: "string" === typeof options.nonce ? options.nonce : void 0,
-      type: "string" === typeof options.type ? options.type : void 0,
-      fetchPriority:
-        "string" === typeof options.fetchPriority
-          ? options.fetchPriority
-          : void 0,
-      referrerPolicy:
-        "string" === typeof options.referrerPolicy
-          ? options.referrerPolicy
-          : void 0,
-      imageSrcSet:
-        "string" === typeof options.imageSrcSet ? options.imageSrcSet : void 0,
-      imageSizes:
-        "string" === typeof options.imageSizes ? options.imageSizes : void 0,
-      media: "string" === typeof options.media ? options.media : void 0
-    });
-  }
-};
-exports.preloadModule = function (href, options) {
-  if ("string" === typeof href)
-    if (options) {
-      var crossOrigin = getCrossOriginStringAs(options.as, options.crossOrigin);
-      Internals.d.m(href, {
-        as:
-          "string" === typeof options.as && "script" !== options.as
-            ? options.as
-            : void 0,
-        crossOrigin: crossOrigin,
-        integrity:
-          "string" === typeof options.integrity ? options.integrity : void 0
-      });
-    } else Internals.d.m(href);
-};
-exports.requestFormReset = function (form) {
-  Internals.d.r(form);
-};
-exports.unstable_batchedUpdates = function (fn, a) {
-  return fn(a);
-};
-exports.useFormState = function (action, initialState, permalink) {
-  return ReactSharedInternals.H.useFormState(action, initialState, permalink);
-};
-exports.useFormStatus = function () {
-  return ReactSharedInternals.H.useHostTransitionStatus();
-};
-exports.version = "19.2.0";
-
 
 /***/ },
 
@@ -16980,144 +16670,219 @@ exports.version = "19.2.0";
 
 /***/ },
 
-/***/ 314
-(module) {
+/***/ 221
+(__unused_webpack_module, exports, __webpack_require__) {
+
+/**
+ * @license React
+ * react-dom.production.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-module.exports = function (cssWithMappingToString) {
-  var list = [];
-
-  // return the list of modules as css string
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = "";
-      var needLayer = typeof item[5] !== "undefined";
-      if (item[4]) {
-        content += "@supports (".concat(item[4], ") {");
-      }
-      if (item[2]) {
-        content += "@media ".concat(item[2], " {");
-      }
-      if (needLayer) {
-        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
-      }
-      content += cssWithMappingToString(item);
-      if (needLayer) {
-        content += "}";
-      }
-      if (item[2]) {
-        content += "}";
-      }
-      if (item[4]) {
-        content += "}";
-      }
-      return content;
-    }).join("");
+var React = __webpack_require__(540);
+function formatProdErrorMessage(code) {
+  var url = "https://react.dev/errors/" + code;
+  if (1 < arguments.length) {
+    url += "?args[]=" + encodeURIComponent(arguments[1]);
+    for (var i = 2; i < arguments.length; i++)
+      url += "&args[]=" + encodeURIComponent(arguments[i]);
+  }
+  return (
+    "Minified React error #" +
+    code +
+    "; visit " +
+    url +
+    " for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+  );
+}
+function noop() {}
+var Internals = {
+    d: {
+      f: noop,
+      r: function () {
+        throw Error(formatProdErrorMessage(522));
+      },
+      D: noop,
+      C: noop,
+      L: noop,
+      m: noop,
+      X: noop,
+      S: noop,
+      M: noop
+    },
+    p: 0,
+    findDOMNode: null
+  },
+  REACT_PORTAL_TYPE = Symbol.for("react.portal");
+function createPortal$1(children, containerInfo, implementation) {
+  var key =
+    3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
+  return {
+    $$typeof: REACT_PORTAL_TYPE,
+    key: null == key ? null : "" + key,
+    children: children,
+    containerInfo: containerInfo,
+    implementation: implementation
   };
-
-  // import a list of modules into the list
-  list.i = function i(modules, media, dedupe, supports, layer) {
-    if (typeof modules === "string") {
-      modules = [[null, modules, undefined]];
-    }
-    var alreadyImportedModules = {};
-    if (dedupe) {
-      for (var k = 0; k < this.length; k++) {
-        var id = this[k][0];
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
-    for (var _k = 0; _k < modules.length; _k++) {
-      var item = [].concat(modules[_k]);
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        continue;
-      }
-      if (typeof layer !== "undefined") {
-        if (typeof item[5] === "undefined") {
-          item[5] = layer;
-        } else {
-          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
-          item[5] = layer;
-        }
-      }
-      if (media) {
-        if (!item[2]) {
-          item[2] = media;
-        } else {
-          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
-          item[2] = media;
-        }
-      }
-      if (supports) {
-        if (!item[4]) {
-          item[4] = "".concat(supports);
-        } else {
-          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
-          item[4] = supports;
-        }
-      }
-      list.push(item);
-    }
-  };
-  return list;
+}
+var ReactSharedInternals =
+  React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+function getCrossOriginStringAs(as, input) {
+  if ("font" === as) return "";
+  if ("string" === typeof input)
+    return "use-credentials" === input ? input : "";
+}
+exports.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE =
+  Internals;
+exports.createPortal = function (children, container) {
+  var key =
+    2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
+  if (
+    !container ||
+    (1 !== container.nodeType &&
+      9 !== container.nodeType &&
+      11 !== container.nodeType)
+  )
+    throw Error(formatProdErrorMessage(299));
+  return createPortal$1(children, container, null, key);
 };
-
-/***/ },
-
-/***/ 319
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(72);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(825);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(659);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(159);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(113);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(50);
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, options);
-
-
-
-
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A && _node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A.locals ? _node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A.locals : undefined);
+exports.flushSync = function (fn) {
+  var previousTransition = ReactSharedInternals.T,
+    previousUpdatePriority = Internals.p;
+  try {
+    if (((ReactSharedInternals.T = null), (Internals.p = 2), fn)) return fn();
+  } finally {
+    (ReactSharedInternals.T = previousTransition),
+      (Internals.p = previousUpdatePriority),
+      Internals.d.f();
+  }
+};
+exports.preconnect = function (href, options) {
+  "string" === typeof href &&
+    (options
+      ? ((options = options.crossOrigin),
+        (options =
+          "string" === typeof options
+            ? "use-credentials" === options
+              ? options
+              : ""
+            : void 0))
+      : (options = null),
+    Internals.d.C(href, options));
+};
+exports.prefetchDNS = function (href) {
+  "string" === typeof href && Internals.d.D(href);
+};
+exports.preinit = function (href, options) {
+  if ("string" === typeof href && options && "string" === typeof options.as) {
+    var as = options.as,
+      crossOrigin = getCrossOriginStringAs(as, options.crossOrigin),
+      integrity =
+        "string" === typeof options.integrity ? options.integrity : void 0,
+      fetchPriority =
+        "string" === typeof options.fetchPriority
+          ? options.fetchPriority
+          : void 0;
+    "style" === as
+      ? Internals.d.S(
+          href,
+          "string" === typeof options.precedence ? options.precedence : void 0,
+          {
+            crossOrigin: crossOrigin,
+            integrity: integrity,
+            fetchPriority: fetchPriority
+          }
+        )
+      : "script" === as &&
+        Internals.d.X(href, {
+          crossOrigin: crossOrigin,
+          integrity: integrity,
+          fetchPriority: fetchPriority,
+          nonce: "string" === typeof options.nonce ? options.nonce : void 0
+        });
+  }
+};
+exports.preinitModule = function (href, options) {
+  if ("string" === typeof href)
+    if ("object" === typeof options && null !== options) {
+      if (null == options.as || "script" === options.as) {
+        var crossOrigin = getCrossOriginStringAs(
+          options.as,
+          options.crossOrigin
+        );
+        Internals.d.M(href, {
+          crossOrigin: crossOrigin,
+          integrity:
+            "string" === typeof options.integrity ? options.integrity : void 0,
+          nonce: "string" === typeof options.nonce ? options.nonce : void 0
+        });
+      }
+    } else null == options && Internals.d.M(href);
+};
+exports.preload = function (href, options) {
+  if (
+    "string" === typeof href &&
+    "object" === typeof options &&
+    null !== options &&
+    "string" === typeof options.as
+  ) {
+    var as = options.as,
+      crossOrigin = getCrossOriginStringAs(as, options.crossOrigin);
+    Internals.d.L(href, as, {
+      crossOrigin: crossOrigin,
+      integrity:
+        "string" === typeof options.integrity ? options.integrity : void 0,
+      nonce: "string" === typeof options.nonce ? options.nonce : void 0,
+      type: "string" === typeof options.type ? options.type : void 0,
+      fetchPriority:
+        "string" === typeof options.fetchPriority
+          ? options.fetchPriority
+          : void 0,
+      referrerPolicy:
+        "string" === typeof options.referrerPolicy
+          ? options.referrerPolicy
+          : void 0,
+      imageSrcSet:
+        "string" === typeof options.imageSrcSet ? options.imageSrcSet : void 0,
+      imageSizes:
+        "string" === typeof options.imageSizes ? options.imageSizes : void 0,
+      media: "string" === typeof options.media ? options.media : void 0
+    });
+  }
+};
+exports.preloadModule = function (href, options) {
+  if ("string" === typeof href)
+    if (options) {
+      var crossOrigin = getCrossOriginStringAs(options.as, options.crossOrigin);
+      Internals.d.m(href, {
+        as:
+          "string" === typeof options.as && "script" !== options.as
+            ? options.as
+            : void 0,
+        crossOrigin: crossOrigin,
+        integrity:
+          "string" === typeof options.integrity ? options.integrity : void 0
+      });
+    } else Internals.d.m(href);
+};
+exports.requestFormReset = function (form) {
+  Internals.d.r(form);
+};
+exports.unstable_batchedUpdates = function (fn, a) {
+  return fn(a);
+};
+exports.useFormState = function (action, initialState, permalink) {
+  return ReactSharedInternals.H.useFormState(action, initialState, permalink);
+};
+exports.useFormStatus = function () {
+  return ReactSharedInternals.H.useHostTransitionStatus();
+};
+exports.version = "19.2.0";
 
 
 /***/ },
@@ -17158,1852 +16923,39 @@ if (true) {
 
 /***/ },
 
-/***/ 477
-(__unused_webpack_module, exports) {
-
-/**
- * @license React
- * scheduler.production.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-function push(heap, node) {
-  var index = heap.length;
-  heap.push(node);
-  a: for (; 0 < index; ) {
-    var parentIndex = (index - 1) >>> 1,
-      parent = heap[parentIndex];
-    if (0 < compare(parent, node))
-      (heap[parentIndex] = node), (heap[index] = parent), (index = parentIndex);
-    else break a;
-  }
-}
-function peek(heap) {
-  return 0 === heap.length ? null : heap[0];
-}
-function pop(heap) {
-  if (0 === heap.length) return null;
-  var first = heap[0],
-    last = heap.pop();
-  if (last !== first) {
-    heap[0] = last;
-    a: for (
-      var index = 0, length = heap.length, halfLength = length >>> 1;
-      index < halfLength;
-
-    ) {
-      var leftIndex = 2 * (index + 1) - 1,
-        left = heap[leftIndex],
-        rightIndex = leftIndex + 1,
-        right = heap[rightIndex];
-      if (0 > compare(left, last))
-        rightIndex < length && 0 > compare(right, left)
-          ? ((heap[index] = right),
-            (heap[rightIndex] = last),
-            (index = rightIndex))
-          : ((heap[index] = left),
-            (heap[leftIndex] = last),
-            (index = leftIndex));
-      else if (rightIndex < length && 0 > compare(right, last))
-        (heap[index] = right), (heap[rightIndex] = last), (index = rightIndex);
-      else break a;
-    }
-  }
-  return first;
-}
-function compare(a, b) {
-  var diff = a.sortIndex - b.sortIndex;
-  return 0 !== diff ? diff : a.id - b.id;
-}
-exports.unstable_now = void 0;
-if ("object" === typeof performance && "function" === typeof performance.now) {
-  var localPerformance = performance;
-  exports.unstable_now = function () {
-    return localPerformance.now();
-  };
-} else {
-  var localDate = Date,
-    initialTime = localDate.now();
-  exports.unstable_now = function () {
-    return localDate.now() - initialTime;
-  };
-}
-var taskQueue = [],
-  timerQueue = [],
-  taskIdCounter = 1,
-  currentTask = null,
-  currentPriorityLevel = 3,
-  isPerformingWork = !1,
-  isHostCallbackScheduled = !1,
-  isHostTimeoutScheduled = !1,
-  needsPaint = !1,
-  localSetTimeout = "function" === typeof setTimeout ? setTimeout : null,
-  localClearTimeout = "function" === typeof clearTimeout ? clearTimeout : null,
-  localSetImmediate = "undefined" !== typeof setImmediate ? setImmediate : null;
-function advanceTimers(currentTime) {
-  for (var timer = peek(timerQueue); null !== timer; ) {
-    if (null === timer.callback) pop(timerQueue);
-    else if (timer.startTime <= currentTime)
-      pop(timerQueue),
-        (timer.sortIndex = timer.expirationTime),
-        push(taskQueue, timer);
-    else break;
-    timer = peek(timerQueue);
-  }
-}
-function handleTimeout(currentTime) {
-  isHostTimeoutScheduled = !1;
-  advanceTimers(currentTime);
-  if (!isHostCallbackScheduled)
-    if (null !== peek(taskQueue))
-      (isHostCallbackScheduled = !0),
-        isMessageLoopRunning ||
-          ((isMessageLoopRunning = !0), schedulePerformWorkUntilDeadline());
-    else {
-      var firstTimer = peek(timerQueue);
-      null !== firstTimer &&
-        requestHostTimeout(handleTimeout, firstTimer.startTime - currentTime);
-    }
-}
-var isMessageLoopRunning = !1,
-  taskTimeoutID = -1,
-  frameInterval = 5,
-  startTime = -1;
-function shouldYieldToHost() {
-  return needsPaint
-    ? !0
-    : exports.unstable_now() - startTime < frameInterval
-      ? !1
-      : !0;
-}
-function performWorkUntilDeadline() {
-  needsPaint = !1;
-  if (isMessageLoopRunning) {
-    var currentTime = exports.unstable_now();
-    startTime = currentTime;
-    var hasMoreWork = !0;
-    try {
-      a: {
-        isHostCallbackScheduled = !1;
-        isHostTimeoutScheduled &&
-          ((isHostTimeoutScheduled = !1),
-          localClearTimeout(taskTimeoutID),
-          (taskTimeoutID = -1));
-        isPerformingWork = !0;
-        var previousPriorityLevel = currentPriorityLevel;
-        try {
-          b: {
-            advanceTimers(currentTime);
-            for (
-              currentTask = peek(taskQueue);
-              null !== currentTask &&
-              !(
-                currentTask.expirationTime > currentTime && shouldYieldToHost()
-              );
-
-            ) {
-              var callback = currentTask.callback;
-              if ("function" === typeof callback) {
-                currentTask.callback = null;
-                currentPriorityLevel = currentTask.priorityLevel;
-                var continuationCallback = callback(
-                  currentTask.expirationTime <= currentTime
-                );
-                currentTime = exports.unstable_now();
-                if ("function" === typeof continuationCallback) {
-                  currentTask.callback = continuationCallback;
-                  advanceTimers(currentTime);
-                  hasMoreWork = !0;
-                  break b;
-                }
-                currentTask === peek(taskQueue) && pop(taskQueue);
-                advanceTimers(currentTime);
-              } else pop(taskQueue);
-              currentTask = peek(taskQueue);
-            }
-            if (null !== currentTask) hasMoreWork = !0;
-            else {
-              var firstTimer = peek(timerQueue);
-              null !== firstTimer &&
-                requestHostTimeout(
-                  handleTimeout,
-                  firstTimer.startTime - currentTime
-                );
-              hasMoreWork = !1;
-            }
-          }
-          break a;
-        } finally {
-          (currentTask = null),
-            (currentPriorityLevel = previousPriorityLevel),
-            (isPerformingWork = !1);
-        }
-        hasMoreWork = void 0;
-      }
-    } finally {
-      hasMoreWork
-        ? schedulePerformWorkUntilDeadline()
-        : (isMessageLoopRunning = !1);
-    }
-  }
-}
-var schedulePerformWorkUntilDeadline;
-if ("function" === typeof localSetImmediate)
-  schedulePerformWorkUntilDeadline = function () {
-    localSetImmediate(performWorkUntilDeadline);
-  };
-else if ("undefined" !== typeof MessageChannel) {
-  var channel = new MessageChannel(),
-    port = channel.port2;
-  channel.port1.onmessage = performWorkUntilDeadline;
-  schedulePerformWorkUntilDeadline = function () {
-    port.postMessage(null);
-  };
-} else
-  schedulePerformWorkUntilDeadline = function () {
-    localSetTimeout(performWorkUntilDeadline, 0);
-  };
-function requestHostTimeout(callback, ms) {
-  taskTimeoutID = localSetTimeout(function () {
-    callback(exports.unstable_now());
-  }, ms);
-}
-exports.unstable_IdlePriority = 5;
-exports.unstable_ImmediatePriority = 1;
-exports.unstable_LowPriority = 4;
-exports.unstable_NormalPriority = 3;
-exports.unstable_Profiling = null;
-exports.unstable_UserBlockingPriority = 2;
-exports.unstable_cancelCallback = function (task) {
-  task.callback = null;
-};
-exports.unstable_forceFrameRate = function (fps) {
-  0 > fps || 125 < fps
-    ? console.error(
-        "forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported"
-      )
-    : (frameInterval = 0 < fps ? Math.floor(1e3 / fps) : 5);
-};
-exports.unstable_getCurrentPriorityLevel = function () {
-  return currentPriorityLevel;
-};
-exports.unstable_next = function (eventHandler) {
-  switch (currentPriorityLevel) {
-    case 1:
-    case 2:
-    case 3:
-      var priorityLevel = 3;
-      break;
-    default:
-      priorityLevel = currentPriorityLevel;
-  }
-  var previousPriorityLevel = currentPriorityLevel;
-  currentPriorityLevel = priorityLevel;
-  try {
-    return eventHandler();
-  } finally {
-    currentPriorityLevel = previousPriorityLevel;
-  }
-};
-exports.unstable_requestPaint = function () {
-  needsPaint = !0;
-};
-exports.unstable_runWithPriority = function (priorityLevel, eventHandler) {
-  switch (priorityLevel) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      break;
-    default:
-      priorityLevel = 3;
-  }
-  var previousPriorityLevel = currentPriorityLevel;
-  currentPriorityLevel = priorityLevel;
-  try {
-    return eventHandler();
-  } finally {
-    currentPriorityLevel = previousPriorityLevel;
-  }
-};
-exports.unstable_scheduleCallback = function (
-  priorityLevel,
-  callback,
-  options
-) {
-  var currentTime = exports.unstable_now();
-  "object" === typeof options && null !== options
-    ? ((options = options.delay),
-      (options =
-        "number" === typeof options && 0 < options
-          ? currentTime + options
-          : currentTime))
-    : (options = currentTime);
-  switch (priorityLevel) {
-    case 1:
-      var timeout = -1;
-      break;
-    case 2:
-      timeout = 250;
-      break;
-    case 5:
-      timeout = 1073741823;
-      break;
-    case 4:
-      timeout = 1e4;
-      break;
-    default:
-      timeout = 5e3;
-  }
-  timeout = options + timeout;
-  priorityLevel = {
-    id: taskIdCounter++,
-    callback: callback,
-    priorityLevel: priorityLevel,
-    startTime: options,
-    expirationTime: timeout,
-    sortIndex: -1
-  };
-  options > currentTime
-    ? ((priorityLevel.sortIndex = options),
-      push(timerQueue, priorityLevel),
-      null === peek(taskQueue) &&
-        priorityLevel === peek(timerQueue) &&
-        (isHostTimeoutScheduled
-          ? (localClearTimeout(taskTimeoutID), (taskTimeoutID = -1))
-          : (isHostTimeoutScheduled = !0),
-        requestHostTimeout(handleTimeout, options - currentTime)))
-    : ((priorityLevel.sortIndex = timeout),
-      push(taskQueue, priorityLevel),
-      isHostCallbackScheduled ||
-        isPerformingWork ||
-        ((isHostCallbackScheduled = !0),
-        isMessageLoopRunning ||
-          ((isMessageLoopRunning = !0), schedulePerformWorkUntilDeadline())));
-  return priorityLevel;
-};
-exports.unstable_shouldYield = shouldYieldToHost;
-exports.unstable_wrapCallback = function (callback) {
-  var parentPriorityLevel = currentPriorityLevel;
-  return function () {
-    var previousPriorityLevel = currentPriorityLevel;
-    currentPriorityLevel = parentPriorityLevel;
-    try {
-      return callback.apply(this, arguments);
-    } finally {
-      currentPriorityLevel = previousPriorityLevel;
-    }
-  };
-};
-
-
-/***/ },
-
-/***/ 540
+/***/ 961
 (module, __unused_webpack_exports, __webpack_require__) {
 
 
 
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  if (false) // removed by dead control flow
+{}
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
 if (true) {
-  module.exports = __webpack_require__(869);
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(221);
 } else // removed by dead control flow
 {}
 
-
-/***/ },
-
-/***/ 558
-(__unused_webpack_module, exports) {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.FieldValueTypes = exports.FieldTypes = void 0;
-exports.FieldTypes = Object.freeze({
-    TEXTFIELD: 'TEXTFIELD',
-    TEXTAREA: 'TEXTAREA',
-    SELECT: 'SELECT',
-    CHECKBOX: 'CHECKBOX'
-});
-exports.FieldValueTypes = Object.freeze({
-    TEXT: 'TEXT',
-    NUMBER: 'NUMBER',
-    DATE: 'DATE',
-    BOOLEAN: 'BOOLEAN',
-    CURRENCY: 'CURRENCY'
-});
-
-
-/***/ },
-
-/***/ 601
-(module) {
-
-
-
-module.exports = function (i) {
-  return i[1];
-};
-
-/***/ },
-
-/***/ 659
-(module) {
-
-
-
-var memo = {};
-
-/* istanbul ignore next  */
-function getTarget(target) {
-  if (typeof memo[target] === "undefined") {
-    var styleTarget = document.querySelector(target);
-
-    // Special case to return head of iframe instead of iframe itself
-    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-      try {
-        // This will throw an exception if access to iframe is blocked
-        // due to cross-origin restrictions
-        styleTarget = styleTarget.contentDocument.head;
-      } catch (e) {
-        // istanbul ignore next
-        styleTarget = null;
-      }
-    }
-    memo[target] = styleTarget;
-  }
-  return memo[target];
-}
-
-/* istanbul ignore next  */
-function insertBySelector(insert, style) {
-  var target = getTarget(insert);
-  if (!target) {
-    throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-  }
-  target.appendChild(style);
-}
-module.exports = insertBySelector;
-
-/***/ },
-
-/***/ 797
-(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var ISegiTable_1 = __webpack_require__(558);
-var react_1 = __webpack_require__(540);
-var react_2 = __importDefault(__webpack_require__(540));
-var SegiTable_module_css_1 = __importDefault(__webpack_require__(319));
-var MIN_COLUMN_WIDTH = 80; // px
-var COLUMN_STORAGE_KEY = "SegiTable.ColumnWidths";
-var SegiTable = function (_a) {
-    var addingHasDisabledCheckboxPlaceholder = _a.addingHasDisabledCheckboxPlaceholder, addingText = _a.addingText, addtlPageSizes = _a.addtlPageSizes, cancelEditCallBackHandler = _a.cancelEditCallBackHandler, darkMode = _a.darkMode, defaultPageSize = _a.defaultPageSize, editable = _a.editable, exportable = _a.exportable, height = _a.height, isAdding = _a.isAdding, isEditing = _a.isEditing, pageSizeOverride = _a.pageSizeOverride, paginationEnabled = _a.paginationEnabled, saveAddCallBackHandler = _a.saveAddCallBackHandler, saveEditCallBackHandler = _a.saveEditCallBackHandler, searchable = _a.searchable, setIsAdding = _a.setIsAdding, setIsEditing = _a.setIsEditing, showDisabled = _a.showDisabled, sortable = _a.sortable, tableTemplate = _a.tableTemplate, width = _a.width;
-    var _b = (0, react_1.useState)({}), columnWidths = _b[0], setColumnWidths = _b[1];
-    var _c = (0, react_1.useState)(null), currentTableComponent = _c[0], setCurrentTableComponent = _c[1]; // Used for table headers and when adding
-    var _d = (0, react_1.useState)(1), currentPage = _d[0], setCurrentPage = _d[1];
-    var _e = (0, react_1.useState)(""), errorMessage = _e[0], setErrorMessage = _e[1];
-    var _f = react_2.default.useState(null), expandedId = _f[0], setExpandedId = _f[1];
-    var _g = (0, react_1.useState)(null), filteredTableData = _g[0], setFilteredTableData = _g[1];
-    var _h = (0, react_1.useState)(""), filterSearchTerm = _h[0], setFilterSearchTerm = _h[1];
-    var _j = (0, react_1.useState)(false), hasExpandableCriteriaMet = _j[0], setHasExpandableCriteriaMet = _j[1];
-    var _k = (0, react_1.useState)(false), idVisible = _k[0], setIDVisible = _k[1];
-    var _l = (0, react_1.useState)(false), isError = _l[0], setIsError = _l[1];
-    var _m = (0, react_1.useState)(false), isExpandable = _m[0], setIsExpandable = _m[1];
-    var _o = (0, react_1.useState)(false), lastPage = _o[0], setLastPage = _o[1];
-    var _p = (0, react_1.useState)(0), lastPageNum = _p[0], setLastPageNum = _p[1];
-    var _q = (0, react_1.useState)(0), pageSize = _q[0], setPageSize = _q[1];
-    var _r = (0, react_1.useState)(""), pageRecordStartEndLabel = _r[0], setPageRecordStartEndLabel = _r[1];
-    var _s = (0, react_1.useState)(""), searchTerm = _s[0], setSearchTerm = _s[1];
-    var _t = (0, react_1.useState)(""), sortColumn = _t[0], setSortColumn = _t[1];
-    var _u = (0, react_1.useState)(""), sortDirection = _u[0], setSortDirection = _u[1];
-    var _v = (0, react_1.useState)(null), tableData = _v[0], setTableData = _v[1]; // Used when not adding (viewing or editing table)
-    var _w = (0, react_1.useState)(""), uniqueValuesVisibleColumn = _w[0], setUniqueValuesVisibleColumn = _w[1];
-    var hasRunInitialEffect = (0, react_1.useRef)(false); // Prevents the useEffect with no dependencies from re-rendering
-    var defaultPageSizes = {
-        5: "5",
-        10: "10",
-        25: "25",
-        50: "50",
-        0: "All"
-    };
-    var mergedPageSizes = typeof pageSizeOverride !== "undefined" ? pageSizeOverride : __assign(__assign({}, defaultPageSizes), addtlPageSizes);
-    var tableRef = (0, react_1.useRef)(null);
-    var addClickHandler = function () {
-        setIsAdding(true);
-    };
-    var addFieldChangeHandler = function (fieldName, fieldValue) {
-        var newComponent = Object.assign([], currentTableComponent);
-        var currentFieldResult = newComponent.Fields.filter(function (currentField) { return currentField.DatabaseColumn === fieldName; });
-        // This shouldn't ever happen!
-        if (currentFieldResult.length !== 1) {
-            alert("Unable to update the field ".concat(fieldName, " because it could not be located"));
-            return;
-        }
-        var currentField = currentFieldResult[0];
-        switch (currentField.FieldValueType) {
-            case ISegiTable_1.FieldValueTypes.TEXT:
-                currentField.FieldValue = fieldValue;
-                break;
-            case ISegiTable_1.FieldValueTypes.NUMBER:
-                currentField.FieldValue = fieldValue;
-                break;
-            /*case validFieldValueTypes.DATE:
-                 currentField.FieldValue = fieldValue as Date;
-                 break;*/
-            default:
-                console.log("In TableComponent() defaulting to text");
-                currentField[0].FieldName = fieldValue;
-                break;
-        }
-        newComponent["IsModified"] = true;
-        setCurrentTableComponent(newComponent);
-    };
-    var cancelAddClickHandler = function () {
-        setIsAdding(false);
-    };
-    var editClickHandler = function () {
-        setIsEditing(true);
-    };
-    var editFieldChangeHandler = function (currentRow, fieldName, fieldValue) {
-        var IDColumn = getIDColumn();
-        // This shouldn't ever happen
-        if (IDColumn === "") {
-            alert("Unable to save this record because the ID column could not be determined");
-            return;
-        }
-        var ID = currentRow[IDColumn];
-        var newTableData = Object.assign([], tableData);
-        var editedRowResult = newTableData.filter(function (data) { return data[IDColumn] === ID; });
-        if (editedRowResult.length !== 1) {
-            alert("editFieldChangeHandler(): Unable to locate the row for ID ".concat(ID));
-            return;
-        }
-        var editedRow = editedRowResult[0];
-        if (typeof editedRow[fieldName] === "undefined") {
-            alert("editFieldChangeHandler(): Unable to locate the column ".concat(fieldName, " row for ID ").concat(ID));
-            return;
-        }
-        editedRow[fieldName] = fieldValue;
-        editedRow[fieldName + ".Modified"] = true;
-        editedRow["IsModified"] = true;
-        setTableData(newTableData);
-    };
-    var exportCSV = function () {
-        var table = tableRef.current;
-        // Initialize an array to hold the rows of the CSV data
-        var csvData = [];
-        var columnWidths = [];
-        for (var i = 0; i < currentTableComponent.Fields.length; i++) {
-            if (currentTableComponent.Fields[i].HiddenField !== true) {
-                columnWidths.push(0);
-            }
-        }
-        // Loop through each row in the table
-        var rows = table.querySelectorAll("tr");
-        rows.forEach(function (row) {
-            var rowData = [];
-            var cells = row.querySelectorAll("th, td");
-            cells.forEach(function (cell, cellIndex) {
-                var cellText = cell.innerText;
-                cellText = cellText.replace(String.fromCharCode(8593), "").replace(String.fromCharCode(8595), "");
-                // Remove comma from cell text since the output is CSV which is comma separated
-                cellText = cellText.replaceAll(",", "");
-                if ((!isExpandable || (isExpandable && cellIndex > 0))) {
-                    rowData.push(cellText);
-                    if (cellText.length > columnWidths[cellIndex - 1]) {
-                        columnWidths[cellIndex - 1] = cellText.length;
-                    }
-                }
-            });
-            csvData.push(rowData);
-        });
-        // Format the rows to ensure the columns are wide enough
-        var formattedData = csvData.map(function (row) {
-            return row.map(function (cellText, index) {
-                // Pad each cell with spaces to ensure the column is wide enough
-                var requiredWidth = columnWidths[index];
-                var paddedCell = cellText + ' '.repeat(requiredWidth > cellText.length ? requiredWidth - cellText.length : cellText.length);
-                return paddedCell;
-            }).join(","); // Join the row with commas
-        });
-        // Join the rows with line breaks
-        var csvContent = formattedData.join("\n");
-        // Create a Blob object to download the CSV data
-        var blob = new Blob([csvContent], { type: "text/csv" });
-        var url = URL.createObjectURL(blob);
-        // Create an anchor element to simulate a click and download the file
-        var a = document.createElement("a");
-        a.href = url;
-        a.download = "SegiTable.csv"; // You can change the file name to something meaningful
-        a.click();
-        // Clean up the URL object
-        URL.revokeObjectURL(url);
-    };
-    var filterTableData = function () {
-        if (tableData === null) {
-            return;
-        }
-        var filterValues = currentTableComponent.Fields.filter(function (currentField) { return typeof currentField.UniqueValuesSelected !== "undefined" && typeof currentField.UniqueValuesSelected === "object" && currentField.UniqueValuesSelected.length > 0; });
-        var newFilteredTableData = tableData === null || tableData === void 0 ? void 0 : tableData.filter(function (currentRow) {
-            var searchTermFound = false;
-            if (searchTerm !== "") {
-                Object.keys(currentTableComponent.Fields).forEach(function (fieldKey) {
-                    var field = currentTableComponent.Fields[fieldKey];
-                    if (field.SearchableField !== false) {
-                        if (typeof field.SelectData === "undefined") {
-                            if (typeof currentRow[field.DatabaseColumn] !== "undefined" && String(currentRow[field.DatabaseColumn]).toLowerCase().includes(searchTerm.toLowerCase())) {
-                                searchTermFound = true;
-                            }
-                        }
-                        else if (currentRow[field.DatabaseColumn] !== null && currentRow[field.DatabaseColumn] !== -1) {
-                            var selectDataResult = field.SelectData.filter(function (currentItem) { return currentItem[field.SelectDataIDColumn] === currentRow[field.DatabaseColumn]; });
-                            if (selectDataResult.length === 1) {
-                                var selectData = selectDataResult[0];
-                                if (selectData[field.SelectDataValueColumn].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
-                                    searchTermFound = true;
-                                }
-                            }
-                        }
-                    }
-                });
-                if (!searchTermFound) {
-                    return false;
-                }
-            }
-            if (filterValues.length > 0) {
-                var uniqueValuesSelected_1 = filterValues[0].UniqueValuesSelected;
-                Object.keys(currentTableComponent.Fields).forEach(function (fieldKey) {
-                    var field = currentTableComponent.Fields[fieldKey];
-                    uniqueValuesSelected_1.forEach(function (filterValue) {
-                        if (String(currentRow[field.DatabaseColumn]) == filterValue.toString()) {
-                            searchTermFound = true;
-                        }
-                    });
-                });
-                if (!searchTermFound) {
-                    return false;
-                }
-            }
-            return (((typeof showDisabled === "undefined" ||
-                ((showDisabled === false && (currentRow[getEnabledColumn()] === true || (isEditing && currentRow["IsModified"] === true)))
-                    ||
-                        (showDisabled === true)))));
-        }).sort(function (a, b) {
-            if (sortColumn === "") {
-                return a;
-            }
-            else {
-                var fieldResult = currentTableComponent.Fields.filter(function (currentField) { return currentField.DatabaseColumn === sortColumn; });
-                var field_1 = fieldResult[0];
-                // Sorting when the field is NOT a select type
-                if (typeof field_1.SelectData === "undefined") {
-                    var aValue = a[sortColumn] !== null && typeof a[sortColumn] !== "undefined" ? a[sortColumn] : "";
-                    var bValue = b[sortColumn] !== null && typeof b[sortColumn] !== "undefined" ? b[sortColumn] : "";
-                    if (field_1.FieldValueType === ISegiTable_1.FieldValueTypes.CURRENCY) {
-                        return sortDirection === "ASC"
-                            ? parsePrice(aValue) - parsePrice(bValue)
-                            : parsePrice(bValue) - parsePrice(aValue);
-                    }
-                    else if (field_1.FieldValueType === ISegiTable_1.FieldValueTypes.DATE) {
-                        return new Date(aValue).getTime() - new Date(bValue).getTime();
-                    }
-                    else {
-                        return (aValue === null || aValue === void 0 ? void 0 : aValue.toString().toLowerCase()) > (bValue === null || bValue === void 0 ? void 0 : bValue.toString().toLowerCase()) ? sortDirection === "ASC" ? 1 : -1 : sortDirection === "ASC" ? -1 : 1;
-                    }
-                }
-                else { // Sorting when the field is a select type
-                    var aValueSelectDataResult = field_1.SelectData.filter(function (currentItem) { return currentItem[field_1.SelectDataIDColumn] === a[sortColumn]; });
-                    var bValueSelectDataResult = field_1.SelectData.filter(function (currentItem) { return currentItem[field_1.SelectDataIDColumn] === b[sortColumn]; });
-                    var aValue = void 0, bValue = "";
-                    if (aValueSelectDataResult.length === 1) {
-                        var aField = aValueSelectDataResult[0];
-                        aValue = typeof aField[field_1.SelectDataValueColumn] !== "undefined" && aField[field_1.SelectDataValueColumn] !== null ? aField[field_1.SelectDataValueColumn] : "";
-                    }
-                    if (bValueSelectDataResult.length === 1) {
-                        var bField = bValueSelectDataResult[0];
-                        bValue = typeof bField[field_1.SelectDataValueColumn] !== "undefined" && bField[field_1.SelectDataValueColumn] !== null ? bField[field_1.SelectDataValueColumn] : "";
-                    }
-                    return aValue.toString().toLowerCase() > bValue.toString().toLowerCase() ? sortDirection === "ASC" ? 1 : -1 : sortDirection === "ASC" ? -1 : 1;
-                }
-            }
-        });
-        var sliceStart;
-        var sliceEnd;
-        // Slice data if a page size is set
-        if (pageSize != 0) {
-            sliceStart = (currentPage - 1) * pageSize;
-            sliceEnd = sliceStart + pageSize;
-        }
-        else {
-            sliceStart = 0;
-            sliceEnd = typeof newFilteredTableData !== "undefined" ? newFilteredTableData.length : 0;
-        }
-        if (newFilteredTableData === null) {
-            return;
-        }
-        var newSlicedFilteredTableData = newFilteredTableData === null || newFilteredTableData === void 0 ? void 0 : newFilteredTableData.slice(sliceStart, sliceEnd);
-        setFilteredTableData(newSlicedFilteredTableData);
-        // Update page X/Y label
-        if (pageSize != 0) {
-            var newLastPageNum = Math.ceil((newFilteredTableData === null || newFilteredTableData === void 0 ? void 0 : newFilteredTableData.length) / pageSize);
-            setLastPageNum(newLastPageNum);
-            if (currentPage === newLastPageNum) {
-                setLastPage(true);
-            }
-            else {
-                setLastPage(false);
-            }
-            var newPageRecordStartEndLabel = "".concat(sliceStart + 1, "-").concat(sliceEnd + newSlicedFilteredTableData.length - pageSize, " of ").concat(newFilteredTableData.length);
-            setPageRecordStartEndLabel(newPageRecordStartEndLabel);
-        }
-        else {
-            setLastPageNum(1);
-            setPageRecordStartEndLabel("1-".concat(typeof newFilteredTableData !== "undefined" ? newFilteredTableData.length : 1, " of ").concat(typeof newFilteredTableData !== "undefined" ? newFilteredTableData.length : 1));
-        }
-        // Check if row is expandable
-        var newIsExpandableField = currentTableComponent.Fields.filter(function (field) { return typeof field.ExpandableCriteria !== "undefined"; }).length === 0 ? false : true;
-        var newIsExpandableGlobal = typeof currentTableComponent.ExpandableContent !== "undefined" ? true : false;
-        if (newIsExpandableField || newIsExpandableGlobal) {
-            setIsExpandable(true);
-        }
-        newFilteredTableData && newFilteredTableData.map(function (currentRow) {
-            if (isExpandable) {
-                var newExpandableContentResult = currentTableComponent.Fields.filter(function (field) {
-                    var uniqueMatchValues = field.ExpandableCriteria && field.ExpandableCriteria.map(function (e) { return e.Match; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
-                    // Select all is selected
-                    var isAll = typeof uniqueMatchValues !== "undefined" ? uniqueMatchValues.includes("*") : false;
-                    return (typeof uniqueMatchValues !== "undefined" &&
-                        (uniqueMatchValues === null || (uniqueMatchValues !== null &&
-                            (((typeof field.ExpandableCriteriaExactMatch === "undefined" || field.ExpandableCriteriaExactMatch === true) &&
-                                uniqueMatchValues.includes(currentRow[field.DatabaseColumn].toString()))
-                                ||
-                                    (field.ExpandableCriteriaExactMatch === false && uniqueMatchValues.some(function (criteria) { return currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase()); })))
-                            || isAll)));
-                });
-                if (newExpandableContentResult.length > 0) {
-                    setHasExpandableCriteriaMet(true);
-                }
-            }
-            else if (typeof currentTableComponent.ExpandableContent !== "undefined") { // If template level ExpandableContent was provided
-                setIsExpandable(true);
-                setHasExpandableCriteriaMet(true);
-            }
-        });
-    };
-    var formatCurrency = function (price, locale, currency) {
-        if (locale === void 0) { locale = 'en-US'; }
-        if (currency === void 0) { currency = 'USD'; }
-        price = price.replace("$", ""); // Remove dollar sign in case its already there so it doesn't break the formatting below
-        return new Intl.NumberFormat(locale, {
-            style: 'currency',
-            currency: currency,
-        }).format(price);
-    };
-    var getEnabledColumn = function () {
-        // Derive ID column from tableComponent
-        var enabledFieldResult = currentTableComponent.Fields.filter(function (currentField) { return currentField.IsEnabledColumn === true; });
-        if (enabledFieldResult.length === 0) {
-            return "";
-        }
-        var enabledField = enabledFieldResult[0];
-        var enabledColumn = enabledField.DatabaseColumn;
-        return enabledColumn;
-    };
-    var getFormattedDate = function (dateStr, separator, format) {
-        var dateObj = dateStr !== null && typeof dateStr !== "undefined" ? new Date(dateStr) : new Date();
-        // Extract year, month, and day from the date object
-        var year = dateObj.getFullYear();
-        var month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed, so add 1
-        var day = dateObj.getDate().toString().padStart(2, '0');
-        // Format the date as yyyy-mm-dd
-        var formattedDate = format !== "mm/dd/yyyy" ? "".concat(year, "-").concat(month, "-").concat(day) : "".concat(month, "-").concat(day, "-").concat(year);
-        // If separator is provided, replace hyphens with the separator
-        if (separator && separator !== '-') {
-            return formattedDate.replace(/-/g, separator);
-        }
-        return formattedDate;
-    };
-    var getIDColumn = function () {
-        // Derive ID column from tableComponent
-        var IDFieldResult = currentTableComponent.Fields.filter(function (currentField) { return currentField.IsIDColumn === true; });
-        if (IDFieldResult.length === 0) {
-            return "";
-        }
-        var IDField = IDFieldResult[0];
-        if (typeof IDField.DatabaseColumn === "undefined") {
-            return "";
-        }
-        var IDColumn = IDField.DatabaseColumn;
-        return IDColumn;
-    };
-    var isVisible = function (field) {
-        if (field.IsIDColumn === true && !isEditing) {
-            return idVisible;
-        }
-        if (field.HiddenField !== true) {
-            return true;
-        }
-        return false;
-    };
-    var pageClickHandler = function (adjustValue, absoluteValue) {
-        if (adjustValue === void 0) { adjustValue = null; }
-        if (absoluteValue === void 0) { absoluteValue = null; }
-        if (adjustValue !== null) { // Adjust page relative to current page
-            setCurrentPage(currentPage + adjustValue);
-            if (currentPage + adjustValue < lastPageNum) {
-                setLastPage(false);
-            }
-            else {
-                setLastPage(true);
-            }
-        }
-        else if (absoluteValue !== null) { // Set absolute page (first or last page)
-            if (absoluteValue !== -1) {
-                setCurrentPage(absoluteValue);
-                setLastPage(false);
-            }
-            else { // Last page
-                setCurrentPage(lastPageNum);
-                setLastPage(true);
-            }
-        }
-    };
-    var pageSizeClickHandler = function (newPageSize) {
-        localStorage.setItem("SegiTable.RowsPerPage", newPageSize.toString());
-        setPageSize(newPageSize);
-        setCurrentPage(1);
-    };
-    var parsePrice = function (price) { return parseFloat(price.replace(/[^0-9.-]+/g, "")); };
-    var sortColumnClickHandler = function (column) {
-        if (sortColumn === "" || (sortColumn !== "" && sortColumn !== column)) {
-            setSortColumn(column);
-            setSortDirection("ASC");
-        }
-        else if (sortColumn === column) {
-            if (sortDirection === "ASC") {
-                setSortDirection("DESC");
-            }
-            else {
-                setSortDirection("ASC");
-            }
-        }
-    };
-    var toggleExpandableRow = function (newId) {
-        if (typeof newId === "undefined") {
-            alert("Value is not set. Make sure that ExpandableDataColumn is set in the template");
-            return;
-        }
-        var stringId = String(newId);
-        if (expandedId === stringId) {
-            setExpandedId(null);
-            localStorage.removeItem("SegiTable.LastOpenedId");
-        }
-        else {
-            setExpandedId(stringId);
-            localStorage.setItem("SegiTable.LastOpenedId", stringId);
-        }
-        var newComponent = Object.assign([], currentTableComponent);
-        if (typeof newComponent.ExpandedRows === "undefined") {
-            newComponent.ExpandedRows = [];
-        }
-        if (newComponent.ExpandedRows.includes(newId)) {
-            var index = newComponent.ExpandedRows.indexOf(newId);
-            // This shouldn't ever happen
-            if (index === -1) {
-                alert("".concat(newId, " was not found in expandedRows!"));
-                return;
-            }
-            newComponent.ExpandedRows.splice(index, 1);
-        }
-        else {
-            if (currentTableComponent.MultiExpandableRows !== true) {
-                newComponent.ExpandedRows = [];
-            }
-            newComponent.ExpandedRows.push(newId);
-            localStorage.setItem("SegiTable.LastOpenedId", newId.toString());
-        }
-        setCurrentTableComponent(newComponent);
-    };
-    var toggleIDColumn = function () {
-        // Filter is visible
-        if (uniqueValuesVisibleColumn !== "") {
-            return;
-        }
-        setIDVisible(function (prevState) { return !prevState; });
-    };
-    var uniqueValuesClearColumnClickHandler = function () {
-        setUniqueValuesVisibleColumn("");
-    };
-    // Event when the user clicks on the filter icon to hide or show the filters for a column
-    var uniqueValuesColumnClickHandler = function (displayName) {
-        if (displayName !== uniqueValuesVisibleColumn) {
-            setUniqueValuesVisibleColumn(displayName);
-        }
-        else {
-            setUniqueValuesVisibleColumn("");
-        }
-        setFilterSearchTerm("");
-    };
-    // Event when the user clicks on a value in a column filter
-    var uniqueValuesOptionClickHandler = function (displayName, value, selectAll) {
-        var newTableComponent = Object.assign([], currentTableComponent);
-        var thisFieldResult = newTableComponent.Fields.filter(function (currentField) { return currentField.DisplayName === displayName; });
-        // this should never happen
-        if (thisFieldResult.length !== 1) {
-            console.log("Error locating field with display name ".concat(displayName));
-            return;
-        }
-        var thisField = thisFieldResult[0];
-        // Select all is not selected
-        if (typeof selectAll === "undefined") {
-            if (typeof thisField.UniqueValuesSelected === "undefined") {
-                thisField.UniqueValuesSelected = [value];
-            }
-            else {
-                // Check if the value is already in the array of selected values
-                var index = thisField.UniqueValuesSelected.indexOf(value);
-                // If its there remove it, otherwise add it
-                if (index !== -1) {
-                    thisField.UniqueValuesSelected.splice(index, 1);
-                }
-                else {
-                    thisField.UniqueValuesSelected.push(value);
-                }
-            }
-            // Set Select all value
-            if (thisField.UniqueValuesSelected.length === 0) {
-                thisField.UniqueValuesSelectAllSelected = true;
-            }
-            else {
-                thisField.UniqueValuesSelectAllSelected = false;
-            }
-        }
-        else { // Select all has been selected/unselected
-            if (typeof thisField.UniqueValuesSelected === "undefined") {
-                thisField.UniqueValuesSelected = [];
-            }
-            if (selectAll) {
-                thisField.UniqueValues.forEach(function (newValue) {
-                    thisField.UniqueValuesSelected.push(newValue);
-                });
-                thisField.UniqueValuesSelectAllSelected = true;
-            }
-            else {
-                thisField.UniqueValuesSelected = [];
-                thisField.UniqueValuesSelectAllSelected = false;
-            }
-        }
-        setCurrentTableComponent(newTableComponent);
-        setCurrentPage(1); // This will trigger the useEffect to recalculate the current page when the filter changes
-    };
-    var validateTableComponent = function (tableTemplate) {
-        // Some attributes are optional but if provided, rely on other attributes to work correctly
-        // This method makes sure that the attributes passed to this component make sense
-        // Some attributes that are conditionally used are set with a default value if not provided
-        var newTableTemplate = Object.assign([], tableTemplate);
-        if (typeof newTableTemplate.Data === "undefined") {
-            setErrorMessage("SegiTable Error: The data property must be specified");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        if (newTableTemplate.SemiTransparentTableHeader !== true && typeof newTableTemplate.SemiTransparentTableHeader !== "undefined") {
-            setErrorMessage("SegiTable Error: The SemiTransparentTableHeader property must be not specified if SemiTransparentTableHeader is not set to true");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        var isEditable = typeof editable !== "undefined" && editable === false ? false : true;
-        // If editing is enabled
-        if (isEditable) {
-            if (typeof isAdding === "undefined") {
-                setErrorMessage("SegiTable Error: isAdding was not provided");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof isEditing === "undefined") {
-                setErrorMessage("SegiTable Error: isEditing was not provided");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof saveAddCallBackHandler === "undefined") {
-                setErrorMessage("SegiTable Error: saveAddCallBackHandler Callback was not provided and is required for an editable table");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof saveEditCallBackHandler === "undefined") {
-                setErrorMessage("SegiTable Error: saveEditCallBackHandler Callback was not provided and is required for an editable table");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof cancelEditCallBackHandler === "undefined") {
-                setErrorMessage("SegiTable Error: cancelEditCallBackHandler Callback was not provided and is required for an editable table");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof setIsAdding === "undefined") {
-                setErrorMessage("SegiTable Error: setIsAdding was not provided and is required for an editable table");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof setIsEditing === "undefined") {
-                setErrorMessage("SegiTable Error: setIsEditing was not provided and is required for an editable table");
-                setIsError(true);
-                return ["ERROR"];
-            }
-        }
-        else {
-            if (typeof addingHasDisabledCheckboxPlaceholder !== "undefined") {
-                setErrorMessage("SegiTable Error: addingHasDisabledCheckboxPlaceholder was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof addingText !== "undefined") {
-                setErrorMessage("SegiTable Error: addingText was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof cancelEditCallBackHandler !== "undefined") {
-                setErrorMessage("SegiTable Error: cancelEditCallBackHandler was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof isAdding !== "undefined") {
-                setErrorMessage("SegiTable Error: isAdding was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof isEditing !== "undefined") {
-                setErrorMessage("SegiTable Error: isEditing was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof saveAddCallBackHandler !== "undefined") {
-                setErrorMessage("SegiTable Error: saveAddCallBackHandler Callback was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof saveEditCallBackHandler !== "undefined") {
-                setErrorMessage("SegiTable Error: saveEditCallBackHandler Callback was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof setIsAdding !== "undefined") {
-                setErrorMessage("SegiTable Error: setIsAdding was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof setIsEditing !== "undefined") {
-                setErrorMessage("SegiTable Error: setIsEditing was provided but the table is not editable");
-                setIsError(true);
-                return ["ERROR"];
-            }
-        }
-        // width & height validation
-        if (typeof width !== "undefined" && width.toString().indexOf("px") === -1) {
-            setErrorMessage("SegiTable Error: The width must be specified in px");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        if (typeof height !== "undefined" && height.toString().indexOf("px") === -1) {
-            setErrorMessage("SegiTable Error: The height must be specified in px");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        // showDisabled validation
-        if (typeof showDisabled !== "undefined" && showDisabled === true && newTableTemplate.Fields.filter(function (currentField) { return currentField.IsEnabledColumn === true; }).length === 0) {
-            setErrorMessage("SegiTable Error: showDisabled is true but there are no fields are marked as IsEnabledColumn");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        // pagination validation
-        if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof defaultPageSize !== "undefined") {
-            setErrorMessage("SegiTable Error: Pagination is not enabled but defaultPageSize was provided");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof addtlPageSizes !== "undefined") {
-            setErrorMessage("SegiTable Error: Pagination is not enabled but addtlPageSizes was provided");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof pageSizeOverride !== "undefined") {
-            setErrorMessage("SegiTable Error: Pagination is not enabled but pageSizeOverride was provided");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        if (typeof defaultPageSize !== "undefined" && !Object.keys(mergedPageSizes).includes(defaultPageSize.toString())) {
-            setErrorMessage("SegiTable Error: The provided defaultPageSize ".concat(defaultPageSize, " is not a valid option in the page sizes ").concat(Object.keys(mergedPageSizes).join(",")));
-            setIsError(true);
-            return ["ERROR"];
-        }
-        else if (typeof defaultPageSize === "undefined" && !Object.keys(mergedPageSizes).includes(pageSize.toString())) {
-            setErrorMessage("SegiTable Error: The pageSize ".concat(pageSize, " is not a valid option in the page sizes ").concat(Object.keys(mergedPageSizes).join(","), ". Please use defaultPageSize with one of these choices"));
-            setIsError(true);
-            return ["ERROR"];
-        }
-        if (typeof addtlPageSizes !== "undefined" && typeof pageSizeOverride !== "undefined") {
-            setErrorMessage("SegiTable Error: addtlPageSizes and pageSizeOverride are both set. Only 1 of these props can be provided");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        if (typeof newTableTemplate.ExpandableDataLinked !== "undefined" && (typeof newTableTemplate.ExpandableDataColumn === "undefined" || newTableTemplate.ExpandableDataColumn === "")) {
-            setErrorMessage("SegiTable Error: ExpandableDataLinked was provided but ExpandableDataColumn was not provided");
-            setIsError(true);
-            return ["ERROR"];
-        }
-        newTableTemplate.Fields.map(function (field, index) {
-            if (!isEditable) {
-                if (typeof field.Addable !== "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has Addable but the table is not editable"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-                if (typeof field.DefaultAddValue !== "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has DefaultAddValue but the table is not editable"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-            }
-            if (typeof field.Clickable === "undefined" && typeof field.ClickCallBack !== "undefined") {
-                field.Clickable = true;
-            }
-            if (typeof field.Clickable !== "undefined" && typeof field.ClickCallBack === "undefined") {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has Clickable but ClickCallBack was not provided"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof field.ClickCallBack !== "undefined" && typeof field.TogglesIDColumn !== "undefined") {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has both ClickCallBack and TogglesIDColumn set. You cannot set both of these properties. Only one of them can be set for a given field"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof field.DatabaseColumn === "undefined") {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is missing the DatabaseColumn which is required for an editable table"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            // Validate display name first so I can reference the display name if an error is found later
-            if (typeof field.DisplayName === "undefined") {
-                setErrorMessage("SegiTable Error: The field at index ".concat(index, " is missing the DisplayName"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (field.ExpandableCriteriaExactMatch === true && typeof field.ExpandableCriteria == "undefined") {
-                setErrorMessage("SegiTable Error: The field at index ".concat(index, " provided ExpandableCriteriaExactMatch but ExpandableCriteria was not provided"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            // ID Column is always read only so FieldType is not required
-            if (!field.IsIDColumn) {
-                if (typeof field.FieldType === "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" does not have a field type"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-                if (field.FieldType !== ISegiTable_1.FieldTypes.TEXTAREA && field.FieldType !== ISegiTable_1.FieldTypes.TEXTFIELD && field.FieldType !== ISegiTable_1.FieldTypes.SELECT && field.FieldType !== ISegiTable_1.FieldTypes.CHECKBOX) {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has an invalid field type ").concat(field.FieldType));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-            }
-            if (typeof field.FieldValueType === "undefined") {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" does not have a field value type"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (field.FieldValueType !== ISegiTable_1.FieldValueTypes.BOOLEAN && field.FieldValueType !== ISegiTable_1.FieldValueTypes.DATE && field.FieldValueType !== ISegiTable_1.FieldValueTypes.NUMBER && field.FieldValueType !== ISegiTable_1.FieldValueTypes.TEXT && field.FieldValueType !== ISegiTable_1.FieldValueTypes.CURRENCY) {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has an invalid field value type ").concat(field.FieldValueType));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (field.FieldType == ISegiTable_1.FieldTypes.SELECT) {
-                if (typeof field.SelectData === "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is marked as a select field but is missing SelectData"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-                if (typeof field.SelectDataIDColumn === "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is marked as a select field but is missing SelectDataIDColumn"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-                if (typeof field.SelectDataValueColumn === "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is marked as a select field but is missing SelectDataValueColumn"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-                if (typeof field.SelectDataEnabledOnly !== "undefined" && field.SelectDataEnabledOnly === true && field.SelectDataEnabledOnlyColumn === "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has SelectDataEnabledOnly is marked as a select field SelectDataEnabledOnlyColumn is not set"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-            }
-            else {
-                if (typeof field.SelectDataIDColumn !== "undefined") {
-                    setErrorMessage("SegiTable Error: The type for field \"".concat(field.DisplayName, "\" is not a select type but SelectDataIDColumn is set."));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-                else if (typeof field.SelectDataValueColumn !== "undefined") {
-                    setErrorMessage("SegiTable Error: The type for field \"".concat(field.DisplayName, "\" is not a select type but SelectDataValueColumn is set."));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-                else if (typeof field.SelectDataEnabledOnly !== "undefined") {
-                    setErrorMessage("SegiTable Error: The type for field \"".concat(field.DisplayName, "\" is not a select type but SelectDataEnabledOnly is set."));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-            }
-            if (field.FieldType === ISegiTable_1.FieldTypes.TEXTAREA) {
-                if (field.FieldValueType !== ISegiTable_1.FieldValueTypes.TEXT && field.FieldValueType !== ISegiTable_1.FieldValueTypes.NUMBER) {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is a text area but its type is not text or number"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-            }
-            else {
-                if (typeof field.Rows !== "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is not a text area but provided rows property"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-                if (typeof field.Columns !== "undefined") {
-                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is not a text area but provided columns property"));
-                    setIsError(true);
-                    return ["ERROR"];
-                }
-            }
-            if (field.IsEnabledColumn === true && newTableTemplate.Data.length > 0 && newTableTemplate.Data.filter(function (currentRow) { return Object.keys(currentRow).includes(field.DatabaseColumn); }).length === 0) {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has IsEnabledColumn set to true but refers to the database column ").concat(field.DatabaseColumn, " which does not exist in the data"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof field.IsEmailAddress !== "undefined" && typeof field.IsURL !== "undefined") {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided both IsEmailAddress and IsURL. You can only provide one of these attributes for a given field"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof field.IsURL === "undefined" && typeof field.IsURLButton !== "undefined") {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided IsURLButton but IsURL is not set"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof field.IsURL === "undefined" && typeof field.IsURLHrefColumn !== "undefined") {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided IsURLHrefColumn but IsURL is not set"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof field.IsURL === "undefined" && typeof field.IsURLText !== "undefined") {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided IsURLText but IsURL is not set"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof field.IsURLText !== "undefined" && typeof field.IsURLHrefColumn !== "undefined") {
-                setErrorMessage("SegiTable Error: One IsURLText or IsURLHrefColumn can be provided but not both");
-                setIsError(true);
-                return ["ERROR"];
-            }
-            if (typeof field.Rows !== "undefined" && field.FieldType !== ISegiTable_1.FieldTypes.TEXTAREA) {
-                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided Rows but this field is not a text area"));
-                setIsError(true);
-                return ["ERROR"];
-            }
-        });
-        return ["OK", newTableTemplate];
-    };
-    // Initialization use effect
-    (0, react_1.useEffect)(function () {
-        if (hasRunInitialEffect.current)
-            return;
-        var validatedTableComponentResult = validateTableComponent(tableTemplate);
-        if (validatedTableComponentResult[0] !== "OK") {
-            return;
-        }
-        var validatedTableComponent = validatedTableComponentResult[1];
-        // Build filter values
-        validatedTableComponent.Fields.map(function (field, index) {
-            if (field.Filterable === true && !field.IsIDColumn && !field.IsEnabledColumn && (field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD || field.FieldType === ISegiTable_1.FieldTypes.SELECT) && field.DisplayName !== "Notes") {
-                field.UniqueValues = Array.from(new Set(tableTemplate.Data
-                    .map(function (item) { return item[field.DatabaseColumn]; })
-                    .filter(function (name) { return name !== null && name !== ""; })
-                    .sort(function (a, b) {
-                    if (field.FieldValueType === ISegiTable_1.FieldValueTypes.CURRENCY) {
-                        // Always return in ASC order
-                        return parsePrice(a) - parsePrice(b);
-                    }
-                    else if (field.FieldValueType === ISegiTable_1.FieldValueTypes.DATE) {
-                        return new Date(a).getTime() - new Date(b).getTime();
-                    }
-                    else {
-                        return a.toString().toLowerCase() > b.toString().toLowerCase() ? 1 : -1;
-                    }
-                })));
-                // Ensures that select all is checked and all items are checkedxx 
-                field.UniqueValuesSelectAllSelected = true;
-            }
-        });
-        setCurrentTableComponent(validatedTableComponent);
-        setTableData(tableTemplate.Data);
-        if (typeof defaultPageSize !== "undefined") {
-            setPageSize(defaultPageSize);
-        }
-        var savedRowsPerPage = localStorage.getItem("SegiTable.RowsPerPage");
-        if (typeof savedRowsPerPage !== "undefined" && savedRowsPerPage !== null && savedRowsPerPage) {
-            setPageSize(parseInt(savedRowsPerPage, 10));
-        }
-        var saved = localStorage.getItem(COLUMN_STORAGE_KEY);
-        if (saved) {
-            setColumnWidths(JSON.parse(saved));
-        }
-        hasRunInitialEffect.current = true;
-    }, []);
-    // useEffect that triggers the filtering of the table data
-    (0, react_1.useEffect)(function () {
-        if (tableData !== null) {
-            filterTableData();
-        }
-    }, [currentPage, pageSize, searchTerm, sortColumn, sortDirection, tableData]);
-    // useEffect that is triggered when one of the filter values on a column has been changed
-    (0, react_1.useEffect)(function () {
-        if (currentTableComponent && currentTableComponent.Fields.filter(function (currentField) { return typeof currentField.UniqueValuesSelected !== "undefined" && typeof currentField.UniqueValuesSelected === "object" && currentField.UniqueValuesSelected.length >= 0; }).length > 0) {
-            filterTableData();
-        }
-    }, [currentTableComponent]);
-    // This will trigger the useEffect to recalculate the current page when the searchTerm changes
-    (0, react_1.useEffect)(function () {
-        setCurrentPage(1);
-    }, [searchTerm]);
-    (0, react_1.useEffect)(function () {
-        localStorage.setItem(COLUMN_STORAGE_KEY, JSON.stringify(columnWidths));
-    }, [columnWidths]);
-    return (react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTable), style: { width: typeof width !== "undefined" ? width : "100%" } },
-        isError &&
-            react_2.default.createElement("div", null, errorMessage),
-        !isError && filterTableData && hasRunInitialEffect.current === true &&
-            react_2.default.createElement("span", { className: "SegiTable" },
-                filterTableData && expandedId === null &&
-                    react_2.default.createElement(SegiTableControls, { addClickHandler: addClickHandler, addingText: addingText, cancelAddClickHandler: cancelAddClickHandler, cancelEditCallBackHandler: cancelEditCallBackHandler, currentTableComponent: currentTableComponent, editable: editable, editClickHandler: editClickHandler, exportable: exportable, exportCSV: exportCSV, isAdding: isAdding, isEditing: isEditing, saveAddCallBackHandler: saveAddCallBackHandler, saveEditCallBackHandler: saveEditCallBackHandler, searchable: searchable, searchTerm: searchTerm, setSearchTerm: setSearchTerm, tableData: tableData }),
-                tableData &&
-                    react_2.default.createElement(react_2.default.Fragment, null,
-                        isAdding &&
-                            react_2.default.createElement(SegiTableAddRow, { addFieldChangeHandler: addFieldChangeHandler, addingHasDisabledCheckboxPlaceholder: addingHasDisabledCheckboxPlaceholder, currentTableComponent: currentTableComponent, darkMode: darkMode, idVisible: idVisible, isAdding: isAdding }),
-                        tableData.length === 0 && currentTableComponent.ExpandableDataLinked !== true &&
-                            react_2.default.createElement("span", { style: { fontSize: "24px", fontWeight: "bold" } }, "No Data"),
-                        tableData.length > 0 && (currentTableComponent.ExpandableDataLinked !== true || (currentTableComponent.ExpandableDataLinked === true)) &&
-                            react_2.default.createElement(SegiTableDataGrid, { columnWidths: columnWidths, currentPage: currentPage, currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, expandedId: expandedId, filteredTableData: filteredTableData, filterSearchTerm: filterSearchTerm, formatCurrency: formatCurrency, getEnabledColumn: getEnabledColumn, getFormattedDate: getFormattedDate, hasExpandableCriteriaMet: hasExpandableCriteriaMet, height: height, isAdding: isAdding, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, lastPage: lastPage, lastPageNum: lastPageNum, mergedPageSizes: mergedPageSizes, pageClickHandler: pageClickHandler, pageRecordStartEndLabel: pageRecordStartEndLabel, pageSize: pageSize, pageSizeClickHandler: pageSizeClickHandler, paginationEnabled: paginationEnabled, setColumnWidths: setColumnWidths, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId, setFilterSearchTerm: setFilterSearchTerm, showDisabled: showDisabled, sortable: sortable, sortColumn: sortColumn, sortColumnClickHandler: sortColumnClickHandler, sortDirection: sortDirection, tableData: tableData, tableRef: tableRef, toggleIDColumn: toggleIDColumn, toggleExpandableRow: toggleExpandableRow, uniqueValuesClearColumnClickHandler: uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler: uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler: uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn: uniqueValuesVisibleColumn })))));
-};
-var SegiTableControls = function (_a) {
-    var addClickHandler = _a.addClickHandler, addingText = _a.addingText, cancelAddClickHandler = _a.cancelAddClickHandler, cancelEditCallBackHandler = _a.cancelEditCallBackHandler, currentTableComponent = _a.currentTableComponent, editClickHandler = _a.editClickHandler, editable = _a.editable, exportable = _a.exportable, exportCSV = _a.exportCSV, isAdding = _a.isAdding, isEditing = _a.isEditing, saveAddCallBackHandler = _a.saveAddCallBackHandler, saveEditCallBackHandler = _a.saveEditCallBackHandler, searchable = _a.searchable, searchTerm = _a.searchTerm, setSearchTerm = _a.setSearchTerm, tableData = _a.tableData;
-    return (react_2.default.createElement(react_2.default.Fragment, null,
-        exportable && !isAdding && !isEditing && exportable &&
-            react_2.default.createElement("img", { alt: "Excel", className: "".concat(SegiTable_module_css_1.default.SegiTableExcelIcon, " ").concat(typeof editable === "undefined" || (typeof editable !== "undefined" && editable !== false) ? "".concat(SegiTable_module_css_1.default.SegiTableExcelIconEditable) : "".concat(SegiTable_module_css_1.default.SegiTableExcelIconReadOnly)), src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAqFBMVEUdcET///8AZTHe5+EQbD7Q3NRtnIHq8u5tmX8AYiwAajnu8u8AZDCZtaRIg2EObD11noVfkHOJq5aov7HI1s0jckdXjG34+/lXlHQAYCdFiWWzzL8weFCIs5zh7efY5d6dwqyjwrE3g1t/p5AqelBWkG+30cOCr5W2y7/T3thBgV2qybnF3c+Lrpq0yb0wf1Z6rJDO4tZIjmkAWx0AVQihu6s3elSRuaRS4H3gAAAHhElEQVR4nO2dbUOqPBiAASfkUKcmwjGV8AULMvOck/3/f/bwUmxak3nC3Hju6yNji6sbuLcxUNMAAAAAAAAAAAAAAAAAAAAA4LIghDG+9kFcCkSwoY29zsNrDRWTwLWW3vqu2bAsV380rn08FZKelO3W3HsLbdd19ZxmLQwRQprjTCJvGs70I1Q3RIgQZx+NzHX8ZB3LqW6Y3EvQdtxfbIJw534pp65h4oa1+WrRuQ13n85K1Q0TufZ2Zb4+D5u+XSanmiHChrH11kGzMbNOnJVKGqZJwJib90Pbds9wU8AwTQJJFkgTXOnlppwhIijJb6P+Oj51n1TTMLmXaNuo30uSgP9NOekMk06XsRx7aRLgZG+FDdMMtxybnSQJNKoInFSGySiHzL1p/OiflQTUMES4hbcvaRKwL+F2fUO0isW6JeoamtXdT0oMSRUgiQ1Jrwpu9uc6/pxhq5KW3GBfc0Pd7ZOaG+o3Z56mYFgNlRrCWQqGFwEMz0FeQzLgMUx3cRfc8sGgo4Qht1/azo7f/sXvjOJIDUMeODdsnTjI7v/LUNp8WJlh/WNYf0M4S9U3hBiCIRiCIRiCIRjKbIg4GO/jQ145QkSN8WH9ZzHAUBQwBMPzcX3/KY6D4NQqgNQQ9TmMbtNd7BGvPKF3LcPYiyaTieM4SUNvp3b8ZrY4nE2senzoJti2OwzD+/XusMhf4Y//J+qebEbqjB/P51uj1TIwxu3B4Zl4t6TNrE82IrXhbFK0iMY+W2Iv6FsUzul1i1Ib6iZtET0fHPa8KCAvp9uQ29BvU5EFs7Mb0EveKFl6Kreh/ps2uWROU2tVbCdeSROSGz7RIOI7unlIr0Ls82urYOiOmXtNsQjO9ZgQlq35k9xQD5hoNT42zuhBk2FZC7IbWvOiUVzkvZfiPkPKm5Dd0O3QIC4/TkimiYfSFmQ31Ju089J+yjeFxTGTfvlbCtIbuoMiiOg9MdBUoQUC/yLZDfU7pkZ2mu6cooFVWapQwtDqFfcVFKQb1jSBbATqKzDXFtAKq9S4S4dNAiHMR8AjHvkIuMstH41uLm84o9fdPlEKipNUm4pUV2EWY0OrbHSLjjcmIiFUwtAvllejvvtUjJuIKVRbBUNmmLgPO8V9B4u9saeE4Y72a1bFRYl+i1VWwlAff9FyW+gqfM8WDgeUZwuDV+442s88ewo/f9uCmIKvSn0z45Mfero2/1QZNwWryt+nyQiOg0g80bqKGFrL48rlwya1DNlhYlbVE365WxFDvekcVCWBeE1FDK0X9qGI0LBJMUP9gW2cDMQrqmLobtgLEUW78iqKGTYPb6akI/xqtCKG7vToXjoWvhAVMZwd50NyLxpERQzfjvs0aFyvPo37uWX2QU0NDNdfrBDYCn6tQImV7G7RsEO7NkZwhqHsb3bdfxii7oIqbsUNyWKw+JqsA2/3OKUpP/F2HjND2vP7xR9ph8KGss9i3Bc1lrFOZ6Ky+eFyFDCkM8Koa+vDiDYgdDtVwJCZ1Z8mdx3mMYbQhKn8hpZJldJ+TEy7NxORKzEzrOgDP5d+upYvLGFXmvQEjjzLFi0Of7KnV/ZfXnmr9WtyaUMmhEb+DHhKW9iXrlNQIOM/0N3n+RafpkS0KQ+i7L02mwlh/L6NrqZBUfmsqeyGPt19+7E3XamgkbfSIMpuSENI1oUMM5RaNk7VVsCwwYTrsdg6pRc8DhQ3pGsT2Z0tNohlbchtaNE/za5+ck0miCeXsVdtWHm2eGG62ezU05Cd1Ci510gdQ39S7EsOMp/FPDI1SvrfUsdwQfeNntgCl/k5ABTxql/AsOIY7iJuD7S5ZZqJOfXlN9xkb1okEKQFh0X2gp4vaKSsYfZe0y64D0xzfbznnYboyqGTQZTbkM+s1x3t9/ul42gEm6cmFlU11K2ZFYZhHASdwWBz6iFGZog5tHLDP7xyjA053gMuezsP33J4zcYm7iuvPIF9V0feb5vIPU/zXeDLkOcAMbyeodHgkecZbnEKayhtDDWDw588W/zllRtGa6+GIY9rjy3kM4QYqm9Y/xiCofqGcB2qbwgxBEMwBMPLG8Kd5nqGmDP6+/U+m8gfH7YPxofSxhAPeWQjeJdbnMCuhZA3hjATJQoYguFlAMNzkDdbQAxFgRgqb8h8ZUU2Q/6TmXNo9s8U/NEnM+0KMM4V1JDAl7oqMrwW+94muNtdOJBXNdQQ1ibdfm8RhOJvn6tlmFkmOJOou1rH4i9oK2X4Tv7tsOXvt7jii1Maw3cQwW0yNiv8rW7ZDDMQwgbeeuu7ZgW/ty6lYU4azu3Y7DwPm/43fqFcYsOMRBM789WiE4S7f7tAZTfMSTyztDL4h7SihmEGQiRNKyPzJX46o5egkGFOmlM0zdl701D8i3RKgjBuG3PvLbRs9+TtVlnDnMSzNU/TSoObVhQ3zEjuQ8Zy7GVp5fMFWgfDjKSXgLVo1evchju/loY5iSdZjleLzVu4s2tpmJGkFaLto9HNIkjSymMNDXOytLKcRF99N7NWoLoLAgAAAAAAAAAAAAAAAAAAAD8K/52bmqBVsrpTZjSh5+0q8x/REgMbo6miWAAAAABJRU5ErkJggg==", onClick: exportCSV, width: 45, height: 45 }),
-        !isAdding && !isEditing && (typeof editable === "undefined" || (typeof editable !== "undefined" && editable !== false)) &&
-            react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableSaveButton), onClick: function () { return editClickHandler(); } }, "Edit"),
-        !isAdding && !isEditing && searchable &&
-            react_2.default.createElement("input", { id: "search", className: "".concat(!exportable && SegiTable_module_css_1.default.SegiTableMarginTop15, " ").concat((exportable || editable !== false) && SegiTable_module_css_1.default.SegiTableMarginLeft25, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyle), value: searchTerm, onChange: function (event) { return setSearchTerm(event.target.value); }, placeholder: "  Search" }),
-        isEditing && !isAdding &&
-            react_2.default.createElement("table", null,
-                react_2.default.createElement("tbody", null,
-                    react_2.default.createElement("tr", null,
-                        react_2.default.createElement("td", null,
-                            react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableSaveButton), onClick: function () { return saveEditCallBackHandler(tableData); } }, "Save"),
-                            react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableCancelButton), onClick: function () { return cancelEditCallBackHandler(); } }, "Cancel"),
-                            react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableAddButton), onClick: function () { return addClickHandler(); } }, typeof addingText !== "undefined" ? addingText : "Add"))))),
-        isAdding &&
-            react_2.default.createElement("div", null,
-                react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableSaveButton), onClick: function () { return saveAddCallBackHandler(currentTableComponent.Fields); } }, typeof addingText !== "undefined" ? addingText : "Add"),
-                react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableCancelButton), onClick: function () { return cancelAddClickHandler(); } }, "Cancel"))));
-};
-exports["default"] = SegiTable;
-var SegiTableAddRow = function (_a) {
-    var addFieldChangeHandler = _a.addFieldChangeHandler, addingHasDisabledCheckboxPlaceholder = _a.addingHasDisabledCheckboxPlaceholder, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, idVisible = _a.idVisible, isAdding = _a.isAdding;
-    return (react_2.default.createElement("table", { className: SegiTable_module_css_1.default.SegiTableMarginBottom25 },
-        react_2.default.createElement("thead", null,
-            react_2.default.createElement("tr", { className: "".concat(!darkMode ? "lightMode" : "darkMode") },
-                currentTableComponent && currentTableComponent.Fields
-                    .filter(function (field) {
-                    return ((isAdding && (typeof field.Addable === "undefined" || (typeof field.Addable !== "undefined" && field.Addable !== false))
-                        ||
-                            (!isAdding && ((field === null || field === void 0 ? void 0 : field.HiddenField) !== true || ((field === null || field === void 0 ? void 0 : field.HiddenField) === true && idVisible)))));
-                }).map(function (field, index) {
-                    return (react_2.default.createElement("th", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(field.IsIDColumn === true ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(field.Clickable ? "".concat(SegiTable_module_css_1.default.SegiTableClickable) : "", " ").concat(!darkMode ? "lightMode" : "darkMode") }, field.DisplayName));
-                }),
-                isAdding && currentTableComponent && addingHasDisabledCheckboxPlaceholder &&
-                    react_2.default.createElement("th", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(!darkMode ? "lightMode" : "darkMode") }, "Enabled"))),
-        react_2.default.createElement("tbody", null,
-            react_2.default.createElement("tr", { className: "".concat(!darkMode ? "lightMode" : "darkMode") },
-                currentTableComponent.Fields.filter(function (field) {
-                    return (typeof field.Addable == "undefined" || (typeof field.Addable != "undefined" && field.Addable != false));
-                }).map(function (field, index) {
-                    var _a, _b, _c;
-                    return (react_2.default.createElement(react_2.default.Fragment, { key: index }, isAdding &&
-                        react_2.default.createElement("td", { className: SegiTable_module_css_1.default.SegiTableDataCell },
-                            field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD && field.Disabled !== true &&
-                                react_2.default.createElement(react_2.default.Fragment, null,
-                                    react_2.default.createElement("input", { className: SegiTable_module_css_1.default.SegiTableInputStyle, value: typeof field.FieldValue !== "undefined" ? field.FieldValue : typeof field.DefaultAddValue !== "undefined" ? field.DefaultAddValue : "", required: field.Required === true ? true : false, onChange: function (event) { return addFieldChangeHandler(field.DatabaseColumn, event.target.value); } })),
-                            field.FieldType === ISegiTable_1.FieldTypes.TEXTAREA &&
-                                react_2.default.createElement(react_2.default.Fragment, null,
-                                    react_2.default.createElement("textarea", { rows: typeof field.Rows !== "undefined" ? field.Rows : 10, cols: typeof field.Columns !== "undefined" ? field.Columns : 10, className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyleFullWidth), value: typeof field.FieldValue !== "undefined" ? field.FieldValue : typeof field.DefaultAddValue !== "undefined" ? field.DefaultAddValue : "", required: field.Required === true ? true : false, onChange: function (event) { return addFieldChangeHandler(field.DatabaseColumn, event.target.value); } })),
-                            field.FieldType === ISegiTable_1.FieldTypes.SELECT && field.Disabled !== true &&
-                                react_2.default.createElement("select", { className: "".concat(SegiTable_module_css_1.default.SegiTableSolidBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSelectStyle), value: typeof field.FieldValue !== "undefined" ? field.FieldValue : typeof field.DefaultAddValue !== "undefined" ? field.DefaultAddValue : "", required: field.Required === true ? true : false, onChange: function (event) { return addFieldChangeHandler(field.DatabaseColumn, event.target.value); } },
-                                    react_2.default.createElement("option", { value: "-1" }, "Please select"), (_a = field.SelectData) === null || _a === void 0 ? void 0 :
-                                    _a.filter(function (currentItem) { return (field.SelectDataEnabledOnly !== true || (field.SelectDataEnabledOnly === true && currentItem[field.SelectDataEnabledOnlyColumn] === true)); }).map(function (currentItem, index) {
-                                        return react_2.default.createElement("option", { key: index, value: currentItem[field.SelectDataIDColumn] }, "".concat(currentItem[field.SelectDataValueColumn]));
-                                    })),
-                            field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD && field.Disabled === true &&
-                                react_2.default.createElement("div", null, field.FieldValue),
-                            field.FieldType === ISegiTable_1.FieldTypes.SELECT && field.Disabled === true &&
-                                ((_b = field.SelectData) === null || _b === void 0 ? void 0 : _b.filter(function (currentItem) { return (field.DatabaseColumn === currentItem[field.SelectDataValueColumn]); }).length) === 1 &&
-                                react_2.default.createElement("div", null, (_c = field.SelectData) === null || _c === void 0 ? void 0 : _c.filter(function (currentItem) { return (field.DatabaseColumn === currentItem[field.SelectDataValueColumn]); })[0][field.SelectDataValueColumn]))));
-                }),
-                isAdding && addingHasDisabledCheckboxPlaceholder &&
-                    react_2.default.createElement("td", { className: SegiTable_module_css_1.default.SegiTableDataCell },
-                        react_2.default.createElement("input", { id: "addDisabledEnabledCheckbox", name: "addEnabled", className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle), type: "checkbox", disabled: true, checked: true }))))));
-};
-var SegiTableDataGrid = function (_a) {
-    var columnWidths = _a.columnWidths, currentPage = _a.currentPage, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, filterSearchTerm = _a.filterSearchTerm, formatCurrency = _a.formatCurrency, getEnabledColumn = _a.getEnabledColumn, getFormattedDate = _a.getFormattedDate, hasExpandableCriteriaMet = _a.hasExpandableCriteriaMet, height = _a.height, isAdding = _a.isAdding, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, lastPage = _a.lastPage, lastPageNum = _a.lastPageNum, mergedPageSizes = _a.mergedPageSizes, pageClickHandler = _a.pageClickHandler, pageRecordStartEndLabel = _a.pageRecordStartEndLabel, pageSize = _a.pageSize, pageSizeClickHandler = _a.pageSizeClickHandler, paginationEnabled = _a.paginationEnabled, setColumnWidths = _a.setColumnWidths, setCurrentTableComponent = _a.setCurrentTableComponent, setExpandedId = _a.setExpandedId, setFilterSearchTerm = _a.setFilterSearchTerm, showDisabled = _a.showDisabled, sortable = _a.sortable, sortColumn = _a.sortColumn, sortColumnClickHandler = _a.sortColumnClickHandler, sortDirection = _a.sortDirection, tableData = _a.tableData, tableRef = _a.tableRef, toggleIDColumn = _a.toggleIDColumn, toggleExpandableRow = _a.toggleExpandableRow, uniqueValuesClearColumnClickHandler = _a.uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler = _a.uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler = _a.uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn = _a.uniqueValuesVisibleColumn;
-    return (react_2.default.createElement("div", null,
-        react_2.default.createElement("div", { id: "".concat(SegiTable_module_css_1.default.SegiTableGridContent), className: "".concat(SegiTable_module_css_1.default.SegiTableGridContent), style: { height: typeof height !== "undefined" ? height : "auto", overflow: "auto" } },
-            react_2.default.createElement("table", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataGrid), ref: tableRef },
-                react_2.default.createElement(SegiTableDataGridHeaders, { columnWidths: columnWidths, currentTableComponent: currentTableComponent, darkMode: darkMode, expandedId: expandedId, filterSearchTerm: filterSearchTerm, hasExpandableCriteriaMet: hasExpandableCriteriaMet, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, setColumnWidths: setColumnWidths, setFilterSearchTerm: setFilterSearchTerm, sortable: sortable, sortColumn: sortColumn, sortColumnClickHandler: sortColumnClickHandler, sortDirection: sortDirection, toggleIDColumn: toggleIDColumn, uniqueValuesClearColumnClickHandler: uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler: uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler: uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn: uniqueValuesVisibleColumn }),
-                react_2.default.createElement(SegiTableDataGridBody, { currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, expandedId: expandedId, filteredTableData: filteredTableData, formatCurrency: formatCurrency, getEnabledColumn: getEnabledColumn, getFormattedDate: getFormattedDate, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, onToggleExpandableRow: toggleExpandableRow, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId, showDisabled: showDisabled }))),
-        paginationEnabled && tableData.length > 0 && !isAdding && !isEditing && expandedId === null &&
-            react_2.default.createElement(SegiTablePagination, { currentPage: currentPage, darkMode: darkMode, lastPage: lastPage, lastPageNum: lastPageNum, mergedPageSizes: mergedPageSizes, pageClickHandler: pageClickHandler, pageRecordStartEndLabel: pageRecordStartEndLabel, pageSize: pageSize, pageSizeClickHandler: pageSizeClickHandler })));
-};
-var SegiTableDataGridHeaders = function (_a) {
-    var columnWidths = _a.columnWidths, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, expandedId = _a.expandedId, filterSearchTerm = _a.filterSearchTerm, hasExpandableCriteriaMet = _a.hasExpandableCriteriaMet, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, setColumnWidths = _a.setColumnWidths, setFilterSearchTerm = _a.setFilterSearchTerm, sortable = _a.sortable, sortColumn = _a.sortColumn, sortColumnClickHandler = _a.sortColumnClickHandler, sortDirection = _a.sortDirection, toggleIDColumn = _a.toggleIDColumn, uniqueValuesClearColumnClickHandler = _a.uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler = _a.uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler = _a.uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn = _a.uniqueValuesVisibleColumn;
-    var activeColumnRef = (0, react_1.useRef)(null);
-    var defaultOpacity = '1';
-    var startXRef = (0, react_1.useRef)(0);
-    var startWidthRef = (0, react_1.useRef)(0);
-    var eventDisabled = false;
-    var spanRef = (0, react_1.useRef)(null);
-    var onMouseDown = function (e, columnKey, currentWidth) {
-        if (expandedId !== null) {
-            document.body.style.cursor = 'default';
-            return;
-        }
-        document.body.style.cursor = 'col-resize';
-        startXRef.current = e.clientX;
-        startWidthRef.current = currentWidth;
-        activeColumnRef.current = columnKey;
-        document.addEventListener("mousemove", onMouseMove);
-        document.addEventListener("mouseup", onMouseUp);
-    };
-    var onMouseMove = function (e) {
-        if (!activeColumnRef.current || expandedId !== null)
-            return;
-        var delta = e.clientX - startXRef.current;
-        var newWidth = Math.max(MIN_COLUMN_WIDTH, startWidthRef.current + delta);
-        setColumnWidths(function (prev) {
-            var _a;
-            return (__assign(__assign({}, prev), (_a = {}, _a[activeColumnRef.current] = newWidth, _a)));
-        });
-    };
-    var onMouseUp = function () {
-        document.body.style.cursor = 'default';
-        activeColumnRef.current = null;
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseup", onMouseUp);
-    };
-    // When the filter span is visible, if you click outside of the span area, this use Effect will make sure that it closes
-    (0, react_1.useEffect)(function () {
-        function handleClickOutside(event) {
-            if (eventDisabled === true) {
-                return;
-            }
-            if (spanRef.current && !spanRef.current.contains(event.target)) {
-                uniqueValuesClearColumnClickHandler();
-                eventDisabled = true; // Used to prevent clear filter from bein called too often because it causes filter span to cloe then reappear
-                setTimeout(function () {
-                    eventDisabled = false;
-                }, 5000);
-            }
-        }
-        document.addEventListener('mousedown', handleClickOutside);
-        return function () {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-    return (react_2.default.createElement("thead", { className: "styles.SegiTableDataGridHeaders" },
-        react_2.default.createElement("tr", { 
-            //className={`${darkMode ? `darkMode` : ``}`}
-            style: {
-                opacity: typeof currentTableComponent.SemiTransparentTableHeaderOpacity !== "undefined"
-                    ? currentTableComponent.SemiTransparentTableHeaderOpacity
-                    : defaultOpacity
-            } },
-            isExpandable && hasExpandableCriteriaMet && !isEditing &&
-                react_2.default.createElement("th", { style: { width: "5%" }, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(darkMode ? "darkMode" : "") }),
-            currentTableComponent && currentTableComponent.Fields
-                .filter(function (field) {
-                return isVisible(field);
-            }).map(function (field, index) {
-                var _a, _b, _c;
-                var columnKey = field.DatabaseColumn;
-                var width = (_a = columnWidths[columnKey]) !== null && _a !== void 0 ? _a : parseInt(field.ColumnWidth || "150", 10);
-                return (react_2.default.createElement("th", { key: index, style: {
-                        opacity: field.SemiTransparentTableColumn === true ? "0.8" : "1",
-                        borderWidth: "1px",
-                        width: (_b = columnWidths[field.DatabaseColumn]) !== null && _b !== void 0 ? _b : parseInt(typeof field.ColumnWidth !== "undefined" ? field.ColumnWidth : "150", 10),
-                        minWidth: MIN_COLUMN_WIDTH
-                    }, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(field.IsIDColumn === true ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(darkMode ? " darkMode" : ""), onDoubleClick: typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null },
-                    react_2.default.createElement("span", { className: "".concat(field.Clickable ? "".concat(SegiTable_module_css_1.default.SegiTableClickable) : ""), style: { marginLeft: "10px", userSelect: "none" } }, field.DisplayName),
-                    sortable === true && field.SortableField !== false && !isEditing &&
-                        react_2.default.createElement(react_2.default.Fragment, null,
-                            (sortColumn === "" || (sortColumn !== "" && sortColumn !== field.DatabaseColumn)) &&
-                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
-                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnUnselected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable, " ").concat(!darkMode ? "".concat(SegiTable_module_css_1.default.SegiTableArrowLightMode) : "") }, "\u2191")),
-                            sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "ASC" &&
-                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
-                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnSelected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2191")),
-                            sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "DESC" &&
-                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
-                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnSelected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2193"))),
-                    field.Filterable === true && typeof field.UniqueValues !== "undefined" && !isEditing &&
-                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterIcon, " ").concat(SegiTable_module_css_1.default.SegiTableClickable, " ").concat(!sortable ? SegiTable_module_css_1.default.SegiTableMarginLeft25 : ""), onClick: function () { return uniqueValuesColumnClickHandler(field.DisplayName); } }),
-                    uniqueValuesVisibleColumn === field.DisplayName &&
-                        react_2.default.createElement("span", { className: SegiTable_module_css_1.default.SegiTableFilterGrid, ref: spanRef },
-                            react_2.default.createElement("input", { className: SegiTable_module_css_1.default.SegiTableInputStyle, placeholder: "search", value: filterSearchTerm, onChange: function (event) { return setFilterSearchTerm(event.target.value); } }),
-                            react_2.default.createElement("table", null,
-                                react_2.default.createElement("tbody", null,
-                                    react_2.default.createElement("tr", null,
-                                        react_2.default.createElement("td", { style: { width: (_c = columnWidths[field.DatabaseColumn]) !== null && _c !== void 0 ? _c : parseInt(field.ColumnWidth || "150", 10) } },
-                                            react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableFilterGridInput, checked: typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? field.UniqueValuesSelectAllSelected : false, onChange: function (event) { return uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked); } }),
-                                            react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterGridOption, " ").concat(SegiTable_module_css_1.default.SegiTableMarginLeft10) }, "(Select all)"))),
-                                    field.UniqueValues
-                                        .filter(function (uniqueValue, index) {
-                                        return ((filterSearchTerm === "" || (filterSearchTerm !== "" && uniqueValue.toString().toLowerCase().includes(filterSearchTerm.toLowerCase()))));
-                                    }).map(function (uniqueValue, index) {
-                                        var _a, _b;
-                                        return (react_2.default.createElement("tr", { key: index },
-                                            react_2.default.createElement("td", { style: {
-                                                    width: (_a = columnWidths[field.DatabaseColumn]) !== null && _a !== void 0 ? _a : parseInt(field.ColumnWidth || "150", 10)
-                                                } },
-                                                react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableInputStyle, checked: typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? true : typeof field.UniqueValuesSelected !== "undefined" ? (_b = field.UniqueValuesSelected) === null || _b === void 0 ? void 0 : _b.includes(uniqueValue) : false, onChange: function () { return uniqueValuesOptionClickHandler(field.DisplayName, uniqueValue); } }),
-                                                react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterGridOption, " ").concat(SegiTable_module_css_1.default.SegiTableMarginLeft10) }, uniqueValue))));
-                                    })))),
-                    react_2.default.createElement("div", { className: expandedId === null ? SegiTable_module_css_1.default.ColumnResizer : "", onMouseDown: function (e) {
-                            return onMouseDown(e, columnKey, width);
-                        } })));
-            }))));
-};
-var SegiTableDataGridBody = function (_a) {
-    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, formatCurrency = _a.formatCurrency, getEnabledColumn = _a.getEnabledColumn, getFormattedDate = _a.getFormattedDate, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, onToggleExpandableRow = _a.onToggleExpandableRow, setCurrentTableComponent = _a.setCurrentTableComponent, setExpandedId = _a.setExpandedId, showDisabled = _a.showDisabled;
-    // Gets the URL display text
-    var getURLText = function (currentRow, field) {
-        return typeof field.IsURLDisplayTextColumn !== "undefined"
-            ? currentRow[field.IsURLDisplayTextColumn]
-            : typeof field.IsURLText !== "undefined"
-                ? field.IsURLText
-                : currentRow[field.DatabaseColumn];
-    };
-    return (react_2.default.createElement("tbody", null,
-        !isEditing &&
-            react_2.default.createElement(SegiTableDataGridBodyReadOnlyFields, { currentTableComponent: currentTableComponent, darkMode: darkMode, expandedId: expandedId, filteredTableData: filteredTableData, formatCurrency: formatCurrency, getEnabledColumn: getEnabledColumn, getFormattedDate: getFormattedDate, getURLText: getURLText, isExpandable: isExpandable, isVisible: isVisible, onToggleExpandableRow: onToggleExpandableRow, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId, showDisabled: showDisabled }),
-        isEditing &&
-            react_2.default.createElement(SegiTableDataGridBodyEditableFields, { currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, filteredTableData: filteredTableData, getEnabledColumn: getEnabledColumn, getFormattedDate: getFormattedDate, getURLText: getURLText, isVisible: isVisible, showDisabled: showDisabled })));
-};
-var SegiTableDataGridBodyReadOnlyFields = function (_a) {
-    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, formatCurrency = _a.formatCurrency, getEnabledColumn = _a.getEnabledColumn, getFormattedDate = _a.getFormattedDate, getURLText = _a.getURLText, isExpandable = _a.isExpandable, isVisible = _a.isVisible, onToggleExpandableRow = _a.onToggleExpandableRow, setExpandedId = _a.setExpandedId, showDisabled = _a.showDisabled;
-    (0, react_1.useEffect)(function () {
-        var storedId = localStorage.getItem("SegiTable.LastOpenedId");
-        localStorage.removeItem("SegiTable.LastOpenedId");
-        if (!isExpandable && storedId && storedId !== "") {
-            setExpandedId(storedId);
-        }
-    }, []);
-    return (react_2.default.createElement(react_2.default.Fragment, null, typeof filteredTableData !== "undefined" && filteredTableData && filteredTableData
-        .filter(function (currentRow) {
-        var enabledColumn = getEnabledColumn();
-        var showRow = ((typeof showDisabled === "undefined" || showDisabled === false) || (showDisabled === true && currentRow[enabledColumn] === true));
-        if (expandedId === null && showRow) {
-            return true;
-        }
-        else if (expandedId !== null) {
-            return (String(currentRow[currentTableComponent.ExpandableDataColumn]) === String(expandedId));
-        }
-        else {
-            return false;
-        }
-    })
-        .map(function (currentRow, rowIndex) {
-        var _a;
-        var expandableContent = null;
-        var expandableCriteriaMet = false;
-        // Match Field level 
-        if (isExpandable && typeof currentTableComponent.ExpandableContent !== "undefined") { // Uses template level expandable content
-            expandableCriteriaMet = true;
-            expandableContent = currentTableComponent.ExpandableContent;
-        }
-        var newDarkMode = "";
-        if (!darkMode && isExpandable) {
-            newDarkMode = "lightMode 1";
-        }
-        else {
-            if (rowIndex % 2 !== 0) {
-                if (!expandableCriteriaMet && darkMode) {
-                    newDarkMode = "darkMode 1";
-                }
-                else {
-                    newDarkMode = "lightMode 2";
-                }
-            }
-            else if (expandedId !== null && rowIndex == parseInt(expandedId, 10) && rowIndex % 2 !== 0) {
-                newDarkMode = "lightMode 3";
-            }
-            else if (rowIndex % 2 === 0 && expandableContent !== null) {
-                if (expandedId !== null) {
-                    newDarkMode = "darkMode 2";
-                }
-                else {
-                    if (rowIndex % 2 === 0 && expandableContent !== null) {
-                        newDarkMode = "darkMode 3";
-                    }
-                }
-            }
-        }
-        if (newDarkMode === "" && darkMode) {
-            if (rowIndex % 2 === 0 && !darkMode && expandedId === null) {
-                newDarkMode = "darkMode 4";
-            }
-            else {
-                newDarkMode = "lightMode 4";
-            }
-        }
-        return (react_2.default.createElement(react_2.default.Fragment, { key: rowIndex },
-            react_2.default.createElement("tr", { key: rowIndex, className: "".concat(newDarkMode) },
-                isExpandable && expandableCriteriaMet &&
-                    react_2.default.createElement("td", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell), onClick: function () { return onToggleExpandableRow(currentRow[currentTableComponent.ExpandableDataColumn]); } },
-                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableArrow, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, expandedId !== null && expandedId === String(currentRow[currentTableComponent.ExpandableDataColumn]) ? '▼' : '▶')),
-                currentTableComponent.Fields
-                    .filter(function (field) {
-                    return isVisible(field);
-                })
-                    .map(function (field, index) {
-                    var _a, _b;
-                    return (react_2.default.createElement("td", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(field.IsIDColumn ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(field.Centered ? SegiTable_module_css_1.default.SegiTableCentered : "") },
-                        ((field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD || field.FieldType === ISegiTable_1.FieldTypes.TEXTAREA) || field.IsIDColumn || field.Disabled === true) &&
-                            react_2.default.createElement(react_2.default.Fragment, null,
-                                !field.IsURL && !field.IsEmailAddress &&
-                                    react_2.default.createElement(react_2.default.Fragment, null,
-                                        field.FieldValueType === ISegiTable_1.FieldValueTypes.DATE &&
-                                            react_2.default.createElement(react_2.default.Fragment, null, currentRow[field.DatabaseColumn] !== null && currentRow[field.DatabaseColumn] !== "" &&
-                                                react_2.default.createElement("div", null, getFormattedDate(currentRow[field.DatabaseColumn], "/", "mm/dd/yyyy"))),
-                                        field.FieldValueType !== ISegiTable_1.FieldValueTypes.DATE &&
-                                            react_2.default.createElement(react_2.default.Fragment, null,
-                                                field.FieldValueType !== ISegiTable_1.FieldValueTypes.CURRENCY &&
-                                                    react_2.default.createElement("div", null, currentRow[field.DatabaseColumn]),
-                                                field.FieldValueType === ISegiTable_1.FieldValueTypes.CURRENCY &&
-                                                    react_2.default.createElement(react_2.default.Fragment, null, currentRow[field.DatabaseColumn] !== null &&
-                                                        react_2.default.createElement("div", null, formatCurrency(currentRow[field.DatabaseColumn]))))),
-                                field.IsURL &&
-                                    react_2.default.createElement(react_2.default.Fragment, null,
-                                        typeof field.IsURLButton === "undefined" &&
-                                            react_2.default.createElement("div", null,
-                                                react_2.default.createElement("a", { href: typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn], target: "_blank" }, getURLText(currentRow, field))),
-                                        typeof field.IsURLButton !== "undefined" &&
-                                            react_2.default.createElement(react_2.default.Fragment, null,
-                                                currentRow[field.IsURLHrefColumn] !== null &&
-                                                    react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableURLButton), onClick: function () { return window.open(typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn], '_blank'); } }, getURLText(currentRow, field)),
-                                                currentRow[field.IsURLHrefColumn] === null &&
-                                                    react_2.default.createElement("div", null, currentRow[field.DatabaseColumn]))),
-                                field.IsEmailAddress &&
-                                    react_2.default.createElement("div", null,
-                                        react_2.default.createElement("a", { href: "mailto:".concat(currentRow[field.DatabaseColumn]), target: "_blank" }, currentRow[field.DatabaseColumn]))),
-                        field.FieldType === ISegiTable_1.FieldTypes.SELECT && typeof currentRow[field.SelectDataIDColumn] !== "undefined" && currentRow[field.SelectDataIDColumn] !== -1 &&
-                            react_2.default.createElement(react_2.default.Fragment, null, ((_a = field.SelectData) === null || _a === void 0 ? void 0 : _a.filter(function (currentItem) { return (String(currentItem[field.SelectDataIDColumn]) === String(currentRow[field.SelectDataIDColumn])); }).length) === 1 &&
-                                react_2.default.createElement("div", null, (_b = field.SelectData) === null || _b === void 0 ? void 0 : _b.filter(function (currentItem) { return (String(currentItem[field.SelectDataIDColumn]) === String(currentRow[field.SelectDataIDColumn])); })[0][field.SelectDataValueColumn])),
-                        field.FieldType === ISegiTable_1.FieldTypes.CHECKBOX &&
-                            react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableInputStyle, disabled: true, checked: currentRow[field.DatabaseColumn] })));
-                })),
-            ((expandedId === String(currentRow[currentTableComponent.ExpandableDataColumn]))) && expandableContent !== null &&
-                react_2.default.createElement("tr", null,
-                    react_2.default.createElement("td", { className: SegiTable_module_css_1.default.SegiTableExpandableRowContent, colSpan: (_a = currentTableComponent.Fields) === null || _a === void 0 ? void 0 : _a.length },
-                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableExpandableContent) },
-                            typeof expandableContent === "string" &&
-                                react_2.default.createElement("div", { dangerouslySetInnerHTML: { __html: expandableContent } }),
-                            typeof expandableContent === "object" &&
-                                react_2.default.createElement(react_2.default.Fragment, null, expandableContent))))));
-    })));
-};
-var SegiTableDataGridBodyEditableFields = function (_a) {
-    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, filteredTableData = _a.filteredTableData, getEnabledColumn = _a.getEnabledColumn, getFormattedDate = _a.getFormattedDate, getURLText = _a.getURLText, isVisible = _a.isVisible, showDisabled = _a.showDisabled;
-    return (react_2.default.createElement(react_2.default.Fragment, null, filteredTableData && filteredTableData
-        .filter(function (currentRow) {
-        var enabledColumn = getEnabledColumn();
-        var showRow = ((typeof showDisabled === "undefined" || showDisabled === false) || (showDisabled === true && currentRow[enabledColumn] === true));
-        if (showRow) {
-            return true;
-        } /*else {
-             return String(currentRow[currentTableComponent.ExpandableDataColumn]) === String(expandedId);
-        }*/
-    })
-        .map(function (currentRow, index) {
-        {
-            return (react_2.default.createElement("tr", { key: index, className: "".concat(!darkMode ? "lightMode" : "darkMode") }, currentTableComponent.Fields
-                .filter(function (field) {
-                return isVisible(field);
-            })
-                .map(function (field, index) {
-                var _a, _b, _c;
-                return (react_2.default.createElement("td", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(field.IsIDColumn ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(!darkMode ? "lightMode" : "darkMode") },
-                    field.Disabled === true &&
-                        react_2.default.createElement(react_2.default.Fragment, null,
-                            field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD &&
-                                react_2.default.createElement(react_2.default.Fragment, null,
-                                    !field.IsURL &&
-                                        react_2.default.createElement("div", null, currentRow[field.DatabaseColumn]),
-                                    field.IsURL &&
-                                        react_2.default.createElement(react_2.default.Fragment, null, typeof field.IsURLButton === "undefined" &&
-                                            react_2.default.createElement("div", null,
-                                                react_2.default.createElement("a", { href: typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn], target: "_blank" }, getURLText(currentRow, field))))),
-                            field.FieldType === ISegiTable_1.FieldTypes.SELECT &&
-                                ((_a = field.SelectData) === null || _a === void 0 ? void 0 : _a.filter(function (currentItem) { return currentItem[field.SelectDataIDColumn] === currentRow[field.SelectDataIDColumn]; }).length) > 0 &&
-                                react_2.default.createElement(react_2.default.Fragment, null, (_b = field.SelectData) === null || _b === void 0 ? void 0 : _b.filter(function (currentItem) { return currentItem[field.SelectDataIDColumn] === currentRow[field.SelectDataIDColumn]; })[0][field.SelectDataValueColumn])),
-                    field.Disabled !== true &&
-                        react_2.default.createElement(react_2.default.Fragment, null,
-                            field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD &&
-                                react_2.default.createElement(react_2.default.Fragment, null,
-                                    field.FieldValueType !== ISegiTable_1.FieldValueTypes.DATE &&
-                                        react_2.default.createElement("input", { className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyleFullWidth), value: typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : "", required: field.Required === true ? true : false, onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value); } }),
-                                    field.FieldValueType === ISegiTable_1.FieldValueTypes.DATE &&
-                                        react_2.default.createElement("input", { type: "date", className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyleFullWidth), value: typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? getFormattedDate(currentRow[field.DatabaseColumn], "-") : "", required: field.Required === true ? true : false, onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value); } })),
-                            field.FieldType === ISegiTable_1.FieldTypes.TEXTAREA &&
-                                react_2.default.createElement(react_2.default.Fragment, null,
-                                    react_2.default.createElement("textarea", { rows: typeof field.Rows !== "undefined" ? field.Rows : 10, cols: typeof field.Columns !== "undefined" ? field.Columns : 10, className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyleFullWidth), value: typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : "", required: field.Required === true ? true : false, onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value); } })),
-                            field.FieldType === ISegiTable_1.FieldTypes.SELECT &&
-                                react_2.default.createElement("select", { className: "".concat(SegiTable_module_css_1.default.SegiTableSolidBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSelectStyle), value: typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : "", required: field.Required === true ? true : false, onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value); } },
-                                    react_2.default.createElement("option", { value: "-1" }, "Please select"), (_c = field.SelectData) === null || _c === void 0 ? void 0 :
-                                    _c.filter(function (currentItem) { return (field.SelectDataEnabledOnly !== true || (field.SelectDataEnabledOnly === true && currentItem[field.SelectDataEnabledOnlyColumn] === true)); }).map(function (currentItem, index) {
-                                        return react_2.default.createElement("option", { key: index, value: currentItem[field.SelectDataIDColumn] }, "".concat(currentItem[field.SelectDataValueColumn]));
-                                    })),
-                            field.FieldType === ISegiTable_1.FieldTypes.CHECKBOX &&
-                                react_2.default.createElement("input", { className: SegiTable_module_css_1.default.SegiTableInputStyle, type: "checkbox", checked: currentRow[field.DatabaseColumn], onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.checked); } }))));
-            })));
-        }
-    })));
-};
-var SegiTablePagination = function (_a) {
-    var currentPage = _a.currentPage, darkMode = _a.darkMode, lastPage = _a.lastPage, lastPageNum = _a.lastPageNum, mergedPageSizes = _a.mergedPageSizes, pageClickHandler = _a.pageClickHandler, pageSize = _a.pageSize, pageRecordStartEndLabel = _a.pageRecordStartEndLabel, pageSizeClickHandler = _a.pageSizeClickHandler;
-    return (react_2.default.createElement("span", { id: "SegiTablePagination", className: "".concat(SegiTable_module_css_1.default.SegiTablePagination, " ").concat(darkMode ? "darkMode" : "") },
-        react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTablePaginationSpan) },
-            react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableRowLabel) }, "Rows per page:"),
-            react_2.default.createElement("span", { style: { paddingTop: "12px", paddingRight: lastPageNum === 1 ? "25px" : "" } },
-                react_2.default.createElement("select", { id: "pageSize", className: "".concat(SegiTable_module_css_1.default.SegiTableSolidBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSelectStyle), value: pageSize, onChange: function (event) { return pageSizeClickHandler(parseInt(event.target.value, 10)); } }, Object.keys(mergedPageSizes).map(function (pageSize, index) {
-                    return react_2.default.createElement("option", { key: index, value: pageSize }, mergedPageSizes[pageSize]);
-                }))),
-            react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableRecordStartEnd, " ").concat(pageSize === 0 ? "".concat(SegiTable_module_css_1.default.SegiTableRecordStartEndAll) : "") }, pageRecordStartEndLabel),
-            lastPageNum !== 1 &&
-                react_2.default.createElement(react_2.default.Fragment, null,
-                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableRowCurrentPage) },
-                        "Page ",
-                        currentPage,
-                        "/",
-                        lastPageNum),
-                    react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTablePaginationContainer) },
-                        react_2.default.createElement("div", null,
-                            react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTablePaginationNavContainer) },
-                                react_2.default.createElement("button", { className: "".concat(currentPage > 1 ? "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButton) : "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButtonDisabled)), onClick: function () { return currentPage > 1 ? pageClickHandler(null, 1) : null; }, disabled: currentPage === 1 },
-                                    "|",
-                                    react_2.default.createElement("div", { style: { display: "inline", position: "relative", top: "2px" } }, "<")),
-                                react_2.default.createElement("button", { className: "".concat(currentPage > 1 ? "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButton) : "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButtonDisabled)), onClick: function () { return currentPage > 1 ? pageClickHandler(-1) : null; } },
-                                    react_2.default.createElement("div", { style: { display: "inline", position: "relative", top: "2px" } }, "<")),
-                                react_2.default.createElement("button", { className: "".concat(lastPageNum != 1 && !lastPage ? "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButton) : "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButtonDisabled)), onClick: function () { return lastPageNum != 1 && !lastPage ? pageClickHandler(1) : null; } },
-                                    react_2.default.createElement("div", { style: { display: "inline", position: "relative", top: "2px" } }, ">")),
-                                react_2.default.createElement("button", { className: "".concat(lastPageNum != 1 && !lastPage ? "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButton) : "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButtonDisabled)), onClick: function () { return lastPageNum > 1 && !lastPage ? pageClickHandler(null, -1) : null; } },
-                                    react_2.default.createElement("div", { style: { display: "inline", position: "relative", top: "2px", maxWidth: "5px" } }, ">"),
-                                    react_2.default.createElement("span", { style: { display: "inline", position: "relative", top: "1px", left: "2px", maxWidth: "5px" } }, "|")))))))));
-};
-
-
-/***/ },
-
-/***/ 825
-(module) {
-
-
-
-/* istanbul ignore next  */
-function apply(styleElement, options, obj) {
-  var css = "";
-  if (obj.supports) {
-    css += "@supports (".concat(obj.supports, ") {");
-  }
-  if (obj.media) {
-    css += "@media ".concat(obj.media, " {");
-  }
-  var needLayer = typeof obj.layer !== "undefined";
-  if (needLayer) {
-    css += "@layer".concat(obj.layer.length > 0 ? " ".concat(obj.layer) : "", " {");
-  }
-  css += obj.css;
-  if (needLayer) {
-    css += "}";
-  }
-  if (obj.media) {
-    css += "}";
-  }
-  if (obj.supports) {
-    css += "}";
-  }
-  var sourceMap = obj.sourceMap;
-  if (sourceMap && typeof btoa !== "undefined") {
-    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
-  }
-
-  // For old IE
-  /* istanbul ignore if  */
-  options.styleTagTransform(css, styleElement, options.options);
-}
-function removeStyleElement(styleElement) {
-  // istanbul ignore if
-  if (styleElement.parentNode === null) {
-    return false;
-  }
-  styleElement.parentNode.removeChild(styleElement);
-}
-
-/* istanbul ignore next  */
-function domAPI(options) {
-  if (typeof document === "undefined") {
-    return {
-      update: function update() {},
-      remove: function remove() {}
-    };
-  }
-  var styleElement = options.insertStyleElement(options);
-  return {
-    update: function update(obj) {
-      apply(styleElement, options, obj);
-    },
-    remove: function remove() {
-      removeStyleElement(styleElement);
-    }
-  };
-}
-module.exports = domAPI;
 
 /***/ },
 
@@ -19556,38 +17508,362 @@ exports.version = "19.2.0";
 
 /***/ },
 
-/***/ 961
+/***/ 540
 (module, __unused_webpack_exports, __webpack_require__) {
 
 
 
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-  ) {
-    return;
-  }
-  if (false) // removed by dead control flow
-{}
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
 if (true) {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(221);
+  module.exports = __webpack_require__(869);
 } else // removed by dead control flow
 {}
+
+
+/***/ },
+
+/***/ 477
+(__unused_webpack_module, exports) {
+
+/**
+ * @license React
+ * scheduler.production.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+function push(heap, node) {
+  var index = heap.length;
+  heap.push(node);
+  a: for (; 0 < index; ) {
+    var parentIndex = (index - 1) >>> 1,
+      parent = heap[parentIndex];
+    if (0 < compare(parent, node))
+      (heap[parentIndex] = node), (heap[index] = parent), (index = parentIndex);
+    else break a;
+  }
+}
+function peek(heap) {
+  return 0 === heap.length ? null : heap[0];
+}
+function pop(heap) {
+  if (0 === heap.length) return null;
+  var first = heap[0],
+    last = heap.pop();
+  if (last !== first) {
+    heap[0] = last;
+    a: for (
+      var index = 0, length = heap.length, halfLength = length >>> 1;
+      index < halfLength;
+
+    ) {
+      var leftIndex = 2 * (index + 1) - 1,
+        left = heap[leftIndex],
+        rightIndex = leftIndex + 1,
+        right = heap[rightIndex];
+      if (0 > compare(left, last))
+        rightIndex < length && 0 > compare(right, left)
+          ? ((heap[index] = right),
+            (heap[rightIndex] = last),
+            (index = rightIndex))
+          : ((heap[index] = left),
+            (heap[leftIndex] = last),
+            (index = leftIndex));
+      else if (rightIndex < length && 0 > compare(right, last))
+        (heap[index] = right), (heap[rightIndex] = last), (index = rightIndex);
+      else break a;
+    }
+  }
+  return first;
+}
+function compare(a, b) {
+  var diff = a.sortIndex - b.sortIndex;
+  return 0 !== diff ? diff : a.id - b.id;
+}
+exports.unstable_now = void 0;
+if ("object" === typeof performance && "function" === typeof performance.now) {
+  var localPerformance = performance;
+  exports.unstable_now = function () {
+    return localPerformance.now();
+  };
+} else {
+  var localDate = Date,
+    initialTime = localDate.now();
+  exports.unstable_now = function () {
+    return localDate.now() - initialTime;
+  };
+}
+var taskQueue = [],
+  timerQueue = [],
+  taskIdCounter = 1,
+  currentTask = null,
+  currentPriorityLevel = 3,
+  isPerformingWork = !1,
+  isHostCallbackScheduled = !1,
+  isHostTimeoutScheduled = !1,
+  needsPaint = !1,
+  localSetTimeout = "function" === typeof setTimeout ? setTimeout : null,
+  localClearTimeout = "function" === typeof clearTimeout ? clearTimeout : null,
+  localSetImmediate = "undefined" !== typeof setImmediate ? setImmediate : null;
+function advanceTimers(currentTime) {
+  for (var timer = peek(timerQueue); null !== timer; ) {
+    if (null === timer.callback) pop(timerQueue);
+    else if (timer.startTime <= currentTime)
+      pop(timerQueue),
+        (timer.sortIndex = timer.expirationTime),
+        push(taskQueue, timer);
+    else break;
+    timer = peek(timerQueue);
+  }
+}
+function handleTimeout(currentTime) {
+  isHostTimeoutScheduled = !1;
+  advanceTimers(currentTime);
+  if (!isHostCallbackScheduled)
+    if (null !== peek(taskQueue))
+      (isHostCallbackScheduled = !0),
+        isMessageLoopRunning ||
+          ((isMessageLoopRunning = !0), schedulePerformWorkUntilDeadline());
+    else {
+      var firstTimer = peek(timerQueue);
+      null !== firstTimer &&
+        requestHostTimeout(handleTimeout, firstTimer.startTime - currentTime);
+    }
+}
+var isMessageLoopRunning = !1,
+  taskTimeoutID = -1,
+  frameInterval = 5,
+  startTime = -1;
+function shouldYieldToHost() {
+  return needsPaint
+    ? !0
+    : exports.unstable_now() - startTime < frameInterval
+      ? !1
+      : !0;
+}
+function performWorkUntilDeadline() {
+  needsPaint = !1;
+  if (isMessageLoopRunning) {
+    var currentTime = exports.unstable_now();
+    startTime = currentTime;
+    var hasMoreWork = !0;
+    try {
+      a: {
+        isHostCallbackScheduled = !1;
+        isHostTimeoutScheduled &&
+          ((isHostTimeoutScheduled = !1),
+          localClearTimeout(taskTimeoutID),
+          (taskTimeoutID = -1));
+        isPerformingWork = !0;
+        var previousPriorityLevel = currentPriorityLevel;
+        try {
+          b: {
+            advanceTimers(currentTime);
+            for (
+              currentTask = peek(taskQueue);
+              null !== currentTask &&
+              !(
+                currentTask.expirationTime > currentTime && shouldYieldToHost()
+              );
+
+            ) {
+              var callback = currentTask.callback;
+              if ("function" === typeof callback) {
+                currentTask.callback = null;
+                currentPriorityLevel = currentTask.priorityLevel;
+                var continuationCallback = callback(
+                  currentTask.expirationTime <= currentTime
+                );
+                currentTime = exports.unstable_now();
+                if ("function" === typeof continuationCallback) {
+                  currentTask.callback = continuationCallback;
+                  advanceTimers(currentTime);
+                  hasMoreWork = !0;
+                  break b;
+                }
+                currentTask === peek(taskQueue) && pop(taskQueue);
+                advanceTimers(currentTime);
+              } else pop(taskQueue);
+              currentTask = peek(taskQueue);
+            }
+            if (null !== currentTask) hasMoreWork = !0;
+            else {
+              var firstTimer = peek(timerQueue);
+              null !== firstTimer &&
+                requestHostTimeout(
+                  handleTimeout,
+                  firstTimer.startTime - currentTime
+                );
+              hasMoreWork = !1;
+            }
+          }
+          break a;
+        } finally {
+          (currentTask = null),
+            (currentPriorityLevel = previousPriorityLevel),
+            (isPerformingWork = !1);
+        }
+        hasMoreWork = void 0;
+      }
+    } finally {
+      hasMoreWork
+        ? schedulePerformWorkUntilDeadline()
+        : (isMessageLoopRunning = !1);
+    }
+  }
+}
+var schedulePerformWorkUntilDeadline;
+if ("function" === typeof localSetImmediate)
+  schedulePerformWorkUntilDeadline = function () {
+    localSetImmediate(performWorkUntilDeadline);
+  };
+else if ("undefined" !== typeof MessageChannel) {
+  var channel = new MessageChannel(),
+    port = channel.port2;
+  channel.port1.onmessage = performWorkUntilDeadline;
+  schedulePerformWorkUntilDeadline = function () {
+    port.postMessage(null);
+  };
+} else
+  schedulePerformWorkUntilDeadline = function () {
+    localSetTimeout(performWorkUntilDeadline, 0);
+  };
+function requestHostTimeout(callback, ms) {
+  taskTimeoutID = localSetTimeout(function () {
+    callback(exports.unstable_now());
+  }, ms);
+}
+exports.unstable_IdlePriority = 5;
+exports.unstable_ImmediatePriority = 1;
+exports.unstable_LowPriority = 4;
+exports.unstable_NormalPriority = 3;
+exports.unstable_Profiling = null;
+exports.unstable_UserBlockingPriority = 2;
+exports.unstable_cancelCallback = function (task) {
+  task.callback = null;
+};
+exports.unstable_forceFrameRate = function (fps) {
+  0 > fps || 125 < fps
+    ? console.error(
+        "forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported"
+      )
+    : (frameInterval = 0 < fps ? Math.floor(1e3 / fps) : 5);
+};
+exports.unstable_getCurrentPriorityLevel = function () {
+  return currentPriorityLevel;
+};
+exports.unstable_next = function (eventHandler) {
+  switch (currentPriorityLevel) {
+    case 1:
+    case 2:
+    case 3:
+      var priorityLevel = 3;
+      break;
+    default:
+      priorityLevel = currentPriorityLevel;
+  }
+  var previousPriorityLevel = currentPriorityLevel;
+  currentPriorityLevel = priorityLevel;
+  try {
+    return eventHandler();
+  } finally {
+    currentPriorityLevel = previousPriorityLevel;
+  }
+};
+exports.unstable_requestPaint = function () {
+  needsPaint = !0;
+};
+exports.unstable_runWithPriority = function (priorityLevel, eventHandler) {
+  switch (priorityLevel) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      break;
+    default:
+      priorityLevel = 3;
+  }
+  var previousPriorityLevel = currentPriorityLevel;
+  currentPriorityLevel = priorityLevel;
+  try {
+    return eventHandler();
+  } finally {
+    currentPriorityLevel = previousPriorityLevel;
+  }
+};
+exports.unstable_scheduleCallback = function (
+  priorityLevel,
+  callback,
+  options
+) {
+  var currentTime = exports.unstable_now();
+  "object" === typeof options && null !== options
+    ? ((options = options.delay),
+      (options =
+        "number" === typeof options && 0 < options
+          ? currentTime + options
+          : currentTime))
+    : (options = currentTime);
+  switch (priorityLevel) {
+    case 1:
+      var timeout = -1;
+      break;
+    case 2:
+      timeout = 250;
+      break;
+    case 5:
+      timeout = 1073741823;
+      break;
+    case 4:
+      timeout = 1e4;
+      break;
+    default:
+      timeout = 5e3;
+  }
+  timeout = options + timeout;
+  priorityLevel = {
+    id: taskIdCounter++,
+    callback: callback,
+    priorityLevel: priorityLevel,
+    startTime: options,
+    expirationTime: timeout,
+    sortIndex: -1
+  };
+  options > currentTime
+    ? ((priorityLevel.sortIndex = options),
+      push(timerQueue, priorityLevel),
+      null === peek(taskQueue) &&
+        priorityLevel === peek(timerQueue) &&
+        (isHostTimeoutScheduled
+          ? (localClearTimeout(taskTimeoutID), (taskTimeoutID = -1))
+          : (isHostTimeoutScheduled = !0),
+        requestHostTimeout(handleTimeout, options - currentTime)))
+    : ((priorityLevel.sortIndex = timeout),
+      push(taskQueue, priorityLevel),
+      isHostCallbackScheduled ||
+        isPerformingWork ||
+        ((isHostCallbackScheduled = !0),
+        isMessageLoopRunning ||
+          ((isMessageLoopRunning = !0), schedulePerformWorkUntilDeadline())));
+  return priorityLevel;
+};
+exports.unstable_shouldYield = shouldYieldToHost;
+exports.unstable_wrapCallback = function (callback) {
+  var parentPriorityLevel = currentPriorityLevel;
+  return function () {
+    var previousPriorityLevel = currentPriorityLevel;
+    currentPriorityLevel = parentPriorityLevel;
+    try {
+      return callback.apply(this, arguments);
+    } finally {
+      currentPriorityLevel = previousPriorityLevel;
+    }
+  };
+};
 
 
 /***/ },
@@ -19601,6 +17877,1679 @@ if (true) {
   module.exports = __webpack_require__(477);
 } else // removed by dead control flow
 {}
+
+
+/***/ },
+
+/***/ 319
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(72);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(825);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(659);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(159);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(113);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(50);
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A, options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A && _node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A.locals ? _node_modules_css_loader_dist_cjs_js_SegiTable_module_css__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A.locals : undefined);
+
+
+/***/ },
+
+/***/ 72
+(module) {
+
+
+
+var stylesInDOM = [];
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+  for (var i = 0; i < stylesInDOM.length; i++) {
+    if (stylesInDOM[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+  return result;
+}
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var indexByIdentifier = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3],
+      supports: item[4],
+      layer: item[5]
+    };
+    if (indexByIdentifier !== -1) {
+      stylesInDOM[indexByIdentifier].references++;
+      stylesInDOM[indexByIdentifier].updater(obj);
+    } else {
+      var updater = addElementStyle(obj, options);
+      options.byIndex = i;
+      stylesInDOM.splice(i, 0, {
+        identifier: identifier,
+        updater: updater,
+        references: 1
+      });
+    }
+    identifiers.push(identifier);
+  }
+  return identifiers;
+}
+function addElementStyle(obj, options) {
+  var api = options.domAPI(options);
+  api.update(obj);
+  var updater = function updater(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {
+        return;
+      }
+      api.update(obj = newObj);
+    } else {
+      api.remove();
+    }
+  };
+  return updater;
+}
+module.exports = function (list, options) {
+  options = options || {};
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDOM[index].references--;
+    }
+    var newLastIdentifiers = modulesToDom(newList, options);
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+      var _index = getIndexByIdentifier(_identifier);
+      if (stylesInDOM[_index].references === 0) {
+        stylesInDOM[_index].updater();
+        stylesInDOM.splice(_index, 1);
+      }
+    }
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ },
+
+/***/ 659
+(module) {
+
+
+
+var memo = {};
+
+/* istanbul ignore next  */
+function getTarget(target) {
+  if (typeof memo[target] === "undefined") {
+    var styleTarget = document.querySelector(target);
+
+    // Special case to return head of iframe instead of iframe itself
+    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+      try {
+        // This will throw an exception if access to iframe is blocked
+        // due to cross-origin restrictions
+        styleTarget = styleTarget.contentDocument.head;
+      } catch (e) {
+        // istanbul ignore next
+        styleTarget = null;
+      }
+    }
+    memo[target] = styleTarget;
+  }
+  return memo[target];
+}
+
+/* istanbul ignore next  */
+function insertBySelector(insert, style) {
+  var target = getTarget(insert);
+  if (!target) {
+    throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+  }
+  target.appendChild(style);
+}
+module.exports = insertBySelector;
+
+/***/ },
+
+/***/ 159
+(module) {
+
+
+
+/* istanbul ignore next  */
+function insertStyleElement(options) {
+  var element = document.createElement("style");
+  options.setAttributes(element, options.attributes);
+  options.insert(element, options.options);
+  return element;
+}
+module.exports = insertStyleElement;
+
+/***/ },
+
+/***/ 56
+(module, __unused_webpack_exports, __webpack_require__) {
+
+
+
+/* istanbul ignore next  */
+function setAttributesWithoutAttributes(styleElement) {
+  var nonce =  true ? __webpack_require__.nc : 0;
+  if (nonce) {
+    styleElement.setAttribute("nonce", nonce);
+  }
+}
+module.exports = setAttributesWithoutAttributes;
+
+/***/ },
+
+/***/ 825
+(module) {
+
+
+
+/* istanbul ignore next  */
+function apply(styleElement, options, obj) {
+  var css = "";
+  if (obj.supports) {
+    css += "@supports (".concat(obj.supports, ") {");
+  }
+  if (obj.media) {
+    css += "@media ".concat(obj.media, " {");
+  }
+  var needLayer = typeof obj.layer !== "undefined";
+  if (needLayer) {
+    css += "@layer".concat(obj.layer.length > 0 ? " ".concat(obj.layer) : "", " {");
+  }
+  css += obj.css;
+  if (needLayer) {
+    css += "}";
+  }
+  if (obj.media) {
+    css += "}";
+  }
+  if (obj.supports) {
+    css += "}";
+  }
+  var sourceMap = obj.sourceMap;
+  if (sourceMap && typeof btoa !== "undefined") {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  }
+
+  // For old IE
+  /* istanbul ignore if  */
+  options.styleTagTransform(css, styleElement, options.options);
+}
+function removeStyleElement(styleElement) {
+  // istanbul ignore if
+  if (styleElement.parentNode === null) {
+    return false;
+  }
+  styleElement.parentNode.removeChild(styleElement);
+}
+
+/* istanbul ignore next  */
+function domAPI(options) {
+  if (typeof document === "undefined") {
+    return {
+      update: function update() {},
+      remove: function remove() {}
+    };
+  }
+  var styleElement = options.insertStyleElement(options);
+  return {
+    update: function update(obj) {
+      apply(styleElement, options, obj);
+    },
+    remove: function remove() {
+      removeStyleElement(styleElement);
+    }
+  };
+}
+module.exports = domAPI;
+
+/***/ },
+
+/***/ 113
+(module) {
+
+
+
+/* istanbul ignore next  */
+function styleTagTransform(css, styleElement) {
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css;
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild);
+    }
+    styleElement.appendChild(document.createTextNode(css));
+  }
+}
+module.exports = styleTagTransform;
+
+/***/ },
+
+/***/ 558
+(__unused_webpack_module, exports) {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FieldValueTypes = exports.FieldTypes = void 0;
+exports.FieldTypes = Object.freeze({
+    TEXTFIELD: 'TEXTFIELD',
+    TEXTAREA: 'TEXTAREA',
+    SELECT: 'SELECT',
+    CHECKBOX: 'CHECKBOX'
+});
+exports.FieldValueTypes = Object.freeze({
+    TEXT: 'TEXT',
+    NUMBER: 'NUMBER',
+    DATE: 'DATE',
+    BOOLEAN: 'BOOLEAN',
+    CURRENCY: 'CURRENCY'
+});
+
+
+/***/ },
+
+/***/ 797
+(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var ISegiTable_1 = __webpack_require__(558);
+var react_1 = __webpack_require__(540);
+var react_2 = __importDefault(__webpack_require__(540));
+var SegiTable_module_css_1 = __importDefault(__webpack_require__(319));
+var MIN_COLUMN_WIDTH = 80; // px
+var COLUMN_STORAGE_KEY = "SegiTable.ColumnWidths";
+var SegiTable = function (_a) {
+    var addingHasDisabledCheckboxPlaceholder = _a.addingHasDisabledCheckboxPlaceholder, addingText = _a.addingText, addtlPageSizes = _a.addtlPageSizes, cancelEditCallBackHandler = _a.cancelEditCallBackHandler, darkMode = _a.darkMode, defaultPageSize = _a.defaultPageSize, editable = _a.editable, exportable = _a.exportable, height = _a.height, isAdding = _a.isAdding, isEditing = _a.isEditing, pageSizeOverride = _a.pageSizeOverride, paginationEnabled = _a.paginationEnabled, saveAddCallBackHandler = _a.saveAddCallBackHandler, saveEditCallBackHandler = _a.saveEditCallBackHandler, searchable = _a.searchable, setIsAdding = _a.setIsAdding, setIsEditing = _a.setIsEditing, showDisabled = _a.showDisabled, sortable = _a.sortable, tableTemplate = _a.tableTemplate, width = _a.width;
+    var _b = (0, react_1.useState)({}), columnWidths = _b[0], setColumnWidths = _b[1];
+    var _c = (0, react_1.useState)(null), currentTableComponent = _c[0], setCurrentTableComponent = _c[1]; // Used for table headers and when adding
+    var _d = (0, react_1.useState)(1), currentPage = _d[0], setCurrentPage = _d[1];
+    var _e = (0, react_1.useState)(""), errorMessage = _e[0], setErrorMessage = _e[1];
+    var _f = react_2.default.useState(null), expandedId = _f[0], setExpandedId = _f[1];
+    var _g = (0, react_1.useState)(null), filteredTableData = _g[0], setFilteredTableData = _g[1];
+    var _h = (0, react_1.useState)(""), filterSearchTerm = _h[0], setFilterSearchTerm = _h[1];
+    var _j = (0, react_1.useState)(false), hasExpandableCriteriaMet = _j[0], setHasExpandableCriteriaMet = _j[1];
+    var _k = (0, react_1.useState)(false), idVisible = _k[0], setIDVisible = _k[1];
+    var _l = (0, react_1.useState)(false), isError = _l[0], setIsError = _l[1];
+    var _m = (0, react_1.useState)(false), isExpandable = _m[0], setIsExpandable = _m[1];
+    var _o = (0, react_1.useState)(false), lastPage = _o[0], setLastPage = _o[1];
+    var _p = (0, react_1.useState)(0), lastPageNum = _p[0], setLastPageNum = _p[1];
+    var _q = (0, react_1.useState)(0), pageSize = _q[0], setPageSize = _q[1];
+    var _r = (0, react_1.useState)(""), pageRecordStartEndLabel = _r[0], setPageRecordStartEndLabel = _r[1];
+    var _s = (0, react_1.useState)(""), searchTerm = _s[0], setSearchTerm = _s[1];
+    var _t = (0, react_1.useState)(""), sortColumn = _t[0], setSortColumn = _t[1];
+    var _u = (0, react_1.useState)(""), sortDirection = _u[0], setSortDirection = _u[1];
+    var _v = (0, react_1.useState)(null), tableData = _v[0], setTableData = _v[1]; // Used when not adding (viewing or editing table)
+    var _w = (0, react_1.useState)(""), uniqueValuesVisibleColumn = _w[0], setUniqueValuesVisibleColumn = _w[1];
+    var hasRunInitialEffect = (0, react_1.useRef)(false); // Prevents the useEffect with no dependencies from re-rendering
+    var defaultPageSizes = {
+        5: "5",
+        10: "10",
+        25: "25",
+        50: "50",
+        0: "All"
+    };
+    var mergedPageSizes = typeof pageSizeOverride !== "undefined" ? pageSizeOverride : __assign(__assign({}, defaultPageSizes), addtlPageSizes);
+    var tableRef = (0, react_1.useRef)(null);
+    var addClickHandler = function () {
+        setIsAdding(true);
+    };
+    var addFieldChangeHandler = function (fieldName, fieldValue) {
+        var newComponent = Object.assign([], currentTableComponent);
+        var currentFieldResult = newComponent.Fields.filter(function (currentField) { return currentField.DatabaseColumn === fieldName; });
+        // This shouldn't ever happen!
+        if (currentFieldResult.length !== 1) {
+            alert("Unable to update the field ".concat(fieldName, " because it could not be located"));
+            return;
+        }
+        var currentField = currentFieldResult[0];
+        switch (currentField.FieldValueType) {
+            case ISegiTable_1.FieldValueTypes.TEXT:
+                currentField.FieldValue = fieldValue;
+                break;
+            case ISegiTable_1.FieldValueTypes.NUMBER:
+                currentField.FieldValue = fieldValue;
+                break;
+            /*case validFieldValueTypes.DATE:
+                 currentField.FieldValue = fieldValue as Date;
+                 break;*/
+            default:
+                console.log("In TableComponent() defaulting to text");
+                currentField[0].FieldName = fieldValue;
+                break;
+        }
+        newComponent["IsModified"] = true;
+        setCurrentTableComponent(newComponent);
+    };
+    var cancelAddClickHandler = function () {
+        setIsAdding(false);
+    };
+    var editClickHandler = function () {
+        setIsEditing(true);
+    };
+    var editFieldChangeHandler = function (currentRow, fieldName, fieldValue) {
+        var IDColumn = getIDColumn();
+        // This shouldn't ever happen
+        if (IDColumn === "") {
+            alert("Unable to save this record because the ID column could not be determined");
+            return;
+        }
+        var ID = currentRow[IDColumn];
+        var newTableData = Object.assign([], tableData);
+        var editedRowResult = newTableData.filter(function (data) { return data[IDColumn] === ID; });
+        if (editedRowResult.length !== 1) {
+            alert("editFieldChangeHandler(): Unable to locate the row for ID ".concat(ID));
+            return;
+        }
+        var editedRow = editedRowResult[0];
+        if (typeof editedRow[fieldName] === "undefined") {
+            alert("editFieldChangeHandler(): Unable to locate the column ".concat(fieldName, " row for ID ").concat(ID));
+            return;
+        }
+        editedRow[fieldName] = fieldValue;
+        editedRow[fieldName + ".Modified"] = true;
+        editedRow["IsModified"] = true;
+        setTableData(newTableData);
+    };
+    var exportCSV = function () {
+        var table = tableRef.current;
+        // Initialize an array to hold the rows of the CSV data
+        var csvData = [];
+        var columnWidths = [];
+        for (var i = 0; i < currentTableComponent.Fields.length; i++) {
+            if (currentTableComponent.Fields[i].HiddenField !== true) {
+                columnWidths.push(0);
+            }
+        }
+        // Loop through each row in the table
+        var rows = table.querySelectorAll("tr");
+        rows.forEach(function (row) {
+            var rowData = [];
+            var cells = row.querySelectorAll("th, td");
+            cells.forEach(function (cell, cellIndex) {
+                var cellText = cell.innerText;
+                cellText = cellText.replace(String.fromCharCode(8593), "").replace(String.fromCharCode(8595), "");
+                // Remove comma from cell text since the output is CSV which is comma separated
+                cellText = cellText.replaceAll(",", "");
+                if ((!isExpandable || (isExpandable && cellIndex > 0))) {
+                    rowData.push(cellText);
+                    if (cellText.length > columnWidths[cellIndex - 1]) {
+                        columnWidths[cellIndex - 1] = cellText.length;
+                    }
+                }
+            });
+            csvData.push(rowData);
+        });
+        // Format the rows to ensure the columns are wide enough
+        var formattedData = csvData.map(function (row) {
+            return row.map(function (cellText, index) {
+                // Pad each cell with spaces to ensure the column is wide enough
+                var requiredWidth = columnWidths[index];
+                var paddedCell = cellText + ' '.repeat(requiredWidth > cellText.length ? requiredWidth - cellText.length : cellText.length);
+                return paddedCell;
+            }).join(","); // Join the row with commas
+        });
+        // Join the rows with line breaks
+        var csvContent = formattedData.join("\n");
+        // Create a Blob object to download the CSV data
+        var blob = new Blob([csvContent], { type: "text/csv" });
+        var url = URL.createObjectURL(blob);
+        // Create an anchor element to simulate a click and download the file
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "SegiTable.csv"; // You can change the file name to something meaningful
+        a.click();
+        // Clean up the URL object
+        URL.revokeObjectURL(url);
+    };
+    var filterTableData = function () {
+        if (tableData === null) {
+            return;
+        }
+        var filterValues = currentTableComponent.Fields.filter(function (currentField) { return typeof currentField.UniqueValuesSelected !== "undefined" && typeof currentField.UniqueValuesSelected === "object" && currentField.UniqueValuesSelected.length > 0; });
+        var newFilteredTableData = tableData === null || tableData === void 0 ? void 0 : tableData.filter(function (currentRow) {
+            var searchTermFound = false;
+            if (searchTerm !== "") {
+                Object.keys(currentTableComponent.Fields).forEach(function (fieldKey) {
+                    var field = currentTableComponent.Fields[fieldKey];
+                    if (field.SearchableField !== false) {
+                        if (typeof field.SelectData === "undefined") {
+                            if (typeof currentRow[field.DatabaseColumn] !== "undefined" && String(currentRow[field.DatabaseColumn]).toLowerCase().includes(searchTerm.toLowerCase())) {
+                                searchTermFound = true;
+                            }
+                        }
+                        else if (currentRow[field.DatabaseColumn] !== null && currentRow[field.DatabaseColumn] !== -1) {
+                            var selectDataResult = field.SelectData.filter(function (currentItem) { return currentItem[field.SelectDataIDColumn] === currentRow[field.DatabaseColumn]; });
+                            if (selectDataResult.length === 1) {
+                                var selectData = selectDataResult[0];
+                                if (selectData[field.SelectDataValueColumn].toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    searchTermFound = true;
+                                }
+                            }
+                        }
+                    }
+                });
+                if (!searchTermFound) {
+                    return false;
+                }
+            }
+            if (filterValues.length > 0) {
+                var uniqueValuesSelected_1 = filterValues[0].UniqueValuesSelected;
+                Object.keys(currentTableComponent.Fields).forEach(function (fieldKey) {
+                    var field = currentTableComponent.Fields[fieldKey];
+                    uniqueValuesSelected_1.forEach(function (filterValue) {
+                        if (String(currentRow[field.DatabaseColumn]) == filterValue.toString()) {
+                            searchTermFound = true;
+                        }
+                    });
+                });
+                if (!searchTermFound) {
+                    return false;
+                }
+            }
+            return true;
+        }).sort(function (a, b) {
+            if (sortColumn === "") {
+                return a;
+            }
+            else {
+                var fieldResult = currentTableComponent.Fields.filter(function (currentField) { return currentField.DatabaseColumn === sortColumn; });
+                var field_1 = fieldResult[0];
+                // Sorting when the field is NOT a select type
+                if (typeof field_1.SelectData === "undefined") {
+                    var aValue = a[sortColumn] !== null && typeof a[sortColumn] !== "undefined" ? a[sortColumn] : "";
+                    var bValue = b[sortColumn] !== null && typeof b[sortColumn] !== "undefined" ? b[sortColumn] : "";
+                    if (field_1.FieldValueType === ISegiTable_1.FieldValueTypes.CURRENCY) {
+                        return sortDirection === "ASC"
+                            ? parsePrice(aValue) - parsePrice(bValue)
+                            : parsePrice(bValue) - parsePrice(aValue);
+                    }
+                    else if (field_1.FieldValueType === ISegiTable_1.FieldValueTypes.DATE) {
+                        return new Date(aValue).getTime() - new Date(bValue).getTime();
+                    }
+                    else {
+                        return (aValue === null || aValue === void 0 ? void 0 : aValue.toString().toLowerCase()) > (bValue === null || bValue === void 0 ? void 0 : bValue.toString().toLowerCase()) ? sortDirection === "ASC" ? 1 : -1 : sortDirection === "ASC" ? -1 : 1;
+                    }
+                }
+                else { // Sorting when the field is a select type
+                    var aValueSelectDataResult = field_1.SelectData.filter(function (currentItem) { return currentItem[field_1.SelectDataIDColumn] === a[sortColumn]; });
+                    var bValueSelectDataResult = field_1.SelectData.filter(function (currentItem) { return currentItem[field_1.SelectDataIDColumn] === b[sortColumn]; });
+                    var aValue = void 0, bValue = "";
+                    if (aValueSelectDataResult.length === 1) {
+                        var aField = aValueSelectDataResult[0];
+                        aValue = typeof aField[field_1.SelectDataValueColumn] !== "undefined" && aField[field_1.SelectDataValueColumn] !== null ? aField[field_1.SelectDataValueColumn] : "";
+                    }
+                    if (bValueSelectDataResult.length === 1) {
+                        var bField = bValueSelectDataResult[0];
+                        bValue = typeof bField[field_1.SelectDataValueColumn] !== "undefined" && bField[field_1.SelectDataValueColumn] !== null ? bField[field_1.SelectDataValueColumn] : "";
+                    }
+                    return aValue.toString().toLowerCase() > bValue.toString().toLowerCase() ? sortDirection === "ASC" ? 1 : -1 : sortDirection === "ASC" ? -1 : 1;
+                }
+            }
+        });
+        var sliceStart;
+        var sliceEnd;
+        // Slice data if a page size is set
+        if (pageSize != 0) {
+            sliceStart = (currentPage - 1) * pageSize;
+            sliceEnd = sliceStart + pageSize;
+        }
+        else {
+            sliceStart = 0;
+            sliceEnd = typeof newFilteredTableData !== "undefined" ? newFilteredTableData.length : 0;
+        }
+        if (newFilteredTableData === null) {
+            return;
+        }
+        var newSlicedFilteredTableData = newFilteredTableData === null || newFilteredTableData === void 0 ? void 0 : newFilteredTableData.slice(sliceStart, sliceEnd);
+        setFilteredTableData(newSlicedFilteredTableData);
+        // Update page X/Y label
+        if (pageSize != 0) {
+            var newLastPageNum = Math.ceil((newFilteredTableData === null || newFilteredTableData === void 0 ? void 0 : newFilteredTableData.length) / pageSize);
+            setLastPageNum(newLastPageNum);
+            if (currentPage === newLastPageNum) {
+                setLastPage(true);
+            }
+            else {
+                setLastPage(false);
+            }
+            var newPageRecordStartEndLabel = "".concat(sliceStart + 1, "-").concat(sliceEnd + newSlicedFilteredTableData.length - pageSize, " of ").concat(newFilteredTableData.length);
+            setPageRecordStartEndLabel(newPageRecordStartEndLabel);
+        }
+        else {
+            setLastPageNum(1);
+            setPageRecordStartEndLabel("1-".concat(typeof newFilteredTableData !== "undefined" ? newFilteredTableData.length : 1, " of ").concat(typeof newFilteredTableData !== "undefined" ? newFilteredTableData.length : 1));
+        }
+        // Check if row is expandable
+        var newIsExpandableField = currentTableComponent.Fields.filter(function (field) { return typeof field.ExpandableCriteria !== "undefined"; }).length === 0 ? false : true;
+        var newIsExpandableGlobal = typeof currentTableComponent.ExpandableContent !== "undefined" ? true : false;
+        if (newIsExpandableField || newIsExpandableGlobal) {
+            setIsExpandable(true);
+        }
+        newFilteredTableData && newFilteredTableData.map(function (currentRow) {
+            if (isExpandable) {
+                var newExpandableContentResult = currentTableComponent.Fields.filter(function (field) {
+                    var uniqueMatchValues = field.ExpandableCriteria && field.ExpandableCriteria.map(function (e) { return e.Match; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
+                    // Select all is selected
+                    var isAll = typeof uniqueMatchValues !== "undefined" ? uniqueMatchValues.includes("*") : false;
+                    return (typeof uniqueMatchValues !== "undefined" &&
+                        (uniqueMatchValues === null || (uniqueMatchValues !== null &&
+                            (((typeof field.ExpandableCriteriaExactMatch === "undefined" || field.ExpandableCriteriaExactMatch === true) &&
+                                uniqueMatchValues.includes(currentRow[field.DatabaseColumn].toString()))
+                                ||
+                                    (field.ExpandableCriteriaExactMatch === false && uniqueMatchValues.some(function (criteria) { return currentRow[field.DatabaseColumn].toString().toLowerCase().includes(criteria.toLowerCase()); })))
+                            || isAll)));
+                });
+                if (newExpandableContentResult.length > 0) {
+                    setHasExpandableCriteriaMet(true);
+                }
+            }
+            else if (typeof currentTableComponent.ExpandableContent !== "undefined") { // If template level ExpandableContent was provided
+                setIsExpandable(true);
+                setHasExpandableCriteriaMet(true);
+            }
+        });
+    };
+    var formatCurrency = function (price, locale, currency) {
+        if (locale === void 0) { locale = 'en-US'; }
+        if (currency === void 0) { currency = 'USD'; }
+        price = price.replace("$", ""); // Remove dollar sign in case its already there so it doesn't break the formatting below
+        return new Intl.NumberFormat(locale, {
+            style: 'currency',
+            currency: currency,
+        }).format(price);
+    };
+    var getEnabledColumn = function () {
+        // Derive ID column from tableComponent
+        var enabledFieldResult = currentTableComponent.Fields.filter(function (currentField) { return currentField.IsEnabledColumn === true; });
+        if (enabledFieldResult.length === 0) {
+            return "";
+        }
+        var enabledField = enabledFieldResult[0];
+        var enabledColumn = enabledField.DatabaseColumn;
+        return enabledColumn;
+    };
+    var getFormattedDate = function (dateStr, separator, format) {
+        var dateObj = dateStr !== null && typeof dateStr !== "undefined" ? new Date(dateStr) : new Date();
+        // Extract year, month, and day from the date object
+        var year = dateObj.getFullYear();
+        var month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-indexed, so add 1
+        var day = dateObj.getDate().toString().padStart(2, '0');
+        // Format the date as yyyy-mm-dd
+        var formattedDate = format !== "mm/dd/yyyy" ? "".concat(year, "-").concat(month, "-").concat(day) : "".concat(month, "-").concat(day, "-").concat(year);
+        // If separator is provided, replace hyphens with the separator
+        if (separator && separator !== '-') {
+            return formattedDate.replace(/-/g, separator);
+        }
+        return formattedDate;
+    };
+    var getIDColumn = function () {
+        // Derive ID column from tableComponent
+        var IDFieldResult = currentTableComponent.Fields.filter(function (currentField) { return currentField.IsIDColumn === true; });
+        if (IDFieldResult.length === 0) {
+            return "";
+        }
+        var IDField = IDFieldResult[0];
+        if (typeof IDField.DatabaseColumn === "undefined") {
+            return "";
+        }
+        var IDColumn = IDField.DatabaseColumn;
+        return IDColumn;
+    };
+    var isVisible = function (field) {
+        if (field.IsIDColumn === true && !isEditing) {
+            return idVisible;
+        }
+        if (field.HiddenField !== true) {
+            return true;
+        }
+        return false;
+    };
+    var pageClickHandler = function (adjustValue, absoluteValue) {
+        if (adjustValue === void 0) { adjustValue = null; }
+        if (absoluteValue === void 0) { absoluteValue = null; }
+        if (adjustValue !== null) { // Adjust page relative to current page
+            setCurrentPage(currentPage + adjustValue);
+            if (currentPage + adjustValue < lastPageNum) {
+                setLastPage(false);
+            }
+            else {
+                setLastPage(true);
+            }
+        }
+        else if (absoluteValue !== null) { // Set absolute page (first or last page)
+            if (absoluteValue !== -1) {
+                setCurrentPage(absoluteValue);
+                setLastPage(false);
+            }
+            else { // Last page
+                setCurrentPage(lastPageNum);
+                setLastPage(true);
+            }
+        }
+    };
+    var pageSizeClickHandler = function (newPageSize) {
+        localStorage.setItem("SegiTable.RowsPerPage", newPageSize.toString());
+        setPageSize(newPageSize);
+        setCurrentPage(1);
+    };
+    var parsePrice = function (price) { return parseFloat(price.replace(/[^0-9.-]+/g, "")); };
+    var sortColumnClickHandler = function (column) {
+        if (sortColumn === "" || (sortColumn !== "" && sortColumn !== column)) {
+            setSortColumn(column);
+            setSortDirection("ASC");
+        }
+        else if (sortColumn === column) {
+            if (sortDirection === "ASC") {
+                setSortDirection("DESC");
+            }
+            else {
+                setSortDirection("ASC");
+            }
+        }
+    };
+    var toggleExpandableRow = function (newId) {
+        if (typeof newId === "undefined") {
+            alert("Value is not set. Make sure that ExpandableDataColumn is set in the template");
+            return;
+        }
+        var stringId = String(newId);
+        if (expandedId === stringId) {
+            setExpandedId(null);
+            localStorage.removeItem("SegiTable.LastOpenedId");
+        }
+        else {
+            setExpandedId(stringId);
+            localStorage.setItem("SegiTable.LastOpenedId", stringId);
+        }
+        var newComponent = Object.assign([], currentTableComponent);
+        if (typeof newComponent.ExpandedRows === "undefined") {
+            newComponent.ExpandedRows = [];
+        }
+        if (newComponent.ExpandedRows.includes(newId)) {
+            var index = newComponent.ExpandedRows.indexOf(newId);
+            // This shouldn't ever happen
+            if (index === -1) {
+                alert("".concat(newId, " was not found in expandedRows!"));
+                return;
+            }
+            newComponent.ExpandedRows.splice(index, 1);
+        }
+        else {
+            if (currentTableComponent.MultiExpandableRows !== true) {
+                newComponent.ExpandedRows = [];
+            }
+            newComponent.ExpandedRows.push(newId);
+            localStorage.setItem("SegiTable.LastOpenedId", newId.toString());
+        }
+        setCurrentTableComponent(newComponent);
+    };
+    var toggleIDColumn = function () {
+        // Filter is visible
+        if (uniqueValuesVisibleColumn !== "") {
+            return;
+        }
+        setIDVisible(function (prevState) { return !prevState; });
+    };
+    var uniqueValuesClearColumnClickHandler = function () {
+        setUniqueValuesVisibleColumn("");
+    };
+    // Event when the user clicks on the filter icon to hide or show the filters for a column
+    var uniqueValuesColumnClickHandler = function (displayName) {
+        if (displayName !== uniqueValuesVisibleColumn) {
+            setUniqueValuesVisibleColumn(displayName);
+        }
+        else {
+            setUniqueValuesVisibleColumn("");
+        }
+        setFilterSearchTerm("");
+    };
+    // Event when the user clicks on a value in a column filter
+    var uniqueValuesOptionClickHandler = function (displayName, value, selectAll) {
+        var newTableComponent = Object.assign([], currentTableComponent);
+        var thisFieldResult = newTableComponent.Fields.filter(function (currentField) { return currentField.DisplayName === displayName; });
+        // this should never happen
+        if (thisFieldResult.length !== 1) {
+            console.log("Error locating field with display name ".concat(displayName));
+            return;
+        }
+        var thisField = thisFieldResult[0];
+        // Select all is not selected
+        if (typeof selectAll === "undefined") {
+            if (typeof thisField.UniqueValuesSelected === "undefined") {
+                thisField.UniqueValuesSelected = [value];
+            }
+            else {
+                // Check if the value is already in the array of selected values
+                var index = thisField.UniqueValuesSelected.indexOf(value);
+                // If its there remove it, otherwise add it
+                if (index !== -1) {
+                    thisField.UniqueValuesSelected.splice(index, 1);
+                }
+                else {
+                    thisField.UniqueValuesSelected.push(value);
+                }
+            }
+            // Set Select all value
+            if (thisField.UniqueValuesSelected.length === 0) {
+                thisField.UniqueValuesSelectAllSelected = true;
+            }
+            else {
+                thisField.UniqueValuesSelectAllSelected = false;
+            }
+        }
+        else { // Select all has been selected/unselected
+            if (typeof thisField.UniqueValuesSelected === "undefined") {
+                thisField.UniqueValuesSelected = [];
+            }
+            if (selectAll) {
+                thisField.UniqueValues.forEach(function (newValue) {
+                    thisField.UniqueValuesSelected.push(newValue);
+                });
+                thisField.UniqueValuesSelectAllSelected = true;
+            }
+            else {
+                thisField.UniqueValuesSelected = [];
+                thisField.UniqueValuesSelectAllSelected = false;
+                setTableData([]);
+                return;
+            }
+        }
+        setTableData(currentTableComponent.Data);
+        setCurrentTableComponent(newTableComponent);
+        setCurrentPage(1); // This will trigger the useEffect to recalculate the current page when the filter changes
+    };
+    var validateTableComponent = function (tableTemplate) {
+        // Some attributes are optional but if provided, rely on other attributes to work correctly
+        // This method makes sure that the attributes passed to this component make sense
+        // Some attributes that are conditionally used are set with a default value if not provided
+        var newTableTemplate = Object.assign([], tableTemplate);
+        if (typeof newTableTemplate.Data === "undefined") {
+            setErrorMessage("SegiTable Error: The data property must be specified");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        if (newTableTemplate.SemiTransparentTableHeader !== true && typeof newTableTemplate.SemiTransparentTableHeader !== "undefined") {
+            setErrorMessage("SegiTable Error: The SemiTransparentTableHeader property must be not specified if SemiTransparentTableHeader is not set to true");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        var isEditable = typeof editable !== "undefined" && editable === false ? false : true;
+        // If editing is enabled
+        if (isEditable) {
+            if (typeof isAdding === "undefined") {
+                setErrorMessage("SegiTable Error: isAdding was not provided");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof isEditing === "undefined") {
+                setErrorMessage("SegiTable Error: isEditing was not provided");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof saveAddCallBackHandler === "undefined") {
+                setErrorMessage("SegiTable Error: saveAddCallBackHandler Callback was not provided and is required for an editable table");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof saveEditCallBackHandler === "undefined") {
+                setErrorMessage("SegiTable Error: saveEditCallBackHandler Callback was not provided and is required for an editable table");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof cancelEditCallBackHandler === "undefined") {
+                setErrorMessage("SegiTable Error: cancelEditCallBackHandler Callback was not provided and is required for an editable table");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof setIsAdding === "undefined") {
+                setErrorMessage("SegiTable Error: setIsAdding was not provided and is required for an editable table");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof setIsEditing === "undefined") {
+                setErrorMessage("SegiTable Error: setIsEditing was not provided and is required for an editable table");
+                setIsError(true);
+                return ["ERROR"];
+            }
+        }
+        else {
+            if (typeof addingHasDisabledCheckboxPlaceholder !== "undefined") {
+                setErrorMessage("SegiTable Error: addingHasDisabledCheckboxPlaceholder was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof addingText !== "undefined") {
+                setErrorMessage("SegiTable Error: addingText was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof cancelEditCallBackHandler !== "undefined") {
+                setErrorMessage("SegiTable Error: cancelEditCallBackHandler was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof isAdding !== "undefined") {
+                setErrorMessage("SegiTable Error: isAdding was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof isEditing !== "undefined") {
+                setErrorMessage("SegiTable Error: isEditing was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof saveAddCallBackHandler !== "undefined") {
+                setErrorMessage("SegiTable Error: saveAddCallBackHandler Callback was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof saveEditCallBackHandler !== "undefined") {
+                setErrorMessage("SegiTable Error: saveEditCallBackHandler Callback was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof setIsAdding !== "undefined") {
+                setErrorMessage("SegiTable Error: setIsAdding was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof setIsEditing !== "undefined") {
+                setErrorMessage("SegiTable Error: setIsEditing was provided but the table is not editable");
+                setIsError(true);
+                return ["ERROR"];
+            }
+        }
+        // width & height validation
+        if (typeof width !== "undefined" && width.toString().indexOf("px") === -1) {
+            setErrorMessage("SegiTable Error: The width must be specified in px");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        if (typeof height !== "undefined" && height.toString().indexOf("px") === -1) {
+            setErrorMessage("SegiTable Error: The height must be specified in px");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        // showDisabled validation
+        if (typeof showDisabled !== "undefined" && showDisabled === true && newTableTemplate.Fields.filter(function (currentField) { return currentField.IsEnabledColumn === true; }).length === 0) {
+            setErrorMessage("SegiTable Error: showDisabled is true but there are no fields are marked as IsEnabledColumn");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        // pagination validation
+        if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof defaultPageSize !== "undefined") {
+            setErrorMessage("SegiTable Error: Pagination is not enabled but defaultPageSize was provided");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof addtlPageSizes !== "undefined") {
+            setErrorMessage("SegiTable Error: Pagination is not enabled but addtlPageSizes was provided");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        if ((typeof paginationEnabled === "undefined" || paginationEnabled === false) && typeof pageSizeOverride !== "undefined") {
+            setErrorMessage("SegiTable Error: Pagination is not enabled but pageSizeOverride was provided");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        if (typeof defaultPageSize !== "undefined" && !Object.keys(mergedPageSizes).includes(defaultPageSize.toString())) {
+            setErrorMessage("SegiTable Error: The provided defaultPageSize ".concat(defaultPageSize, " is not a valid option in the page sizes ").concat(Object.keys(mergedPageSizes).join(",")));
+            setIsError(true);
+            return ["ERROR"];
+        }
+        else if (typeof defaultPageSize === "undefined" && !Object.keys(mergedPageSizes).includes(pageSize.toString())) {
+            setErrorMessage("SegiTable Error: The pageSize ".concat(pageSize, " is not a valid option in the page sizes ").concat(Object.keys(mergedPageSizes).join(","), ". Please use defaultPageSize with one of these choices"));
+            setIsError(true);
+            return ["ERROR"];
+        }
+        if (typeof addtlPageSizes !== "undefined" && typeof pageSizeOverride !== "undefined") {
+            setErrorMessage("SegiTable Error: addtlPageSizes and pageSizeOverride are both set. Only 1 of these props can be provided");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        if (typeof newTableTemplate.ExpandableDataLinked !== "undefined" && (typeof newTableTemplate.ExpandableDataColumn === "undefined" || newTableTemplate.ExpandableDataColumn === "")) {
+            setErrorMessage("SegiTable Error: ExpandableDataLinked was provided but ExpandableDataColumn was not provided");
+            setIsError(true);
+            return ["ERROR"];
+        }
+        newTableTemplate.Fields.map(function (field, index) {
+            if (!isEditable) {
+                if (typeof field.Addable !== "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has Addable but the table is not editable"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+                if (typeof field.DefaultAddValue !== "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has DefaultAddValue but the table is not editable"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+            }
+            if (typeof field.Clickable === "undefined" && typeof field.ClickCallBack !== "undefined") {
+                field.Clickable = true;
+            }
+            if (typeof field.Clickable !== "undefined" && typeof field.ClickCallBack === "undefined") {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has Clickable but ClickCallBack was not provided"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof field.ClickCallBack !== "undefined" && typeof field.TogglesIDColumn !== "undefined") {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has both ClickCallBack and TogglesIDColumn set. You cannot set both of these properties. Only one of them can be set for a given field"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof field.DatabaseColumn === "undefined") {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is missing the DatabaseColumn which is required for an editable table"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            // Validate display name first so I can reference the display name if an error is found later
+            if (typeof field.DisplayName === "undefined") {
+                setErrorMessage("SegiTable Error: The field at index ".concat(index, " is missing the DisplayName"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (field.ExpandableCriteriaExactMatch === true && typeof field.ExpandableCriteria == "undefined") {
+                setErrorMessage("SegiTable Error: The field at index ".concat(index, " provided ExpandableCriteriaExactMatch but ExpandableCriteria was not provided"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            // ID Column is always read only so FieldType is not required
+            if (!field.IsIDColumn) {
+                if (typeof field.FieldType === "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" does not have a field type"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+                if (field.FieldType !== ISegiTable_1.FieldTypes.TEXTAREA && field.FieldType !== ISegiTable_1.FieldTypes.TEXTFIELD && field.FieldType !== ISegiTable_1.FieldTypes.SELECT && field.FieldType !== ISegiTable_1.FieldTypes.CHECKBOX) {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has an invalid field type ").concat(field.FieldType));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+            }
+            if (typeof field.FieldValueType === "undefined") {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" does not have a field value type"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (field.FieldValueType !== ISegiTable_1.FieldValueTypes.BOOLEAN && field.FieldValueType !== ISegiTable_1.FieldValueTypes.DATE && field.FieldValueType !== ISegiTable_1.FieldValueTypes.NUMBER && field.FieldValueType !== ISegiTable_1.FieldValueTypes.TEXT && field.FieldValueType !== ISegiTable_1.FieldValueTypes.CURRENCY) {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has an invalid field value type ").concat(field.FieldValueType));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (field.FieldType == ISegiTable_1.FieldTypes.SELECT) {
+                if (typeof field.SelectData === "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is marked as a select field but is missing SelectData"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+                if (typeof field.SelectDataIDColumn === "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is marked as a select field but is missing SelectDataIDColumn"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+                if (typeof field.SelectDataValueColumn === "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is marked as a select field but is missing SelectDataValueColumn"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+                if (typeof field.SelectDataEnabledOnly !== "undefined" && field.SelectDataEnabledOnly === true && field.SelectDataEnabledOnlyColumn === "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has SelectDataEnabledOnly is marked as a select field SelectDataEnabledOnlyColumn is not set"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+            }
+            else {
+                if (typeof field.SelectDataIDColumn !== "undefined") {
+                    setErrorMessage("SegiTable Error: The type for field \"".concat(field.DisplayName, "\" is not a select type but SelectDataIDColumn is set."));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+                else if (typeof field.SelectDataValueColumn !== "undefined") {
+                    setErrorMessage("SegiTable Error: The type for field \"".concat(field.DisplayName, "\" is not a select type but SelectDataValueColumn is set."));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+                else if (typeof field.SelectDataEnabledOnly !== "undefined") {
+                    setErrorMessage("SegiTable Error: The type for field \"".concat(field.DisplayName, "\" is not a select type but SelectDataEnabledOnly is set."));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+            }
+            if (field.FieldType === ISegiTable_1.FieldTypes.TEXTAREA) {
+                if (field.FieldValueType !== ISegiTable_1.FieldValueTypes.TEXT && field.FieldValueType !== ISegiTable_1.FieldValueTypes.NUMBER) {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is a text area but its type is not text or number"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+            }
+            else {
+                if (typeof field.Rows !== "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is not a text area but provided rows property"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+                if (typeof field.Columns !== "undefined") {
+                    setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" is not a text area but provided columns property"));
+                    setIsError(true);
+                    return ["ERROR"];
+                }
+            }
+            if (field.IsEnabledColumn === true && newTableTemplate.Data.length > 0 && newTableTemplate.Data.filter(function (currentRow) { return Object.keys(currentRow).includes(field.DatabaseColumn); }).length === 0) {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" has IsEnabledColumn set to true but refers to the database column ").concat(field.DatabaseColumn, " which does not exist in the data"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof field.IsEmailAddress !== "undefined" && typeof field.IsURL !== "undefined") {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided both IsEmailAddress and IsURL. You can only provide one of these attributes for a given field"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof field.IsURL === "undefined" && typeof field.IsURLButton !== "undefined") {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided IsURLButton but IsURL is not set"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof field.IsURL === "undefined" && typeof field.IsURLHrefColumn !== "undefined") {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided IsURLHrefColumn but IsURL is not set"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof field.IsURL === "undefined" && typeof field.IsURLText !== "undefined") {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided IsURLText but IsURL is not set"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof field.IsURLText !== "undefined" && typeof field.IsURLHrefColumn !== "undefined") {
+                setErrorMessage("SegiTable Error: One IsURLText or IsURLHrefColumn can be provided but not both");
+                setIsError(true);
+                return ["ERROR"];
+            }
+            if (typeof field.Rows !== "undefined" && field.FieldType !== ISegiTable_1.FieldTypes.TEXTAREA) {
+                setErrorMessage("SegiTable Error: The field \"".concat(field.DisplayName, "\" provided Rows but this field is not a text area"));
+                setIsError(true);
+                return ["ERROR"];
+            }
+        });
+        return ["OK", newTableTemplate];
+    };
+    // Initialization use effect
+    (0, react_1.useEffect)(function () {
+        if (hasRunInitialEffect.current)
+            return;
+        var validatedTableComponentResult = validateTableComponent(tableTemplate);
+        if (validatedTableComponentResult[0] !== "OK") {
+            return;
+        }
+        var validatedTableComponent = validatedTableComponentResult[1];
+        // Build filter values
+        validatedTableComponent.Fields.map(function (field, index) {
+            if (field.Filterable === true && !field.IsIDColumn && !field.IsEnabledColumn && (field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD || field.FieldType === ISegiTable_1.FieldTypes.SELECT) && field.DisplayName !== "Notes") {
+                field.UniqueValues = Array.from(new Set(tableTemplate.Data
+                    .map(function (item) { return item[field.DatabaseColumn]; })
+                    .filter(function (name) { return name !== null && name !== ""; })
+                    .sort(function (a, b) {
+                    if (field.FieldValueType === ISegiTable_1.FieldValueTypes.CURRENCY) {
+                        // Always return in ASC order
+                        return parsePrice(a) - parsePrice(b);
+                    }
+                    else if (field.FieldValueType === ISegiTable_1.FieldValueTypes.DATE) {
+                        return new Date(a).getTime() - new Date(b).getTime();
+                    }
+                    else {
+                        return a.toString().toLowerCase() > b.toString().toLowerCase() ? 1 : -1;
+                    }
+                })));
+                // Ensures that select all is checked and all items are checkedxx 
+                field.UniqueValuesSelectAllSelected = true;
+            }
+        });
+        setCurrentTableComponent(validatedTableComponent);
+        setTableData(tableTemplate.Data);
+        if (typeof defaultPageSize !== "undefined") {
+            setPageSize(defaultPageSize);
+        }
+        var savedRowsPerPage = localStorage.getItem("SegiTable.RowsPerPage");
+        if (typeof savedRowsPerPage !== "undefined" && savedRowsPerPage !== null && savedRowsPerPage) {
+            setPageSize(parseInt(savedRowsPerPage, 10));
+        }
+        var saved = localStorage.getItem(COLUMN_STORAGE_KEY);
+        if (saved) {
+            setColumnWidths(JSON.parse(saved));
+        }
+        hasRunInitialEffect.current = true;
+    }, []);
+    // useEffect that triggers the filtering of the table data
+    (0, react_1.useEffect)(function () {
+        if (tableData !== null) {
+            filterTableData();
+        }
+    }, [currentPage, pageSize, searchTerm, sortColumn, sortDirection, tableData]);
+    // useEffect that is triggered when one of the filter values on a column has been changed
+    (0, react_1.useEffect)(function () {
+        if (currentTableComponent && currentTableComponent.Fields.filter(function (currentField) { return typeof currentField.UniqueValuesSelected !== "undefined" && typeof currentField.UniqueValuesSelected === "object" && currentField.UniqueValuesSelected.length >= 0; }).length > 0) {
+            filterTableData();
+        }
+    }, [currentTableComponent]);
+    // This will trigger the useEffect to recalculate the current page when the searchTerm changes
+    (0, react_1.useEffect)(function () {
+        setCurrentPage(1);
+    }, [searchTerm]);
+    (0, react_1.useEffect)(function () {
+        localStorage.setItem(COLUMN_STORAGE_KEY, JSON.stringify(columnWidths));
+    }, [columnWidths]);
+    return (react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTable), style: { width: typeof width !== "undefined" ? width : "100%" } },
+        isError &&
+            react_2.default.createElement("div", null, errorMessage),
+        !isError && filterTableData && hasRunInitialEffect.current === true &&
+            react_2.default.createElement("span", { className: "SegiTable" },
+                filterTableData && expandedId === null &&
+                    react_2.default.createElement(SegiTableControls, { addClickHandler: addClickHandler, addingText: addingText, cancelAddClickHandler: cancelAddClickHandler, cancelEditCallBackHandler: cancelEditCallBackHandler, currentTableComponent: currentTableComponent, editable: editable, editClickHandler: editClickHandler, exportable: exportable, exportCSV: exportCSV, isAdding: isAdding, isEditing: isEditing, saveAddCallBackHandler: saveAddCallBackHandler, saveEditCallBackHandler: saveEditCallBackHandler, searchable: searchable, searchTerm: searchTerm, setSearchTerm: setSearchTerm, tableData: tableData }),
+                tableData &&
+                    react_2.default.createElement(react_2.default.Fragment, null,
+                        isAdding &&
+                            react_2.default.createElement(SegiTableAddRow, { addFieldChangeHandler: addFieldChangeHandler, addingHasDisabledCheckboxPlaceholder: addingHasDisabledCheckboxPlaceholder, currentTableComponent: currentTableComponent, darkMode: darkMode, idVisible: idVisible, isAdding: isAdding }),
+                        tableData.length === 0 && currentTableComponent.ExpandableDataLinked !== true && uniqueValuesVisibleColumn === "" &&
+                            react_2.default.createElement("span", { style: { fontSize: "24px", fontWeight: "bold" } }, "No Data"),
+                        (currentTableComponent.ExpandableDataLinked !== true || (currentTableComponent.ExpandableDataLinked === true)) &&
+                            react_2.default.createElement(SegiTableDataGrid, { columnWidths: columnWidths, currentPage: currentPage, currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, expandedId: expandedId, filteredTableData: filteredTableData, filterSearchTerm: filterSearchTerm, formatCurrency: formatCurrency, getEnabledColumn: getEnabledColumn, getFormattedDate: getFormattedDate, hasExpandableCriteriaMet: hasExpandableCriteriaMet, height: height, isAdding: isAdding, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, lastPage: lastPage, lastPageNum: lastPageNum, mergedPageSizes: mergedPageSizes, pageClickHandler: pageClickHandler, pageRecordStartEndLabel: pageRecordStartEndLabel, pageSize: pageSize, pageSizeClickHandler: pageSizeClickHandler, paginationEnabled: paginationEnabled, setColumnWidths: setColumnWidths, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId, setFilterSearchTerm: setFilterSearchTerm, showDisabled: showDisabled, sortable: sortable, sortColumn: sortColumn, sortColumnClickHandler: sortColumnClickHandler, sortDirection: sortDirection, tableData: tableData, tableRef: tableRef, toggleIDColumn: toggleIDColumn, toggleExpandableRow: toggleExpandableRow, uniqueValuesClearColumnClickHandler: uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler: uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler: uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn: uniqueValuesVisibleColumn })))));
+};
+var SegiTableControls = function (_a) {
+    var addClickHandler = _a.addClickHandler, addingText = _a.addingText, cancelAddClickHandler = _a.cancelAddClickHandler, cancelEditCallBackHandler = _a.cancelEditCallBackHandler, currentTableComponent = _a.currentTableComponent, editClickHandler = _a.editClickHandler, editable = _a.editable, exportable = _a.exportable, exportCSV = _a.exportCSV, isAdding = _a.isAdding, isEditing = _a.isEditing, saveAddCallBackHandler = _a.saveAddCallBackHandler, saveEditCallBackHandler = _a.saveEditCallBackHandler, searchable = _a.searchable, searchTerm = _a.searchTerm, setSearchTerm = _a.setSearchTerm, tableData = _a.tableData;
+    return (react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableSearchContainer) },
+        !isAdding && !isEditing && (typeof editable === "undefined" || (typeof editable !== "undefined" && editable !== false)) &&
+            react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableSaveButton), onClick: function () { return editClickHandler(); } }, "Edit"),
+        !isAdding && !isEditing && searchable &&
+            react_2.default.createElement("input", { className: "".concat(SegiTable_module_css_1.default.SegiTableSearch, " ").concat((editable !== false) && SegiTable_module_css_1.default.SegiTableMarginLeft25, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyle), value: searchTerm, onChange: function (event) { return setSearchTerm(event.target.value); }, placeholder: "  Search" }),
+        exportable && !isAdding && !isEditing && exportable &&
+            react_2.default.createElement("img", { alt: "Excel", className: "".concat(SegiTable_module_css_1.default.SegiTableExcelIconReadOnly, " ").concat(SegiTable_module_css_1.default.SegiTableClickable), src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAqFBMVEUdcET///8AZTHe5+EQbD7Q3NRtnIHq8u5tmX8AYiwAajnu8u8AZDCZtaRIg2EObD11noVfkHOJq5aov7HI1s0jckdXjG34+/lXlHQAYCdFiWWzzL8weFCIs5zh7efY5d6dwqyjwrE3g1t/p5AqelBWkG+30cOCr5W2y7/T3thBgV2qybnF3c+Lrpq0yb0wf1Z6rJDO4tZIjmkAWx0AVQihu6s3elSRuaRS4H3gAAAHhElEQVR4nO2dbUOqPBiAASfkUKcmwjGV8AULMvOck/3/f/bwUmxak3nC3Hju6yNji6sbuLcxUNMAAAAAAAAAAAAAAAAAAAAA4LIghDG+9kFcCkSwoY29zsNrDRWTwLWW3vqu2bAsV380rn08FZKelO3W3HsLbdd19ZxmLQwRQprjTCJvGs70I1Q3RIgQZx+NzHX8ZB3LqW6Y3EvQdtxfbIJw534pp65h4oa1+WrRuQ13n85K1Q0TufZ2Zb4+D5u+XSanmiHChrH11kGzMbNOnJVKGqZJwJib90Pbds9wU8AwTQJJFkgTXOnlppwhIijJb6P+Oj51n1TTMLmXaNuo30uSgP9NOekMk06XsRx7aRLgZG+FDdMMtxybnSQJNKoInFSGySiHzL1p/OiflQTUMES4hbcvaRKwL+F2fUO0isW6JeoamtXdT0oMSRUgiQ1Jrwpu9uc6/pxhq5KW3GBfc0Pd7ZOaG+o3Z56mYFgNlRrCWQqGFwEMz0FeQzLgMUx3cRfc8sGgo4Qht1/azo7f/sXvjOJIDUMeODdsnTjI7v/LUNp8WJlh/WNYf0M4S9U3hBiCIRiCIRiCIRjKbIg4GO/jQ145QkSN8WH9ZzHAUBQwBMPzcX3/KY6D4NQqgNQQ9TmMbtNd7BGvPKF3LcPYiyaTieM4SUNvp3b8ZrY4nE2senzoJti2OwzD+/XusMhf4Y//J+qebEbqjB/P51uj1TIwxu3B4Zl4t6TNrE82IrXhbFK0iMY+W2Iv6FsUzul1i1Ib6iZtET0fHPa8KCAvp9uQ29BvU5EFs7Mb0EveKFl6Kreh/ps2uWROU2tVbCdeSROSGz7RIOI7unlIr0Ls82urYOiOmXtNsQjO9ZgQlq35k9xQD5hoNT42zuhBk2FZC7IbWvOiUVzkvZfiPkPKm5Dd0O3QIC4/TkimiYfSFmQ31Ju089J+yjeFxTGTfvlbCtIbuoMiiOg9MdBUoQUC/yLZDfU7pkZ2mu6cooFVWapQwtDqFfcVFKQb1jSBbATqKzDXFtAKq9S4S4dNAiHMR8AjHvkIuMstH41uLm84o9fdPlEKipNUm4pUV2EWY0OrbHSLjjcmIiFUwtAvllejvvtUjJuIKVRbBUNmmLgPO8V9B4u9saeE4Y72a1bFRYl+i1VWwlAff9FyW+gqfM8WDgeUZwuDV+442s88ewo/f9uCmIKvSn0z45Mfero2/1QZNwWryt+nyQiOg0g80bqKGFrL48rlwya1DNlhYlbVE365WxFDvekcVCWBeE1FDK0X9qGI0LBJMUP9gW2cDMQrqmLobtgLEUW78iqKGTYPb6akI/xqtCKG7vToXjoWvhAVMZwd50NyLxpERQzfjvs0aFyvPo37uWX2QU0NDNdfrBDYCn6tQImV7G7RsEO7NkZwhqHsb3bdfxii7oIqbsUNyWKw+JqsA2/3OKUpP/F2HjND2vP7xR9ph8KGss9i3Bc1lrFOZ6Ky+eFyFDCkM8Koa+vDiDYgdDtVwJCZ1Z8mdx3mMYbQhKn8hpZJldJ+TEy7NxORKzEzrOgDP5d+upYvLGFXmvQEjjzLFi0Of7KnV/ZfXnmr9WtyaUMmhEb+DHhKW9iXrlNQIOM/0N3n+RafpkS0KQ+i7L02mwlh/L6NrqZBUfmsqeyGPt19+7E3XamgkbfSIMpuSENI1oUMM5RaNk7VVsCwwYTrsdg6pRc8DhQ3pGsT2Z0tNohlbchtaNE/za5+ck0miCeXsVdtWHm2eGG62ezU05Cd1Ci510gdQ39S7EsOMp/FPDI1SvrfUsdwQfeNntgCl/k5ABTxql/AsOIY7iJuD7S5ZZqJOfXlN9xkb1okEKQFh0X2gp4vaKSsYfZe0y64D0xzfbznnYboyqGTQZTbkM+s1x3t9/ul42gEm6cmFlU11K2ZFYZhHASdwWBz6iFGZog5tHLDP7xyjA053gMuezsP33J4zcYm7iuvPIF9V0feb5vIPU/zXeDLkOcAMbyeodHgkecZbnEKayhtDDWDw588W/zllRtGa6+GIY9rjy3kM4QYqm9Y/xiCofqGcB2qbwgxBEMwBMPLG8Kd5nqGmDP6+/U+m8gfH7YPxofSxhAPeWQjeJdbnMCuhZA3hjATJQoYguFlAMNzkDdbQAxFgRgqb8h8ZUU2Q/6TmXNo9s8U/NEnM+0KMM4V1JDAl7oqMrwW+94muNtdOJBXNdQQ1ibdfm8RhOJvn6tlmFkmOJOou1rH4i9oK2X4Tv7tsOXvt7jii1Maw3cQwW0yNiv8rW7ZDDMQwgbeeuu7ZgW/ty6lYU4azu3Y7DwPm/43fqFcYsOMRBM789WiE4S7f7tAZTfMSTyztDL4h7SihmEGQiRNKyPzJX46o5egkGFOmlM0zdl701D8i3RKgjBuG3PvLbRs9+TtVlnDnMSzNU/TSoObVhQ3zEjuQ8Zy7GVp5fMFWgfDjKSXgLVo1evchju/loY5iSdZjleLzVu4s2tpmJGkFaLto9HNIkjSymMNDXOytLKcRF99N7NWoLoLAgAAAAAAAAAAAAAAAAAAAD8K/52bmqBVsrpTZjSh5+0q8x/REgMbo6miWAAAAABJRU5ErkJggg==", onClick: exportCSV, width: 45, height: 45 }),
+        isEditing && !isAdding &&
+            react_2.default.createElement("table", null,
+                react_2.default.createElement("tbody", null,
+                    react_2.default.createElement("tr", null,
+                        react_2.default.createElement("td", null,
+                            react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableSaveButton), onClick: function () { return saveEditCallBackHandler(tableData); } }, "Save"),
+                            react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableCancelButton), onClick: function () { return cancelEditCallBackHandler(); } }, "Cancel"),
+                            react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableAddButton), onClick: function () { return addClickHandler(); } }, typeof addingText !== "undefined" ? addingText : "Add"))))),
+        isAdding &&
+            react_2.default.createElement("div", null,
+                react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableSaveButton), onClick: function () { return saveAddCallBackHandler(currentTableComponent.Fields); } }, typeof addingText !== "undefined" ? addingText : "Add"),
+                react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableCancelButton), onClick: function () { return cancelAddClickHandler(); } }, "Cancel"))));
+};
+exports["default"] = SegiTable;
+var SegiTableAddRow = function (_a) {
+    var addFieldChangeHandler = _a.addFieldChangeHandler, addingHasDisabledCheckboxPlaceholder = _a.addingHasDisabledCheckboxPlaceholder, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, idVisible = _a.idVisible, isAdding = _a.isAdding;
+    return (react_2.default.createElement("table", { className: SegiTable_module_css_1.default.SegiTableMarginBottom25 },
+        react_2.default.createElement("thead", null,
+            react_2.default.createElement("tr", { className: "".concat(!darkMode ? "lightMode" : "darkMode") },
+                currentTableComponent && currentTableComponent.Fields
+                    .filter(function (field) {
+                    return ((isAdding && (typeof field.Addable === "undefined" || (typeof field.Addable !== "undefined" && field.Addable !== false))
+                        ||
+                            (!isAdding && ((field === null || field === void 0 ? void 0 : field.HiddenField) !== true || ((field === null || field === void 0 ? void 0 : field.HiddenField) === true && idVisible)))));
+                }).map(function (field, index) {
+                    return (react_2.default.createElement("th", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(field.IsIDColumn === true ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(field.Clickable ? "".concat(SegiTable_module_css_1.default.SegiTableClickable) : "", " ").concat(!darkMode ? "lightMode" : "darkMode") }, field.DisplayName));
+                }),
+                isAdding && currentTableComponent && addingHasDisabledCheckboxPlaceholder &&
+                    react_2.default.createElement("th", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(!darkMode ? "lightMode" : "darkMode") }, "Enabled"))),
+        react_2.default.createElement("tbody", null,
+            react_2.default.createElement("tr", { className: "".concat(!darkMode ? "lightMode" : "darkMode") },
+                currentTableComponent.Fields.filter(function (field) {
+                    return (typeof field.Addable == "undefined" || (typeof field.Addable != "undefined" && field.Addable != false));
+                }).map(function (field, index) {
+                    var _a, _b, _c;
+                    return (react_2.default.createElement(react_2.default.Fragment, { key: index }, isAdding &&
+                        react_2.default.createElement("td", { className: SegiTable_module_css_1.default.SegiTableDataCell },
+                            field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD && field.Disabled !== true &&
+                                react_2.default.createElement(react_2.default.Fragment, null,
+                                    react_2.default.createElement("input", { className: SegiTable_module_css_1.default.SegiTableInputStyle, value: typeof field.FieldValue !== "undefined" ? field.FieldValue : typeof field.DefaultAddValue !== "undefined" ? field.DefaultAddValue : "", required: field.Required === true ? true : false, onChange: function (event) { return addFieldChangeHandler(field.DatabaseColumn, event.target.value); } })),
+                            field.FieldType === ISegiTable_1.FieldTypes.TEXTAREA &&
+                                react_2.default.createElement(react_2.default.Fragment, null,
+                                    react_2.default.createElement("textarea", { rows: typeof field.Rows !== "undefined" ? field.Rows : 10, cols: typeof field.Columns !== "undefined" ? field.Columns : 10, className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyleFullWidth), value: typeof field.FieldValue !== "undefined" ? field.FieldValue : typeof field.DefaultAddValue !== "undefined" ? field.DefaultAddValue : "", required: field.Required === true ? true : false, onChange: function (event) { return addFieldChangeHandler(field.DatabaseColumn, event.target.value); } })),
+                            field.FieldType === ISegiTable_1.FieldTypes.SELECT && field.Disabled !== true &&
+                                react_2.default.createElement("select", { className: "".concat(SegiTable_module_css_1.default.SegiTableSolidBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSelectStyle), value: typeof field.FieldValue !== "undefined" ? field.FieldValue : typeof field.DefaultAddValue !== "undefined" ? field.DefaultAddValue : "", required: field.Required === true ? true : false, onChange: function (event) { return addFieldChangeHandler(field.DatabaseColumn, event.target.value); } },
+                                    react_2.default.createElement("option", { value: "-1" }, "Please select"), (_a = field.SelectData) === null || _a === void 0 ? void 0 :
+                                    _a.filter(function (currentItem) { return (field.SelectDataEnabledOnly !== true || (field.SelectDataEnabledOnly === true && currentItem[field.SelectDataEnabledOnlyColumn] === true)); }).map(function (currentItem, index) {
+                                        return react_2.default.createElement("option", { key: index, value: currentItem[field.SelectDataIDColumn] }, "".concat(currentItem[field.SelectDataValueColumn]));
+                                    })),
+                            field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD && field.Disabled === true &&
+                                react_2.default.createElement("div", null, field.FieldValue),
+                            field.FieldType === ISegiTable_1.FieldTypes.SELECT && field.Disabled === true &&
+                                ((_b = field.SelectData) === null || _b === void 0 ? void 0 : _b.filter(function (currentItem) { return (field.DatabaseColumn === currentItem[field.SelectDataValueColumn]); }).length) === 1 &&
+                                react_2.default.createElement("div", null, (_c = field.SelectData) === null || _c === void 0 ? void 0 : _c.filter(function (currentItem) { return (field.DatabaseColumn === currentItem[field.SelectDataValueColumn]); })[0][field.SelectDataValueColumn]))));
+                }),
+                isAdding && addingHasDisabledCheckboxPlaceholder &&
+                    react_2.default.createElement("td", { className: SegiTable_module_css_1.default.SegiTableDataCell },
+                        react_2.default.createElement("input", { id: "addDisabledEnabledCheckbox", name: "addEnabled", className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle), type: "checkbox", disabled: true, checked: true }))))));
+};
+var SegiTableDataGrid = function (_a) {
+    var columnWidths = _a.columnWidths, currentPage = _a.currentPage, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, filterSearchTerm = _a.filterSearchTerm, formatCurrency = _a.formatCurrency, getEnabledColumn = _a.getEnabledColumn, getFormattedDate = _a.getFormattedDate, hasExpandableCriteriaMet = _a.hasExpandableCriteriaMet, height = _a.height, isAdding = _a.isAdding, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, lastPage = _a.lastPage, lastPageNum = _a.lastPageNum, mergedPageSizes = _a.mergedPageSizes, pageClickHandler = _a.pageClickHandler, pageRecordStartEndLabel = _a.pageRecordStartEndLabel, pageSize = _a.pageSize, pageSizeClickHandler = _a.pageSizeClickHandler, paginationEnabled = _a.paginationEnabled, setColumnWidths = _a.setColumnWidths, setCurrentTableComponent = _a.setCurrentTableComponent, setExpandedId = _a.setExpandedId, setFilterSearchTerm = _a.setFilterSearchTerm, showDisabled = _a.showDisabled, sortable = _a.sortable, sortColumn = _a.sortColumn, sortColumnClickHandler = _a.sortColumnClickHandler, sortDirection = _a.sortDirection, tableData = _a.tableData, tableRef = _a.tableRef, toggleIDColumn = _a.toggleIDColumn, toggleExpandableRow = _a.toggleExpandableRow, uniqueValuesClearColumnClickHandler = _a.uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler = _a.uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler = _a.uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn = _a.uniqueValuesVisibleColumn;
+    return (react_2.default.createElement("div", null,
+        react_2.default.createElement("div", { id: "".concat(SegiTable_module_css_1.default.SegiTableGridContent), className: "".concat(SegiTable_module_css_1.default.SegiTableGridContent), style: { height: typeof height !== "undefined" ? height : "auto", overflow: "auto" } },
+            react_2.default.createElement("table", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataGrid), ref: tableRef },
+                react_2.default.createElement(SegiTableDataGridHeaders, { columnWidths: columnWidths, currentTableComponent: currentTableComponent, darkMode: darkMode, expandedId: expandedId, filterSearchTerm: filterSearchTerm, hasExpandableCriteriaMet: hasExpandableCriteriaMet, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, setColumnWidths: setColumnWidths, setFilterSearchTerm: setFilterSearchTerm, sortable: sortable, sortColumn: sortColumn, sortColumnClickHandler: sortColumnClickHandler, sortDirection: sortDirection, toggleIDColumn: toggleIDColumn, uniqueValuesClearColumnClickHandler: uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler: uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler: uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn: uniqueValuesVisibleColumn }),
+                react_2.default.createElement(SegiTableDataGridBody, { currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, expandedId: expandedId, filteredTableData: filteredTableData, formatCurrency: formatCurrency, getEnabledColumn: getEnabledColumn, getFormattedDate: getFormattedDate, isEditing: isEditing, isExpandable: isExpandable, isVisible: isVisible, onToggleExpandableRow: toggleExpandableRow, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId, showDisabled: showDisabled }))),
+        paginationEnabled && tableData.length > 0 && !isAdding && !isEditing && expandedId === null &&
+            react_2.default.createElement(SegiTablePagination, { currentPage: currentPage, darkMode: darkMode, lastPage: lastPage, lastPageNum: lastPageNum, mergedPageSizes: mergedPageSizes, pageClickHandler: pageClickHandler, pageRecordStartEndLabel: pageRecordStartEndLabel, pageSize: pageSize, pageSizeClickHandler: pageSizeClickHandler })));
+};
+var SegiTableDataGridHeaders = function (_a) {
+    var columnWidths = _a.columnWidths, currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, expandedId = _a.expandedId, filterSearchTerm = _a.filterSearchTerm, hasExpandableCriteriaMet = _a.hasExpandableCriteriaMet, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, setColumnWidths = _a.setColumnWidths, setFilterSearchTerm = _a.setFilterSearchTerm, sortable = _a.sortable, sortColumn = _a.sortColumn, sortColumnClickHandler = _a.sortColumnClickHandler, sortDirection = _a.sortDirection, toggleIDColumn = _a.toggleIDColumn, uniqueValuesClearColumnClickHandler = _a.uniqueValuesClearColumnClickHandler, uniqueValuesColumnClickHandler = _a.uniqueValuesColumnClickHandler, uniqueValuesOptionClickHandler = _a.uniqueValuesOptionClickHandler, uniqueValuesVisibleColumn = _a.uniqueValuesVisibleColumn;
+    var activeColumnRef = (0, react_1.useRef)(null);
+    var defaultOpacity = '1';
+    var startXRef = (0, react_1.useRef)(0);
+    var startWidthRef = (0, react_1.useRef)(0);
+    var eventDisabled = false;
+    var spanRef = (0, react_1.useRef)(null);
+    var onMouseDown = function (e, columnKey, currentWidth) {
+        if (expandedId !== null) {
+            document.body.style.cursor = 'default';
+            return;
+        }
+        document.body.style.cursor = 'col-resize';
+        startXRef.current = e.clientX;
+        startWidthRef.current = currentWidth;
+        activeColumnRef.current = columnKey;
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+    };
+    var onMouseMove = function (e) {
+        if (!activeColumnRef.current || expandedId !== null)
+            return;
+        var delta = e.clientX - startXRef.current;
+        var newWidth = Math.max(MIN_COLUMN_WIDTH, startWidthRef.current + delta);
+        setColumnWidths(function (prev) {
+            var _a;
+            return (__assign(__assign({}, prev), (_a = {}, _a[activeColumnRef.current] = newWidth, _a)));
+        });
+    };
+    var onMouseUp = function () {
+        document.body.style.cursor = 'default';
+        activeColumnRef.current = null;
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+    };
+    // When the filter span is visible, if you click outside of the span area, this use Effect will make sure that it closes
+    (0, react_1.useEffect)(function () {
+        function handleClickOutside(event) {
+            if (eventDisabled === true) {
+                return;
+            }
+            if (spanRef.current && !spanRef.current.contains(event.target)) {
+                uniqueValuesClearColumnClickHandler();
+                eventDisabled = true; // Used to prevent clear filter from bein called too often because it causes filter span to cloe then reappear
+                setTimeout(function () {
+                    eventDisabled = false;
+                }, 5000);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return function () {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+    var opacity = typeof currentTableComponent.SemiTransparentTableHeader === "undefined"
+        ? 1
+        : typeof currentTableComponent.SemiTransparentTableHeaderOpacity !== "undefined"
+            ? currentTableComponent.SemiTransparentTableHeaderOpacity
+            : defaultOpacity;
+    return (react_2.default.createElement("thead", { className: "styles.SegiTableDataGridHeader" },
+        react_2.default.createElement("tr", { className: "".concat(darkMode ? "darkMode" : ""), style: {
+                opacity: opacity
+            } },
+            isExpandable && hasExpandableCriteriaMet && !isEditing &&
+                react_2.default.createElement("th", { style: { width: "5%" }, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(darkMode ? "darkMode" : "") }),
+            currentTableComponent && currentTableComponent.Fields
+                .filter(function (field) {
+                return isVisible(field);
+            }).map(function (field, index) {
+                var _a, _b, _c;
+                var columnKey = field.DatabaseColumn;
+                var width = (_a = columnWidths[columnKey]) !== null && _a !== void 0 ? _a : parseInt(field.ColumnWidth || "150", 10);
+                return (react_2.default.createElement("th", { key: index, style: {
+                        opacity: field.SemiTransparentTableColumn === true ? "0.8" : "1",
+                        borderWidth: "1px",
+                        width: (_b = columnWidths[field.DatabaseColumn]) !== null && _b !== void 0 ? _b : parseInt(typeof field.ColumnWidth !== "undefined" ? field.ColumnWidth : "150", 10),
+                        minWidth: MIN_COLUMN_WIDTH
+                    }, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(SegiTable_module_css_1.default.SegiTableDataGridHeader, " ").concat(field.IsIDColumn === true ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(darkMode ? " darkMode" : ""), onDoubleClick: typeof field.TogglesIDColumn !== "undefined" ? toggleIDColumn : typeof field.ClickCallBack !== "undefined" ? field.ClickCallBack : null },
+                    react_2.default.createElement("span", { className: "".concat(field.Clickable ? "".concat(SegiTable_module_css_1.default.SegiTableClickable) : ""), style: { marginLeft: "10px", userSelect: "none" } }, field.DisplayName),
+                    sortable === true && field.SortableField !== false && !isEditing &&
+                        react_2.default.createElement(react_2.default.Fragment, null,
+                            (sortColumn === "" || (sortColumn !== "" && sortColumn !== field.DatabaseColumn)) &&
+                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
+                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnUnselected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable, " ").concat(!darkMode ? "".concat(SegiTable_module_css_1.default.SegiTableArrowLightMode) : "") }, "\u2191")),
+                            sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "ASC" &&
+                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
+                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnSelected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2191")),
+                            sortColumn !== "" && sortColumn === field.DatabaseColumn && sortDirection === "DESC" &&
+                                react_2.default.createElement("span", { className: "styles.SegiTableClickable", onClick: function () { return sortColumnClickHandler(field.DatabaseColumn); } },
+                                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableNoBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSortColumnSelected, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, "\u2193"))),
+                    field.Filterable === true && typeof field.UniqueValues !== "undefined" && !isEditing &&
+                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterIcon, " ").concat(SegiTable_module_css_1.default.SegiTableClickable, " ").concat(!sortable ? SegiTable_module_css_1.default.SegiTableMarginLeft25 : ""), onClick: function () { return uniqueValuesColumnClickHandler(field.DisplayName); } }),
+                    uniqueValuesVisibleColumn === field.DisplayName &&
+                        react_2.default.createElement("span", { className: SegiTable_module_css_1.default.SegiTableFilterGrid, ref: spanRef },
+                            react_2.default.createElement("input", { className: SegiTable_module_css_1.default.SegiTableInputStyle, placeholder: "search", value: filterSearchTerm, onChange: function (event) { return setFilterSearchTerm(event.target.value); } }),
+                            react_2.default.createElement("table", null,
+                                react_2.default.createElement("tbody", null,
+                                    react_2.default.createElement("tr", null,
+                                        react_2.default.createElement("td", { style: { width: (_c = columnWidths[field.DatabaseColumn]) !== null && _c !== void 0 ? _c : parseInt(field.ColumnWidth || "150", 10) } },
+                                            react_2.default.createElement("input", { type: "checkbox", checked: typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? field.UniqueValuesSelectAllSelected : false, onChange: function (event) { return uniqueValuesOptionClickHandler(field.DisplayName, null, event.target.checked); } }),
+                                            react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterGridOption, " ").concat(SegiTable_module_css_1.default.SegiTableMarginLeft10) }, "(Select all)"))),
+                                    field.UniqueValues
+                                        .filter(function (uniqueValue, index) {
+                                        return ((filterSearchTerm === "" || (filterSearchTerm !== "" && uniqueValue.toString().toLowerCase().includes(filterSearchTerm.toLowerCase()))));
+                                    }).map(function (uniqueValue, index) {
+                                        var _a, _b;
+                                        return (react_2.default.createElement("tr", { key: index },
+                                            react_2.default.createElement("td", { style: {
+                                                    width: (_a = columnWidths[field.DatabaseColumn]) !== null && _a !== void 0 ? _a : parseInt(field.ColumnWidth || "150", 10)
+                                                } },
+                                                react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableInputStyle, checked: typeof field.UniqueValuesSelectAllSelected !== "undefined" && field.UniqueValuesSelectAllSelected === true ? true : typeof field.UniqueValuesSelected !== "undefined" ? (_b = field.UniqueValuesSelected) === null || _b === void 0 ? void 0 : _b.includes(uniqueValue) : false, onChange: function () { return uniqueValuesOptionClickHandler(field.DisplayName, uniqueValue); } }),
+                                                react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableFilterGridOption, " ").concat(SegiTable_module_css_1.default.SegiTableMarginLeft10) }, uniqueValue))));
+                                    })))),
+                    react_2.default.createElement("div", { className: expandedId === null ? SegiTable_module_css_1.default.ColumnResizer : "", onMouseDown: function (e) {
+                            return onMouseDown(e, columnKey, width);
+                        } })));
+            }))));
+};
+var SegiTableDataGridBody = function (_a) {
+    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, formatCurrency = _a.formatCurrency, getEnabledColumn = _a.getEnabledColumn, getFormattedDate = _a.getFormattedDate, isEditing = _a.isEditing, isExpandable = _a.isExpandable, isVisible = _a.isVisible, onToggleExpandableRow = _a.onToggleExpandableRow, setCurrentTableComponent = _a.setCurrentTableComponent, setExpandedId = _a.setExpandedId, showDisabled = _a.showDisabled;
+    // Gets the URL display text
+    var getURLText = function (currentRow, field) {
+        return typeof field.IsURLDisplayTextColumn !== "undefined"
+            ? currentRow[field.IsURLDisplayTextColumn]
+            : typeof field.IsURLText !== "undefined"
+                ? field.IsURLText
+                : currentRow[field.DatabaseColumn];
+    };
+    return (react_2.default.createElement("tbody", null,
+        !isEditing &&
+            react_2.default.createElement(SegiTableDataGridBodyReadOnlyFields, { currentTableComponent: currentTableComponent, darkMode: darkMode, expandedId: expandedId, filteredTableData: filteredTableData, formatCurrency: formatCurrency, getEnabledColumn: getEnabledColumn, getFormattedDate: getFormattedDate, getURLText: getURLText, isExpandable: isExpandable, isVisible: isVisible, onToggleExpandableRow: onToggleExpandableRow, setCurrentTableComponent: setCurrentTableComponent, setExpandedId: setExpandedId, showDisabled: showDisabled }),
+        isEditing &&
+            react_2.default.createElement(SegiTableDataGridBodyEditableFields, { currentTableComponent: currentTableComponent, darkMode: darkMode, editFieldChangeHandler: editFieldChangeHandler, filteredTableData: filteredTableData, getEnabledColumn: getEnabledColumn, getFormattedDate: getFormattedDate, getURLText: getURLText, isVisible: isVisible, showDisabled: showDisabled })));
+};
+var SegiTableDataGridBodyReadOnlyFields = function (_a) {
+    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, expandedId = _a.expandedId, filteredTableData = _a.filteredTableData, formatCurrency = _a.formatCurrency, getEnabledColumn = _a.getEnabledColumn, getFormattedDate = _a.getFormattedDate, getURLText = _a.getURLText, isExpandable = _a.isExpandable, isVisible = _a.isVisible, onToggleExpandableRow = _a.onToggleExpandableRow, setExpandedId = _a.setExpandedId, showDisabled = _a.showDisabled;
+    (0, react_1.useEffect)(function () {
+        var storedId = localStorage.getItem("SegiTable.LastOpenedId");
+        localStorage.removeItem("SegiTable.LastOpenedId");
+        if (!isExpandable && storedId && storedId !== "") {
+            setExpandedId(storedId);
+        }
+    }, []);
+    return (react_2.default.createElement(react_2.default.Fragment, null, typeof filteredTableData !== "undefined" && filteredTableData && filteredTableData
+        .filter(function (currentRow) {
+        var enabledColumn = getEnabledColumn();
+        var currentRowEnabled = currentRow[enabledColumn];
+        var showRow = (typeof showDisabled === "undefined" || showDisabled === false) ? true : (typeof showDisabled !== "undefined" && showDisabled && !currentRowEnabled) ? false : true;
+        if (expandedId === null && showRow) {
+            return true;
+        }
+        else if (expandedId !== null) {
+            return (String(currentRow[currentTableComponent.ExpandableDataColumn]) === String(expandedId));
+        }
+        else {
+            return false;
+        }
+    })
+        .map(function (currentRow, rowIndex) {
+        var _a;
+        var expandableContent = null;
+        var expandableCriteriaMet = false;
+        // Match Field level 
+        if (isExpandable && typeof currentTableComponent.ExpandableContent !== "undefined") { // Uses template level expandable content
+            expandableCriteriaMet = true;
+            expandableContent = currentTableComponent.ExpandableContent;
+        }
+        var newDarkMode = "";
+        if (!darkMode && isExpandable) {
+            newDarkMode = "lightMode 1";
+        }
+        else {
+            if (rowIndex % 2 !== 0) {
+                if (!expandableCriteriaMet && darkMode) {
+                    newDarkMode = "darkMode 1";
+                }
+                else {
+                    newDarkMode = "lightMode 2";
+                }
+            }
+            else if (expandedId !== null && rowIndex == parseInt(expandedId, 10) && rowIndex % 2 !== 0) {
+                newDarkMode = "lightMode 3";
+            }
+            else if (rowIndex % 2 === 0 && expandableContent !== null) {
+                if (expandedId !== null) {
+                    newDarkMode = "darkMode 2";
+                }
+                else {
+                    if (rowIndex % 2 === 0 && expandableContent !== null) {
+                        newDarkMode = "darkMode 3";
+                    }
+                }
+            }
+        }
+        if (newDarkMode === "" && darkMode) {
+            if (rowIndex % 2 === 0 && !darkMode && expandedId === null) {
+                newDarkMode = "darkMode 4";
+            }
+            else {
+                newDarkMode = "lightMode 4";
+            }
+        }
+        return (react_2.default.createElement(react_2.default.Fragment, { key: rowIndex },
+            react_2.default.createElement("tr", { key: rowIndex, className: "".concat(newDarkMode) },
+                isExpandable && expandableCriteriaMet &&
+                    react_2.default.createElement("td", { className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell), onClick: function () { return onToggleExpandableRow(currentRow[currentTableComponent.ExpandableDataColumn]); } },
+                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableArrow, " ").concat(SegiTable_module_css_1.default.SegiTableClickable) }, expandedId !== null && expandedId === String(currentRow[currentTableComponent.ExpandableDataColumn]) ? '▼' : '▶')),
+                currentTableComponent.Fields
+                    .filter(function (field) {
+                    return isVisible(field);
+                })
+                    .map(function (field, index) {
+                    var _a, _b;
+                    return (react_2.default.createElement("td", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(field.IsIDColumn ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(field.Centered ? SegiTable_module_css_1.default.SegiTableCentered : "") },
+                        ((field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD || field.FieldType === ISegiTable_1.FieldTypes.TEXTAREA) || field.IsIDColumn || field.Disabled === true) &&
+                            react_2.default.createElement(react_2.default.Fragment, null,
+                                !field.IsURL && !field.IsEmailAddress &&
+                                    react_2.default.createElement(react_2.default.Fragment, null,
+                                        field.FieldValueType === ISegiTable_1.FieldValueTypes.DATE &&
+                                            react_2.default.createElement(react_2.default.Fragment, null, currentRow[field.DatabaseColumn] !== null && currentRow[field.DatabaseColumn] !== "" &&
+                                                react_2.default.createElement("div", null, getFormattedDate(currentRow[field.DatabaseColumn], "/", "mm/dd/yyyy"))),
+                                        field.FieldValueType !== ISegiTable_1.FieldValueTypes.DATE &&
+                                            react_2.default.createElement(react_2.default.Fragment, null,
+                                                field.FieldValueType !== ISegiTable_1.FieldValueTypes.CURRENCY &&
+                                                    react_2.default.createElement("div", null, currentRow[field.DatabaseColumn]),
+                                                field.FieldValueType === ISegiTable_1.FieldValueTypes.CURRENCY &&
+                                                    react_2.default.createElement(react_2.default.Fragment, null, currentRow[field.DatabaseColumn] !== null &&
+                                                        react_2.default.createElement("div", null, formatCurrency(currentRow[field.DatabaseColumn]))))),
+                                field.IsURL &&
+                                    react_2.default.createElement(react_2.default.Fragment, null,
+                                        typeof field.IsURLButton === "undefined" &&
+                                            react_2.default.createElement("div", null,
+                                                react_2.default.createElement("a", { href: typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn], target: "_blank" }, getURLText(currentRow, field))),
+                                        typeof field.IsURLButton !== "undefined" &&
+                                            react_2.default.createElement(react_2.default.Fragment, null,
+                                                currentRow[field.IsURLHrefColumn] !== null &&
+                                                    react_2.default.createElement("button", { className: "".concat(SegiTable_module_css_1.default.SegiTableButtonStyle, " ").concat(SegiTable_module_css_1.default.SegiTableURLButton), onClick: function () { return window.open(typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn], '_blank'); } }, getURLText(currentRow, field)),
+                                                currentRow[field.IsURLHrefColumn] === null &&
+                                                    react_2.default.createElement("div", null, currentRow[field.DatabaseColumn]))),
+                                field.IsEmailAddress &&
+                                    react_2.default.createElement("div", null,
+                                        react_2.default.createElement("a", { href: "mailto:".concat(currentRow[field.DatabaseColumn]), target: "_blank" }, currentRow[field.DatabaseColumn]))),
+                        field.FieldType === ISegiTable_1.FieldTypes.SELECT && typeof currentRow[field.SelectDataIDColumn] !== "undefined" && currentRow[field.SelectDataIDColumn] !== -1 &&
+                            react_2.default.createElement(react_2.default.Fragment, null, ((_a = field.SelectData) === null || _a === void 0 ? void 0 : _a.filter(function (currentItem) { return (String(currentItem[field.SelectDataIDColumn]) === String(currentRow[field.SelectDataIDColumn])); }).length) === 1 &&
+                                react_2.default.createElement("div", null, (_b = field.SelectData) === null || _b === void 0 ? void 0 : _b.filter(function (currentItem) { return (String(currentItem[field.SelectDataIDColumn]) === String(currentRow[field.SelectDataIDColumn])); })[0][field.SelectDataValueColumn])),
+                        field.FieldType === ISegiTable_1.FieldTypes.CHECKBOX &&
+                            react_2.default.createElement("input", { type: "checkbox", className: SegiTable_module_css_1.default.SegiTableInputStyle, disabled: true, checked: currentRow[field.DatabaseColumn] })));
+                })),
+            ((expandedId === String(currentRow[currentTableComponent.ExpandableDataColumn]))) && expandableContent !== null &&
+                react_2.default.createElement("tr", null,
+                    react_2.default.createElement("td", { colSpan: (_a = currentTableComponent.Fields) === null || _a === void 0 ? void 0 : _a.length },
+                        react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTableExpandableContent) },
+                            typeof expandableContent === "string" &&
+                                react_2.default.createElement("div", { dangerouslySetInnerHTML: { __html: expandableContent } }),
+                            typeof expandableContent === "object" &&
+                                react_2.default.createElement(react_2.default.Fragment, null, expandableContent))))));
+    })));
+};
+var SegiTableDataGridBodyEditableFields = function (_a) {
+    var currentTableComponent = _a.currentTableComponent, darkMode = _a.darkMode, editFieldChangeHandler = _a.editFieldChangeHandler, filteredTableData = _a.filteredTableData, getEnabledColumn = _a.getEnabledColumn, getFormattedDate = _a.getFormattedDate, getURLText = _a.getURLText, isVisible = _a.isVisible, showDisabled = _a.showDisabled;
+    return (react_2.default.createElement(react_2.default.Fragment, null, filteredTableData && filteredTableData
+        .filter(function (currentRow) {
+        var enabledColumn = getEnabledColumn();
+        var showRow = ((typeof showDisabled === "undefined" || showDisabled === false) || (showDisabled === true && currentRow[enabledColumn] === true));
+        if (showRow) {
+            return true;
+        } /*else {
+             return String(currentRow[currentTableComponent.ExpandableDataColumn]) === String(expandedId);
+        }*/
+    })
+        .map(function (currentRow, index) {
+        {
+            return (react_2.default.createElement("tr", { key: index, className: "".concat(!darkMode ? "lightMode" : "darkMode") }, currentTableComponent.Fields
+                .filter(function (field) {
+                return isVisible(field);
+            })
+                .map(function (field, index) {
+                var _a, _b, _c;
+                return (react_2.default.createElement("td", { key: index, className: "".concat(SegiTable_module_css_1.default.SegiTableDataCell, " ").concat(field.IsIDColumn ? "".concat(SegiTable_module_css_1.default.SegiTableIDColumn) : "", " ").concat(!darkMode ? "lightMode" : "darkMode") },
+                    field.Disabled === true &&
+                        react_2.default.createElement(react_2.default.Fragment, null,
+                            field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD &&
+                                react_2.default.createElement(react_2.default.Fragment, null,
+                                    !field.IsURL &&
+                                        react_2.default.createElement("div", null, currentRow[field.DatabaseColumn]),
+                                    field.IsURL &&
+                                        react_2.default.createElement(react_2.default.Fragment, null, typeof field.IsURLButton === "undefined" &&
+                                            react_2.default.createElement("div", null,
+                                                react_2.default.createElement("a", { href: typeof currentRow[field.IsURLHrefColumn] !== "undefined" ? currentRow[field.IsURLHrefColumn] : currentRow[field.DatabaseColumn], target: "_blank" }, getURLText(currentRow, field))))),
+                            field.FieldType === ISegiTable_1.FieldTypes.SELECT &&
+                                ((_a = field.SelectData) === null || _a === void 0 ? void 0 : _a.filter(function (currentItem) { return currentItem[field.SelectDataIDColumn] === currentRow[field.SelectDataIDColumn]; }).length) > 0 &&
+                                react_2.default.createElement(react_2.default.Fragment, null, (_b = field.SelectData) === null || _b === void 0 ? void 0 : _b.filter(function (currentItem) { return currentItem[field.SelectDataIDColumn] === currentRow[field.SelectDataIDColumn]; })[0][field.SelectDataValueColumn])),
+                    field.Disabled !== true &&
+                        react_2.default.createElement(react_2.default.Fragment, null,
+                            field.FieldType === ISegiTable_1.FieldTypes.TEXTFIELD &&
+                                react_2.default.createElement(react_2.default.Fragment, null,
+                                    field.FieldValueType !== ISegiTable_1.FieldValueTypes.DATE &&
+                                        react_2.default.createElement("input", { className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyleFullWidth), value: typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : "", required: field.Required === true ? true : false, onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value); } }),
+                                    field.FieldValueType === ISegiTable_1.FieldValueTypes.DATE &&
+                                        react_2.default.createElement("input", { type: "date", className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyleFullWidth), value: typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? getFormattedDate(currentRow[field.DatabaseColumn], "-") : "", required: field.Required === true ? true : false, onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value); } })),
+                            field.FieldType === ISegiTable_1.FieldTypes.TEXTAREA &&
+                                react_2.default.createElement(react_2.default.Fragment, null,
+                                    react_2.default.createElement("textarea", { rows: typeof field.Rows !== "undefined" ? field.Rows : 10, cols: typeof field.Columns !== "undefined" ? field.Columns : 10, className: "".concat(SegiTable_module_css_1.default.SegiTableInputStyle, " ").concat(SegiTable_module_css_1.default.SegiTableInputStyleFullWidth), value: typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : "", required: field.Required === true ? true : false, onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value); } })),
+                            field.FieldType === ISegiTable_1.FieldTypes.SELECT &&
+                                react_2.default.createElement("select", { className: "".concat(SegiTable_module_css_1.default.SegiTableSolidBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSelectStyle), value: typeof currentRow[field.DatabaseColumn] !== "undefined" && currentRow[field.DatabaseColumn] !== null ? currentRow[field.DatabaseColumn] : "", required: field.Required === true ? true : false, onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.value); } },
+                                    react_2.default.createElement("option", { value: "-1" }, "Please select"), (_c = field.SelectData) === null || _c === void 0 ? void 0 :
+                                    _c.filter(function (currentItem) { return (field.SelectDataEnabledOnly !== true || (field.SelectDataEnabledOnly === true && currentItem[field.SelectDataEnabledOnlyColumn] === true)); }).map(function (currentItem, index) {
+                                        return react_2.default.createElement("option", { key: index, value: currentItem[field.SelectDataIDColumn] }, "".concat(currentItem[field.SelectDataValueColumn]));
+                                    })),
+                            field.FieldType === ISegiTable_1.FieldTypes.CHECKBOX &&
+                                react_2.default.createElement("input", { className: SegiTable_module_css_1.default.SegiTableInputStyle, type: "checkbox", checked: currentRow[field.DatabaseColumn], onChange: function (event) { return editFieldChangeHandler(currentRow, field.DatabaseColumn, event.target.checked); } }))));
+            })));
+        }
+    })));
+};
+var SegiTablePagination = function (_a) {
+    var currentPage = _a.currentPage, darkMode = _a.darkMode, lastPage = _a.lastPage, lastPageNum = _a.lastPageNum, mergedPageSizes = _a.mergedPageSizes, pageClickHandler = _a.pageClickHandler, pageSize = _a.pageSize, pageRecordStartEndLabel = _a.pageRecordStartEndLabel, pageSizeClickHandler = _a.pageSizeClickHandler;
+    return (react_2.default.createElement("span", { id: "SegiTablePagination", className: "".concat(SegiTable_module_css_1.default.SegiTablePagination, " ").concat(darkMode ? "darkMode" : "") },
+        react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTablePaginationSpan) },
+            react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableRowLabel) }, "Rows per page:"),
+            react_2.default.createElement("span", { style: { paddingTop: "12px", paddingRight: lastPageNum === 1 ? "25px" : "" } },
+                react_2.default.createElement("select", { id: "pageSize", className: "".concat(SegiTable_module_css_1.default.SegiTableSolidBorder, " ").concat(SegiTable_module_css_1.default.SegiTableSelectStyle), value: pageSize, onChange: function (event) { return pageSizeClickHandler(parseInt(event.target.value, 10)); } }, Object.keys(mergedPageSizes).map(function (pageSize, index) {
+                    return react_2.default.createElement("option", { key: index, value: pageSize }, mergedPageSizes[pageSize]);
+                }))),
+            react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableRecordStartEnd, " ").concat(pageSize === 0 ? "".concat(SegiTable_module_css_1.default.SegiTableRecordStartEndAll) : "") }, pageRecordStartEndLabel),
+            lastPageNum !== 1 &&
+                react_2.default.createElement(react_2.default.Fragment, null,
+                    react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTableRowCurrentPage) },
+                        "Page ",
+                        currentPage,
+                        "/",
+                        lastPageNum),
+                    react_2.default.createElement("div", { className: "".concat(SegiTable_module_css_1.default.SegiTablePaginationContainer) },
+                        react_2.default.createElement("div", null,
+                            react_2.default.createElement("span", { className: "".concat(SegiTable_module_css_1.default.SegiTablePaginationNavContainer) },
+                                react_2.default.createElement("button", { className: "".concat(currentPage > 1 ? "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButton) : "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButtonDisabled)), onClick: function () { return currentPage > 1 ? pageClickHandler(null, 1) : null; }, disabled: currentPage === 1 },
+                                    "|",
+                                    react_2.default.createElement("div", { style: { display: "inline", position: "relative", top: "2px" } }, "<")),
+                                react_2.default.createElement("button", { className: "".concat(currentPage > 1 ? "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButton) : "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButtonDisabled)), onClick: function () { return currentPage > 1 ? pageClickHandler(-1) : null; } },
+                                    react_2.default.createElement("div", { style: { display: "inline", position: "relative", top: "2px" } }, "<")),
+                                react_2.default.createElement("button", { className: "".concat(lastPageNum != 1 && !lastPage ? "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButton) : "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButtonDisabled)), onClick: function () { return lastPageNum != 1 && !lastPage ? pageClickHandler(1) : null; } },
+                                    react_2.default.createElement("div", { style: { display: "inline", position: "relative", top: "2px" } }, ">")),
+                                react_2.default.createElement("button", { className: "".concat(lastPageNum != 1 && !lastPage ? "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButton) : "".concat(SegiTable_module_css_1.default.SegiTablePaginationIconButtonDisabled)), onClick: function () { return lastPageNum > 1 && !lastPage ? pageClickHandler(null, -1) : null; } },
+                                    react_2.default.createElement("div", { style: { display: "inline", position: "relative", top: "2px", maxWidth: "5px" } }, ">"),
+                                    react_2.default.createElement("span", { style: { display: "inline", position: "relative", top: "1px", left: "2px", maxWidth: "5px" } }, "|")))))))));
+};
 
 
 /***/ }
