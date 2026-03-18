@@ -12,7 +12,7 @@
      border-collapse: collapse;
 }
 
-:global(.darkMode) {
+:global(.SegiTable .darkMode) {
      color: var(--dark-mode-foregroundColor) !important;
      background-color: var(--dark-mode-backgroundColor) !important;
      border: 1px solid var(--dark-mode-foregroundColor) !important;
@@ -62,6 +62,7 @@
      user-select: none;
      -webkit-user-select: none;
      min-width: 40px;
+     padding: 0 10px;
 }
 
 .SegiTableCancelButton {
@@ -102,6 +103,7 @@
      position: sticky;
      top: 0;
      z-index: 9999;
+     color: black;
 }
 
 .SegiTableDataGrid td {
@@ -122,6 +124,12 @@
      background-color: #eee;
      color: black;
 }
+
+.SegiTableDataGrid tr {
+     background-color: #eee;
+     color: black;
+}
+
 
 .SegiTableDataGridHeader {
      position: relative;
@@ -149,6 +157,7 @@
      position: relative;
      left: 8px;
      height: 35px;
+     user-select: none;
 }
 
 .SegiTableExpandableContent {
@@ -244,6 +253,7 @@
 }
 
 .SegiTableInputStyle {
+     border: 1px solid #aaa !important;
      border-radius: 10px;
      font-family: "Pt Sans", helvetica, sans-serif;
      line-height: 1.6em;
@@ -279,7 +289,7 @@
 .SegiTablePagination {
      background-color: lightgray;
      position: sticky;
-     bottom: 0;
+     bottom: 45;
      display: flex;
      justify-content: end;
      z-index: 100;
@@ -288,6 +298,8 @@
      user-select: none;
      overflow: hidden;
      white-space: nowrap;
+     margin-bottom: 55px;
+     z-index: 0;
 }
 
 .SegiTablePaginationSpan {
@@ -384,6 +396,11 @@
      background-color: #2ea44f;
 }
 
+.SegiTableSearch {
+     border: 2px solid #999;
+     height: 25px;
+}
+
 .SegiTableSearchContainer {
      display: flex;
      justify-content: flex-start;
@@ -393,11 +410,6 @@
      box-sizing: border-box;
 }
 
-.SegiTableSearch {
-     border: 2px solid #999;
-     height: 25px;
-}
-
 .SegiTableSelectStyle {
      height: 30px;
      border: 1px solid #999;
@@ -405,6 +417,7 @@
      color: #1c87c9;
      background-color: #eee;
      border-radius: 5px;
+     max-width: 90%;
 }
 
 .SegiTableSolidBorder {
@@ -425,6 +438,12 @@
      color: black;
      margin: 10px;
      user-select: none;
+}
+
+.SegiTableURL {
+     color: blue;
+     cursor: pointer;
+     text-decoration: underline;
 }
 
 .SegiTableURLButton {

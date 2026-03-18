@@ -1,4 +1,5 @@
 declare const styles: {
+  readonly "SegiTableURL": any;
   readonly "ColumnResizer": string;
   readonly "SegiTable": string;
   readonly "SegiTableAddButton": string;
